@@ -35,6 +35,15 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""InvokeWeaponUsage"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a0a042f-7b4d-49b2-89d4-dce7ff077278"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,17 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f170d91f-4b1f-4501-95cd-114f8b6d8ef0"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InvokeWeaponUsage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -118,6 +138,7 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_InvokeWeaponUsage = m_Player.FindAction("InvokeWeaponUsage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -180,11 +201,13 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_InvokeWeaponUsage;
     public struct PlayerActions
     {
         private @DefaultInputAction m_Wrapper;
         public PlayerActions(@DefaultInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @InvokeWeaponUsage => m_Wrapper.m_Player_InvokeWeaponUsage;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -197,6 +220,9 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @InvokeWeaponUsage.started += instance.OnInvokeWeaponUsage;
+            @InvokeWeaponUsage.performed += instance.OnInvokeWeaponUsage;
+            @InvokeWeaponUsage.canceled += instance.OnInvokeWeaponUsage;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -204,6 +230,9 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @InvokeWeaponUsage.started -= instance.OnInvokeWeaponUsage;
+            @InvokeWeaponUsage.performed -= instance.OnInvokeWeaponUsage;
+            @InvokeWeaponUsage.canceled -= instance.OnInvokeWeaponUsage;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -233,5 +262,6 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnInvokeWeaponUsage(InputAction.CallbackContext context);
     }
 }

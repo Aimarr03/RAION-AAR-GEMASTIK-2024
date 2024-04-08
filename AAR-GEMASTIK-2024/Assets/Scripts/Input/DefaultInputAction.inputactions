@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "InvokeWeaponUsage",
+                    "type": "Button",
+                    "id": "2a0a042f-7b4d-49b2-89d4-dce7ff077278",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f170d91f-4b1f-4501-95cd-114f8b6d8ef0",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InvokeWeaponUsage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

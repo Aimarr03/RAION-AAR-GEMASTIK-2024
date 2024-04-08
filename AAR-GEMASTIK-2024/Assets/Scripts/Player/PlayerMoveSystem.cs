@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -63,7 +64,6 @@ public class PlayerMoveSystem : MonoBehaviour
         transform.Rotate(0, 0, zRotation);
         float zValue = transform.rotation.eulerAngles.z;
         if (zValue > 180) zValue -= 360;
-        Debug.Log(zValue);
         if ((zValue >= rotateDegreeLimit || zValue <= -rotateDegreeLimit))
         {
             transform.Rotate(0, 0, -zRotation);
