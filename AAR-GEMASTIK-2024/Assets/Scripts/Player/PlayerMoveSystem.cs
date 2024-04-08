@@ -10,9 +10,10 @@ public class PlayerMoveSystem : MonoBehaviour
     
     private Vector2 currentInput;
     private Quaternion targetRotate;
-    [SerializeField] private float speed;
+    [SerializeField] private float linearSpeed;
+    [SerializeField] private float maxLinearSpeed;
     [SerializeField] private float rotatingSpeed;
-    [SerializeField] private float maxSpeed;
+    [SerializeField] private float rotateDegreeLimit;
 
     private bool isRotating;
     private bool onRightDirection;
@@ -24,36 +25,58 @@ public class PlayerMoveSystem : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        currentInput = coreSystem.inputSystem.GetMoveInput();
         HorizontalMove();
+        VerticalMove();
         FlipSprite();
     }
     private void HorizontalMove()
     {
-        Vector2 input = coreSystem.inputSystem.GetMoveInput();
+        if (isRotating) return;
+        Vector2 input = currentInput;
         input.y = 0;
-        
-        Vector3 acceleration = speed * input;
-        playerRigid.velocity += acceleration * Time.fixedDeltaTime;
-        playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxSpeed);
-        if(playerRigid.velocity.x < 0 && onRightDirection)
+
+        input = onRightDirection ? input : -input;
+        playerRigid.velocity += transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
+        playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
+        //transform.Translate(input * linearSpeed * Time.fixedDeltaTime);
+
+        if(playerRigid.velocity.x < 0 && onRightDirection && currentInput.x < 0)
         {
             isRotating = true;
             onRightDirection = false;
-            targetRotate = Quaternion.Euler(0, 180, 0);
+            targetRotate = Quaternion.Euler(0, 180, transform.eulerAngles.z);
         }
-        else if(playerRigid.velocity.x > 0 && !onRightDirection)
+        else if(playerRigid.velocity.x > 0 && !onRightDirection && currentInput.x > 0)
         {
             isRotating= true;
             onRightDirection = true;
-            targetRotate = Quaternion.Euler(0, 0, 0);
+            targetRotate = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+        }
+    }
+    private void VerticalMove()
+    {
+        if(isRotating) return;
+        float z_input = currentInput.y;
+        float zRotation = z_input * rotatingSpeed;
+
+        transform.Rotate(0, 0, zRotation);
+        float zValue = transform.rotation.eulerAngles.z;
+        if (zValue > 180) zValue -= 360;
+        Debug.Log(zValue);
+        if ((zValue >= rotateDegreeLimit || zValue <= -rotateDegreeLimit))
+        {
+            transform.Rotate(0, 0, -zRotation);
         }
     }
     private void FlipSprite()
     {
         if(!isRotating) return;
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotate, rotatingSpeed * Time.fixedDeltaTime);
-        if(Quaternion.Angle(transform.rotation, targetRotate) < 0.1f)
+        playerRigid.velocity = Vector3.zero;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotate, rotatingSpeed);
+        if(Quaternion.Angle(transform.rotation, targetRotate) < 5f)
         {
+            transform.rotation = targetRotate;
             isRotating = false;
         }
     }
