@@ -59,7 +59,7 @@ public class PlayerMoveSystem : MonoBehaviour
     {
         if(isRotating) return;
         float z_input = currentInput.y;
-        float zRotation = z_input * rotatingSpeed;
+        float zRotation = z_input * rotatingSpeed * Time.fixedDeltaTime;
 
         transform.Rotate(0, 0, zRotation);
         float zValue = transform.rotation.eulerAngles.z;

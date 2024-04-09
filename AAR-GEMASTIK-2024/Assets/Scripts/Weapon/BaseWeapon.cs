@@ -7,7 +7,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public WeaponSO weaponSO;
     public Transform firePointBlank;
     protected bool isCooldown;
-    protected float interval;
+    [SerializeField] protected float interval;
     public abstract void Fire(PlayerWeaponSystem coreSystem);
     public abstract IEnumerator ProcessCooldown();
 }
