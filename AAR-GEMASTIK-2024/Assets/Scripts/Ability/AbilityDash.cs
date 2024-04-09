@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class AbilityDash : AbilityBase
 {
@@ -18,11 +16,17 @@ public class AbilityDash : AbilityBase
         PlayerMoveSystem playerMoveSystem = playerCoreSystem.moveSystem;
 
         playerMoveSystem.AddSuddenForce(ForceDash);
-
         isCooldown = true;
+        DisableEnablePlayerMovementSystem();
+        StartCoroutine(OnCooldown());
         Debug.Log("Dash is Used");
     }
-
+    private async void DisableEnablePlayerMovementSystem()
+    {
+        playerCoreSystem.moveSystem.SetCanBeUsed(false);
+        await Task.Delay(300);
+        playerCoreSystem.moveSystem.SetCanBeUsed(true);
+    }
     public override IEnumerator OnCooldown()
     {
         float currentTimer = 0;

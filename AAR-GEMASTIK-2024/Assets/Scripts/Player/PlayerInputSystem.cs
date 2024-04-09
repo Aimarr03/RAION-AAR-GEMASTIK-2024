@@ -9,6 +9,7 @@ public class PlayerInputSystem : MonoBehaviour
     private PlayerCoreSystem coreSystem;
 
     public static event Action InvokeWeaponUsage;
+    public static event Action InvokeAbilityUsage;
     private void Awake()
     {
         playerInput = new DefaultInputAction();
@@ -18,14 +19,18 @@ public class PlayerInputSystem : MonoBehaviour
     private void Start()
     {
         playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
+        playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
         coreSystem.OnDead += CoreSystem_OnDead;
     }
-
     private void CoreSystem_OnDead()
     {
         playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
+        playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
     }
-
+    private void InvokeAbilityUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        InvokeAbilityUsage?.Invoke();
+    }
     private void InvokeWeaponUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         InvokeWeaponUsage?.Invoke();

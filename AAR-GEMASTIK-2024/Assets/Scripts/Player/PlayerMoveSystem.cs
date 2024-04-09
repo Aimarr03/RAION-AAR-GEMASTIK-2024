@@ -21,6 +21,7 @@ public class PlayerMoveSystem : MonoBehaviour
 
     private bool isRotating;
     private bool onRightDirection;
+    private bool canBeUsed;
 
     public event Action OnUseOneEnergy;
     private void Awake()
@@ -28,11 +29,13 @@ public class PlayerMoveSystem : MonoBehaviour
         coreSystem = GetComponent<PlayerCoreSystem>();
         playerRigid = GetComponent<Rigidbody>();
         onRightDirection = true;
+        canBeUsed = true;
         currentDistanceUse = 0;
     }
     private void FixedUpdate()
     {
         if(coreSystem.isDead) return;
+        if (!canBeUsed) return;
         InputHandler();
         HorizontalMove();
         VerticalMove();
@@ -102,5 +105,9 @@ public class PlayerMoveSystem : MonoBehaviour
     public void AddSuddenForce(float force)
     {
         playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
+    }
+    public void SetCanBeUsed(bool value)
+    {
+        canBeUsed = value;
     }
 }

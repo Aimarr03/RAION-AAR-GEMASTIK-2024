@@ -8,6 +8,7 @@ public class PlayerCoreSystem : MonoBehaviour
     public PlayerMoveSystem moveSystem;
     public PlayerInputSystem inputSystem;
     public PlayerWeaponSystem weaponSystem;
+    public PlayerAbilitySystem abilitySystem;
     public List<SustainabilitySystemSO> SustainabilitySystemsDataList;
     public bool isDead;
     public event Action OnDead;
@@ -22,6 +23,7 @@ public class PlayerCoreSystem : MonoBehaviour
         moveSystem = GetComponent<PlayerMoveSystem>();
         inputSystem = GetComponent<PlayerInputSystem>();
         weaponSystem = GetComponent<PlayerWeaponSystem>();
+        abilitySystem = GetComponent<PlayerAbilitySystem>();
         currentDurationUsageOxygen = 0;
     }
 
