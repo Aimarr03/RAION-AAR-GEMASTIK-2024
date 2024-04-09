@@ -15,17 +15,23 @@ public class PlayerMoveSystem : MonoBehaviour
     [SerializeField] private float maxLinearSpeed;
     [SerializeField] private float rotatingSpeed;
     [SerializeField] private float rotateDegreeLimit;
+    [SerializeField] private float maxDistanceUseForOneEnergy;
+    private float currentDistanceUse;
 
     private bool isRotating;
     private bool onRightDirection;
+
+    public event Action OnUseOneEnergy;
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
         playerRigid = GetComponent<Rigidbody>();
         onRightDirection = true;
+        currentDistanceUse = 0;
     }
     private void FixedUpdate()
     {
+        if(coreSystem.isDead) return;
         currentInput = coreSystem.inputSystem.GetMoveInput();
         HorizontalMove();
         VerticalMove();
@@ -41,6 +47,13 @@ public class PlayerMoveSystem : MonoBehaviour
         playerRigid.velocity += transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
         playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
         //transform.Translate(input * linearSpeed * Time.fixedDeltaTime);
+        currentDistanceUse += playerRigid.velocity.magnitude * Time.fixedDeltaTime;
+        if(currentDistanceUse > maxDistanceUseForOneEnergy)
+        {
+            Debug.Log("One Energy has been used");
+            currentDistanceUse = 0;
+            OnUseOneEnergy?.Invoke();
+        }
 
         if(playerRigid.velocity.x < 0 && onRightDirection && currentInput.x < 0)
         {

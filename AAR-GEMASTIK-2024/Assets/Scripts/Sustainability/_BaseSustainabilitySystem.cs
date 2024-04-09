@@ -68,6 +68,9 @@ public abstract class _BaseSustainabilitySystem
     }
     public virtual void OnIncreaseValue(int value)
     {
-
+        currentValue = Mathf.Clamp(currentValue - value, 0, maxValue);
+        SustainabilityData healthData = new SustainabilityData(currentValue, maxValue, ChangeState.Increase, SustainabilityType.Health);
+        OnChangeValue?.Invoke(healthData);
     }
+    //public abstract void OnUsage();
 }

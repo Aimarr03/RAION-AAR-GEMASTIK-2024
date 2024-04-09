@@ -18,6 +18,12 @@ public class PlayerInputSystem : MonoBehaviour
     private void Start()
     {
         playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
+        coreSystem.OnDead += CoreSystem_OnDead;
+    }
+
+    private void CoreSystem_OnDead()
+    {
+        playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
     }
 
     private void InvokeWeaponUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
