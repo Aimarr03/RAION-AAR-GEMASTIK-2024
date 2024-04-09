@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IInvokable
 {
-    public abstract void Fire(PlayerWeaponSystem system);
+    public void Fire(PlayerWeaponSystem system);
 }

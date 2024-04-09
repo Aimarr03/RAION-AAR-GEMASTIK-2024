@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerWeaponSystem : MonoBehaviour
 {
     [SerializeField] private WeaponSO weaponSo;
-    [SerializeField] private BaseWeapon baseWeapon;
+    [SerializeField] private WeaponBase baseWeapon;
     [SerializeField] private Transform weaponHolderPosition;
     private PlayerCoreSystem playerCoreSystem;
     private void Awake()

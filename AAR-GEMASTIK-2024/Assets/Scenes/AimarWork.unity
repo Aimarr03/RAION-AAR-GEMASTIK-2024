@@ -204,6 +204,7 @@ MonoBehaviour:
   maxLinearSpeed: 4
   rotatingSpeed: 3
   rotateDegreeLimit: 50
+  maxDistanceUseForOneEnergy: 20
 --- !u!114 &101117412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,12 +231,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSystem: {fileID: 101117411}
   inputSystem: {fileID: 101117412}
+  weaponSystem: {fileID: 0}
   SustainabilitySystemsDataList:
   - {fileID: 11400000, guid: a2f63737bbed6984dafd2fbb05be241e, type: 2}
   - {fileID: 11400000, guid: 067863a6d7e39d0438063850f76135ed, type: 2}
   - {fileID: 11400000, guid: ca85018442171574f8cd7cd17c715025, type: 2}
   - {fileID: 11400000, guid: b72b813dcff9f50449335f29e9511e7f, type: 2}
   isDead: 0
+  intervalUsageOxygen: 4
 --- !u!114 &101117414
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerMoveSystem : MonoBehaviour
     private Rigidbody playerRigid;
     
     private Vector2 currentInput;
+    public Vector2 NonZeroValueInput;
     private Quaternion targetRotate;
     [SerializeField] private float linearSpeed;
     [SerializeField] private float maxLinearSpeed;
@@ -32,10 +33,15 @@ public class PlayerMoveSystem : MonoBehaviour
     private void FixedUpdate()
     {
         if(coreSystem.isDead) return;
-        currentInput = coreSystem.inputSystem.GetMoveInput();
+        InputHandler();
         HorizontalMove();
         VerticalMove();
         FlipSprite();
+    }
+    private void InputHandler()
+    {
+        currentInput = coreSystem.inputSystem.GetMoveInput();
+        if(currentInput != Vector2.zero) NonZeroValueInput = currentInput;
     }
     private void HorizontalMove()
     {
@@ -93,5 +99,8 @@ public class PlayerMoveSystem : MonoBehaviour
             isRotating = false;
         }
     }
-
+    public void AddSuddenForce(float force)
+    {
+        playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
+    }
 }

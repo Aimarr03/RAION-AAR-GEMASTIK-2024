@@ -8,7 +8,7 @@ public struct WeaponGeneralData
 {
     public string name;
     public string description;
-    Sprite icon;
+    public Sprite icon;
 }
 [Serializable]
 public struct WeaponBulletData
