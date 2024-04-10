@@ -10,6 +10,7 @@ public class PlayerInputSystem : MonoBehaviour
 
     public static event Action InvokeWeaponUsage;
     public static event Action InvokeAbilityUsage;
+    public static event Action InvokeInterractUsage;
     private void Awake()
     {
         playerInput = new DefaultInputAction();
@@ -20,12 +21,20 @@ public class PlayerInputSystem : MonoBehaviour
     {
         playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
         playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
+        playerInput.Player.InvokeInterract.performed += InvokeInterract_performed;
         coreSystem.OnDead += CoreSystem_OnDead;
     }
+
+    private void InvokeInterract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        InvokeInterractUsage?.Invoke();
+    }
+
     private void CoreSystem_OnDead()
     {
         playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
         playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
+        playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
     }
     private void InvokeAbilityUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

@@ -18,7 +18,7 @@ MonoBehaviour:
     icon: {fileID: 0}
   bulletData:
     level: 1
-    speed: 5
+    speed: 15
     damage: 12
   weapon: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647, type: 3}
   bullet: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6, type: 3}
