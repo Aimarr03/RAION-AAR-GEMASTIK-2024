@@ -13,6 +13,11 @@ public class PlayerAbilitySystem : MonoBehaviour
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
+        if(abilitySO != null)
+        {
+            Transform abilityInstantiate = Instantiate(abilitySO.prefab, abilityHolderPosition);
+            abilityBase = abilityInstantiate.GetComponent<AbilityBase>();
+        }
     }
     private void Start()
     {
@@ -27,6 +32,7 @@ public class PlayerAbilitySystem : MonoBehaviour
 
     private void PlayerInputSystem_InvokeAbilityUsage()
     {
+        if (abilityBase == null) return;
         abilityBase.Fire(playerCoreSystem);
     }
 }

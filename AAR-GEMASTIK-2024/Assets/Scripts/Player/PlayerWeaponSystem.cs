@@ -11,6 +11,11 @@ public class PlayerWeaponSystem : MonoBehaviour
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
+        if(weaponSo != null)
+        {
+            Transform weaponInstantiate = Instantiate(weaponSo.weapon, weaponHolderPosition); 
+            baseWeapon = weaponInstantiate.GetComponent<WeaponBase>();
+        }
     }
 
     private void Start()
@@ -26,6 +31,7 @@ public class PlayerWeaponSystem : MonoBehaviour
 
     private void PlayerInputSystem_InvokeWeaponUsage()
     {
+        if (baseWeapon == null) return;
         baseWeapon.Fire(this);
     }
 

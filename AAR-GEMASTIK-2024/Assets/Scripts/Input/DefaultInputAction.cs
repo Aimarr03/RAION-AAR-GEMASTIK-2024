@@ -53,6 +53,24 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InvokeInterract"",
+                    ""type"": ""Button"",
+                    ""id"": ""e70be2cb-4a29-4746-95ae-2d38ee6e8b2a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InvokeFlashlight"",
+                    ""type"": ""Button"",
+                    ""id"": ""187f66d1-d6d3-4e25-a275-0ad01e7b180f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +150,28 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""InvokeAbilityUsage"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1cf9643-4c55-423f-8d9b-e5d8cf4d10ee"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InvokeInterract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6db98813-6e9d-470f-9ace-4b93576c561c"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InvokeFlashlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -160,6 +200,8 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_InvokeWeaponUsage = m_Player.FindAction("InvokeWeaponUsage", throwIfNotFound: true);
         m_Player_InvokeAbilityUsage = m_Player.FindAction("InvokeAbilityUsage", throwIfNotFound: true);
+        m_Player_InvokeInterract = m_Player.FindAction("InvokeInterract", throwIfNotFound: true);
+        m_Player_InvokeFlashlight = m_Player.FindAction("InvokeFlashlight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -224,6 +266,8 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_InvokeWeaponUsage;
     private readonly InputAction m_Player_InvokeAbilityUsage;
+    private readonly InputAction m_Player_InvokeInterract;
+    private readonly InputAction m_Player_InvokeFlashlight;
     public struct PlayerActions
     {
         private @DefaultInputAction m_Wrapper;
@@ -231,6 +275,8 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @InvokeWeaponUsage => m_Wrapper.m_Player_InvokeWeaponUsage;
         public InputAction @InvokeAbilityUsage => m_Wrapper.m_Player_InvokeAbilityUsage;
+        public InputAction @InvokeInterract => m_Wrapper.m_Player_InvokeInterract;
+        public InputAction @InvokeFlashlight => m_Wrapper.m_Player_InvokeFlashlight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -249,6 +295,12 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
             @InvokeAbilityUsage.started += instance.OnInvokeAbilityUsage;
             @InvokeAbilityUsage.performed += instance.OnInvokeAbilityUsage;
             @InvokeAbilityUsage.canceled += instance.OnInvokeAbilityUsage;
+            @InvokeInterract.started += instance.OnInvokeInterract;
+            @InvokeInterract.performed += instance.OnInvokeInterract;
+            @InvokeInterract.canceled += instance.OnInvokeInterract;
+            @InvokeFlashlight.started += instance.OnInvokeFlashlight;
+            @InvokeFlashlight.performed += instance.OnInvokeFlashlight;
+            @InvokeFlashlight.canceled += instance.OnInvokeFlashlight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -262,6 +314,12 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
             @InvokeAbilityUsage.started -= instance.OnInvokeAbilityUsage;
             @InvokeAbilityUsage.performed -= instance.OnInvokeAbilityUsage;
             @InvokeAbilityUsage.canceled -= instance.OnInvokeAbilityUsage;
+            @InvokeInterract.started -= instance.OnInvokeInterract;
+            @InvokeInterract.performed -= instance.OnInvokeInterract;
+            @InvokeInterract.canceled -= instance.OnInvokeInterract;
+            @InvokeFlashlight.started -= instance.OnInvokeFlashlight;
+            @InvokeFlashlight.performed -= instance.OnInvokeFlashlight;
+            @InvokeFlashlight.canceled -= instance.OnInvokeFlashlight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -293,5 +351,7 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInvokeWeaponUsage(InputAction.CallbackContext context);
         void OnInvokeAbilityUsage(InputAction.CallbackContext context);
+        void OnInvokeInterract(InputAction.CallbackContext context);
+        void OnInvokeFlashlight(InputAction.CallbackContext context);
     }
 }
