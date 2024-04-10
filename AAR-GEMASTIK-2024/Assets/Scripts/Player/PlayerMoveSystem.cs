@@ -102,12 +102,7 @@ public class PlayerMoveSystem : MonoBehaviour
             isRotating = false;
         }
     }
-    public void AddSuddenForce(float force)
-    {
-        playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
-    }
-    public void SetCanBeUsed(bool value)
-    {
-        canBeUsed = value;
-    }
+    public void AddSuddenForce(float force) => playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
+    public void SetCanBeUsed(bool value) => canBeUsed = value;
+    public bool GetIsOnRightDirection() => onRightDirection;
 }

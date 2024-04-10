@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class WeaponHarpoon : WeaponBase
 {
-    public override void Fire(PlayerWeaponSystem weaponSystem)
+    public override void Fire(PlayerWeaponSystem weaponSystem, bool isOnRightDirection)
     {
         if (isCooldown) return;
         Debug.Log("Harpoon Weapon is firing");
         Transform harpoonBullet = Instantiate(weaponSO.bullet, firePointBlank.position, Quaternion.identity);
 
         BaseBullet baseBullet = harpoonBullet.GetComponent<BaseBullet>();
-        baseBullet.SetUpBullet(weaponSO.bulletData);
+        baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection);
 
         StartCoroutine(ProcessCooldown());
     }

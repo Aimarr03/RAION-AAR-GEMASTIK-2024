@@ -32,7 +32,8 @@ public class PlayerWeaponSystem : MonoBehaviour
     private void PlayerInputSystem_InvokeWeaponUsage()
     {
         if (baseWeapon == null) return;
-        baseWeapon.Fire(this);
+        bool isOnRightDirection = playerCoreSystem.moveSystem.GetIsOnRightDirection();
+        baseWeapon.Fire(this, isOnRightDirection);
     }
 
     public void SetWeaponSO(WeaponSO weaponSo)
