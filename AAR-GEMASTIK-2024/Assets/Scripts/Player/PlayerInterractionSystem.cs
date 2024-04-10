@@ -10,6 +10,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     [SerializeField] private Vector3 boxSize;
 
     private Collider[] detectionResult = new Collider[0];
+    private Transform ClosestTarget;
     private Vector3 OffSetPosition
     {
         get
@@ -29,6 +30,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     private void Update()
     {
         Detection();
+        FindClosestToPlayer();
     }
     private void Detection()
     {
@@ -37,6 +39,20 @@ public class PlayerInterractionSystem : MonoBehaviour
         {
             Debug.Log("Detect Something");
         }
+    }
+    private void FindClosestToPlayer()
+    {
+        if (detectionResult.Length <= 0) return;
+        float closestTotalDistance = float.MaxValue;
+        foreach(Collider coll in detectionResult)
+        {
+            float currentObjectDistance = Vector3.Distance(interractiveHolderPosition.position, coll.transform.position);
+            if(currentObjectDistance < closestTotalDistance)
+            {
+                ClosestTarget = coll.transform;
+            }
+        }
+        Debug.Log(ClosestTarget);
     }
     private void OnDrawGizmos()
     {
