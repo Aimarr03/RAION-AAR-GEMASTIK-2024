@@ -37,7 +37,7 @@ public class PlayerCoreSystem : MonoBehaviour
     {
         if (isDead) return;
         OnUseOxygen();
-        Test();
+        //Test();
     }
     private void SetUpData()
     {

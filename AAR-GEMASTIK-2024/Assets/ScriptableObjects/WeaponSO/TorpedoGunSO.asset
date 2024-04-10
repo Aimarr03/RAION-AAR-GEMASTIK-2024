@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
+  m_Name: TorpedoGunSO
+  m_EditorClassIdentifier: 
+  weaponData:
+    name: 
+    description: 
+    icon: {fileID: 0}
+  bulletData:
+    level: 1
+    speed: 30
+    damage: 100
+  weapon: {fileID: 3709811383580993494, guid: 2ca5274f28ed5df44875e4ab7e8274e6, type: 3}
+  bullet: {fileID: 2144306713197914660, guid: bc68d4160ad9ba547b52199c3b35d39f, type: 3}
