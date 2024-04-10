@@ -5,16 +5,15 @@ using UnityEngine;
 public class AbilityDash : AbilityBase
 {
     [SerializeField] private float ForceDash;
-    private PlayerCoreSystem playerCoreSystem;
     public override void Fire(PlayerCoreSystem playerCoreSystem)
     {
+        if (!isInvokable) return;
         if (isCooldown) return;
-        if(this.playerCoreSystem != playerCoreSystem)
+        if(this.playerCoreSystem != playerCoreSystem || this.playerCoreSystem == null)
         {
             this.playerCoreSystem = playerCoreSystem;
         }
         PlayerMoveSystem playerMoveSystem = playerCoreSystem.moveSystem;
-
         playerMoveSystem.AddSuddenForce(ForceDash);
         isCooldown = true;
         DisableEnablePlayerMovementSystem();

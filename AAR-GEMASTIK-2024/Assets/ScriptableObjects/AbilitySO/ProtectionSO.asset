@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a5178b9db809af46baaad17b2f48ca2, type: 3}
-  m_Name: DashSO
+  m_Name: ProtectionSO
   m_EditorClassIdentifier: 
   generalData:
-    name: Dash
-    description: Going Dash Bro
+    name: Protection
+    description: Protect Player from Damage
     icon: {fileID: 0}
-  prefab: {fileID: 1639683206561415221, guid: dad9fcd302e6349478c2bb4c6ba9f045, type: 3}
+  prefab: {fileID: 7489221764443930691, guid: ed0274dc6f8963a4ab2759a1431c77d5, type: 3}

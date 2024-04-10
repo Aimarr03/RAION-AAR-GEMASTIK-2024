@@ -13,7 +13,11 @@ public class PlayerCoreSystem : MonoBehaviour
     public PlayerInterractionSystem interractionSystem;
     public List<SustainabilitySystemSO> SustainabilitySystemsDataList;
     public bool isDead;
+    public bool canBlock;
     public event Action OnDead;
+    public event Action OnBlocking;
+
+
     private Dictionary<SustainabilityType,_BaseSustainabilitySystem> _sustainabilitySystemsDictionary;
     
     [SerializeField] private float intervalUsageOxygen;
@@ -33,6 +37,7 @@ public class PlayerCoreSystem : MonoBehaviour
     {
         if (isDead) return;
         OnUseOxygen();
+        Test();
     }
     private void SetUpData()
     {
@@ -68,6 +73,16 @@ public class PlayerCoreSystem : MonoBehaviour
         OnDead?.Invoke();
         Debug.Log("Player Dead");
     }
+    public void TakeDamage(int value)
+    {
+        if (canBlock)
+        {
+            OnBlocking?.Invoke();
+            return;
+        }
+        _sustainabilitySystemsDictionary[SustainabilityType.Health].OnDecreaseValue(value);
+        Debug.Log("Player Take Damage with " + value + " quantity");
+    }
     public _BaseSustainabilitySystem GetSustainabilitySystem(SustainabilityType type)
     {
         return _sustainabilitySystemsDictionary[type];
@@ -81,6 +96,13 @@ public class PlayerCoreSystem : MonoBehaviour
             OxygenSystem oxygenSystem = GetSustainabilitySystem(SustainabilityType.Oxygen) as OxygenSystem;
             oxygenSystem.OnDecreaseValue(1);
             Debug.Log("Oxygen System depleted by one");
+        }
+    }
+    private void Test()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
         }
     }
 }

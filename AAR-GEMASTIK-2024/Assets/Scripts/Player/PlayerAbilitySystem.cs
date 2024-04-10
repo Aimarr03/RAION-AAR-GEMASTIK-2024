@@ -13,21 +13,28 @@ public class PlayerAbilitySystem : MonoBehaviour
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
-        if(abilitySO != null)
+        if(abilitySO != null && abilityBase == null)
         {
             Transform abilityInstantiate = Instantiate(abilitySO.prefab, abilityHolderPosition);
             abilityBase = abilityInstantiate.GetComponent<AbilityBase>();
+            abilityBase.SetPlayerCoreSystem(playerCoreSystem);
         }
     }
     private void Start()
     {
         playerCoreSystem.OnDead += PlayerCoreSystem_OnDead;
-        PlayerInputSystem.InvokeAbilityUsage += PlayerInputSystem_InvokeAbilityUsage;
+        if (abilityBase.isInvokable)
+        {
+            PlayerInputSystem.InvokeAbilityUsage += PlayerInputSystem_InvokeAbilityUsage;
+        }
     }
 
     private void PlayerCoreSystem_OnDead()
     {
-        PlayerInputSystem.InvokeAbilityUsage -= PlayerInputSystem_InvokeAbilityUsage;
+        if (abilityBase.isInvokable)
+        {
+            PlayerInputSystem.InvokeAbilityUsage -= PlayerInputSystem_InvokeAbilityUsage;
+        }
     }
 
     private void PlayerInputSystem_InvokeAbilityUsage()

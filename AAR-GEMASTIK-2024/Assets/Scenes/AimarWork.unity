@@ -354,6 +354,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca85018442171574f8cd7cd17c715025, type: 2}
   - {fileID: 11400000, guid: b72b813dcff9f50449335f29e9511e7f, type: 2}
   isDead: 0
+  canBlock: 0
   intervalUsageOxygen: 4
 --- !u!114 &101117414
 MonoBehaviour:
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f779a8a0e60d814289904d64e221d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilitySO: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade, type: 2}
+  abilitySO: {fileID: 11400000, guid: 3f14b296e0ac50043a067aac29d1821c, type: 2}
   abilityBase: {fileID: 0}
   abilityHolderPosition: {fileID: 700107601}
 --- !u!114 &101117416

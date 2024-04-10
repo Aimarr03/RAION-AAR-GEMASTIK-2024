@@ -11,10 +11,11 @@ public class PlayerWeaponSystem : MonoBehaviour
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
-        if(weaponSo != null)
+        if(weaponSo != null && baseWeapon == null)
         {
             Transform weaponInstantiate = Instantiate(weaponSo.weapon, weaponHolderPosition); 
             baseWeapon = weaponInstantiate.GetComponent<WeaponBase>();
+            baseWeapon.SetPlayerCoreSystem(playerCoreSystem);
         }
     }
 
@@ -39,5 +40,13 @@ public class PlayerWeaponSystem : MonoBehaviour
     public void SetWeaponSO(WeaponSO weaponSo)
     {
         this.weaponSo = weaponSo;
+        for (int index = 0; index < weaponHolderPosition.childCount; index++)
+        {
+            Transform currentChild = weaponHolderPosition.GetChild(index);
+            Destroy(currentChild);
+        }
+        Transform weaponInstantiate = Instantiate(weaponSo.weapon, weaponHolderPosition);
+        baseWeapon = weaponInstantiate.GetComponent<WeaponBase>();
+        baseWeapon.SetPlayerCoreSystem(playerCoreSystem);
     }
 }

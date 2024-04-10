@@ -20,5 +20,5 @@ MonoBehaviour:
     level: 1
     speed: 15
     damage: 12
-  weapon: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647, type: 3}
-  bullet: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6, type: 3}
+  weapon: {fileID: 4031399041348492552, guid: 5c30495d06c4602499ce9356bb226b11, type: 3}
+  bullet: {fileID: 1925437002259053520, guid: 71e795c5783179b4c9f50242198d865d, type: 3}

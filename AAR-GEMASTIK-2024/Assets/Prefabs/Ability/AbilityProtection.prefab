@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3597519827588426129
+--- !u!1001 &4666478577256983015
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1838006846583665746, guid: a7e4f1233ce61ac44b96278b16488766,
         type: 3}
       propertyPath: m_Name
-      value: AbilityDash
+      value: AbilityProtection
       objectReference: {fileID: 0}
     - target: {fileID: 2823095100569119140, guid: a7e4f1233ce61ac44b96278b16488766,
         type: 3}
@@ -63,13 +63,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5354121670464584757, guid: a7e4f1233ce61ac44b96278b16488766,
-        type: 3}
-      propertyPath: isInvokable
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5354121670464584757, guid: a7e4f1233ce61ac44b96278b16488766, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1838006846583665746, guid: a7e4f1233ce61ac44b96278b16488766,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7371179545993785372}
   m_SourcePrefab: {fileID: 100100000, guid: a7e4f1233ce61ac44b96278b16488766, type: 3}
+--- !u!1 &6432056125033913781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1838006846583665746, guid: a7e4f1233ce61ac44b96278b16488766,
+    type: 3}
+  m_PrefabInstance: {fileID: 4666478577256983015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7371179545993785372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432056125033913781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a46b61557edba140b14460cce4e8999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilitySO: {fileID: 11400000, guid: 3f14b296e0ac50043a067aac29d1821c, type: 2}
+  isInvokable: 0
+  intervalCooldown: 3
