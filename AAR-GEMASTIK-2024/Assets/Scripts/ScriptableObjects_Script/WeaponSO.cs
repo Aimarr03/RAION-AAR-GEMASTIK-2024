@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct WeaponGeneralData
+public struct PlayerUsableGeneralData
 {
     public string name;
+    [TextArea(4,10)]
     public string description;
     public Sprite icon;
 }
@@ -21,7 +22,7 @@ public struct WeaponBulletData
 [CreateAssetMenu(fileName ="New Weapon SO", menuName ="Weapon/Create New Weapon SO")]
 public class WeaponSO : ScriptableObject
 {
-    public WeaponGeneralData weaponData;
+    public PlayerUsableGeneralData weaponData;
     public WeaponBulletData bulletData;
     public Transform weapon;
     public Transform bullet;
