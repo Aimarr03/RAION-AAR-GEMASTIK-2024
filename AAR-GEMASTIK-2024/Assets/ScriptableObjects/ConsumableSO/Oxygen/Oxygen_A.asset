@@ -18,5 +18,5 @@ MonoBehaviour:
       ship
     icon: {fileID: 0}
   type: 2
-  itemTier: 2
-  value: 20
+  itemTier: 0
+  value: 75

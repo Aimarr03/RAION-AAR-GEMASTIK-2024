@@ -9,6 +9,8 @@ public class PlayerCoreSystem : MonoBehaviour
     public PlayerInputSystem inputSystem;
     public PlayerWeaponSystem weaponSystem;
     public PlayerAbilitySystem abilitySystem;
+    public PlayerConsumptionItemSystem consumptionItemSystem;
+    public PlayerInterractionSystem interractionSystem;
     public List<SustainabilitySystemSO> SustainabilitySystemsDataList;
     public bool isDead;
     public event Action OnDead;
