@@ -58,7 +58,7 @@ public class PlayerInterractionSystem : MonoBehaviour
         detectionResult = Physics.OverlapBox(OffSetPosition, boxSizeForInterractableObject, Quaternion.identity, targetLayerMaskForInterractableObject);
         if(detectionResult.Length > 0)
         {
-            Debug.Log("Detect Something");
+            //Debug.Log("Detect Something");
         }
     }
     private void DetectionForDetectableObject()
@@ -85,7 +85,7 @@ public class PlayerInterractionSystem : MonoBehaviour
                 ClosestInterractableObject = interractableObject;
             }
         }
-        Debug.Log(ClosestInterractableObject);
+        //Debug.Log(ClosestInterractableObject);
     }
     private void OnDrawGizmos()
     {

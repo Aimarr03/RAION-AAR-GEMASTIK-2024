@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 public enum ChangeState
 {
@@ -45,7 +46,7 @@ public abstract class _BaseSustainabilitySystem
     protected PlayerCoreSystem player;
     protected int currentValue;
     protected int maxValue;
-    public Action<SustainabilityData> OnChangeValue;
+    public event Action<SustainabilityData> OnChangeValue;
 
     public _BaseSustainabilitySystem(PlayerCoreSystem player, int maxValue)
     {
@@ -68,9 +69,10 @@ public abstract class _BaseSustainabilitySystem
     }
     public virtual void OnIncreaseValue(int value)
     {
-        currentValue = Mathf.Clamp(currentValue - value, 0, maxValue);
+        currentValue = Mathf.Clamp(currentValue + value, 0, maxValue);
         SustainabilityData healthData = new SustainabilityData(currentValue, maxValue, ChangeState.Increase, SustainabilityType.Health);
         OnChangeValue?.Invoke(healthData);
     }
+    public virtual void OnAddMaxValue(int value) => maxValue += value;
     //public abstract void OnUsage();
 }

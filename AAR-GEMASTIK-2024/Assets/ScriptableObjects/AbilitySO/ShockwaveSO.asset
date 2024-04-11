@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5178b9db809af46baaad17b2f48ca2, type: 3}
+  m_Name: ShockwaveSO
+  m_EditorClassIdentifier: 
+  generalData:
+    name: Shockwave
+    description: 'WE GONNA MAKE A SHOCKWAVE IN A SPHERE SHAPE WITH THIS ONE!!!
+
+      *YOU
+      ARE MY SPECIALZ*'
+    icon: {fileID: 0}
+  prefab: {fileID: 2988426221509979636, guid: 4af83b5e9c7d5654081ccd0c01866a25, type: 3}
