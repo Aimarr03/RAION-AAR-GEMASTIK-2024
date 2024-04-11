@@ -15,6 +15,7 @@ public class BulletHarpoon : BaseBullet
         {
             case "Wall":
                 isCollidedWithWall = true;
+                canLaunch = false;
                 Debug.Log("Collided with wall");
                 break;
         }

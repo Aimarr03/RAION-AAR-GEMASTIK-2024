@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
-  m_Name: HarpoonGunSO
+  m_Name: MachineGunSO
   m_EditorClassIdentifier: 
   weaponData:
-    name: Harpoon
-    description: Strohowhroqj
+    name: 
+    description: 
     icon: {fileID: 0}
   bulletData:
-    level: 1
-    speed: 15
-    damage: 12
-  weapon: {fileID: 4031399041348492552, guid: 5c30495d06c4602499ce9356bb226b11, type: 3}
-  bullet: {fileID: 1925437002259053520, guid: 71e795c5783179b4c9f50242198d865d, type: 3}
-  ammountToHold: 8
+    level: 0
+    speed: 0
+    damage: 0
+  weapon: {fileID: 0}
+  bullet: {fileID: 0}
+  ammountToHold: 0

@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5088445025238087622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212763065792133835, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212763065792133835, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 2212763065792133835, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191434568923480623, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponHolderMachineGun
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7440299536006325490, guid: e06eda75318ff1b489c2503b2e2b9647, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6191434568923480623, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1219871208122597399}
+  m_SourcePrefab: {fileID: 100100000, guid: e06eda75318ff1b489c2503b2e2b9647, type: 3}
+--- !u!1 &1401091336713106921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6191434568923480623, guid: e06eda75318ff1b489c2503b2e2b9647,
+    type: 3}
+  m_PrefabInstance: {fileID: 5088445025238087622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1219871208122597399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401091336713106921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f1599ddab2acd47a4f3a59bdbcbed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSO: {fileID: 11400000, guid: c82559fd3bcf88046b84a35ade7a280f, type: 2}
+  firePointBlank: {fileID: 1632882743039752231}
+  interval: 0.5
+  durationToPrepareFire: 3
+--- !u!4 &1632882743039752231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5779494904012247009, guid: e06eda75318ff1b489c2503b2e2b9647,
+    type: 3}
+  m_PrefabInstance: {fileID: 5088445025238087622}
+  m_PrefabAsset: {fileID: 0}
