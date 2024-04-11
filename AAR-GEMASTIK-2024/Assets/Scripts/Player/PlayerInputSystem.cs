@@ -43,6 +43,7 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
         playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
         playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
+        playerInput.Player.InvokeWeaponUsage.canceled -= InvokeAbilityUsage_canceled;
     }
     private void InvokeAbilityUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

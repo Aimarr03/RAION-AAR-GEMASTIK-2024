@@ -25,11 +25,14 @@ public class ObjectPooling : MonoBehaviour
     
     public BaseBullet UnloadBullet()
     {
+        BaseBullet baseBullet;
         if(bulletsOnLoad.Count > 0)
         {
-            return bulletsOnLoad.Dequeue();
+            baseBullet =  bulletsOnLoad.Dequeue();
+            baseBullet.gameObject.SetActive(true);
+            return baseBullet;
         }
-        BaseBullet baseBullet = Instantiate(prefab, transform).GetComponent<BaseBullet>();
+        baseBullet = Instantiate(prefab, transform).GetComponent<BaseBullet>();
         baseBullet.transform.position = transform.position;
         baseBullet.SetObjectPooling(this);
         baseBullet.gameObject.SetActive(true);

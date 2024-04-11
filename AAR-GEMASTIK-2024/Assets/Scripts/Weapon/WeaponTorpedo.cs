@@ -8,9 +8,8 @@ public class WeaponTorpedo : WeaponBase
     {
         if (isCooldown) return;
         Debug.Log("Torpedo Weapon is firing");
-        Transform torpedoBullet = Instantiate(weaponSO.bullet, firePointBlank.position, Quaternion.identity);
-
-        BaseBullet baseBullet = torpedoBullet.GetComponent<BaseBullet>();
+        
+        BaseBullet baseBullet = LoadBullet();
         baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection);
 
         StartCoroutine(ProcessCooldown());

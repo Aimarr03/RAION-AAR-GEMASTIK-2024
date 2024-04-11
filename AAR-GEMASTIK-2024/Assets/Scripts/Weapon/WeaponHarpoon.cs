@@ -8,9 +8,8 @@ public class WeaponHarpoon : WeaponBase
     {
         if (isCooldown) return;
         Debug.Log("Harpoon Weapon is firing");
-        Transform harpoonBullet = Instantiate(weaponSO.bullet, firePointBlank.position, Quaternion.identity);
 
-        BaseBullet baseBullet = harpoonBullet.GetComponent<BaseBullet>();
+        BaseBullet baseBullet = LoadBullet();
         baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection);
 
         StartCoroutine(ProcessCooldown());

@@ -43,6 +43,6 @@ public class BulletHarpoon : BaseBullet
             await Task.Yield();
         }
         Debug.Log("Bullet exceed time to live");
-        Destroy(gameObject);
+        LoadToPool();
     }
 }

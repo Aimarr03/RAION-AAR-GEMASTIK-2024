@@ -20,7 +20,7 @@ public abstract class BaseBullet : MonoBehaviour
     public abstract void OnLaunchBullet();
     public void SetObjectPooling(ObjectPooling parentPool) => this.parentPool = parentPool;
 
-    public void OnBulletIsDestroy()
+    public void LoadToPool()
     {
         gameObject.SetActive(false);
         transform.position = parentPool.transform.position;

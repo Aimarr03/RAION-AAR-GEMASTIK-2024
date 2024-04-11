@@ -42,6 +42,6 @@ public class BulletTorpedo : BaseBullet
             string gameObjectName = explodedUnit[index].gameObject.ToString();
             Debug.Log($"{gameObjectName} is within the explosion area");
         }
-        Destroy(gameObject);
+        LoadToPool();
     }
 }
