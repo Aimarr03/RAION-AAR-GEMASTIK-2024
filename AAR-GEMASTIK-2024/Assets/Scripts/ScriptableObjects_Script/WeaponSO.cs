@@ -34,4 +34,5 @@ public class WeaponSO : ScriptableObject
     public WeaponBulletData bulletData;
     public Transform weapon;
     public Transform bullet;
+    public int ammountToHold;
 }

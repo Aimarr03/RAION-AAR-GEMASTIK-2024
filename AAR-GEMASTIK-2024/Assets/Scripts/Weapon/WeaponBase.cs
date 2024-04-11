@@ -8,11 +8,21 @@ public abstract class WeaponBase : MonoBehaviour
     public Transform firePointBlank;
     protected bool isCooldown;
     protected PlayerCoreSystem playerCoreSystem;
+    protected ObjectPooling objectPooling;
     [SerializeField] protected float interval;
+    
+    public virtual void Awake()
+    {
+        objectPooling = GetComponentInChildren<ObjectPooling>();
+    }
     public abstract void Fire(PlayerWeaponSystem coreSystem, bool isOnRightDirection);
     public abstract IEnumerator ProcessCooldown();
     public void SetPlayerCoreSystem(PlayerCoreSystem coreSystem)
     {
         this.playerCoreSystem = coreSystem;
+    }
+    public void SetObjectPooling(WeaponSO weaponSO)
+    {
+        objectPooling.InitializePool(weaponSO);
     }
 }
