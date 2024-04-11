@@ -11,6 +11,13 @@ public struct PlayerUsableGeneralData
     public string description;
     public Sprite icon;
 }
+public enum WeaponType
+{
+    harpoon,
+    torpedo,
+    machinegun,
+    energyblaster
+}
 [Serializable]
 public struct WeaponBulletData
 {
@@ -33,7 +40,9 @@ public class WeaponSO : ScriptableObject
 {
     public PlayerUsableGeneralData weaponData;
     public WeaponBulletData bulletData;
+    public float cooldownBetweenFiringBullet;
     public Transform weapon;
     public Transform bullet;
     public int ammountToHold;
+    public WeaponType type;
 }

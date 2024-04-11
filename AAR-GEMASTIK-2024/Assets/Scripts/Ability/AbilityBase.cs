@@ -16,4 +16,9 @@ public abstract class AbilityBase : MonoBehaviour
     {
         this.playerCoreSystem = playerCoreSystem;
     }
+    public void SetUpData()
+    {
+        intervalCooldown = abilitySO.cooldownDuration;
+        isInvokable = abilitySO.isInvokable;
+    }
 }

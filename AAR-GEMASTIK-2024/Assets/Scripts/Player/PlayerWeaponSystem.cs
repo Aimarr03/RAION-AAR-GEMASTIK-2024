@@ -18,6 +18,7 @@ public class PlayerWeaponSystem : MonoBehaviour
             baseWeapon.SetPlayerCoreSystem(playerCoreSystem);
             baseWeapon.weaponSO = weaponSo;
             baseWeapon.SetObjectPooling(weaponSo);
+            baseWeapon.SetUpData();
         }
     }
 

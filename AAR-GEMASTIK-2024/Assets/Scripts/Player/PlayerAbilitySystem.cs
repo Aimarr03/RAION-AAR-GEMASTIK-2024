@@ -18,6 +18,7 @@ public class PlayerAbilitySystem : MonoBehaviour
             Transform abilityInstantiate = Instantiate(abilitySO.prefab, abilityHolderPosition);
             abilityBase = abilityInstantiate.GetComponent<AbilityBase>();
             abilityBase.SetPlayerCoreSystem(playerCoreSystem);
+            abilityBase.SetUpData();
         }
     }
     private void Start()

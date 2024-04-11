@@ -53,7 +53,7 @@ public class AbilityShockwave : AbilityBase
         oxygenSystem = playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Oxygen) as OxygenSystem;
         oxygenSystem.OnChangeValue += OxygenSystem_OnChangeValue;
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         oxygenSystem.OnChangeValue -= OxygenSystem_OnChangeValue;
     }

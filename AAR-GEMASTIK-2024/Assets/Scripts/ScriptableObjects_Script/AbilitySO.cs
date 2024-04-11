@@ -12,4 +12,6 @@ public class AbilitySO : ScriptableObject
     public PlayerUsableGeneralData generalData;
     public AbilityDataSO abilityData;
     public Transform prefab;
+    public bool isInvokable;
+    public float cooldownDuration;
 }
