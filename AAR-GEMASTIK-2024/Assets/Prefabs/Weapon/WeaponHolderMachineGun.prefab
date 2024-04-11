@@ -110,6 +110,7 @@ MonoBehaviour:
   firePointBlank: {fileID: 1632882743039752231}
   interval: 0.5
   durationToPrepareFire: 3
+  maxDuration: 2
 --- !u!4 &1632882743039752231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5779494904012247009, guid: e06eda75318ff1b489c2503b2e2b9647,

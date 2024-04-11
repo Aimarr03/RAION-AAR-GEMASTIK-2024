@@ -7,8 +7,7 @@ public class WeaponMachineGun : WeaponBase
     [SerializeField] private float durationToPrepareFire;
     private bool isFiring;
     private bool isOnRightDirection;
-    private Coroutine ProcessFiring;
-    private Coroutine OnFiring;
+    [SerializeField] private float maxDuration;
     private void OnEnable()
     {
         PlayerInputSystem.OnReleasedInvokeWeaponUsage += PlayerInputSystem_OnReleasedInvokeWeaponUsage;
@@ -18,21 +17,27 @@ public class WeaponMachineGun : WeaponBase
     {
         Debug.Log("Cancel Action");
         isFiring = false;
-        StopAllCoroutines();
     }
 
     public override void Fire(PlayerWeaponSystem coreSystem, bool isOnRightDirection)
     {
         this.isOnRightDirection = isOnRightDirection;
-        if (!isFiring) ProcessFiring = StartCoroutine(ProcessCooldown());
+        StartCoroutine(ProcessCooldown());
         
     }
     private IEnumerator OnShootBullet()
     {
+        float totalDuration = 0f;
         float currentInterval = 0f;
         while (isFiring)
         {
             currentInterval += Time.deltaTime;
+            totalDuration += Time.deltaTime;
+            if (totalDuration > maxDuration)
+            {
+                isFiring = false;
+                break;
+            }
             if (currentInterval >= interval)
             {
                 currentInterval = 0f;
@@ -43,10 +48,21 @@ public class WeaponMachineGun : WeaponBase
             }
             yield return null;
         }
+        StartCoroutine(OnCooldown());
+    }
+    private IEnumerator OnCooldown()
+    {
+        Debug.Log("On Cooldown");
+        isCooldown = true;
+        yield return new WaitForSeconds(maxDuration * 2);
+        Debug.Log("Can be used again");
+        isCooldown = false;
+
     }
 
     public override IEnumerator ProcessCooldown()
     {
+        if (isCooldown) yield break;
         float currentTimer = 0f;
         while (currentTimer < durationToPrepareFire)
         {
@@ -55,6 +71,6 @@ public class WeaponMachineGun : WeaponBase
         }
         isFiring = true;
         Debug.Log("FIRE!");
-        OnFiring = StartCoroutine(OnShootBullet());
+        StartCoroutine(OnShootBullet());
     }
 }

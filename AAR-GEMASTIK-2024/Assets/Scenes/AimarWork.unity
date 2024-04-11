@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c1fd0146225de43bb81e12430937d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSo: {fileID: 11400000, guid: b299a180e45990b44b9ffb77be51fe4e, type: 2}
+  weaponSo: {fileID: 11400000, guid: c82559fd3bcf88046b84a35ade7a280f, type: 2}
   baseWeapon: {fileID: 0}
   weaponHolderPosition: {fileID: 544713530}
 --- !u!114 &101117415
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f779a8a0e60d814289904d64e221d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilitySO: {fileID: 11400000, guid: 92f878556eb155d4f8371b78db63e044, type: 2}
+  abilitySO: {fileID: 11400000, guid: 2eb13f4237bc76c41834aa272d65eee2, type: 2}
   abilityBase: {fileID: 0}
   abilityHolderPosition: {fileID: 700107601}
 --- !u!114 &101117416
