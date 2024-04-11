@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
+  m_Name: EnergyBlasterGunSO
+  m_EditorClassIdentifier: 
+  weaponData:
+    name: Energy Blaster
+    description: Come out, we can charge the damage, needs to be charge though, or
+      else, it will have less damage
+    icon: {fileID: 0}
+  bulletData:
+    level: 1
+    speed: 12
+    damage: 70
+    isFullyCharge: 0
+  weapon: {fileID: 1191683145976765566, guid: 97d3fe1b8fdeb544ebd7d119312e8723, type: 3}
+  bullet: {fileID: 1983719311338810359, guid: b008ab4f76a5006459afdc75a0d119a3, type: 3}
+  ammountToHold: 8

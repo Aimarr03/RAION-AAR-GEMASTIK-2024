@@ -17,6 +17,7 @@ public struct WeaponBulletData
     public int level;
     public float speed;
     public float damage;
+    public bool isFullyCharge;
     public int totalDamage
     {
         get
