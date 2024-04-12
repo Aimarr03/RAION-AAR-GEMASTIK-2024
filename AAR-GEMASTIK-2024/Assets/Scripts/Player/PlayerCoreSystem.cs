@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerCoreSystem : MonoBehaviour
@@ -17,6 +18,9 @@ public class PlayerCoreSystem : MonoBehaviour
     public event Action OnDead;
     public event Action OnBlocking;
 
+    private bool isVunerable;
+    private float invunerableDuration;
+
 
     private Dictionary<SustainabilityType,_BaseSustainabilitySystem> _sustainabilitySystemsDictionary;
     
@@ -31,6 +35,8 @@ public class PlayerCoreSystem : MonoBehaviour
         weaponSystem = GetComponent<PlayerWeaponSystem>();
         abilitySystem = GetComponent<PlayerAbilitySystem>();
         currentDurationUsageOxygen = 0;
+        isVunerable = true;
+        invunerableDuration = 2f;
     }
 
     public void Update()
@@ -75,6 +81,7 @@ public class PlayerCoreSystem : MonoBehaviour
     }
     public void TakeDamage(int value)
     {
+        if (!isVunerable) return;
         if (canBlock)
         {
             OnBlocking?.Invoke();
@@ -82,6 +89,7 @@ public class PlayerCoreSystem : MonoBehaviour
         }
         _sustainabilitySystemsDictionary[SustainabilityType.Health].OnDecreaseValue(value);
         Debug.Log("Player Take Damage with " + value + " quantity");
+        InvunerabilityAfterTakeDamage();
     }
     public _BaseSustainabilitySystem GetSustainabilitySystem(SustainabilityType type)
     {
@@ -97,6 +105,12 @@ public class PlayerCoreSystem : MonoBehaviour
             oxygenSystem.OnDecreaseValue(1);
             Debug.Log("Oxygen System depleted by one");
         }
+    }
+    private async void InvunerabilityAfterTakeDamage()
+    {
+        isVunerable = false;
+        await Task.Delay((int)(invunerableDuration * 1000));
+        isVunerable = true;
     }
     private void Test()
     {

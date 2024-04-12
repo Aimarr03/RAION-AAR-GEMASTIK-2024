@@ -104,5 +104,14 @@ public class PlayerMoveSystem : MonoBehaviour
     }
     public void AddSuddenForce(float force) => playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
     public void SetCanBeUsed(bool value) => canBeUsed = value;
+    public void SetMovement(float linearValue, float rotatingValue)
+    {
+        linearSpeed = linearValue;
+        rotatingSpeed = rotatingValue;
+    }
+    public void SetMovement(float linearValue)
+    {
+        linearSpeed = linearValue;
+    }
     public bool GetIsOnRightDirection() => onRightDirection;
 }
