@@ -22,6 +22,8 @@ public class PlayerMoveSystem : MonoBehaviour
     private bool isRotating;
     private bool onRightDirection;
     private bool canBeUsed;
+    private bool isSlowed;
+    private float slowedMultiplier;
 
     public event Action OnUseOneEnergy;
     private void Awake()
@@ -30,6 +32,7 @@ public class PlayerMoveSystem : MonoBehaviour
         playerRigid = GetComponent<Rigidbody>();
         onRightDirection = true;
         canBeUsed = true;
+        isSlowed = false;
         currentDistanceUse = 0;
     }
     private void FixedUpdate()
@@ -40,6 +43,7 @@ public class PlayerMoveSystem : MonoBehaviour
         HorizontalMove();
         VerticalMove();
         FlipSprite();
+        
     }
     private void InputHandler()
     {
@@ -53,7 +57,13 @@ public class PlayerMoveSystem : MonoBehaviour
         input.y = 0;
 
         input = onRightDirection ? input : -input;
-        playerRigid.velocity += transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
+        
+        Vector3 outputVelocity = transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
+        if (isSlowed)
+        {
+            outputVelocity = SlowAction(outputVelocity, slowedMultiplier);
+        }
+        playerRigid.velocity += outputVelocity;
         playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
         //transform.Translate(input * linearSpeed * Time.fixedDeltaTime);
         currentDistanceUse += playerRigid.velocity.magnitude * Time.fixedDeltaTime;
@@ -109,9 +119,24 @@ public class PlayerMoveSystem : MonoBehaviour
         linearSpeed = linearValue;
         rotatingSpeed = rotatingValue;
     }
+    public void GetMovement(out float linearValue, out float rotatingValue)
+    {
+        linearValue = linearSpeed;
+        rotatingValue = rotatingSpeed;
+    }
     public void SetMovement(float linearValue)
     {
         linearSpeed = linearValue;
+    }
+    public void SetIsSlowed(bool input, float slowMultiplier)
+    {
+        isSlowed = input;
+        playerRigid.velocity = isSlowed? playerRigid.velocity * slowMultiplier : playerRigid.velocity;
+        slowedMultiplier = slowMultiplier;
+    }
+    private Vector3 SlowAction(Vector3 velocityInput, float slowMultiplier)
+    {
+        return velocityInput *= slowMultiplier;
     }
     public bool GetIsOnRightDirection() => onRightDirection;
 }
