@@ -35,6 +35,7 @@ public class PlayerMoveSystem : MonoBehaviour
         isSlowed = false;
         currentDistanceUse = 0;
     }
+    
     private void FixedUpdate()
     {
         if(coreSystem.isDead) return;
@@ -54,8 +55,9 @@ public class PlayerMoveSystem : MonoBehaviour
     {
         if (isRotating) return;
         Vector2 input = currentInput;
+        InvokeHorizontalBrake(input);
         input.y = 0;
-
+        Debug.Log(input);
         input = onRightDirection ? input : -input;
         
         Vector3 outputVelocity = transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
@@ -87,6 +89,18 @@ public class PlayerMoveSystem : MonoBehaviour
             targetRotate = Quaternion.Euler(0, 0, transform.eulerAngles.z);
         }
     }
+    private void InvokeHorizontalBrake(Vector2 input)
+    {
+        if (playerRigid.velocity.x < linearSpeed && playerRigid.velocity.x > -linearSpeed) return;
+        if (input.x == 0) return;
+        bool checkInput = (input.x > 0 && playerRigid.velocity.x < 0) || (input.x < 0 && playerRigid.velocity.x > 0);
+        if (checkInput)
+        {
+            Debug.Log("On Brake!");
+            playerRigid.velocity /= 1.5f;
+        }
+    }
+    
     private void VerticalMove()
     {
         if(isRotating) return;
@@ -99,6 +113,17 @@ public class PlayerMoveSystem : MonoBehaviour
         if ((zValue >= rotateDegreeLimit || zValue <= -rotateDegreeLimit))
         {
             transform.Rotate(0, 0, -zRotation);
+        }
+    }
+    private void InvokeVerticalBrake(Vector2 input)
+    {
+        if (playerRigid.velocity.x < linearSpeed && playerRigid.velocity.x > -linearSpeed) return;
+        if (input.x == 0) return;
+        bool checkInput = (input.x > 0 && playerRigid.velocity.x < 0) || (input.x < 0 && playerRigid.velocity.x > 0);
+        if (checkInput)
+        {
+            Debug.Log("On Brake!");
+            playerRigid.velocity /= 1.5f;
         }
     }
     private void FlipSprite()

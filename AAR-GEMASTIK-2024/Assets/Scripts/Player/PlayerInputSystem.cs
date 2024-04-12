@@ -2,7 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+public enum ControlBrake
+{
+    Right, Left
+}
 public class PlayerInputSystem : MonoBehaviour
 {
     private DefaultInputAction playerInput;
@@ -27,13 +32,14 @@ public class PlayerInputSystem : MonoBehaviour
         coreSystem.OnDead += CoreSystem_OnDead;
     }
 
-    private void InvokeWeaponUsage_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+
+    private void InvokeWeaponUsage_canceled(InputAction.CallbackContext obj)
     {
         Debug.Log("button is realeased");
         OnReleasedInvokeWeaponUsage?.Invoke();
     }
 
-    private void InvokeInterract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void InvokeInterract_performed(InputAction.CallbackContext obj)
     {
         InvokeInterractUsage?.Invoke();
     }
@@ -45,11 +51,11 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
         playerInput.Player.InvokeWeaponUsage.canceled -= InvokeWeaponUsage_canceled;
     }
-    private void InvokeAbilityUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void InvokeAbilityUsage_performed(InputAction.CallbackContext obj)
     {
         InvokeAbilityUsage?.Invoke();
     }
-    private void InvokeWeaponUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void InvokeWeaponUsage_performed(InputAction.CallbackContext obj)
     {
         InvokeWeaponUsage?.Invoke();
     }
