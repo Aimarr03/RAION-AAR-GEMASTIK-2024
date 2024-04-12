@@ -57,7 +57,7 @@ public class PlayerMoveSystem : MonoBehaviour
         Vector2 input = currentInput;
         InvokeHorizontalBrake(input);
         input.y = 0;
-        Debug.Log(input);
+        //Debug.Log(input);
         input = onRightDirection ? input : -input;
         
         Vector3 outputVelocity = transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
