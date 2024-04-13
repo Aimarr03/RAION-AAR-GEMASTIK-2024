@@ -38,6 +38,10 @@ public class PlayerInterractionSystem : MonoBehaviour
     {
         PlayerInputSystem.InvokeInterractUsage += PlayerInputSystem_InvokeInterractUsage;
     }
+    private void OnDestroy()
+    {
+        PlayerInputSystem.InvokeInterractUsage -= PlayerInputSystem_InvokeInterractUsage;
+    }
 
     private void PlayerInputSystem_InvokeInterractUsage()
     {
@@ -50,7 +54,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     private void Update()
     {
         DetectionForInterractableObject();
-        //DetectionForDetectableObject();
+        DetectionForDetectableObject();
         FindClosestInterractableObjectToPlayer();
     }
     private void DetectionForInterractableObject()
@@ -68,7 +72,8 @@ public class PlayerInterractionSystem : MonoBehaviour
         {
             if(collider.TryGetComponent<IDetectable>(out IDetectable detectable))
             {
-                Debug.Log("Detectable Object Found " + collider.gameObject.name);
+                //Debug.Log("Detectable Object Found " + collider.gameObject.name);
+                detectable.DetectedByPlayer(coreSystem);
             }
         }
 

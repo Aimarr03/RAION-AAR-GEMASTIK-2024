@@ -39,13 +39,11 @@ public class PlayerInputSystem : MonoBehaviour
     private void InvokeWeaponUsage_canceled(InputAction.CallbackContext obj)
     {
         Debug.Log("button is realeased");
-        if (coreSystem.onDisabled) return;
         OnReleasedInvokeWeaponUsage?.Invoke();
     }
 
     private void InvokeInterract_performed(InputAction.CallbackContext obj)
     {
-        if (coreSystem.onDisabled) return;
         InvokeInterractUsage?.Invoke();
     }
     private void OnAddCallback()
@@ -69,18 +67,15 @@ public class PlayerInputSystem : MonoBehaviour
     }
     private void InvokeAbilityUsage_performed(InputAction.CallbackContext obj)
     {
-        if(coreSystem.onDisabled) return;
         InvokeAbilityUsage?.Invoke();
     }
     private void InvokeWeaponUsage_performed(InputAction.CallbackContext obj)
     {
-        if (coreSystem.onDisabled) return;
         InvokeWeaponUsage?.Invoke();
     }
 
     public Vector2 GetMoveInput()
     {
-        if(coreSystem.onDisabled) return Vector2.zero;
         return playerInput.Player.Move.ReadValue<Vector2>();
     }
 }

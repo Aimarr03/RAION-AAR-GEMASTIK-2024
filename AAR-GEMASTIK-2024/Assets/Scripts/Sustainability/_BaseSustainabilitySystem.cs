@@ -17,8 +17,8 @@ public enum SustainabilityType
 }
 public struct SustainabilityData
 {
-    public int currentValue;
-    public int maxValue;
+    public float currentValue;
+    public float maxValue;
     public ChangeState changeState;
     public SustainabilityType type;
     public float percentageValue
@@ -33,7 +33,7 @@ public struct SustainabilityData
     {
         get => currentValue == maxValue;
     }
-    public SustainabilityData(int currentHealth, int maxHealth, ChangeState changeState, SustainabilityType type)
+    public SustainabilityData(float currentHealth, float maxHealth, ChangeState changeState, SustainabilityType type)
     {
         this.currentValue = currentHealth;
         this.maxValue = maxHealth;
@@ -44,17 +44,17 @@ public struct SustainabilityData
 public abstract class _BaseSustainabilitySystem
 {
     protected PlayerCoreSystem player;
-    protected int currentValue;
-    protected int maxValue;
+    protected float currentValue;
+    protected float maxValue;
     public event Action<SustainabilityData> OnChangeValue;
 
-    public _BaseSustainabilitySystem(PlayerCoreSystem player, int maxValue)
+    public _BaseSustainabilitySystem(PlayerCoreSystem player, float maxValue)
     {
         this.player = player;
         this.maxValue = maxValue;
         this.currentValue = maxValue;
     }
-    public virtual void OnDecreaseValue(int value)
+    public virtual void OnDecreaseValue(float value)
     {
         currentValue = Mathf.Clamp(currentValue - value, 0, maxValue);
         if (currentValue == 0)
@@ -67,7 +67,7 @@ public abstract class _BaseSustainabilitySystem
             OnChangeValue?.Invoke(healthData);
         }
     }
-    public virtual void OnIncreaseValue(int value)
+    public virtual void OnIncreaseValue(float value)
     {
         currentValue = Mathf.Clamp(currentValue + value, 0, maxValue);
         SustainabilityData healthData = new SustainabilityData(currentValue, maxValue, ChangeState.Increase, SustainabilityType.Health);
