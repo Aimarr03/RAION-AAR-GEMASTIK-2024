@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerMoveSystem : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class PlayerMoveSystem : MonoBehaviour
     private Quaternion targetRotate;
     [SerializeField] private float linearSpeed;
     [SerializeField] private float maxLinearSpeed;
-    [SerializeField] private float rotatingSpeed;
+    [SerializeField] private float rotatingSpeedOnZAxis;
+    [SerializeField] private float rotatingSpeedOnYAxis;
     [SerializeField] private float rotateDegreeLimit;
     [SerializeField] private float maxDistanceUseForOneEnergy;
+    [SerializeField] private float minHorizontalMovement;
     private float currentDistanceUse;
 
     private bool isRotating;
@@ -43,6 +46,7 @@ public class PlayerMoveSystem : MonoBehaviour
         InputHandler();
         HorizontalMove();
         VerticalMove();
+        CheckMovementStatus();
         FlipSprite();
         
     }
@@ -51,6 +55,30 @@ public class PlayerMoveSystem : MonoBehaviour
         currentInput = coreSystem.inputSystem.GetMoveInput();
         if(currentInput != Vector2.zero) NonZeroValueInput = currentInput;
     }
+    private void CheckMovementStatus()
+    {
+        currentDistanceUse += playerRigid.velocity.magnitude * Time.fixedDeltaTime;
+        if (currentDistanceUse > maxDistanceUseForOneEnergy)
+        {
+            Debug.Log("One Energy has been used");
+            currentDistanceUse = 0;
+            OnUseOneEnergy?.Invoke();
+        }
+
+        if (playerRigid.velocity.x < 0 && onRightDirection && currentInput.x < 0)
+        {
+            isRotating = true;
+            onRightDirection = false;
+            targetRotate = Quaternion.Euler(0, 180, transform.eulerAngles.z);
+        }
+        else if (playerRigid.velocity.x > 0 && !onRightDirection && currentInput.x > 0)
+        {
+            isRotating = true;
+            onRightDirection = true;
+            targetRotate = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+        }
+    }
+    #region HorizontalLogic
     private void HorizontalMove()
     {
         if (isRotating) return;
@@ -60,7 +88,7 @@ public class PlayerMoveSystem : MonoBehaviour
         //Debug.Log(input);
         input = onRightDirection ? input : -input;
         
-        Vector3 outputVelocity = transform.TransformDirection(input * linearSpeed * Time.fixedDeltaTime);
+        Vector3 outputVelocity = transform.TransformDirection(Vector3.right * (linearSpeed * Time.fixedDeltaTime * input));
         if (isSlowed)
         {
             outputVelocity = SlowAction(outputVelocity, slowedMultiplier);
@@ -68,26 +96,7 @@ public class PlayerMoveSystem : MonoBehaviour
         playerRigid.velocity += outputVelocity;
         playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
         //transform.Translate(input * linearSpeed * Time.fixedDeltaTime);
-        currentDistanceUse += playerRigid.velocity.magnitude * Time.fixedDeltaTime;
-        if(currentDistanceUse > maxDistanceUseForOneEnergy)
-        {
-            Debug.Log("One Energy has been used");
-            currentDistanceUse = 0;
-            OnUseOneEnergy?.Invoke();
-        }
-
-        if(playerRigid.velocity.x < 0 && onRightDirection && currentInput.x < 0)
-        {
-            isRotating = true;
-            onRightDirection = false;
-            targetRotate = Quaternion.Euler(0, 180, transform.eulerAngles.z);
-        }
-        else if(playerRigid.velocity.x > 0 && !onRightDirection && currentInput.x > 0)
-        {
-            isRotating= true;
-            onRightDirection = true;
-            targetRotate = Quaternion.Euler(0, 0, transform.eulerAngles.z);
-        }
+        
     }
     private void InvokeHorizontalBrake(Vector2 input)
     {
@@ -100,12 +109,30 @@ public class PlayerMoveSystem : MonoBehaviour
             playerRigid.velocity /= 1.5f;
         }
     }
-    
+    #endregion
+    #region VerticalLogic
     private void VerticalMove()
     {
         if(isRotating) return;
         float z_input = currentInput.y;
-        float zRotation = z_input * rotatingSpeed * Time.fixedDeltaTime;
+        if(z_input != 0)
+        {
+            InvokeVerticalBrake(new Vector2(0, z_input));
+            OnRotatingOnZAxis(z_input);
+            if (playerRigid.velocity.x < minHorizontalMovement && playerRigid.velocity.x > -minHorizontalMovement) return;
+            Vector3 outputVelocity = Vector3.up * (linearSpeed * Time.fixedDeltaTime * z_input);
+            playerRigid.velocity += outputVelocity;
+        }
+        else
+        {
+            Quaternion targetRotation = onRightDirection ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotatingSpeedOnZAxis);
+        }
+        
+    }
+    private void OnRotatingOnZAxis(float zInput)
+    {
+        float zRotation = zInput * rotatingSpeedOnZAxis * Time.fixedDeltaTime;
 
         transform.Rotate(0, 0, zRotation);
         float zValue = transform.rotation.eulerAngles.z;
@@ -126,11 +153,12 @@ public class PlayerMoveSystem : MonoBehaviour
             playerRigid.velocity /= 1.5f;
         }
     }
+    #endregion
     private void FlipSprite()
     {
         if(!isRotating) return;
         playerRigid.velocity = Vector3.zero;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotate, rotatingSpeed);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotate, rotatingSpeedOnYAxis);
         if(Quaternion.Angle(transform.rotation, targetRotate) < 5f)
         {
             transform.rotation = targetRotate;
@@ -142,17 +170,18 @@ public class PlayerMoveSystem : MonoBehaviour
     public void SetMovement(float linearValue, float rotatingValue)
     {
         linearSpeed = linearValue;
-        rotatingSpeed = rotatingValue;
+        rotatingSpeedOnZAxis = rotatingValue;
     }
     public void GetMovement(out float linearValue, out float rotatingValue)
     {
         linearValue = linearSpeed;
-        rotatingValue = rotatingSpeed;
+        rotatingValue = rotatingSpeedOnZAxis;
     }
     public void SetMovement(float linearValue)
     {
         linearSpeed = linearValue;
     }
+    public bool GetIsOnRightDirection() => onRightDirection;
     public void SetIsSlowed(bool input, float slowMultiplier)
     {
         isSlowed = input;
@@ -163,5 +192,4 @@ public class PlayerMoveSystem : MonoBehaviour
     {
         return velocityInput *= slowMultiplier;
     }
-    public bool GetIsOnRightDirection() => onRightDirection;
 }
