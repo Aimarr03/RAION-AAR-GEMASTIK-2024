@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class PlayerCoreSystem : MonoBehaviour
+public class PlayerCoreSystem : MonoBehaviour, IDamagable
 {
     public PlayerMoveSystem moveSystem;
     public PlayerInputSystem inputSystem;
@@ -15,11 +15,14 @@ public class PlayerCoreSystem : MonoBehaviour
     public List<SustainabilitySystemSO> SustainabilitySystemsDataList;
     public bool isDead;
     public bool canBlock;
+    public bool onDisabled;
     public event Action OnDead;
     public event Action OnBlocking;
+    public event Action<bool> OnDisabled;
 
     private bool isVunerable;
     private float invunerableDuration;
+    private float disabledDuration;
 
 
     private Dictionary<SustainabilityType,_BaseSustainabilitySystem> _sustainabilitySystemsDictionary;
@@ -36,7 +39,9 @@ public class PlayerCoreSystem : MonoBehaviour
         abilitySystem = GetComponent<PlayerAbilitySystem>();
         currentDurationUsageOxygen = 0;
         isVunerable = true;
+        onDisabled = false;
         invunerableDuration = 2f;
+        disabledDuration = 0;
     }
 
     public void Update()
@@ -119,5 +124,27 @@ public class PlayerCoreSystem : MonoBehaviour
             TakeDamage(10);
         }
     }
+
+    public void AddSuddenForce(Vector3 direction, float powerForce)
+    {
+        moveSystem.AddSuddenForce(direction, powerForce, ForceMode.Force); 
+    }
+
+    public void OnDisableMove(float moveDuration)
+    {
+        disabledDuration = moveDuration;
+        DisableMovement(moveDuration);
+    }
+    private async void DisableMovement(float movementDuration)
+    {
+        onDisabled = true;
+        OnDisabled?.Invoke(onDisabled);
+        moveSystem.SetCanBeUsed(false);
+        await Task.Delay((int)(movementDuration * 1000));
+        onDisabled = false;
+        OnDisabled?.Invoke(onDisabled);
+        moveSystem.SetCanBeUsed(true);
+    }
+    
 }
 

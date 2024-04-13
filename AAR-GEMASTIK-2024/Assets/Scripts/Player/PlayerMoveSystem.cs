@@ -42,6 +42,7 @@ public class PlayerMoveSystem : MonoBehaviour
     private void FixedUpdate()
     {
         if(coreSystem.isDead) return;
+        if (coreSystem.onDisabled) return;
         if (!canBeUsed) return;
         InputHandler();
         HorizontalMove();
@@ -166,6 +167,9 @@ public class PlayerMoveSystem : MonoBehaviour
         }
     }
     public void AddSuddenForce(float force) => playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
+    public void AddSuddenForce(Vector3 direction, float force) => playerRigid.AddForce(direction * force, ForceMode.Impulse);
+
+    public void AddSuddenForce(Vector3 direction, float force, ForceMode mode) => playerRigid.AddForce(direction * force, mode);
     public void SetCanBeUsed(bool value) => canBeUsed = value;
     public void SetMovement(float linearValue, float rotatingValue)
     {

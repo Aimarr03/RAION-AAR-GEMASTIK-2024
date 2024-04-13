@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbilityOvercharge : AbilityBase
 {
     public float duration;
+    private bool canBeUsed = true;
     public float totalDuration
     {
         get
@@ -15,11 +16,13 @@ public class AbilityOvercharge : AbilityBase
     }
     public override void Fire(PlayerCoreSystem playerCoreSystem)
     {
+        if (!canBeUsed) return;
         StartCoroutine(OnExecute());
     }
     private IEnumerator OnExecute()
     {
         float tempCooldown = intervalCooldown;
+        canBeUsed = false;
         intervalCooldown /= 2;
         Debug.Log("POWAAHHHH");
         yield return new WaitForSeconds(totalDuration);
@@ -37,6 +40,7 @@ public class AbilityOvercharge : AbilityBase
             yield return null;
         }
         isCooldown = false;
+        canBeUsed = true;
         Debug.Log("Overcharge can be used again");
     }
 }
