@@ -45,24 +45,22 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     private void PlayerInputSystem_InvokeInterractUsage()
     {
-        if(ClosestInterractableObject != null)
-        {
-            ClosestInterractableObject.Interracted(this);
-        }
+        Debug.Log("Interract Action");
+        ClosestInterractableObject?.Interracted(this);
     }
 
     private void Update()
     {
         DetectionForInterractableObject();
         DetectionForDetectableObject();
-        FindClosestInterractableObjectToPlayer();
+        //FindClosestInterractableObjectToPlayer();
     }
     private void DetectionForInterractableObject()
     {
         detectionResult = Physics.OverlapBox(OffSetPosition, boxSizeForInterractableObject, Quaternion.identity, targetLayerMaskForInterractableObject);
         if(detectionResult.Length > 0)
         {
-            //Debug.Log("Detect Something");
+            FindClosestInterractableObjectToPlayer();
         }
     }
     private void DetectionForDetectableObject()
@@ -87,7 +85,13 @@ public class PlayerInterractionSystem : MonoBehaviour
             float currentObjectDistance = Vector3.Distance(interractiveHolderPositionForInterractableObject.position, coll.transform.position);
             if(currentObjectDistance < closestTotalDistance && coll.TryGetComponent<IInterractable>(out IInterractable interractableObject))
             {
-                ClosestInterractableObject = interractableObject;
+                if(ClosestInterractableObject != interractableObject)
+                {
+                    if (ClosestInterractableObject != null) ClosestInterractableObject.OnDetectedAsTheClosest(null);
+                    ClosestInterractableObject = interractableObject;
+                    ClosestInterractableObject.OnDetectedAsTheClosest(coreSystem);
+                    Debug.Log("New Closest InterractedObject " + ClosestInterractableObject);
+                }
             }
         }
         //Debug.Log(ClosestInterractableObject);

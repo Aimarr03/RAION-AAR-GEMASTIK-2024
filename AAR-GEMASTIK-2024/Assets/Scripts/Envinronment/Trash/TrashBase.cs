@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class TrashBase : MonoBehaviour
 {
     protected PlayerCoreSystem playerCoreSystem;
-    [SerializeField] private float weight;
+    [SerializeField] protected float weight;
     protected abstract void OnCollisionEnter(Collision collision);
 
     public void OnTakenByPlayer()

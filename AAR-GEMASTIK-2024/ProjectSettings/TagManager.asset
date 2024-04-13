@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Testing
+  - Hot Steam
   layers:
   - Default
   - TransparentFX

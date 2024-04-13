@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IInterractable 
 {
     public void Interracted(PlayerInterractionSystem playerInterractionSystem);
+    public void OnDetectedAsTheClosest(PlayerCoreSystem coreSystem);
 }
