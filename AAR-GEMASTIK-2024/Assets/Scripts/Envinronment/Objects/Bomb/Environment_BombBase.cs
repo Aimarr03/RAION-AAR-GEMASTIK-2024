@@ -9,6 +9,7 @@ public abstract class Environment_BombBase : MonoBehaviour
     [SerializeField] protected float radiusExplosion;
     [SerializeField] protected LayerMask damagableLayer;
     [SerializeField] protected float disabledDuration;
+    [SerializeField] protected int maxAttemptToRecover;
     protected virtual void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
@@ -32,7 +33,7 @@ public abstract class Environment_BombBase : MonoBehaviour
                 Debug.Log("Total Power Force " + totalPowerForce);
                 damagableUnit.TakeDamage(damage);
                 damagableUnit.AddSuddenForce(direction, totalPowerForce);
-                damagableUnit.OnDisableMove(disabledDuration);
+                damagableUnit.OnDisableMove(disabledDuration, maxAttemptToRecover);
             }
         }
     }

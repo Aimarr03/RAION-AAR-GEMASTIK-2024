@@ -23,6 +23,8 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     private bool isVunerable;
     private float invunerableDuration;
     private float disabledDuration;
+    private int attemptToRecover;
+    private int maxAttempt;
 
 
     private Dictionary<SustainabilityType,_BaseSustainabilitySystem> _sustainabilitySystemsDictionary;
@@ -42,6 +44,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         onDisabled = false;
         invunerableDuration = 2f;
         disabledDuration = 0;
+        maxAttempt = 12;
     }
 
     public void Update()
@@ -130,9 +133,10 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         moveSystem.AddSuddenForce(direction, powerForce, ForceMode.Force); 
     }
 
-    public void OnDisableMove(float moveDuration)
+    public void OnDisableMove(float moveDuration, int maxAttemptToRecover)
     {
         disabledDuration = moveDuration;
+        maxAttempt = maxAttemptToRecover;
         DisableMovement(moveDuration);
     }
     private async void DisableMovement(float movementDuration)
@@ -140,11 +144,28 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         onDisabled = true;
         OnDisabled?.Invoke(onDisabled);
         moveSystem.SetCanBeUsed(false);
+        attemptToRecover = 0;
+        PlayerInputSystem.AttemptRecoverFromDisableStatus += PlayerInputSystem_AttemptRecoverFromDisableStatus;
         await Task.Delay((int)(movementDuration * 1000));
+        if (!onDisabled) return;
         onDisabled = false;
         OnDisabled?.Invoke(onDisabled);
         moveSystem.SetCanBeUsed(true);
+        PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
     }
-    
+
+    private void PlayerInputSystem_AttemptRecoverFromDisableStatus()
+    {
+        Debug.Log("Attempt To Recover");
+        attemptToRecover++;
+        if(attemptToRecover >= maxAttempt)
+        {
+            Debug.Log("attempt succesful");
+            onDisabled = false;
+            OnDisabled?.Invoke(onDisabled);
+            moveSystem.SetCanBeUsed(true);
+            PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
+        }
+    }
 }
 

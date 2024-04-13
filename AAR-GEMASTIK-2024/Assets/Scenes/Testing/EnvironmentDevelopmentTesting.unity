@@ -487,6 +487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555984445416450767, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
         type: 3}
+      propertyPath: damage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555984445416450767, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
+        type: 3}
       propertyPath: ForceExplosion
       value: 500
       objectReference: {fileID: 0}
@@ -494,6 +499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: disabledDuration
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555984445416450767, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
+        type: 3}
+      propertyPath: maxAttemptToRecover
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5572407119604248991, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
         type: 3}
@@ -503,12 +513,12 @@ PrefabInstance:
     - target: {fileID: 6199124938514574869, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.181527
+      value: 5.181527
       objectReference: {fileID: 0}
     - target: {fileID: 6199124938514574869, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.86869
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 6199124938514574869, guid: b19238d9ca02dc04e9e29cdc5e41adf2,
         type: 3}

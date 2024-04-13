@@ -17,6 +17,7 @@ public class PlayerInputSystem : MonoBehaviour
     public static event Action InvokeAbilityUsage;
     public static event Action InvokeInterractUsage;
     public static event Action OnReleasedInvokeWeaponUsage;
+    public static event Action AttemptRecoverFromDisableStatus;
     private void Awake()
     {
         playerInput = new DefaultInputAction();
@@ -32,8 +33,21 @@ public class PlayerInputSystem : MonoBehaviour
 
     private void CoreSystem_OnDisabled(bool obj)
     {
-        if (obj) OnRemoveCallback();
-        else OnAddCallback();
+        if (obj)
+        {
+            OnRemoveCallback();
+            playerInput.Player.Move.performed += AttemptToRecoverDisableStatus;
+        }
+        else
+        {
+            OnAddCallback();
+            playerInput.Player.Move.performed -= AttemptToRecoverDisableStatus;
+        }
+    }
+
+    private void AttemptToRecoverDisableStatus(InputAction.CallbackContext obj)
+    {
+        AttemptRecoverFromDisableStatus?.Invoke();
     }
 
     private void InvokeWeaponUsage_canceled(InputAction.CallbackContext obj)
@@ -52,6 +66,7 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeWeaponUsage.canceled += InvokeWeaponUsage_canceled;
         playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
         playerInput.Player.InvokeInterract.performed += InvokeInterract_performed;
+        
     }
     private void OnRemoveCallback()
     {
