@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -36,13 +34,26 @@ public struct WeaponBulletData
 }
 
 [CreateAssetMenu(fileName ="New Weapon SO", menuName ="Weapon/Create New Weapon SO")]
-public class WeaponSO : ScriptableObject
+public class WeaponSO : ScriptableObject, IBuyable,IUpgradable
 {
+    [Header("General Data")]
     public PlayerUsableGeneralData weaponData;
+    [Header("Weapon Data")]
     public WeaponBulletData bulletData;
+    public bool unlocked;
     public float cooldownBetweenFiringBullet;
     public Transform weapon;
     public Transform bullet;
     public int ammountToHold;
     public WeaponType type;
+
+    public void Buy()
+    {
+        Debug.Log("Attempt to Buy " + weaponData.name);
+    }
+
+    public void Upgrade()
+    {
+        Debug.Log("Attempt to Upgrade " + weaponData.name);
+    }
 }

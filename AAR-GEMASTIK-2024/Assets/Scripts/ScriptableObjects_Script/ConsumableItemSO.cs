@@ -7,9 +7,11 @@ public enum ItemTier
     A, B, C
 }
 [CreateAssetMenu(fileName ="New Consumable Items", menuName ="Consumable Item/Create New Consumable Item SO")]
-public class ConsumableItemSO : ScriptableObject
+public class ConsumableItemSO : ScriptableObject, IBuyable, IUpgradable, IQuantifiable
 {
+    [Header("General Data")]
     public PlayerUsableGeneralData generalData;
+    [Header("Consumable Item Data")]
     public SustainabilityType type;
     public ItemTier itemTier;
     public int value;
@@ -37,5 +39,24 @@ public class ConsumableItemSO : ScriptableObject
                 break;
         }
         return totalValue;
+    }
+
+    public void Buy()
+    {
+        Debug.Log("Attempt to Buy " + generalData.name);
+    }
+    public void OnUse()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnBuy()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Upgrade()
+    {
+        Debug.Log("Attempt to Upgrade " + generalData.name);
     }
 }
