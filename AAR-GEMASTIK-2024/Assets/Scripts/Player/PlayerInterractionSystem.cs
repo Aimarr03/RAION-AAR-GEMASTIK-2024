@@ -17,6 +17,7 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     private Collider[] detectionResult = new Collider[0];
     private IInterractable ClosestInterractableObject;
+    private bool isHolding;
     private Vector3 OffSetPosition
     {
         get
@@ -28,6 +29,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     }
     [SerializeField] private LayerMask targetLayerMaskForInterractableObject;
     [SerializeField] private LayerMask targetLayerMaskForDetectableObject;
+    public Transform holdingObjectTransform;    
     
     private void Awake()
     {
@@ -45,6 +47,13 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     private void PlayerInputSystem_InvokeInterractUsage()
     {
+        if (isHolding)
+        {
+            Debug.Log("Alt Interract");
+            ClosestInterractableObject?.AltInterracted(this);
+            isHolding = false;
+            return;
+        }
         Debug.Log("Interract Action");
         ClosestInterractableObject?.Interracted(this);
     }
@@ -78,6 +87,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     }
     private void FindClosestInterractableObjectToPlayer()
     {
+        if (isHolding) return;
         if (detectionResult.Length <= 0) return;
         float closestTotalDistance = float.MaxValue;
         foreach(Collider coll in detectionResult)
@@ -104,4 +114,5 @@ public class PlayerInterractionSystem : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, radiusForDetectableObjects);
     }
+    public void SetIsHolding(bool input) => isHolding = input;
 }

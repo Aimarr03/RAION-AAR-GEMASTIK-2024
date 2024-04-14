@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TrashInterractable : TrashBase, IInterractable
 {
+    public void AltInterracted(PlayerInterractionSystem playerInterractionSystem)
+    {
+        return;
+    }
 
     public void Interracted(PlayerInterractionSystem playerInterractionSystem)
     {
