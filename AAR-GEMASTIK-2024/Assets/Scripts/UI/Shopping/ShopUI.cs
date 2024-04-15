@@ -82,7 +82,7 @@ public class ShopUI : BasePreparingPlayerUI
         SortByMode();
         UpdateSorting();
     }
-    public void SortByMode()
+    private void SortByMode()
     {
         switch(shopManager.shopMode)
         {
@@ -96,13 +96,13 @@ public class ShopUI : BasePreparingPlayerUI
                 break;
         }
     }
-    public void ShowUpgradable() 
+    private void ShowUpgradable() 
     {
         list.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
         if (itemCards.Count <= 0) return;
         itemCards.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
     }
-    public void ShowBuyable()
+    private void ShowBuyable()
     {
         list.Sort((item1, item2) => item1.BuyModeComparison(item2));
         if (itemCards.Count <= 0) return;

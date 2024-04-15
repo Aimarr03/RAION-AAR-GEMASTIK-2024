@@ -11,9 +11,10 @@ public class DetailedCardView : MonoBehaviour
     public TextMeshProUGUI contentText;
     public TextMeshProUGUI levelText;
     private PlayerUsableGeneralData generalData;
+    private bool isBuyable;
     public void CloseTab() => gameObject.SetActive(false);
 
-    public void OpenTab(PlayerUsableGeneralData playerUsableGeneralData, ShopMode mode)
+    public void OpenTab(PlayerUsableGeneralData playerUsableGeneralData, ShopMode mode, bool isBuyable)
     {
         gameObject.SetActive(true);
         this.generalData = playerUsableGeneralData;
@@ -21,6 +22,7 @@ public class DetailedCardView : MonoBehaviour
         contentText.text = playerUsableGeneralData.description;
         levelText.text = playerUsableGeneralData.level.ToString();
         CanBeUseBuyActionOrNot(playerUsableGeneralData.unlocked, mode);
+        SetButtonIsBuyableOrNot(isBuyable);
     }
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
@@ -49,6 +51,16 @@ public class DetailedCardView : MonoBehaviour
                     buttonText.text = "Cannot be Upgraded";
                 }
                 break;
+        }
+    }
+    private void SetButtonIsBuyableOrNot(bool input)
+    {
+        isBuyable = input;
+        if (!isBuyable)
+        {
+            BuyAction.interactable = false;
+            TextMeshProUGUI textButton = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
+            textButton.text = "Not Enough Gold";
         }
     }
 }

@@ -22,12 +22,13 @@ public class ShopItemCard : MonoBehaviour
     }
     public void SetGeneralData(ShopMode mode)
     {
+        IsBuyableOrNot(mode);
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
     }
     public void OnOpenDetailedCardView()
     {
         if (detailedCardView.gameObject.activeSelf) return;
-        detailedCardView.OpenTab(generalData, ShopManager.instance.shopMode);
+        detailedCardView.OpenTab(generalData, ShopManager.instance.shopMode, isBuyable);
     }
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
@@ -52,11 +53,11 @@ public class ShopItemCard : MonoBehaviour
         switch (mode)
         {
             case ShopMode.Buy: price = generalData.buyPrice; break;
-            case ShopMode.Upgrade: price = generalData.buyPrice; break;
+            case ShopMode.Upgrade: price = generalData.upgradePrice; break;
         }
         priceText.text = price.ToString();
         isBuyable = EconomyManager.Instance.isPurchasable(price);
-        priceText.color = isBuyable ? Color.white : Color.red;
+        priceText.color = isBuyable ? Color.black : Color.red;
     }
     public int UpgradeModeComparison(ShopItemCard other)
     {
