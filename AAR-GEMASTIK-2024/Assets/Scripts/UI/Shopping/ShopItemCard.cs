@@ -33,10 +33,10 @@ public class ShopItemCard : MonoBehaviour
         switch (mode)
         {
             case ShopMode.Buy:
-                canBeInterracted = unlockable;
+                canBeInterracted = !unlockable;
                 break;
             case ShopMode.Upgrade:
-                canBeInterracted = !unlockable;
+                canBeInterracted = unlockable;
                 break;
         }
         colorBlock.normalColor = canBeInterracted ? Color.white : Color.red;
@@ -47,7 +47,7 @@ public class ShopItemCard : MonoBehaviour
         int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
         if (boolComparison != 0)
         {
-            return boolComparison;
+            return -boolComparison;
         }
         else
         {
@@ -59,7 +59,7 @@ public class ShopItemCard : MonoBehaviour
         int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
         if (boolComparison != 0)
         {
-            return -boolComparison;
+            return boolComparison;
         }
         else
         {

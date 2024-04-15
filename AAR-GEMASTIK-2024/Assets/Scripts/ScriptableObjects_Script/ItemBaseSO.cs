@@ -27,7 +27,7 @@ public class ItemBaseSO : ScriptableObject, IComparable<ItemBaseSO>
         int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
         if (boolComparison != 0)
         {
-            return boolComparison;
+            return -boolComparison;
         }
         else
         {
@@ -39,7 +39,7 @@ public class ItemBaseSO : ScriptableObject, IComparable<ItemBaseSO>
         int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
         if (boolComparison != 0)
         {
-            return -boolComparison;
+            return boolComparison;
         }
         else
         {
