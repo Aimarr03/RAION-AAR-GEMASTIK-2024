@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetUpCard : MonoBehaviour
 {
     public ItemBaseSO itemBaseSO;
+    public Button thisButton;
     public PlayerUsableGeneralData generalData
     {
         get => itemBaseSO.generalData;
@@ -17,6 +20,24 @@ public class SetUpCard : MonoBehaviour
         this.itemBaseSO = so;
         this.type = type;
         textHeader.text = generalData.name;
+        thisButton.interactable = generalData.unlocked;
+        UpdateColor();
+    }
+    private void Start()
+    {
+        DetailedCardView.OnBoughtSomething += UpdateData;
+    }
+    private void UpdateData()
+    {
+        bool isUnlocked = generalData.unlocked;
+        thisButton.interactable = isUnlocked;
+        UpdateColor();   
+    }
+    private void UpdateColor()
+    {
+        ColorBlock colorBlock = this.thisButton.colors;
+        colorBlock.normalColor = generalData.unlocked ? Color.white : Color.gray;
+        thisButton.colors = colorBlock;
     }
     public void SetPlayerData()
     {

@@ -3898,6 +3898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemBaseSO: {fileID: 0}
+  thisButton: {fileID: 1611663427}
   type: 0
   textHeader: {fileID: 1136415160}
 --- !u!114 &1611663427
@@ -4665,6 +4666,7 @@ MonoBehaviour:
   headerText: {fileID: 1289535639}
   contentText: {fileID: 1617256918}
   levelText: {fileID: 1569649714}
+  itemSO: {fileID: 0}
 --- !u!1 &1685621492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,14 +5422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisButton: {fileID: 2085222815}
   detailedCardView: {fileID: 1665704175}
-  generalData:
-    name: 
-    description: 
-    icon: {fileID: 0}
-    level: 0
-    buyPrice: 0
-    upgradePrice: 0
-    unlocked: 0
+  itemSO: {fileID: 0}
   header: {fileID: 1183693614}
   priceText: {fileID: 277073489}
 --- !u!114 &2085222815
