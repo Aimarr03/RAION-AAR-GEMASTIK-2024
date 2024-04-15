@@ -9,7 +9,7 @@ public class ShopManager : MonoBehaviour
     public List<ItemBaseSO> abilityList;
     public List<ItemBaseSO> itemList;
     public List<ItemBaseSO> sustainabilityList;
-
+    public ShopMode shopMode;
     private void Awake()
     {
         if (instance == null)

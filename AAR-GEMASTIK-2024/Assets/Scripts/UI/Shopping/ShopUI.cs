@@ -15,7 +15,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private Transform CardContainer;
     [SerializeField] private Transform templateContainer;
-    [SerializeField] private ShopMode shopMode;
+    
     [SerializeField] private DetailedCardView cardDetailedInfo;
     private List<ItemBaseSO> list;
     private List<ShopItemCard> itemCards;
@@ -65,14 +65,14 @@ public class ShopUI : MonoBehaviour
             currentCard.gameObject.SetActive(true);
             ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
             itemCards.Add(detailItemCard);
-            detailItemCard.SetGeneralData(item.generalData);
+            detailItemCard.SetGeneralData(item.generalData, ShopManager.instance.shopMode);
         }
     }
-    public void BuyModeAction() => shopMode = ShopMode.Buy;
-    public void UpgradeModeAction() => shopMode = ShopMode.Upgrade;
+    public void BuyModeAction() => shopManager.shopMode = ShopMode.Buy;
+    public void UpgradeModeAction() => shopManager.shopMode = ShopMode.Upgrade;
     public void SortByMode()
     {
-        switch(shopMode)
+        switch(shopManager.shopMode)
         {
             case ShopMode.Buy:
                 ShowBuyable();
