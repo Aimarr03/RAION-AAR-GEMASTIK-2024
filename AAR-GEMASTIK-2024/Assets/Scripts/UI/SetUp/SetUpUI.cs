@@ -37,4 +37,9 @@ public class SetUpUI : BasePreparingPlayerUI
             currentCard.gameObject.SetActive(true);
         }
     }
+    public void StartExpedition()
+    {
+        if (GameManager.Instance.chosenWeaponSO == null) return;
+        GameManager.Instance.LoadScene(1);
+    }
 }

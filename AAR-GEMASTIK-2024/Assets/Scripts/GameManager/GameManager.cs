@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,5 +27,9 @@ public class GameManager : MonoBehaviour
     public bool CheckHasAssigned()
     {
         return chosenAbilitySO != null && chosenConsumableItemSO != null && chosenConsumableItemSO != null;
+    }
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }
