@@ -9,13 +9,17 @@ public class ShopItemCard : MonoBehaviour
 {
     public Button thisButton;
     public DetailedCardView detailedCardView;
-    public PlayerUsableGeneralData generalData;
+    public ItemBaseSO itemSO;
+    public PlayerUsableGeneralData generalData
+    {
+        get => itemSO.generalData;
+    }
     public TextMeshProUGUI header;
     public TextMeshProUGUI priceText;
     private bool isBuyable;
-    public void SetGeneralData(PlayerUsableGeneralData generalData, ShopMode mode)
+    public void SetGeneralData(ItemBaseSO itemBaseSO, ShopMode mode)
     {
-        this.generalData = generalData;
+        this.itemSO = itemBaseSO;
         header.text = generalData.name;
         IsBuyableOrNot(mode);
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
@@ -28,7 +32,7 @@ public class ShopItemCard : MonoBehaviour
     public void OnOpenDetailedCardView()
     {
         if (detailedCardView.gameObject.activeSelf) return;
-        detailedCardView.OpenTab(generalData, ShopManager.instance.shopMode, isBuyable);
+        detailedCardView.OpenTab(itemSO, ShopManager.instance.shopMode, isBuyable);
     }
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {

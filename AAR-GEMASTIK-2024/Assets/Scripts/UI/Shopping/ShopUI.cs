@@ -28,6 +28,13 @@ public class ShopUI : BasePreparingPlayerUI
     private void Start()
     {
         DisplayItem(ItemType.Weapon);
+        DetailedCardView.OnBoughtSomething += DetailedCardView_OnBoughtSomething;
+    }
+
+    private void DetailedCardView_OnBoughtSomething()
+    {
+        SortByMode();
+        UpdateSorting();
     }
 
     private void ClearContainer()
@@ -66,7 +73,7 @@ public class ShopUI : BasePreparingPlayerUI
             currentCard.name = item.generalData.name;
             ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
             itemCards.Add(detailItemCard);
-            detailItemCard.SetGeneralData(item.generalData, ShopManager.instance.shopMode);
+            detailItemCard.SetGeneralData(item, ShopManager.instance.shopMode);
         }
     }
     public void BuyModeAction() 
