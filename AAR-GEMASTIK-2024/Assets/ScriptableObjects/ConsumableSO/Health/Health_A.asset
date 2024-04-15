@@ -16,6 +16,11 @@ MonoBehaviour:
     name: Tool Kit
     description: Use for repairing damage has been dealth to wards the ship
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 100
+    upgradePrice: 0
+    unlocked: 1
   type: 0
   itemTier: 0
   value: 100
+  quantity: 0

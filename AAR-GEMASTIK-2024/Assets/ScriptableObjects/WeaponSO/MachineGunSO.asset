@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
   m_Name: MachineGunSO
   m_EditorClassIdentifier: 
-  weaponData:
+  generalData:
     name: Machine Gun
-    description: HAHAHAHA BULLET GO BRRRRRRRRRRRRRRRRRRRRR
+    description: BRRRRRRAAAAAAAAH I NEED MORE BULLETS
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 160
+    upgradePrice: 25
+    unlocked: 0
   bulletData:
     level: 1
     speed: 15
     damage: 6
     isFullyCharge: 0
+  unlocked: 0
   cooldownBetweenFiringBullet: 0.2
   weapon: {fileID: 5278453918175851892, guid: b9db96979ab1839468d9c399ba914b21, type: 3}
   bullet: {fileID: 4434176851809491531, guid: 326e7b006424ab540bf60d0860143e65, type: 3}

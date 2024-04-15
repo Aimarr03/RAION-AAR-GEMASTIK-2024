@@ -14,7 +14,36 @@ public struct PlayerUsableGeneralData
     public int upgradePrice;
     public bool unlocked;
 }
-public class ItemBaseSO : ScriptableObject
+public class ItemBaseSO : ScriptableObject, IComparable<ItemBaseSO>
 {
     public PlayerUsableGeneralData generalData;
+
+    public int CompareTo(ItemBaseSO other)
+    {
+        return UpgradeModeComparison(other);
+    }
+    public int UpgradeModeComparison(ItemBaseSO other)
+    {
+        int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
+        if (boolComparison != 0)
+        {
+            return boolComparison;
+        }
+        else
+        {
+            return generalData.name.CompareTo(other.generalData.name);
+        }
+    }
+    public int BuyModeComparison(ItemBaseSO other)
+    {
+        int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
+        if (boolComparison != 0)
+        {
+            return -boolComparison;
+        }
+        else
+        {
+            return generalData.name.CompareTo(other.generalData.name);
+        }
+    }
 }

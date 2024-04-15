@@ -12,14 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
   m_Name: TorpedoGunSO
   m_EditorClassIdentifier: 
-  weaponData:
-    name: Torpedo Baby
-    description: This is certified go boom boom
+  generalData:
+    name: TORPEDO
+    description: THE AMERICAN WAAAAAAY KAKAAAWW
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 250
+    upgradePrice: 75
+    unlocked: 0
   bulletData:
     level: 1
     speed: 30
     damage: 100
+    isFullyCharge: 0
+  unlocked: 0
+  cooldownBetweenFiringBullet: 6
   weapon: {fileID: 3709811383580993494, guid: 2ca5274f28ed5df44875e4ab7e8274e6, type: 3}
   bullet: {fileID: 2144306713197914660, guid: bc68d4160ad9ba547b52199c3b35d39f, type: 3}
   ammountToHold: 5
+  type: 0

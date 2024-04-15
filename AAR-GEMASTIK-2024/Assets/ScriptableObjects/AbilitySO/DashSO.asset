@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Dash
-    description: Going Dash Bro
+    description: "Player Can GO Dash\t"
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 100
+    upgradePrice: 15
+    unlocked: 1
   prefab: {fileID: 1639683206561415221, guid: dad9fcd302e6349478c2bb4c6ba9f045, type: 3}
+  isInvokable: 0
+  cooldownDuration: 4

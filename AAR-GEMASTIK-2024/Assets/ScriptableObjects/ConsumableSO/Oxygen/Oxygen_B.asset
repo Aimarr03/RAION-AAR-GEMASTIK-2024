@@ -17,6 +17,11 @@ MonoBehaviour:
     description: Use this to load more oxygen into the oxygen system in your underwater
       ship
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 200
+    upgradePrice: 0
+    unlocked: 1
   type: 2
   itemTier: 1
   value: 40
+  quantity: 0

@@ -5,9 +5,10 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
-    public List<WeaponSO> weaponList;
-    public List<AbilitySO> abilityList;
-    public List<ConsumableItemSO> itemList;
+    public List<ItemBaseSO> weaponList;
+    public List<ItemBaseSO> abilityList;
+    public List<ItemBaseSO> itemList;
+    public List<ItemBaseSO> sustainabilityList;
 
     private void Awake()
     {
