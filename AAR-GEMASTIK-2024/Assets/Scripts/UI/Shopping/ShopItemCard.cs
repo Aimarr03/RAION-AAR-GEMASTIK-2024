@@ -11,10 +11,13 @@ public class ShopItemCard : MonoBehaviour
     public DetailedCardView detailedCardView;
     public PlayerUsableGeneralData generalData;
     public TextMeshProUGUI header;
+    public TextMeshProUGUI priceText;
+    private bool isBuyable;
     public void SetGeneralData(PlayerUsableGeneralData generalData, ShopMode mode)
     {
         this.generalData = generalData;
         header.text = generalData.name;
+        IsBuyableOrNot(mode);
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
     }
     public void SetGeneralData(ShopMode mode)
@@ -40,7 +43,20 @@ public class ShopItemCard : MonoBehaviour
                 break;
         }
         colorBlock.normalColor = canBeInterracted ? Color.white : Color.red;
+        if (!canBeInterracted) priceText.text = "";
         thisButton.colors = colorBlock;
+    }
+    private void IsBuyableOrNot(ShopMode mode)
+    {
+        int price = 0;
+        switch (mode)
+        {
+            case ShopMode.Buy: price = generalData.buyPrice; break;
+            case ShopMode.Upgrade: price = generalData.buyPrice; break;
+        }
+        priceText.text = price.ToString();
+        isBuyable = EconomyManager.Instance.isPurchasable(price);
+        priceText.color = isBuyable ? Color.white : Color.red;
     }
     public int UpgradeModeComparison(ShopItemCard other)
     {
