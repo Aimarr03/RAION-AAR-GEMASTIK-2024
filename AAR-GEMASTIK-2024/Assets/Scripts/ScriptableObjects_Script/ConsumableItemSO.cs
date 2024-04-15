@@ -7,14 +7,12 @@ public enum ItemTier
     A, B, C
 }
 [CreateAssetMenu(fileName ="New Consumable Items", menuName ="Consumable Item/Create New Consumable Item SO")]
-public class ConsumableItemSO : ScriptableObject, IBuyable, IUpgradable, IQuantifiable
+public class ConsumableItemSO : ItemBaseSO, IBuyable, IUpgradable, IQuantifiable
 {
-    [Header("General Data")]
-    public PlayerUsableGeneralData generalData;
-    [Header("Consumable Item Data")]
     public SustainabilityType type;
     public ItemTier itemTier;
     public int value;
+    public int quantity;
 
     public void UseItem(PlayerCoreSystem system)
     {
@@ -47,12 +45,12 @@ public class ConsumableItemSO : ScriptableObject, IBuyable, IUpgradable, IQuanti
     }
     public void OnUse()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnBuy()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Upgrade()

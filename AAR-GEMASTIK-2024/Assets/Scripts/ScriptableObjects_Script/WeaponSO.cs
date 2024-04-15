@@ -1,14 +1,7 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public struct PlayerUsableGeneralData
-{
-    public string name;
-    [TextArea(4,10)]
-    public string description;
-    public Sprite icon;
-}
+
 public enum WeaponType
 {
     harpoon,
@@ -34,11 +27,8 @@ public struct WeaponBulletData
 }
 
 [CreateAssetMenu(fileName ="New Weapon SO", menuName ="Weapon/Create New Weapon SO")]
-public class WeaponSO : ScriptableObject, IBuyable,IUpgradable
+public class WeaponSO : ItemBaseSO, IBuyable,IUpgradable
 {
-    [Header("General Data")]
-    public PlayerUsableGeneralData weaponData;
-    [Header("Weapon Data")]
     public WeaponBulletData bulletData;
     public bool unlocked;
     public float cooldownBetweenFiringBullet;
@@ -49,11 +39,11 @@ public class WeaponSO : ScriptableObject, IBuyable,IUpgradable
 
     public void Buy()
     {
-        Debug.Log("Attempt to Buy " + weaponData.name);
+        Debug.Log("Attempt to Buy " + generalData.name);
     }
 
     public void Upgrade()
     {
-        Debug.Log("Attempt to Upgrade " + weaponData.name);
+        Debug.Log("Attempt to Upgrade " + generalData.name);
     }
 }
