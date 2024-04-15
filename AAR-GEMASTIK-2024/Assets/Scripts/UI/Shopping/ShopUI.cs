@@ -34,6 +34,8 @@ public class ShopUI : MonoBehaviour
         {
             Transform currentCard = Instantiate(templateContainer, CardContainer);
             currentCard.gameObject.SetActive(true);
+            ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
+            detailItemCard.header.text = weaponSO.name;
         }
     }
     public void DisplayAbility()
@@ -43,6 +45,8 @@ public class ShopUI : MonoBehaviour
         {
             Transform currentCard = Instantiate(templateContainer, CardContainer);
             currentCard.gameObject.SetActive(true);
+            ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
+            detailItemCard.header.text = abilitySO.name;
         }
     }
     public void DisplayItem()
@@ -52,6 +56,8 @@ public class ShopUI : MonoBehaviour
         {
             Transform currentCard = Instantiate(templateContainer, CardContainer);
             currentCard.gameObject.SetActive(true);
+            ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
+            detailItemCard.header.text = itemSO.name;
         }
     }
 

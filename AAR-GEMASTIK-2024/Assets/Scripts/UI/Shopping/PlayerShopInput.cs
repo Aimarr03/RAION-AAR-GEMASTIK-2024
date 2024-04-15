@@ -7,8 +7,10 @@ public class PlayerShopInput : MonoBehaviour
 {
     [SerializeField] private Image pointer;
     [SerializeField] private float movementPointer;
+    [SerializeField] private LayerMask mask;
 
     private DefaultInputAction inputAction;
+    private RaycastHit hit;
 
     private void Awake()
     {
@@ -23,6 +25,12 @@ public class PlayerShopInput : MonoBehaviour
     {
         Vector2 input = inputAction.Player.Move.ReadValue<Vector2>();
         pointer.transform.position += (Vector3)input * movementPointer * 100 * Time.deltaTime;
+
+        Ray ray = Camera.main.ScreenPointToRay(pointer.transform.position);
+        if(Physics.Raycast(ray, out hit, 1000f, mask))
+        {
+            Debug.Log("HIT " + hit.collider.gameObject.name);
+        }
     }
     private void InvokeWeaponUsage_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
