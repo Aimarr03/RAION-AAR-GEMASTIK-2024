@@ -17,6 +17,10 @@ public class ShopItemCard : MonoBehaviour
         header.text = generalData.name;
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
     }
+    public void SetGeneralData(ShopMode mode)
+    {
+        CanBeUseBuyActionOrNot(generalData.unlocked, mode);
+    }
     public void OnOpenDetailedCardView()
     {
         if (detailedCardView.gameObject.activeSelf) return;
@@ -37,5 +41,29 @@ public class ShopItemCard : MonoBehaviour
         }
         colorBlock.normalColor = canBeInterracted ? Color.white : Color.red;
         thisButton.colors = colorBlock;
+    }
+    public int UpgradeModeComparison(ShopItemCard other)
+    {
+        int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
+        if (boolComparison != 0)
+        {
+            return boolComparison;
+        }
+        else
+        {
+            return generalData.name.CompareTo(other.generalData.name);
+        }
+    }
+    public int BuyModeComparison(ShopItemCard other)
+    {
+        int boolComparison = generalData.unlocked.CompareTo(other.generalData.unlocked);
+        if (boolComparison != 0)
+        {
+            return -boolComparison;
+        }
+        else
+        {
+            return generalData.name.CompareTo(other.generalData.name);
+        }
     }
 }

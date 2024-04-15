@@ -63,29 +63,64 @@ public class ShopUI : MonoBehaviour
         {
             Transform currentCard = Instantiate(templateContainer, CardContainer);
             currentCard.gameObject.SetActive(true);
+            currentCard.name = item.generalData.name;
             ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
             itemCards.Add(detailItemCard);
             detailItemCard.SetGeneralData(item.generalData, ShopManager.instance.shopMode);
         }
     }
-    public void BuyModeAction() => shopManager.shopMode = ShopMode.Buy;
-    public void UpgradeModeAction() => shopManager.shopMode = ShopMode.Upgrade;
+    public void BuyModeAction() 
+    { 
+        shopManager.shopMode = ShopMode.Buy;
+        SortByMode();
+        UpdateSorting();
+    }
+
+    public void UpgradeModeAction()
+    {
+        shopManager.shopMode = ShopMode.Upgrade;
+        SortByMode();
+        UpdateSorting();
+    }
     public void SortByMode()
     {
         switch(shopManager.shopMode)
         {
             case ShopMode.Buy:
                 ShowBuyable();
+                
                 break;
             case ShopMode.Upgrade:
                 ShowUpgradable();
+                
                 break;
         }
     }
-    public void ShowUpgradable() => list.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
-    public void ShowBuyable() => list.Sort((item1, item2) => item1.BuyModeComparison(item2));
+    public void ShowUpgradable() 
+    {
+        list.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
+        if (itemCards.Count <= 0) return;
+        itemCards.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
+    }
+    public void ShowBuyable()
+    {
+        list.Sort((item1, item2) => item1.BuyModeComparison(item2));
+        if (itemCards.Count <= 0) return;
+        itemCards.Sort((item1, item2) => item1.BuyModeComparison(item2));
+    }
     public void DisplayWeapon() => DisplayItem(ItemType.Weapon);
     public void DisplayAbility() => DisplayItem(ItemType.Ability);
     public void DisplayItem() => DisplayItem(ItemType.Item);
     public void DisplaySustainability() => DisplayItem(ItemType.Sustainabillity);
+    private void UpdateSorting()
+    {
+        if (itemCards.Count <= 0) return;
+        for(int i= 0; i<itemCards.Count; i++)
+        {
+            ShopItemCard card = itemCards[i];
+            Transform currentCardTransform = card.transform;
+            card.SetGeneralData(ShopManager.instance.shopMode);
+            currentCardTransform.SetSiblingIndex(i);
+        }
+    }
 }

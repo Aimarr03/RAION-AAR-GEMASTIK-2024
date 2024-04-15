@@ -592,7 +592,6 @@ MonoBehaviour:
   shopManager: {fileID: 621391185}
   CardContainer: {fileID: 503717630}
   templateContainer: {fileID: 2085222811}
-  shopMode: 0
   cardDetailedInfo: {fileID: 0}
 --- !u!1 &265740504
 GameObject:
@@ -1379,6 +1378,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 067863a6d7e39d0438063850f76135ed, type: 2}
   - {fileID: 11400000, guid: ca85018442171574f8cd7cd17c715025, type: 2}
   - {fileID: 11400000, guid: b72b813dcff9f50449335f29e9511e7f, type: 2}
+  shopMode: 0
 --- !u!4 &621391186
 Transform:
   m_ObjectHideFlags: 0
@@ -4148,6 +4148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c51eb0d295ff0942857d59c99e20373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 2085222815}
   detailedCardView: {fileID: 1665704175}
   generalData:
     name: 
@@ -4185,7 +4186,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
