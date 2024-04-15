@@ -10,7 +10,7 @@ public enum ShopMode
 {
     Buy, Upgrade
 }
-public class ShopUI : MonoBehaviour
+public class ShopUI : BasePreparingPlayerUI
 {
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private Transform CardContainer;
