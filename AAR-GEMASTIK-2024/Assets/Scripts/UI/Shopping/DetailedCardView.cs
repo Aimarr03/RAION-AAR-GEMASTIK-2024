@@ -13,6 +13,7 @@ public class DetailedCardView : MonoBehaviour
     public TextMeshProUGUI levelText;
     public ItemBaseSO itemSO;
     public static event Action OnBoughtSomething;
+    public static event Action OnUpgradedSomething;
     private PlayerUsableGeneralData generalData
     {
         get => itemSO.generalData;
@@ -51,7 +52,7 @@ public class DetailedCardView : MonoBehaviour
                 BuyAction.interactable = unlockable;
                 if (BuyAction.interactable)
                 {
-                    buttonText.text = "Upgrade " + generalData.upgradePrice;
+                    buttonText.text = "Upgrade " + generalData.totalUpgradePrice;
                 }
                 else
                 {
@@ -81,13 +82,19 @@ public class DetailedCardView : MonoBehaviour
                 BuyAction.onClick.AddListener(OnBuy);
                 break;
             case ShopMode.Upgrade:
-
+                BuyAction.onClick.AddListener(OnUpgrade);
                 break;
         }
     }
     private void UseMoney()
     {
-        EconomyManager.Instance.PurchaseSomething(generalData.buyPrice);
+        int price = 0;
+        switch (ShopManager.instance.shopMode)
+        {
+            case ShopMode.Buy: price = generalData.buyPrice; break;
+            case ShopMode.Upgrade: price = generalData.totalUpgradePrice; break;
+        }
+        EconomyManager.Instance.PurchaseSomething(price);
     }
     private void OnBuy()
     {
@@ -97,5 +104,20 @@ public class DetailedCardView : MonoBehaviour
         buttonText.text = "Already Bought!";
         gameObject.SetActive(false);
         OnBoughtSomething?.Invoke();
+    }
+    private void OnUpgrade()
+    {
+        itemSO.generalData.level++;
+        OnUpdateUpgrade();
+        OnUpgradedSomething?.Invoke();
+    }
+    private void OnUpdateUpgrade()
+    {
+        levelText.text = generalData.level.ToString();
+        int newPrice = generalData.totalUpgradePrice;
+        bool isBuyable = EconomyManager.Instance.isPurchasable(newPrice);
+        TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
+        buttonText.text = "Upgrade " + newPrice;
+        SetButtonIsBuyableOrNot(isBuyable);
     }
 }

@@ -13,6 +13,11 @@ public struct PlayerUsableGeneralData
     public int buyPrice;
     public int upgradePrice;
     public bool unlocked;
+
+    public int totalUpgradePrice
+    {
+        get => upgradePrice + ((level - 1) * upgradePrice);
+    }
 }
 public class ItemBaseSO : ScriptableObject, IComparable<ItemBaseSO>
 {
