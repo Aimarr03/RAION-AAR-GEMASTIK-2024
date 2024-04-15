@@ -30,6 +30,7 @@ public abstract class WeaponBase : MonoBehaviour
     public BaseBullet LoadBullet()
     {
         BaseBullet baseBullet = objectPooling.UnloadBullet();
+        baseBullet.transform.parent = null;
         baseBullet.transform.position = firePointBlank.position;
         baseBullet.transform.rotation = Quaternion.identity;
         return baseBullet;

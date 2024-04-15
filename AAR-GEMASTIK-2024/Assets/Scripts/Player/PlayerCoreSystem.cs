@@ -45,6 +45,11 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         invunerableDuration = 2f;
         disabledDuration = 0;
         maxAttempt = 12;
+        if(GameManager.Instance != null)
+        {
+            if (GameManager.Instance.chosenWeaponSO != null) weaponSystem.SetWeaponSO(GameManager.Instance.chosenWeaponSO);
+            if (GameManager.Instance.chosenAbilitySO != null) abilitySystem.SetUpAbilitySO(GameManager.Instance.chosenAbilitySO);
+        }
     }
 
     public void Update()

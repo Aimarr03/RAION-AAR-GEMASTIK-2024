@@ -51,5 +51,8 @@ public class PlayerWeaponSystem : MonoBehaviour
         Transform weaponInstantiate = Instantiate(weaponSo.weapon, weaponHolderPosition);
         baseWeapon = weaponInstantiate.GetComponent<WeaponBase>();
         baseWeapon.SetPlayerCoreSystem(playerCoreSystem);
+        baseWeapon.weaponSO = weaponSo;
+        baseWeapon.SetObjectPooling(weaponSo);
+        baseWeapon.SetUpData();
     }
 }

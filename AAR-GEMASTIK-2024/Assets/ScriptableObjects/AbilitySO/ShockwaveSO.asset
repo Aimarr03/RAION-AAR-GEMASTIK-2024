@@ -24,5 +24,5 @@ MonoBehaviour:
     upgradePrice: 250
     unlocked: 0
   prefab: {fileID: 2988426221509979636, guid: 4af83b5e9c7d5654081ccd0c01866a25, type: 3}
-  isInvokable: 0
+  isInvokable: 1
   cooldownDuration: 4

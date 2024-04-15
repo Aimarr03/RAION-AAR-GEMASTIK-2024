@@ -43,4 +43,12 @@ public class PlayerAbilitySystem : MonoBehaviour
         if (abilityBase == null) return;
         abilityBase.Fire(playerCoreSystem);
     }
+    public void SetUpAbilitySO(AbilitySO abilitySO)
+    {
+        this.abilitySO = abilitySO;
+        Transform abilityInstantiate = Instantiate(abilitySO.prefab, abilityHolderPosition);
+        abilityBase = abilityInstantiate.GetComponent<AbilityBase>();
+        abilityBase.SetPlayerCoreSystem(playerCoreSystem);
+        abilityBase.SetUpData();
+    }
 }
