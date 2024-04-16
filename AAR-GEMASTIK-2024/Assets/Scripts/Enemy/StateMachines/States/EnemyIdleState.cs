@@ -8,9 +8,9 @@ public class EnemyIdleState : EnemyBaseState
     private float radius;
     private EnemyBaseState nextState;
 
-    public EnemyIdleState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemyIdleState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float radius) : base(enemyStateMachine, enemy, playerLayerMask)
     {
-
+        this.radius = radius;
     }
 
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
@@ -22,8 +22,13 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void OnExitState()
     {
+        
+    }
+
+    public override void OnUpdateState()
+    {
         Collider[] collidedUnit = Physics.OverlapSphere(enemy.transform.position, radius, playerLayerMask);
-        if(collidedUnit.Length > 0 )
+        if (collidedUnit.Length > 0)
         {
             Collider player = collidedUnit[0];
             PlayerCoreSystem coreSystem = player.GetComponent<PlayerCoreSystem>();
@@ -31,14 +36,9 @@ public class EnemyIdleState : EnemyBaseState
             SetPlayerCoreSystem(coreSystem);
         }
     }
-
-    public override void OnUpdateState()
-    {
-        
-    }
     public override void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
+        Gizmos.color = playerCoreSystem != null ?  Color.red : Color.white;
         Gizmos.DrawWireSphere(enemy.transform.position, radius);
     }
 }

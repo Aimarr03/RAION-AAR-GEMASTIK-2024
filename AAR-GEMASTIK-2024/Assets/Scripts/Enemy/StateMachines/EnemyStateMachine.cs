@@ -10,6 +10,10 @@ public class EnemyStateMachine
     {
         currentState?.OnUpdateState();
     }
+    public void DrawGizmos()
+    {
+        currentState?.OnDrawGizmos();
+    }
     public void OnTransitionState(EnemyBaseState newState)
     {
         currentState.OnExitState();
@@ -20,4 +24,5 @@ public class EnemyStateMachine
     {
         currentState = enemyBaseStateStarter;
     }
+    
 }

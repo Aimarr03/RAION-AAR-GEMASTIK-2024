@@ -7,6 +7,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     protected bool isDead = false;
 
     protected EnemyStateMachine stateMachine;
+    [SerializeField] protected LayerMask playerLayerMask;
 
     public event Action OnEnemyDead;
     public void SetDead()
@@ -24,4 +25,6 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     public abstract void OnDisableMove(float moveDuration, int maxAttemptToRecover);
 
     public abstract void TakeDamage(int damage);
+    public abstract void OnDrawGizmos();
+    
 }
