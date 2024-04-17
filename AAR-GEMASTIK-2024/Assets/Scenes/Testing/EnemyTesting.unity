@@ -136,11 +136,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyJellyfish
       objectReference: {fileID: 0}
-    - target: {fileID: 3346291384632009916, guid: a1c182f04685ef4478cc6b22d6a00715,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5608642234927599467, guid: a1c182f04685ef4478cc6b22d6a00715,
         type: 3}
       propertyPath: m_LocalPosition.x
