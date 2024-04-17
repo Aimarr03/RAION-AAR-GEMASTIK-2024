@@ -22,7 +22,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void OnExitState()
     {
-        
+        Debug.Log("Exiting Idle State");
     }
 
     public override void OnUpdateState()
