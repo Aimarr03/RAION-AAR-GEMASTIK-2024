@@ -6,14 +6,15 @@ public class EnemyGroupers : EnemyBase
 {
     [SerializeField] private float radius;
     private EnemyIdleState idleState;
+    private EnemyChaseState chaseState;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void OnDisableMove(float moveDuration, int maxAttemptToRecover)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void OnDrawGizmos()
@@ -24,13 +25,16 @@ public class EnemyGroupers : EnemyBase
 
     public override void TakeDamage(int damage)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     protected override void Awake()
     {
         base.Awake();
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,radius);
+        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask);
+
+        idleState.SetNextState(chaseState);
         stateMachine.InitializeState(idleState);
     }
 

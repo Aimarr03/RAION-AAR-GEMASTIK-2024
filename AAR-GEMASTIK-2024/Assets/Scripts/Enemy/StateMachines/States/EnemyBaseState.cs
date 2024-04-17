@@ -14,12 +14,6 @@ public abstract class EnemyBaseState
         this.playerLayerMask = playerLayerMask;
     }
 
-    protected EnemyBaseState(EnemyStateMachine enemyStateMachine, EnemyBase enemy)
-    {
-        this.enemyStateMachine = enemyStateMachine;
-        this.enemy = enemy;
-    }
-
     public void SetPlayerCoreSystem(PlayerCoreSystem playerCoreSystem) => this.playerCoreSystem = playerCoreSystem;
     public abstract void OnEnterState();
     public abstract void OnExitState();

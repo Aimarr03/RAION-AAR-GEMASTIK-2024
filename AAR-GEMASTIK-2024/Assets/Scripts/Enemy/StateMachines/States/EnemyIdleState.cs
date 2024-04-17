@@ -32,8 +32,9 @@ public class EnemyIdleState : EnemyBaseState
         {
             Collider player = collidedUnit[0];
             PlayerCoreSystem coreSystem = player.GetComponent<PlayerCoreSystem>();
-            Debug.Log("Player Detected");
             SetPlayerCoreSystem(coreSystem);
+            nextState.SetPlayerCoreSystem(coreSystem);
+            enemyStateMachine.OnTransitionState(nextState);
         }
     }
     public override void OnDrawGizmos()

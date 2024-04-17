@@ -5,8 +5,10 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
 {
     protected EnemyHealthSystem healthSystem;
     protected bool isDead = false;
-
+    public Transform headFish;
+    
     protected EnemyStateMachine stateMachine;
+    public Rigidbody rigidBody;
     [SerializeField] protected LayerMask playerLayerMask;
 
     public event Action OnEnemyDead;
@@ -17,6 +19,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     }
     protected virtual void Awake()
     {
+        rigidBody = GetComponent<Rigidbody>();
         stateMachine = new EnemyStateMachine(this);
     }
     protected abstract void Update();
@@ -26,5 +29,6 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
 
     public abstract void TakeDamage(int damage);
     public abstract void OnDrawGizmos();
+    
     
 }
