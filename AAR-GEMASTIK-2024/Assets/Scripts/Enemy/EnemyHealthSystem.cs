@@ -5,7 +5,7 @@ public struct UpdateEnemyHealthValue
 {
     public int currentValue;
     public int maxValue;
-    public readonly float PercentageValue => currentValue / maxValue;
+    public readonly float PercentageValue => (float)currentValue / maxValue;
     public UpdateEnemyHealthValue(int currentValue, int maxValue)
     {
         this.currentValue = currentValue;

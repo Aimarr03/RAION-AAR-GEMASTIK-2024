@@ -17,7 +17,7 @@ public class EnemyIdleState : EnemyBaseState
     
     public override void OnEnterState()
     {
-        
+        enemy.rigidBody.velocity = Vector3.zero;
     }
 
     public override void OnExitState()

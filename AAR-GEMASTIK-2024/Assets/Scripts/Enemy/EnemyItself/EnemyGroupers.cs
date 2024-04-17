@@ -26,7 +26,7 @@ public class EnemyGroupers : EnemyBase
 
     public override void TakeDamage(int damage)
     {
-        
+        healthSystem.OnDecreaseHealth(damage);
     }
 
     protected override void Awake()

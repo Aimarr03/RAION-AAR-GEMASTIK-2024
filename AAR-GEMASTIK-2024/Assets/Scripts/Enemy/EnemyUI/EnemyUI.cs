@@ -22,10 +22,13 @@ public class EnemyUI : MonoBehaviour
         enemyName.text = enemyBase.fishName;
     }
 
-    private void EnemyUI_OnChangeValue(UpdateEnemyHealthValue obj)
+    private void EnemyUI_OnChangeValue(UpdateEnemyHealthValue dataHealth)
     {
         HealthBar.gameObject.SetActive(true);
-        float percentage = obj.PercentageValue;
+        float percentage = dataHealth.PercentageValue;
+        Debug.Log(dataHealth.currentValue);
+        Debug.Log(dataHealth.maxValue);
+        Debug.Log("Percentage Value " + dataHealth.PercentageValue);
         currentHealthVisual.fillAmount = percentage;
     }
 }
