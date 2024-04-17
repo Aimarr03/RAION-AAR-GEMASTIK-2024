@@ -11,6 +11,7 @@ public class BulletTorpedo : BaseBullet
     {
         if(collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
         {
+            damagableUnit.TakeDamage(weaponData.totalDamage);
             OnExplode();
         }
         if (collision.gameObject.CompareTag(WALLTAG))
@@ -40,6 +41,10 @@ public class BulletTorpedo : BaseBullet
         for(int index = 0; index < explodedUnit.Length; index++)
         {
             string gameObjectName = explodedUnit[index].gameObject.ToString();
+            if (explodedUnit[index].gameObject.TryGetComponent(out IDamagable damagableUnit))
+            {
+                damagableUnit.TakeDamage(weaponData.totalDamage);
+            }
             Debug.Log($"{gameObjectName} is within the explosion area");
         }
         canLaunch = false;

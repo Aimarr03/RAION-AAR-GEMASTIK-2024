@@ -13,7 +13,8 @@ public class BulletEnergyBlaster : BaseBullet
             {
                 OnExplode();
             }
-            Debug.Log("Hit " + collision.gameObject.name);
+            collision.gameObject.TryGetComponent(out IDamagable damagableUnit);
+            damagableUnit.TakeDamage(weaponData.totalDamage);
             LoadToPool();
         }
     }
@@ -37,9 +38,8 @@ public class BulletEnergyBlaster : BaseBullet
             Collider currentHitWithinRadius = hitObjectWithinRadius[i];
             if (currentHitWithinRadius.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
-                Debug.Log("Unit Got Hit");
+                damagableUnit.TakeDamage(weaponData.totalDamage);
             }
-            Debug.Log($"Unit {currentHitWithinRadius.gameObject.name} within the radius of blast");
         }
     }
 }

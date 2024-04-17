@@ -18,6 +18,12 @@ public class BulletHarpoon : BaseBullet
                 canLaunch = false;
                 Debug.Log("Collided with wall");
                 break;
+            default:
+                if(collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
+                {
+                    damagableUnit.TakeDamage(weaponData.totalDamage);
+                }
+                break;
         }
     }
     public override void OnLaunchBullet()

@@ -21,7 +21,7 @@ public class AbilityShockwave : AbilityBase
         {
             if(collider.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
-                Debug.Log(collider.gameObject.name + " can be damaged");
+                damagableUnit.TakeDamage(100);
             }
             Debug.Log(collider.gameObject.name);
         }

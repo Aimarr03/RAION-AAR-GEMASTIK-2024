@@ -9,7 +9,10 @@ public class BulletMachineGun : BaseBullet
     {
         if(collision != null)
         {
-            Debug.Log("Hit " + collision.gameObject.name);
+            if(collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
+            {
+                damagableUnit.TakeDamage(weaponData.totalDamage);
+            }
             LoadToPool();
             canLaunch = false;
         }
