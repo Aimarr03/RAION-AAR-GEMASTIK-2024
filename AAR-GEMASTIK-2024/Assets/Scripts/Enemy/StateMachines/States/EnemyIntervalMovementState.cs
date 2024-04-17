@@ -48,7 +48,12 @@ public class EnemyIntervalMovementState : EnemyBaseState
         Debug.Log("Cooldown");
         await Task.Delay(2 * 1000);
         float distance = Vector3.Distance(enemy.transform.position, playerCoreSystem.transform.position);
-        if (distance < 2) enemy.rigidBody.velocity = Vector3.zero;
+        if (distance < 2)
+        {
+            nextState.SetPlayerCoreSystem(playerCoreSystem);
+            enemy.rigidBody.velocity = Vector3.zero;
+            enemyStateMachine.OnTransitionState(nextState);
+        }
         canInvokeMovement = true;
         Debug.Log("Move Again");
     }

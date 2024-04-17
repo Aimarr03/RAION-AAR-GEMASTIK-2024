@@ -4,6 +4,7 @@ public class EnemyJellyFish : EnemyBase
 {
     private EnemyIdleState idleState;
     private EnemyIntervalMovementState intervalMovementState;
+    private EnemyGrabState grabState;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
@@ -31,8 +32,11 @@ public class EnemyJellyFish : EnemyBase
         healthSystem = new EnemyHealthSystem(this, 250);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,15);
         intervalMovementState = new EnemyIntervalMovementState(stateMachine, this, playerLayerMask);
+        grabState = new EnemyGrabState(stateMachine, this, playerLayerMask);
 
         idleState.SetNextState(intervalMovementState);
+        intervalMovementState.SetNextState(grabState);
+        grabState.SetNextState(idleState);
         stateMachine.InitializeState(idleState);
     }
 

@@ -19,6 +19,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     public event Action OnDead;
     public event Action OnBlocking;
     public event Action<bool> OnDisabled;
+    public event Action OnBreakingFree;
 
     private bool isVunerable;
     private float invunerableDuration;
@@ -153,6 +154,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         PlayerInputSystem.AttemptRecoverFromDisableStatus += PlayerInputSystem_AttemptRecoverFromDisableStatus;
         await Task.Delay((int)(movementDuration * 1000));
         if (!onDisabled) return;
+        OnBreakingFree?.Invoke();
         onDisabled = false;
         OnDisabled?.Invoke(onDisabled);
         moveSystem.SetCanBeUsed(true);
@@ -170,6 +172,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             OnDisabled?.Invoke(onDisabled);
             moveSystem.SetCanBeUsed(true);
             PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
+            OnBreakingFree?.Invoke();
         }
     }
 }
