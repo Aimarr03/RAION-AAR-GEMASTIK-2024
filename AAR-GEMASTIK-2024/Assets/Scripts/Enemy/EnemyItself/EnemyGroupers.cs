@@ -32,6 +32,7 @@ public class EnemyGroupers : EnemyBase
     protected override void Awake()
     {
         base.Awake();
+        healthSystem = new EnemyHealthSystem(this, 150);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,radius);
         chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask);
         biteState = new EnemyBiteState(stateMachine, this, playerLayerMask);

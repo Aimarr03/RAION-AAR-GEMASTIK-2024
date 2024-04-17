@@ -12,6 +12,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     [SerializeField] protected LayerMask playerLayerMask;
 
     public int damage;
+    public string fishName;
 
     public event Action OnEnemyDead;
     public void SetDead()
@@ -24,6 +25,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
         rigidBody = GetComponent<Rigidbody>();
         stateMachine = new EnemyStateMachine(this);
     }
+    public EnemyHealthSystem GetHealthSystem() => healthSystem;
     protected abstract void Update();
     public abstract void AddSuddenForce(Vector3 directiom, float forcePower);
 
