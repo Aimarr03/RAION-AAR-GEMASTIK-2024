@@ -11,6 +11,8 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     public Rigidbody rigidBody;
     [SerializeField] protected LayerMask playerLayerMask;
 
+    public int damage;
+
     public event Action OnEnemyDead;
     public void SetDead()
     {

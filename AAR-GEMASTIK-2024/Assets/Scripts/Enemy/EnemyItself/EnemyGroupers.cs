@@ -7,6 +7,7 @@ public class EnemyGroupers : EnemyBase
     [SerializeField] private float radius;
     private EnemyIdleState idleState;
     private EnemyChaseState chaseState;
+    private EnemyBiteState biteState;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
@@ -33,8 +34,11 @@ public class EnemyGroupers : EnemyBase
         base.Awake();
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,radius);
         chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask);
+        biteState = new EnemyBiteState(stateMachine, this, playerLayerMask);
 
         idleState.SetNextState(chaseState);
+        chaseState.SetNextState(biteState);
+        biteState.SetNextState(idleState);
         stateMachine.InitializeState(idleState);
     }
 

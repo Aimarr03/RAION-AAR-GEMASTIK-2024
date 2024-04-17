@@ -35,6 +35,7 @@ public class EnemyChaseState : EnemyBaseState
     public override void OnUpdateState()
     {
         CheckPlayer();
+        WithinBiteRange();
     }
     private void CheckPlayer()
     {
@@ -42,6 +43,13 @@ public class EnemyChaseState : EnemyBaseState
         direction = (playerCoreSystem.transform.position - enemy.transform.position).normalized;
         HorizontalMove(direction);
         VerticalMovement(direction);
+    }
+    private void WithinBiteRange()
+    {
+        if (Vector3.Distance(playerCoreSystem.transform.position, enemy.transform.position) > 3) return;
+        Debug.Log("Engage Biting");
+        nextState.SetPlayerCoreSystem(playerCoreSystem);
+        enemyStateMachine.OnTransitionState(nextState);
     }
     private void HorizontalMove(Vector3 direction)
     {
