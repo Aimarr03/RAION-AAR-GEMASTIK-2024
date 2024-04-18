@@ -74,5 +74,9 @@ public abstract class _BaseSustainabilitySystem
         OnChangeValue?.Invoke(healthData);
     }
     public virtual void OnAddMaxValue(int value) => maxValue += value;
+    public SustainabilityData GetCurretnData(SustainabilityType type)
+    {
+        return new SustainabilityData(currentValue, maxValue, ChangeState.Increase, type);
+    }
     //public abstract void OnUsage();
 }
