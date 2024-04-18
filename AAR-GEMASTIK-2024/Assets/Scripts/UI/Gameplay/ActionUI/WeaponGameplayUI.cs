@@ -37,9 +37,10 @@ public class WeaponGameplayUI : MonoBehaviour
         {
             currentDuration += Time.deltaTime;
             float percentage = (float)currentDuration / cooldown;
-            Debug.Log(percentage);
+            //Debug.Log(percentage);
             weaponIcon.fillAmount = percentage;
             yield return null;
         }
+        Debug.Log("Can be Used");
     }
 }

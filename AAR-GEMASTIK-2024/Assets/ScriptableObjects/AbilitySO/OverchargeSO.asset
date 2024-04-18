@@ -22,4 +22,4 @@ MonoBehaviour:
     unlocked: 0
   prefab: {fileID: 7086245503285468533, guid: 0f46464b43f943541a2b83fce5ec33cd, type: 3}
   isInvokable: 1
-  cooldownDuration: 0.2
+  cooldownDuration: 7

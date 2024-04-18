@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class PlayerAbilitySystem : MonoBehaviour
     [SerializeField] private Transform abilityHolderPosition;
 
     private PlayerCoreSystem playerCoreSystem;
+    public event Action<float> OnDoneInvokingAbility;
 
     private void Awake()
     {
@@ -51,4 +53,9 @@ public class PlayerAbilitySystem : MonoBehaviour
         abilityBase.SetPlayerCoreSystem(playerCoreSystem);
         abilityBase.SetUpData();
     }
+    public AbilitySO GetAbilitySO()
+    {
+        return abilitySO;
+    }
+    public void TriggerDoneInvokingAbility(float duration) => OnDoneInvokingAbility?.Invoke(duration);
 }

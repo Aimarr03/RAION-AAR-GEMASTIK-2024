@@ -28,6 +28,7 @@ public class AbilityDash : AbilityBase
     }
     public override IEnumerator OnCooldown()
     {
+        playerCoreSystem.weaponSystem.TriggerDoneFire(intervalCooldown);
         float currentTimer = 0;
         while(currentTimer <= intervalCooldown)
         {

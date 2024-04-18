@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 91225267}
   - component: {fileID: 91225266}
   m_Layer: 5
-  m_Name: HarpoonName
+  m_Name: WeaponName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1675,6 +1675,7 @@ GameObject:
   - component: {fileID: 702876307}
   - component: {fileID: 702876309}
   - component: {fileID: 702876308}
+  - component: {fileID: 702876310}
   m_Layer: 5
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -1737,6 +1738,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702876306}
   m_CullTransparentMesh: 1
+--- !u!114 &702876310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702876306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d42fac401ef544e973fbd2ed31680f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeaponSystem: {fileID: 1721227705}
+  weaponName: {fileID: 91225266}
+  weaponIcon: {fileID: 1797903633}
 --- !u!1 &768432569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,6 +2923,7 @@ GameObject:
   - component: {fileID: 1315182996}
   - component: {fileID: 1315182998}
   - component: {fileID: 1315182997}
+  - component: {fileID: 1315182999}
   m_Layer: 5
   m_Name: Ability Holder
   m_TagString: Untagged
@@ -2969,6 +2986,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315182995}
   m_CullTransparentMesh: 1
+--- !u!114 &1315182999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315182995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fab52e1c7029549800cda19a1a416c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilitySystem: {fileID: 1721227713}
+  abilityName: {fileID: 591968124}
+  abilityIcon: {fileID: 414122037}
 --- !u!1 &1320594768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,7 +3562,7 @@ GameObject:
   - component: {fileID: 1714066684}
   - component: {fileID: 1714066683}
   m_Layer: 5
-  m_Name: AbilityIconCooldown
+  m_Name: WeaponIconCooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3604,6 +3636,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab476f83b2bbb74480d03ca63224207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1721227705 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7279481074748977735, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 924340828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c1fd0146225de43bb81e12430937d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1721227713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6665911419686144876, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 924340828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f779a8a0e60d814289904d64e221d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1737416325
@@ -3694,7 +3750,7 @@ GameObject:
   - component: {fileID: 1797903634}
   - component: {fileID: 1797903633}
   m_Layer: 5
-  m_Name: AbilityIcon
+  m_Name: WeaponIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

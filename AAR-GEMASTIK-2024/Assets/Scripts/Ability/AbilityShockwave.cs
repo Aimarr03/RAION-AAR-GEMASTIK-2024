@@ -31,6 +31,7 @@ public class AbilityShockwave : AbilityBase
 
     public override IEnumerator OnCooldown()
     {
+        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
         float currentInterval = 0;
         while(currentInterval < intervalCooldown)
         {

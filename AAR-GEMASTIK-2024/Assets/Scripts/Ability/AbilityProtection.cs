@@ -12,6 +12,7 @@ public class AbilityProtection : AbilityBase
 
     public override IEnumerator OnCooldown()
     {
+        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
         float currentTimer = 0;
         while (currentTimer <= intervalCooldown)
         {
