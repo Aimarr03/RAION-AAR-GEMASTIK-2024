@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bccc0cd4292c81419ceb0bd0825eefd, type: 3}
-  m_Name: Energy_C
+  m_Script: {fileID: 11500000, guid: 1b0f117f1dda1b74b8c5203decfa2a5b, type: 3}
+  m_Name: ItemEnergy_B
   m_EditorClassIdentifier: 
   generalData:
     name: Emergency Battery
-    description: Use this to load more energy into the ship
+    description: This Thing is robust for energy recovery
     icon: {fileID: 0}
     level: 1
-    buyPrice: 100
+    buyPrice: 160
     upgradePrice: 0
     unlocked: 1
-  type: 1
-  itemTier: 2
-  value: 15
-  quantity: 0
+  itemTier: 1
+  value: 75
+  quantity: 5

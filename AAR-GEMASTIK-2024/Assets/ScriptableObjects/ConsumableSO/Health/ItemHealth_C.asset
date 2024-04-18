@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bccc0cd4292c81419ceb0bd0825eefd, type: 3}
-  m_Name: Energy_B
+  m_Script: {fileID: 11500000, guid: 22c1127a1c598a642bf5a7efc7e037d5, type: 3}
+  m_Name: ItemHealth_C
   m_EditorClassIdentifier: 
   generalData:
-    name: Emergency Battery
-    description: Use this to load more energy into the ship
+    name: Tool Kit
+    description: Good for Health BRO
     icon: {fileID: 0}
     level: 1
-    buyPrice: 200
+    buyPrice: 80
     upgradePrice: 0
     unlocked: 1
-  type: 1
-  itemTier: 1
-  value: 30
-  quantity: 0
+  itemTier: 2
+  value: 100
+  quantity: 5

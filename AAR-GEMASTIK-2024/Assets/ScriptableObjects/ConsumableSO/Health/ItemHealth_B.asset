@@ -9,19 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bccc0cd4292c81419ceb0bd0825eefd, type: 3}
-  m_Name: Oxygen_A
+  m_Script: {fileID: 11500000, guid: 22c1127a1c598a642bf5a7efc7e037d5, type: 3}
+  m_Name: ItemHealth_B
   m_EditorClassIdentifier: 
   generalData:
-    name: Spare Oxygen Tube
-    description: Use this to load more oxygen into the oxygen system in your underwater
-      ship
+    name: Tool Kit
+    description: Good for Health BRO
     icon: {fileID: 0}
     level: 1
-    buyPrice: 300
+    buyPrice: 160
     upgradePrice: 0
     unlocked: 1
-  type: 2
   itemTier: 0
-  value: 75
-  quantity: 0
+  value: 175
+  quantity: 5

@@ -6,10 +6,10 @@ public enum ItemTier
 {
     A, B, C
 }
-[CreateAssetMenu(fileName ="New Consumable Items", menuName ="Consumable Item/Create New Consumable Item SO")]
-public class ConsumableItemSO : ItemBaseSO, IBuyable, IUpgradable, IQuantifiable
+
+public abstract class ConsumableItemSO : ItemBaseSO, IBuyable, IUpgradable, IQuantifiable
 {
-    public SustainabilityType type;
+    public abstract SustainabilityType type { get; }
     public ItemTier itemTier;
     public int value;
     public int quantity;

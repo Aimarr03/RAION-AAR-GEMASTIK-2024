@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bccc0cd4292c81419ceb0bd0825eefd, type: 3}
-  m_Name: Health_B
+  m_Script: {fileID: 11500000, guid: ee55bb10abfc9ea4c92dfa8e6c0de2ee, type: 3}
+  m_Name: ItemOxygen_A
   m_EditorClassIdentifier: 
   generalData:
-    name: Tool Kit
-    description: Use for repairing damage has been dealth to wards the ship
+    name: 
+    description: 
     icon: {fileID: 0}
-    level: 1
-    buyPrice: 100
+    level: 0
+    buyPrice: 0
     upgradePrice: 0
-    unlocked: 1
-  type: 0
-  itemTier: 1
-  value: 60
+    unlocked: 0
+  itemTier: 0
+  value: 0
   quantity: 0
