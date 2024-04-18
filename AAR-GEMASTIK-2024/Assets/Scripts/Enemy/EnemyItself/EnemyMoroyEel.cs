@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMoroyEel : EnemyBase
 {
     [SerializeField] private float radius;
-    private EnemyIdleState idleState;
+    private EnemyHiddenState hiddenState;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
@@ -32,9 +32,9 @@ public class EnemyMoroyEel : EnemyBase
         base.Awake();
         healthSystem = new EnemyHealthSystem(this, 200);
 
-        idleState = new EnemyIdleState(stateMachine, this, playerLayerMask, radius);
+        hiddenState = new EnemyHiddenState(stateMachine, this, playerLayerMask);
 
-        stateMachine.InitializeState(idleState);
+        stateMachine.InitializeState(hiddenState);
     }
 
     protected override void Update()

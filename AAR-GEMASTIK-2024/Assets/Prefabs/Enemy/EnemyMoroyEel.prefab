@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7967673029475164988
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyMoroyEel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554336259347140605, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: enemyBase
+      value: 
+      objectReference: {fileID: 9028799133962321737}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9028799133962321737}
+  m_SourcePrefab: {fileID: 100100000, guid: 64081ec2118255b478f415e5413b58a0, type: 3}
+--- !u!4 &1922384019275029369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7967673029475164988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8721258310707884206 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1700951489309660050, guid: 64081ec2118255b478f415e5413b58a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7967673029475164988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8815638578194714336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7967673029475164988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9028799133962321737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815638578194714336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407b001225315064f85ad9a3d28c3184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headFish: {fileID: 1922384019275029369}
+  rigidBody: {fileID: 8721258310707884206}
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  damage: 50
+  fishName: Belut Moroy
+  radius: 12
