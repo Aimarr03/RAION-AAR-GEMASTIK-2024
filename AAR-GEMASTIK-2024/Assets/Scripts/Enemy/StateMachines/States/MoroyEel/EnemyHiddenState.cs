@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHiddenState : EnemyBaseState
 {
-    private Vector3 boxSize = new Vector3(12, 10);
+    private Vector3 boxSize = new Vector3(18, 16);
     private Vector3 GetPositionWithOffset
     {
         get => enemy.transform.position + (boxSize / 2);
@@ -17,6 +17,8 @@ public class EnemyHiddenState : EnemyBaseState
             return enemy.transform.position + offset;
         }
     }
+    private EnemyBaseState nextState;
+    public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
     public EnemyHiddenState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
     {
     }
@@ -48,6 +50,8 @@ public class EnemyHiddenState : EnemyBaseState
                 {
                     if (playerCoreSystem == null) Debug.Log("Player Detected");
                     this.playerCoreSystem = playerCoreSystem;
+                    nextState.SetPlayerCoreSystem(playerCoreSystem);
+                    enemyStateMachine.OnTransitionState(nextState);
                 }
             }
         }

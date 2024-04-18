@@ -6,6 +6,7 @@ public class EnemyMoroyEel : EnemyBase
 {
     [SerializeField] private float radius;
     private EnemyHiddenState hiddenState;
+    private EnemySurpriseAttackState surpriseAttackState;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
@@ -33,6 +34,9 @@ public class EnemyMoroyEel : EnemyBase
         healthSystem = new EnemyHealthSystem(this, 200);
 
         hiddenState = new EnemyHiddenState(stateMachine, this, playerLayerMask);
+        surpriseAttackState = new EnemySurpriseAttackState(stateMachine, this, playerLayerMask);
+
+        hiddenState.SetNextState(surpriseAttackState);
 
         stateMachine.InitializeState(hiddenState);
     }
