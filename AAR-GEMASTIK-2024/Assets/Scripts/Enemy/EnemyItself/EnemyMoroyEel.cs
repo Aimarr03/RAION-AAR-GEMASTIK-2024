@@ -7,6 +7,7 @@ public class EnemyMoroyEel : EnemyBase
     [SerializeField] private float radius;
     private EnemyHiddenState hiddenState;
     private EnemySurpriseAttackState surpriseAttackState;
+    private EnemyInstantGrabState instantGrabState;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
@@ -35,8 +36,11 @@ public class EnemyMoroyEel : EnemyBase
 
         hiddenState = new EnemyHiddenState(stateMachine, this, playerLayerMask);
         surpriseAttackState = new EnemySurpriseAttackState(stateMachine, this, playerLayerMask);
+        instantGrabState = new EnemyInstantGrabState(stateMachine, this, playerLayerMask);
 
         hiddenState.SetNextState(surpriseAttackState);
+        surpriseAttackState.SetNextState(instantGrabState);
+        instantGrabState.SetNextState(surpriseAttackState);
 
         stateMachine.InitializeState(hiddenState);
     }

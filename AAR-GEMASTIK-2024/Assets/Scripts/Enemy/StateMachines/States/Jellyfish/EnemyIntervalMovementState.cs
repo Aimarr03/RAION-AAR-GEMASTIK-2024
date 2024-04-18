@@ -53,6 +53,7 @@ public class EnemyIntervalMovementState : EnemyBaseState
             nextState.SetPlayerCoreSystem(playerCoreSystem);
             enemy.rigidBody.velocity = Vector3.zero;
             enemyStateMachine.OnTransitionState(nextState);
+            return;
         }
         canInvokeMovement = true;
         Debug.Log("Move Again");

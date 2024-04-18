@@ -32,6 +32,7 @@ public class EnemySurpriseAttackState : EnemyBaseState
 
     public override void OnUpdateState()
     {
+        if (playerCoreSystem.isDead) return;
         if (withinBiteRange) return;
         OnDetectingPlayer();
     }
@@ -42,6 +43,8 @@ public class EnemySurpriseAttackState : EnemyBaseState
             withinBiteRange = true;
             Debug.Log("Player get caught");
             enemy.rigidBody.velocity = Vector3.zero;
+            nextState.SetPlayerCoreSystem(playerCoreSystem);
+            enemyStateMachine.OnTransitionState(nextState);
         }
     }
     private void OnAttackAgain()
