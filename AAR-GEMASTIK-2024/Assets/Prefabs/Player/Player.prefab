@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NonZeroValueInput: {x: 0, y: 0}
-  linearSpeed: 2
-  maxLinearSpeed: 4
+  linearSpeed: 4
+  maxLinearSpeed: 6
   rotatingSpeedOnZAxis: 6
   rotatingSpeedOnYAxis: 3
   rotateDegreeLimit: 50
