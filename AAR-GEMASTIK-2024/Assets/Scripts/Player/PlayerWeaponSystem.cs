@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayerWeaponSystem : MonoBehaviour
     [SerializeField] private WeaponBase baseWeapon;
     [SerializeField] private Transform weaponHolderPosition;
     private PlayerCoreSystem playerCoreSystem;
+    public event Action<float> DoneFire;
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
@@ -54,5 +56,10 @@ public class PlayerWeaponSystem : MonoBehaviour
         baseWeapon.weaponSO = weaponSo;
         baseWeapon.SetObjectPooling(weaponSo);
         baseWeapon.SetUpData();
+    }
+    public WeaponSO GetWeaponSO() => weaponSo;
+    public void TriggerDoneFire(float duration)
+    {
+        DoneFire?.Invoke(duration);
     }
 }

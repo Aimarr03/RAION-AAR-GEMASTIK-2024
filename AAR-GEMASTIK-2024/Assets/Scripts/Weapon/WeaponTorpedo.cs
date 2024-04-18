@@ -17,6 +17,7 @@ public class WeaponTorpedo : WeaponBase
 
     public override IEnumerator ProcessCooldown()
     {
+        playerCoreSystem.weaponSystem.TriggerDoneFire(interval);
         Debug.Log("Is Cooldown");
         isCooldown = true;
         float currentInterval = 0;

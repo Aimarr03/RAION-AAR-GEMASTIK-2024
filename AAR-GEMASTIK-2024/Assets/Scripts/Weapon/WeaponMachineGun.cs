@@ -52,6 +52,7 @@ public class WeaponMachineGun : WeaponBase
     }
     private IEnumerator OnCooldown()
     {
+        playerCoreSystem.weaponSystem.TriggerDoneFire(maxDuration * 2);
         Debug.Log("On Cooldown");
         isCooldown = true;
         yield return new WaitForSeconds(maxDuration * 2);
