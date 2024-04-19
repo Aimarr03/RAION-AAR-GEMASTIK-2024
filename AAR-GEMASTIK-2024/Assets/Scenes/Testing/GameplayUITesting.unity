@@ -2154,6 +2154,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: energyConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f9d18219684a574419eee4fd194233e6,
+        type: 2}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: healthConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fe72c13379550304eb91caa4d74391ce,
+        type: 2}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: oxygenConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c8499470203b265409dfee0425ca9453,
+        type: 2}
     - target: {fileID: 4589858134610249025, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
         type: 3}
       propertyPath: m_LocalPosition.x

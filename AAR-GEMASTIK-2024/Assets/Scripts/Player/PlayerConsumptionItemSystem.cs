@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerConsumptionItemSystem : MonoBehaviour
 {
     private PlayerCoreSystem coreSystem;
-    [SerializeField] private ConsumableItemSO healthConsumptionSO;
-    [SerializeField] private ConsumableItemSO oxygenConsumptionSO;
-    [SerializeField] private ConsumableItemSO energyConsumptionSO;
+    [SerializeField] private HealthItemSO healthConsumptionSO;
+    [SerializeField] private OxygenItemSO oxygenConsumptionSO;
+    [SerializeField] private EnergyItemSO energyConsumptionSO;
     private Dictionary<SustainabilityType, ConsumableItemSO> ListConsumableSO;
     private int maxIndex = 2;
     private int currentIndex = 0;

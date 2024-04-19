@@ -71,6 +71,24 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InvokeSwitchItemFocus"",
+                    ""type"": ""Button"",
+                    ""id"": ""8890a046-9c1a-41c6-b6af-a2b56e2b5bd7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InvokeUseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c3e5977-35fd-4fab-b21a-08fd9d03c585"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +190,28 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""InvokeFlashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3eb6e01-e4c4-49a8-8115-e98091bd3cd4"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InvokeSwitchItemFocus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e24aa330-e6e1-46ee-84dd-f677c802d60d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InvokeUseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -202,6 +242,8 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         m_Player_InvokeAbilityUsage = m_Player.FindAction("InvokeAbilityUsage", throwIfNotFound: true);
         m_Player_InvokeInterract = m_Player.FindAction("InvokeInterract", throwIfNotFound: true);
         m_Player_InvokeFlashlight = m_Player.FindAction("InvokeFlashlight", throwIfNotFound: true);
+        m_Player_InvokeSwitchItemFocus = m_Player.FindAction("InvokeSwitchItemFocus", throwIfNotFound: true);
+        m_Player_InvokeUseItem = m_Player.FindAction("InvokeUseItem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -268,6 +310,8 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_InvokeAbilityUsage;
     private readonly InputAction m_Player_InvokeInterract;
     private readonly InputAction m_Player_InvokeFlashlight;
+    private readonly InputAction m_Player_InvokeSwitchItemFocus;
+    private readonly InputAction m_Player_InvokeUseItem;
     public struct PlayerActions
     {
         private @DefaultInputAction m_Wrapper;
@@ -277,6 +321,8 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         public InputAction @InvokeAbilityUsage => m_Wrapper.m_Player_InvokeAbilityUsage;
         public InputAction @InvokeInterract => m_Wrapper.m_Player_InvokeInterract;
         public InputAction @InvokeFlashlight => m_Wrapper.m_Player_InvokeFlashlight;
+        public InputAction @InvokeSwitchItemFocus => m_Wrapper.m_Player_InvokeSwitchItemFocus;
+        public InputAction @InvokeUseItem => m_Wrapper.m_Player_InvokeUseItem;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -301,6 +347,12 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
             @InvokeFlashlight.started += instance.OnInvokeFlashlight;
             @InvokeFlashlight.performed += instance.OnInvokeFlashlight;
             @InvokeFlashlight.canceled += instance.OnInvokeFlashlight;
+            @InvokeSwitchItemFocus.started += instance.OnInvokeSwitchItemFocus;
+            @InvokeSwitchItemFocus.performed += instance.OnInvokeSwitchItemFocus;
+            @InvokeSwitchItemFocus.canceled += instance.OnInvokeSwitchItemFocus;
+            @InvokeUseItem.started += instance.OnInvokeUseItem;
+            @InvokeUseItem.performed += instance.OnInvokeUseItem;
+            @InvokeUseItem.canceled += instance.OnInvokeUseItem;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -320,6 +372,12 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
             @InvokeFlashlight.started -= instance.OnInvokeFlashlight;
             @InvokeFlashlight.performed -= instance.OnInvokeFlashlight;
             @InvokeFlashlight.canceled -= instance.OnInvokeFlashlight;
+            @InvokeSwitchItemFocus.started -= instance.OnInvokeSwitchItemFocus;
+            @InvokeSwitchItemFocus.performed -= instance.OnInvokeSwitchItemFocus;
+            @InvokeSwitchItemFocus.canceled -= instance.OnInvokeSwitchItemFocus;
+            @InvokeUseItem.started -= instance.OnInvokeUseItem;
+            @InvokeUseItem.performed -= instance.OnInvokeUseItem;
+            @InvokeUseItem.canceled -= instance.OnInvokeUseItem;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -353,5 +411,7 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         void OnInvokeAbilityUsage(InputAction.CallbackContext context);
         void OnInvokeInterract(InputAction.CallbackContext context);
         void OnInvokeFlashlight(InputAction.CallbackContext context);
+        void OnInvokeSwitchItemFocus(InputAction.CallbackContext context);
+        void OnInvokeUseItem(InputAction.CallbackContext context);
     }
 }

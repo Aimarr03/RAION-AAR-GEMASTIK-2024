@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ItemOxygen_A
   m_EditorClassIdentifier: 
   generalData:
-    name: 
-    description: 
+    name: Oxygen Tube
+    description: IT'S NOT SUSSY BAKA, NI CHAN NO BAKA
     icon: {fileID: 0}
-    level: 0
-    buyPrice: 0
+    level: 1
+    buyPrice: 250
     upgradePrice: 0
-    unlocked: 0
+    unlocked: 1
   itemTier: 0
-  value: 0
-  quantity: 0
+  value: 150
+  quantity: 5

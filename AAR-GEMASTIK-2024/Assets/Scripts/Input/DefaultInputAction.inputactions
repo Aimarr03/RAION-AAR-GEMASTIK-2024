@@ -49,6 +49,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InvokeSwitchItemFocus",
+                    "type": "Button",
+                    "id": "8890a046-9c1a-41c6-b6af-a2b56e2b5bd7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InvokeUseItem",
+                    "type": "Button",
+                    "id": "6c3e5977-35fd-4fab-b21a-08fd9d03c585",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -148,6 +166,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "InvokeFlashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3eb6e01-e4c4-49a8-8115-e98091bd3cd4",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InvokeSwitchItemFocus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e24aa330-e6e1-46ee-84dd-f677c802d60d",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InvokeUseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
