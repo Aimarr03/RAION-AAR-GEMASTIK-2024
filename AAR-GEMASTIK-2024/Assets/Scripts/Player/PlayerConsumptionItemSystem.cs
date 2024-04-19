@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,15 @@ using UnityEngine;
 public class PlayerConsumptionItemSystem : MonoBehaviour
 {
     private PlayerCoreSystem coreSystem;
+    private ItemBaseSO currentItemFocus;
     [SerializeField] private HealthItemSO healthConsumptionSO;
     [SerializeField] private OxygenItemSO oxygenConsumptionSO;
     [SerializeField] private EnergyItemSO energyConsumptionSO;
     private Dictionary<SustainabilityType, ConsumableItemSO> ListConsumableSO;
     private int maxIndex = 2;
     private int currentIndex = 0;
+    [SerializeField] private float cooldownDuration;
+    private bool isCooldown;
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
@@ -18,9 +22,40 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
         {
             { SustainabilityType.Health, healthConsumptionSO },
             { SustainabilityType.Oxygen, oxygenConsumptionSO },
-            { SustainabilityType.Energy, oxygenConsumptionSO}
+            { SustainabilityType.Energy, energyConsumptionSO}
         };
+        currentItemFocus = GetConsumableItemSO();
+        isCooldown = false;
+        Debug.Log(currentItemFocus.generalData.name);
+    }
+    private void Start()
+    {
+        PlayerInputSystem.InvokeSwitchItemFocus += PlayerInputSystem_InvokeSwitchItemFocus;
+        PlayerInputSystem.InvokeUseItem += PlayerInputSystem_InvokeUseItem;
+    }
 
+    private void PlayerInputSystem_InvokeUseItem()
+    {
+        if (isCooldown) return;
+        Debug.Log("Use Item " + currentItemFocus.generalData.name);
+        StartCoroutine(OnCooldown());
+    }
+    private IEnumerator OnCooldown()
+    {
+        isCooldown = true;
+        float currentDuration = 0;
+        while(currentDuration < cooldownDuration)
+        {
+            currentDuration += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log("Item Can be Used Again");
+    }
+    private void PlayerInputSystem_InvokeSwitchItemFocus()
+    {
+        onIncreaseIndex();
+        currentItemFocus = GetConsumableItemSO();
+        Debug.Log(currentItemFocus.generalData.name);
     }
 
     private SustainabilityType GetSustainabilityTypeBasedOnIndex()
