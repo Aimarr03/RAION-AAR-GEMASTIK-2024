@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerConsumptionItemSystem : MonoBehaviour
 {
     private PlayerCoreSystem coreSystem;
-    private ItemBaseSO currentItemFocus;
+    private ConsumableItemSO currentItemFocus;
     [SerializeField] private HealthItemSO healthConsumptionSO;
     [SerializeField] private OxygenItemSO oxygenConsumptionSO;
     [SerializeField] private EnergyItemSO energyConsumptionSO;
@@ -15,6 +15,7 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
     private int currentIndex = 0;
     [SerializeField] private float cooldownDuration;
     private bool isCooldown;
+    private Coroutine cooldownIEnumerator;
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
@@ -37,10 +38,20 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
     private void PlayerInputSystem_InvokeUseItem()
     {
         if (isCooldown) return;
+        if (currentItemFocus.quantity <= 0)
+        {
+            Debug.Log("Out of Item!");
+            return;
+        }
         Debug.Log("Use Item " + currentItemFocus.generalData.name);
-        StartCoroutine(OnCooldown());
+        _BaseSustainabilitySystem sustainabilitySystem = coreSystem.GetSustainabilitySystem(currentItemFocus.type);
+        sustainabilitySystem.OnIncreaseValue(currentItemFocus.GetTotalValueBasedOnTier());
+        currentItemFocus.quantity--;
+        
+        if (cooldownIEnumerator != null) StopAllCoroutines();
+        cooldownIEnumerator = StartCoroutine(OnCooldown(cooldownDuration));
     }
-    private IEnumerator OnCooldown()
+    private IEnumerator OnCooldown(float cooldownDuration)
     {
         isCooldown = true;
         float currentDuration = 0;
@@ -49,12 +60,20 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
             currentDuration += Time.deltaTime;
             yield return null;
         }
+        isCooldown = false;
+        cooldownIEnumerator = null;
         Debug.Log("Item Can be Used Again");
     }
     private void PlayerInputSystem_InvokeSwitchItemFocus()
     {
         onIncreaseIndex();
         currentItemFocus = GetConsumableItemSO();
+        if (cooldownIEnumerator != null)
+        {
+            StopAllCoroutines();
+            cooldownIEnumerator = StartCoroutine(OnCooldown(cooldownDuration / 4));
+        }
+        
         Debug.Log(currentItemFocus.generalData.name);
     }
 
