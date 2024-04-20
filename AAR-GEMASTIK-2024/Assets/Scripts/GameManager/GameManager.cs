@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,7 +15,6 @@ public class GameManager : MonoBehaviour
     public HealthItemSO chosenHealthItemSO;
     public OxygenItemSO chosenOxygenItemSO;
     public EnergyItemSO chosenEnergyItemSO;
-
     private void Awake()
     {
         if(Instance == null)

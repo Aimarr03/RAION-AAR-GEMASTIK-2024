@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,31 @@ public class SetUpUI : BasePreparingPlayerUI
     [SerializeField] private Transform templateCard;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private Transform weaponContainer, abilityContainer, itemContainer;
-
+    private List<SetUpCard> weaponList;
+    private List<SetUpCard> abilityList;
+    private List<SetUpCard> itemList;
+    
     private void Awake()
     {
+        weaponList = new List<SetUpCard>();
+        abilityList = new List<SetUpCard>();
+        itemList = new List<SetUpCard>();
         SetUp();
     }
+    private void Start()
+    {
+        SetUpCard.onChoseItem += SetUpCard_onChoseItem;
+    }
+    private void OnDestroy()
+    {
+        SetUpCard.onChoseItem -= SetUpCard_onChoseItem;
+    }
+
+    private void SetUpCard_onChoseItem(ItemBaseSO itemSO)
+    {
+        SetFocusUI(itemSO);
+    }
+
     private void SetUp()
     {
         Transform currentCard;
@@ -21,6 +42,7 @@ public class SetUpUI : BasePreparingPlayerUI
             SetUpCard cardData = currentCard.GetComponent<SetUpCard>();
             cardData.SetUpData(currentWeaponSO, ItemType.Weapon);
             currentCard.gameObject.SetActive(true);
+            weaponList.Add(cardData);
         }
         foreach (ItemBaseSO currentAbilitySO in shopManager.abilityList)
         {
@@ -28,6 +50,7 @@ public class SetUpUI : BasePreparingPlayerUI
             SetUpCard cardData = currentCard.GetComponent<SetUpCard>();
             cardData.SetUpData(currentAbilitySO, ItemType.Ability);
             currentCard.gameObject.SetActive(true);
+            abilityList.Add(cardData);
         }
         foreach (ItemBaseSO currentItemSO in shopManager.itemList)
         {
@@ -35,7 +58,52 @@ public class SetUpUI : BasePreparingPlayerUI
             SetUpCard cardData = currentCard.GetComponent<SetUpCard>();
             cardData.SetUpData(currentItemSO, ItemType.Item);
             currentCard.gameObject.SetActive(true);
+            itemList.Add(cardData);
         }
+    }
+    public void SetFocusUI(ItemBaseSO itemSO)
+    {
+        List<SetUpCard> cardList = new List<SetUpCard>();
+        switch (itemSO)
+        {
+            case WeaponSO: cardList = weaponList; break;
+            case AbilitySO: cardList=abilityList; break;
+            case ConsumableItemSO: cardList = itemList; break;
+        }
+        foreach(SetUpCard card in cardList)
+        {
+            if(itemSO is ConsumableItemSO)
+            {
+                ConsumableItemFocusBackground(itemSO, card);
+            }
+            else
+            {
+                NotConsumableItemFocusBackground(itemSO, card);
+            }
+            
+        }
+    }
+    private void NotConsumableItemFocusBackground(ItemBaseSO itemSO, SetUpCard card)
+    {
+        if (card.itemBaseSO == itemSO)
+        {
+            card.backgroundFocus.gameObject.SetActive(true);
+            return;
+        }
+        card.backgroundFocus.gameObject.SetActive(false);
+    }
+    private void ConsumableItemFocusBackground(ItemBaseSO itemSO, SetUpCard card)
+    {
+        ConsumableItemSO chosenConsumableItemSO = itemSO as ConsumableItemSO;
+        ConsumableItemSO cardConsumableItemSO = card.itemBaseSO as ConsumableItemSO;
+        Debug.Log(card.itemBaseSO == itemSO);
+        if (chosenConsumableItemSO.type != cardConsumableItemSO.type) return;
+        if (card.itemBaseSO == itemSO)
+        {
+            card.backgroundFocus.gameObject.SetActive(true);
+            return;
+        }
+        card.backgroundFocus.gameObject.SetActive(false);
     }
     public void StartExpedition()
     {

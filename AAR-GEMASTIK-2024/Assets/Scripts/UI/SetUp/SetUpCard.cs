@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,19 +7,23 @@ public class SetUpCard : MonoBehaviour
 {
     public ItemBaseSO itemBaseSO;
     public Button thisButton;
+    public Image background;
+    public Image backgroundFocus;
     public PlayerUsableGeneralData generalData
     {
         get => itemBaseSO.generalData;
     }
     public ItemType type;
     public TextMeshProUGUI textHeader;
+    public static event Action<ItemBaseSO> onChoseItem;
     public void SetUpData(ItemBaseSO so, ItemType type)
     {
         this.itemBaseSO = so;
         this.type = type;
         textHeader.text = generalData.name;
         thisButton.interactable = generalData.unlocked;
-        UpdateColor();
+        backgroundFocus.gameObject.SetActive(false);
+        UpdateData();
     }
     private void Start()
     {
@@ -26,15 +31,25 @@ public class SetUpCard : MonoBehaviour
     }
     private void UpdateData()
     {
-        bool isUnlocked = generalData.unlocked;
+        bool isUnlocked;
+        if(itemBaseSO is ConsumableItemSO)
+        {
+            isUnlocked = true;
+        }
+        else
+        {
+            isUnlocked = generalData.unlocked;
+        }
         thisButton.interactable = isUnlocked;
-        UpdateColor();   
+        UpdateColor(isUnlocked);   
     }
     private void UpdateColor()
     {
-        ColorBlock colorBlock = this.thisButton.colors;
-        colorBlock.normalColor = generalData.unlocked ? Color.white : Color.gray;
-        thisButton.colors = colorBlock;
+        background.color = generalData.unlocked ? Color.white : Color.gray;
+    }
+    private void UpdateColor(bool input)
+    {
+        background.color = input ? Color.white : Color.gray;
     }
     public void SetPlayerData()
     {
@@ -53,5 +68,6 @@ public class SetUpCard : MonoBehaviour
                 GameManager.Instance.chosenAbilitySO = abilitySO;
                 break;
         }
+        onChoseItem?.Invoke(itemBaseSO);
     }
 }
