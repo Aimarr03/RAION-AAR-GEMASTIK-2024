@@ -27,13 +27,15 @@ public class DetailedCardView : MonoBehaviour
         gameObject.SetActive(true);
         headerText.text = generalData.name;
         contentText.text = generalData.description;
-        levelText.text = generalData.level.ToString();
+        if (itemSO is ConsumableItemSO consumableItemSO) levelText.text = consumableItemSO.quantity.ToString();
+        else levelText.text = generalData.level.ToString();
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
         SetButtonIsBuyableOrNot(isBuyable);
         SetAction(isBuyable, mode);
     }
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
+        if (itemSO is ConsumableItemSO) unlockable = !unlockable;
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
         switch(mode)
         {
@@ -98,11 +100,30 @@ public class DetailedCardView : MonoBehaviour
     }
     private void OnBuy()
     {
+        if(itemSO is ConsumableItemSO)
+        {
+            OnBuyToGet();
+        }
+        else
+        {
+            OnBuyToUnlock();
+        }
+        
+    }
+    private void OnBuyToUnlock()
+    {
         itemSO.generalData.unlocked = true;
         BuyAction.interactable = false;
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.text = "Already Bought!";
         gameObject.SetActive(false);
+        OnBoughtSomething?.Invoke();
+    }
+    private void OnBuyToGet()
+    {
+        ConsumableItemSO consumableItemSO = itemSO as ConsumableItemSO;
+        consumableItemSO.quantity++;
+        OnUpdateBuy(consumableItemSO.quantity);
         OnBoughtSomething?.Invoke();
     }
     private void OnUpgrade()
@@ -118,6 +139,12 @@ public class DetailedCardView : MonoBehaviour
         bool isBuyable = EconomyManager.Instance.isPurchasable(newPrice);
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.text = "Upgrade " + newPrice;
+        SetButtonIsBuyableOrNot(isBuyable);
+    }
+    private void OnUpdateBuy(int quantity)
+    {
+        bool isBuyable = EconomyManager.Instance.isPurchasable(generalData.buyPrice);
+        levelText.text = quantity.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
     }
 }

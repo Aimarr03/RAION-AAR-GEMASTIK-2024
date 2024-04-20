@@ -42,7 +42,7 @@ public class SetUpCard : MonoBehaviour
         {
             case ItemType.Item:
                 ConsumableItemSO itemSO = itemBaseSO as ConsumableItemSO;
-                GameManager.Instance.chosenConsumableItemSO = itemSO;
+                GameManager.Instance.SetChosenItemSO(itemSO);
                 break;
             case ItemType.Weapon:
                 WeaponSO weaponSO = itemBaseSO as WeaponSO;

@@ -47,6 +47,7 @@ public class ShopItemCard : MonoBehaviour
                 canBeInterracted = unlockable;
                 break;
         }
+        if (itemSO is ConsumableItemSO) canBeInterracted = !canBeInterracted;
         colorBlock.normalColor = canBeInterracted ? Color.white : Color.red;
         if (!canBeInterracted) priceText.text = "";
         thisButton.colors = colorBlock;

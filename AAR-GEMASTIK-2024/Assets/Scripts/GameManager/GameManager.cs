@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
 
     public WeaponSO chosenWeaponSO;
     public AbilitySO chosenAbilitySO;
-    public ConsumableItemSO chosenConsumableItemSO;
+    //public ConsumableItemSO chosenConsumableItemSO;
+    public HealthItemSO chosenHealthItemSO;
+    public OxygenItemSO chosenOxygenItemSO;
+    public EnergyItemSO chosenEnergyItemSO;
 
     private void Awake()
     {
@@ -24,9 +27,24 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void SetChosenItemSO(ConsumableItemSO itemSO)
+    {
+        switch (itemSO.type)
+        {
+            case SustainabilityType.Health:
+                chosenHealthItemSO = itemSO as HealthItemSO;
+                break;
+            case SustainabilityType.Oxygen:
+                chosenOxygenItemSO = itemSO as OxygenItemSO;
+                break;
+            case SustainabilityType.Energy: 
+                chosenEnergyItemSO = itemSO as EnergyItemSO;
+                break;
+        }
+    }
     public bool CheckHasAssigned()
     {
-        return chosenAbilitySO != null && chosenConsumableItemSO != null && chosenConsumableItemSO != null;
+        return chosenAbilitySO != null && chosenWeaponSO != null;
     }
     public void LoadScene(int index)
     {
