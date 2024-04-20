@@ -16,6 +16,8 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
     [SerializeField] private float cooldownDuration;
     private bool isCooldown;
     private Coroutine cooldownIEnumerator;
+    public event Action<SustainabilityType, int, float> onUseItem;
+    public event Action<SustainabilityType, float> onChangeItem;
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
@@ -40,6 +42,7 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
         if (isCooldown) return;
         if (currentItemFocus.quantity <= 0)
         {
+            onUseItem?.Invoke(currentItemFocus.type,currentItemFocus.quantity, 0);
             Debug.Log("Out of Item!");
             return;
         }
@@ -47,9 +50,9 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
         _BaseSustainabilitySystem sustainabilitySystem = coreSystem.GetSustainabilitySystem(currentItemFocus.type);
         sustainabilitySystem.OnIncreaseValue(currentItemFocus.GetTotalValueBasedOnTier());
         currentItemFocus.quantity--;
-        
         if (cooldownIEnumerator != null) StopAllCoroutines();
         cooldownIEnumerator = StartCoroutine(OnCooldown(cooldownDuration));
+        onUseItem?.Invoke(currentItemFocus.type, currentItemFocus.quantity, cooldownDuration);
     }
     private IEnumerator OnCooldown(float cooldownDuration)
     {
@@ -68,16 +71,17 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
     {
         onIncreaseIndex();
         currentItemFocus = GetConsumableItemSO();
+        float totalCooldownDuration = cooldownDuration / 4;
         if (cooldownIEnumerator != null)
         {
             StopAllCoroutines();
-            cooldownIEnumerator = StartCoroutine(OnCooldown(cooldownDuration / 4));
         }
-        
+        cooldownIEnumerator = StartCoroutine(OnCooldown(totalCooldownDuration));
+        onChangeItem?.Invoke(currentItemFocus.type, totalCooldownDuration);
         Debug.Log(currentItemFocus.generalData.name);
     }
 
-    private SustainabilityType GetSustainabilityTypeBasedOnIndex()
+    public SustainabilityType GetSustainabilityTypeBasedOnIndex()
     {
         switch (currentIndex)
         {
