@@ -117,7 +117,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 55
-  health: 0
+  health: 180
   fishName: JellyFish
   idleRadius: 13
   radiusAggro: 5

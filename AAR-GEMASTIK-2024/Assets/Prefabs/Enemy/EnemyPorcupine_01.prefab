@@ -108,7 +108,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 50
-  health: 0
+  health: 350
   fishName: Ikan Buntal
   radiusDetection: 20
   linearSpeed: 3
