@@ -18,8 +18,8 @@ public class WeaponHarpoon : WeaponBase
     public override IEnumerator ProcessCooldown()
     {
         Debug.Log("Is Cooldown");
-        playerCoreSystem.weaponSystem.TriggerDoneFire(interval);
         isCooldown = true;
+        playerCoreSystem.weaponSystem.TriggerDoneFire(interval);
         float currentInterval = 0;
         while(currentInterval <= interval)
         {

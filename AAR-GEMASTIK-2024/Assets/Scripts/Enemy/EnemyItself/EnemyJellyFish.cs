@@ -42,6 +42,7 @@ public class EnemyJellyFish : EnemyBase
 
     protected override void Update()
     {
+        if (isDead) return;
         stateMachine.OnExecuteState();
     }
 }

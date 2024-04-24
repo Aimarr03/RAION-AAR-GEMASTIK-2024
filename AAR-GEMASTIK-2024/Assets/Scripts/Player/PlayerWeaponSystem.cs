@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerWeaponSystem : MonoBehaviour
@@ -13,15 +14,24 @@ public class PlayerWeaponSystem : MonoBehaviour
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
+        if(GameManager.Instance != null)
+        {
+            weaponSo = GameManager.Instance.chosenWeaponSO;
+            SettingUp();
+        }
         if(weaponSo != null && baseWeapon == null)
         {
-            Transform weaponInstantiate = Instantiate(weaponSo.weapon, weaponHolderPosition); 
-            baseWeapon = weaponInstantiate.GetComponent<WeaponBase>();
-            baseWeapon.SetPlayerCoreSystem(playerCoreSystem);
-            baseWeapon.weaponSO = weaponSo;
-            baseWeapon.SetObjectPooling(weaponSo);
-            baseWeapon.SetUpData();
+            SettingUp();
         }
+    }
+    private void SettingUp()
+    {
+        Transform weaponInstantiate = Instantiate(weaponSo.weapon, weaponHolderPosition);
+        baseWeapon = weaponInstantiate.GetComponent<WeaponBase>();
+        baseWeapon.SetPlayerCoreSystem(playerCoreSystem);
+        baseWeapon.weaponSO = weaponSo;
+        baseWeapon.SetObjectPooling(weaponSo);
+        baseWeapon.SetUpData();
     }
 
     private void Start()

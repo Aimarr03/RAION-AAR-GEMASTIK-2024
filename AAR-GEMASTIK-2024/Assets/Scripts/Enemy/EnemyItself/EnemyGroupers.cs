@@ -45,6 +45,7 @@ public class EnemyGroupers : EnemyBase
 
     protected override void Update()
     {
+        if (isDead) return;
         stateMachine.OnExecuteState();
     }
 

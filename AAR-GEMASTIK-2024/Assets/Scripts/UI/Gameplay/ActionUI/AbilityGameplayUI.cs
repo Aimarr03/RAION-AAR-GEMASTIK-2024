@@ -29,7 +29,7 @@ public class AbilityGameplayUI : MonoBehaviour
     }
     private IEnumerator OnUICooldown(float cooldown)
     {
-        Debug.Log("Cooldown UI");
+        Debug.Log("Cooldown Ability UI");
         float currentDuration = 0;
         abilityIcon.fillAmount = 0;
         while (currentDuration < cooldown)

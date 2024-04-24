@@ -20,6 +20,12 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
     public event Action<SustainabilityType, float> onChangeItem;
     private void Awake()
     {
+        if(GameManager.Instance != null)
+        {
+            healthConsumptionSO = GameManager.Instance.chosenHealthItemSO;
+            energyConsumptionSO = GameManager.Instance.chosenEnergyItemSO;
+            oxygenConsumptionSO = GameManager.Instance.chosenOxygenItemSO;
+        }
         coreSystem = GetComponent<PlayerCoreSystem>();
         ListConsumableSO = new Dictionary<SustainabilityType, ConsumableItemSO>
         {

@@ -40,12 +40,13 @@ public class EnemyPorcupine : EnemyBase
 
     public override void TakeDamage(int damage)
     {
-        
+        healthSystem.OnDecreaseHealth(damage);
     }
 
 
     protected override void Update()
     {
+        if (isDead) return;
         stateMachine.OnExecuteState();
     }
 

@@ -19,6 +19,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     {
         isDead = true;
         OnEnemyDead?.Invoke();
+        Destroy(gameObject);
     }
     protected virtual void Awake()
     {

@@ -15,6 +15,15 @@ public class PlayerAbilitySystem : MonoBehaviour
     private void Awake()
     {
         playerCoreSystem = GetComponent<PlayerCoreSystem>();
+        if(GameManager.Instance != null)
+        {
+            abilitySO = GameManager.Instance.chosenAbilitySO;
+            Transform abilityInstantiate = Instantiate(abilitySO.prefab, abilityHolderPosition);
+            abilityBase = abilityInstantiate.GetComponent<AbilityBase>();
+            abilityBase.SetPlayerCoreSystem(playerCoreSystem);
+            abilityBase.SetUpData();
+            return;
+        }
         if(abilitySO != null && abilityBase == null)
         {
             Transform abilityInstantiate = Instantiate(abilitySO.prefab, abilityHolderPosition);

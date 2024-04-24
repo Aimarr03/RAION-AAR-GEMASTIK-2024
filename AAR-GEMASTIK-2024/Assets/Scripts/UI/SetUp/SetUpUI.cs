@@ -96,7 +96,7 @@ public class SetUpUI : BasePreparingPlayerUI
     {
         ConsumableItemSO chosenConsumableItemSO = itemSO as ConsumableItemSO;
         ConsumableItemSO cardConsumableItemSO = card.itemBaseSO as ConsumableItemSO;
-        Debug.Log(card.itemBaseSO == itemSO);
+        //Debug.Log(card.itemBaseSO == itemSO);
         if (chosenConsumableItemSO.type != cardConsumableItemSO.type) return;
         if (card.itemBaseSO == itemSO)
         {

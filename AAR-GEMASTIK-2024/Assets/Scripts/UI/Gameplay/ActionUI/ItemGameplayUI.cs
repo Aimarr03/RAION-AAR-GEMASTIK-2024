@@ -15,7 +15,7 @@ public class ItemGameplayUI : MonoBehaviour
     public TextMeshProUGUI quantity;
     public void SetUp(ConsumableItemSO itemData)
     {
-        if(itemData.generalData.icon != null)
+        if (itemData.generalData.icon != null)
         {
             icon.sprite = itemData.generalData.icon;
             cooldownIcon.sprite = icon.sprite;
