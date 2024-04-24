@@ -10,9 +10,11 @@ public class EnemyChaseState : EnemyBaseState
     private bool isOnRightDirection = true;
     private Vector3 direction;
     private EnemyBaseState nextState;
-    public EnemyChaseState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemyChaseState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float linearSpeed, float rotatingSpeed, float maxSpeed) : base(enemyStateMachine, enemy, playerLayerMask)
     {
-
+        this.linearSpeed = linearSpeed;
+        this.rotatingSpeed = rotatingSpeed;
+        this.maxSpeed = maxSpeed;
     }
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
 

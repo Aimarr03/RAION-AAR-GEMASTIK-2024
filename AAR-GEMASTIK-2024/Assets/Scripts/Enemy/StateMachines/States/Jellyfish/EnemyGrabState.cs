@@ -9,8 +9,11 @@ public class EnemyGrabState : EnemyBaseState
     private float jumpForce = 25f;
     private bool hasGrabbed;
     private EnemyBaseState nextState;
-    public EnemyGrabState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    private int damage;
+    public EnemyGrabState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float jumpForce, int damage) : base(enemyStateMachine, enemy, playerLayerMask)
     {
+        this.jumpForce = jumpForce;
+        this.damage = damage;
     }
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
     public override void OnDrawGizmos()

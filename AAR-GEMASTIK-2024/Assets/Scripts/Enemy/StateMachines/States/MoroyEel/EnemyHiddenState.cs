@@ -19,8 +19,9 @@ public class EnemyHiddenState : EnemyBaseState
     }
     private EnemyBaseState nextState;
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
-    public EnemyHiddenState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemyHiddenState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, Vector2 boxSize) : base(enemyStateMachine, enemy, playerLayerMask)
     {
+        this.boxSize = boxSize;
     }
 
     public override void OnDrawGizmos()

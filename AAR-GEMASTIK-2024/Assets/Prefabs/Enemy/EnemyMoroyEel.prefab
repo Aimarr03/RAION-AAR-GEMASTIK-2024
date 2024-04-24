@@ -114,5 +114,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 50
+  health: 0
   fishName: Belut Moroy
+  hiddenStateBoxSize: {x: 18, y: 16}
+  forcePush: 18
+  radiusSurprise: 3.1
+  biteDamage: 35
   radius: 12

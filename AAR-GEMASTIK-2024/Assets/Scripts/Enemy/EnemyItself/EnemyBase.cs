@@ -12,6 +12,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable
     [SerializeField] protected LayerMask playerLayerMask;
 
     public int damage;
+    public int health;
     public string fishName;
 
     public event Action OnEnemyDead;

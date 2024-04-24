@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class EnemyGroupers : EnemyBase
 {
+    [Header("Idle Data")]
     [SerializeField] private float radius;
+    
+    [Header("Move Speed Data")]
+    [SerializeField] private float linearSpeed;
+    [SerializeField] private float angularSpeed;
+    [SerializeField] private float maxLinearSpeed;
+    
+    [Header("Bite Data")]
+    [SerializeField] private float attackRadius;
+    [SerializeField] private int biteDamage;
+
     private EnemyIdleState idleState;
     private EnemyChaseState chaseState;
     private EnemyBiteState biteState;
@@ -32,10 +43,10 @@ public class EnemyGroupers : EnemyBase
     protected override void Awake()
     {
         base.Awake();
-        healthSystem = new EnemyHealthSystem(this, 150);
+        healthSystem = new EnemyHealthSystem(this, health);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,radius);
-        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask);
-        biteState = new EnemyBiteState(stateMachine, this, playerLayerMask);
+        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed);
+        biteState = new EnemyBiteState(stateMachine, this, playerLayerMask, attackRadius, biteDamage);
 
         idleState.SetNextState(chaseState);
         chaseState.SetNextState(biteState);

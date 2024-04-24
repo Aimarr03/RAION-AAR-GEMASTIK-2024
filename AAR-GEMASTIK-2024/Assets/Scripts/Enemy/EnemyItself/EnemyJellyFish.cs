@@ -2,6 +2,15 @@ using UnityEngine;
 
 public class EnemyJellyFish : EnemyBase
 {
+    [Header("Idle State Data")]
+    [SerializeField] private float idleRadius;
+    [Header("Interval Move State Data")]
+    [SerializeField] private float radiusAggro;
+    [SerializeField] private float forcePush;
+    [Header("Grab State Data")]
+    [SerializeField] private float jumpForce;
+    [SerializeField] private int biteDamage;
+
     private EnemyIdleState idleState;
     private EnemyIntervalMovementState intervalMovementState;
     private EnemyGrabState grabState;
@@ -30,9 +39,9 @@ public class EnemyJellyFish : EnemyBase
     {
         base.Awake();
         healthSystem = new EnemyHealthSystem(this, 250);
-        idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,15);
-        intervalMovementState = new EnemyIntervalMovementState(stateMachine, this, playerLayerMask);
-        grabState = new EnemyGrabState(stateMachine, this, playerLayerMask);
+        idleState = new EnemyIdleState(stateMachine, this, playerLayerMask, idleRadius);
+        intervalMovementState = new EnemyIntervalMovementState(stateMachine, this, playerLayerMask, radiusAggro, forcePush);
+        grabState = new EnemyGrabState(stateMachine, this, playerLayerMask, jumpForce, biteDamage);
 
         idleState.SetNextState(intervalMovementState);
         intervalMovementState.SetNextState(grabState);

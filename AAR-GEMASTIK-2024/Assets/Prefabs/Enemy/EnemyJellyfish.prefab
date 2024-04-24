@@ -117,7 +117,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 55
+  health: 0
   fishName: JellyFish
+  idleRadius: 13
+  radiusAggro: 5
+  forcePush: 10
+  jumpForce: 16
+  biteDamage: 20
 --- !u!54 &3346291384632009916 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1700951489309660050, guid: 64081ec2118255b478f415e5413b58a0,

@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class EnemyPorcupine : EnemyBase
 {
+    [Header("Idle Data")]
     [SerializeField] private float radiusDetection;
+    [Header("Move Speed Data")]
+    [SerializeField] private float linearSpeed;
+    [SerializeField] private float angularSpeed;
+    [SerializeField] private float maxLinearSpeed;
+    [Header("Spike Data")]
+    [SerializeField] private float radiusAttack;
+    [SerializeField] private int attackDamage;
+
     private EnemyIdleState idleState;
     private EnemyChaseState chaseState;
     private EnemySpikeState spikeState;
     protected override void Awake()
     {
         base.Awake();
-        healthSystem = new EnemyHealthSystem(this, 250);
+        healthSystem = new EnemyHealthSystem(this, health);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask, radiusDetection);
-        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask);
-        spikeState =new EnemySpikeState(stateMachine, this, playerLayerMask);
+        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed);
+        spikeState =new EnemySpikeState(stateMachine, this, playerLayerMask, attackDamage, radiusAttack);
 
         idleState.SetNextState(chaseState);
         chaseState.SetNextState(spikeState);

@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class EnemyMoroyEel : EnemyBase
 {
+    [Header("Hidden State Data")]
+    [SerializeField] private Vector2 hiddenStateBoxSize;
+
+    [Header("Surprise State Data")]
+    [SerializeField] private float forcePush;
+    [SerializeField] private float radiusSurprise;
+
+    [Header("Bite State Data")]
+    [SerializeField] private int biteDamage;
+
     [SerializeField] private float radius;
     private EnemyHiddenState hiddenState;
     private EnemySurpriseAttackState surpriseAttackState;
@@ -34,9 +44,9 @@ public class EnemyMoroyEel : EnemyBase
         base.Awake();
         healthSystem = new EnemyHealthSystem(this, 200);
 
-        hiddenState = new EnemyHiddenState(stateMachine, this, playerLayerMask);
-        surpriseAttackState = new EnemySurpriseAttackState(stateMachine, this, playerLayerMask);
-        instantGrabState = new EnemyInstantGrabState(stateMachine, this, playerLayerMask);
+        hiddenState = new EnemyHiddenState(stateMachine, this, playerLayerMask, hiddenStateBoxSize);
+        surpriseAttackState = new EnemySurpriseAttackState(stateMachine, this, playerLayerMask, forcePush, radiusSurprise);
+        instantGrabState = new EnemyInstantGrabState(stateMachine, this, playerLayerMask, biteDamage);
 
         hiddenState.SetNextState(surpriseAttackState);
         surpriseAttackState.SetNextState(instantGrabState);

@@ -12,9 +12,10 @@ public class EnemyIntervalMovementState : EnemyBaseState
     private bool withinAggroArea = false;
     private bool canInvokeMovement = true;
     private Coroutine movementCoroutine;
-    public EnemyIntervalMovementState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemyIntervalMovementState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float radiusAggro, float forcePush) : base(enemyStateMachine, enemy, playerLayerMask)
     {
-
+        this.radiusAggro = radiusAggro;
+        this.forcePush = forcePush;
     }
 
     public override void OnDrawGizmos()

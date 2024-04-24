@@ -10,8 +10,10 @@ public class EnemySurpriseAttackState : EnemyBaseState
     private float radius = 4f;
     private bool withinBiteRange;
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
-    public EnemySurpriseAttackState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemySurpriseAttackState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float forcePush, float radius) : base(enemyStateMachine, enemy, playerLayerMask)
     {
+        this.forcePush = forcePush;
+        this.radius = radius;
     }
 
     public override void OnDrawGizmos()

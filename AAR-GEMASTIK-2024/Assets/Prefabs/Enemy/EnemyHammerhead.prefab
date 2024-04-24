@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6450226720679596568
+--- !u!1001 &3196858389927868291
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,22 +11,17 @@ PrefabInstance:
     - target: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
       propertyPath: m_Name
-      value: EnemyPorcupine_01
+      value: EnemyBase
       objectReference: {fileID: 0}
-    - target: {fileID: 3554336259347140605, guid: 64081ec2118255b478f415e5413b58a0,
-        type: 3}
-      propertyPath: enemyBase
-      value: 
-      objectReference: {fileID: 3248757500631461670}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.669508
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1654863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
@@ -68,57 +63,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 3248757500631461670}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64081ec2118255b478f415e5413b58a0, type: 3}
---- !u!4 &3295717335259834973 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 6450226720679596568}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5568247891446890436 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 6450226720679596568}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3248757500631461670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5568247891446890436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc98c8e681a49ac48914339fc268c23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headFish: {fileID: 3295717335259834973}
-  rigidBody: {fileID: 5627583467742970250}
-  playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  damage: 50
-  health: 0
-  fishName: Ikan Buntal
-  radiusDetection: 20
-  linearSpeed: 3
-  angularSpeed: 8
-  maxLinearSpeed: 5
-  radiusAttack: 6
-  attackDamage: 40
---- !u!54 &5627583467742970250 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1700951489309660050, guid: 64081ec2118255b478f415e5413b58a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 6450226720679596568}
-  m_PrefabAsset: {fileID: 0}

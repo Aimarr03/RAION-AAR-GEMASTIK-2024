@@ -8,10 +8,12 @@ public class EnemyBiteState : EnemyBaseState
 {
     private float radiusBite = 3;
     private bool hasBitten = false;
+    private int damage;
     private EnemyBaseState nextState;
-    public EnemyBiteState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemyBiteState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float radiusBite, int damage) : base(enemyStateMachine, enemy, playerLayerMask)
     {
-
+        this.radiusBite = radiusBite;
+        this.damage = damage;
     }
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
 
@@ -45,7 +47,7 @@ public class EnemyBiteState : EnemyBaseState
             {
                 if(collider.gameObject.TryGetComponent(out PlayerCoreSystem playerCoreSystem))
                 {
-                    playerCoreSystem.TakeDamage(enemy.damage);
+                    playerCoreSystem.TakeDamage(damage);
                     break;
                 }
             }

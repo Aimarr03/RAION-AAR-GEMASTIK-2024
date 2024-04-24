@@ -7,8 +7,10 @@ public class EnemyInstantGrabState : EnemyBaseState
 {
     private EnemyBaseState nextState;
     private bool hasGrabbed;
-    public EnemyInstantGrabState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    private int damage;
+    public EnemyInstantGrabState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, int damage) : base(enemyStateMachine, enemy, playerLayerMask)
     {
+        this.damage = damage;
     }
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
     public override void OnDrawGizmos()
@@ -50,7 +52,7 @@ public class EnemyInstantGrabState : EnemyBaseState
     private void DealDamage() 
     {
         playerCoreSystem.transform.position = enemy.transform.position;
-        playerCoreSystem.TakeDamage(enemy.damage); 
+        playerCoreSystem.TakeDamage(damage); 
     }
 
     

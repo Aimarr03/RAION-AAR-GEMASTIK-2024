@@ -6,11 +6,13 @@ using UnityEngine;
 public class EnemySpikeState : EnemyBaseState
 {
     private float attackRadius = 12f;
+    private int damage;
     private EnemyBaseState nextState;
     private bool hasAttack;
-    public EnemySpikeState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask) : base(enemyStateMachine, enemy, playerLayerMask)
+    public EnemySpikeState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, int damage, float attackRadius) : base(enemyStateMachine, enemy, playerLayerMask)
     {
-
+        this.damage = damage;
+        this.attackRadius = attackRadius;
     }
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
 
@@ -45,7 +47,7 @@ public class EnemySpikeState : EnemyBaseState
                 if(unit.gameObject.TryGetComponent(out PlayerCoreSystem playerCoreSystem))
                 {
                     IDamagable damagableUnit = playerCoreSystem;
-                    damagableUnit.TakeDamage(enemy.damage);
+                    damagableUnit.TakeDamage(damage);
                     Vector3 direction = (playerCoreSystem.transform.position - enemy.transform.position).normalized;
                     damagableUnit.AddSuddenForce(direction, 500f);
                     damagableUnit.OnDisableMove(2f, 25);

@@ -11,7 +11,37 @@ PrefabInstance:
     - target: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
       propertyPath: m_Name
-      value: EnemyBase
+      value: EnemyGrouppers_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: health
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: biteDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: linearSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: angularSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: attackRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: maxLinearSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
