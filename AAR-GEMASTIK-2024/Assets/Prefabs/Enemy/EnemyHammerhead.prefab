@@ -110,6 +110,7 @@ MonoBehaviour:
   linearSpeed: 7
   rotatingSpeed: 12
   maxLinearSpeed: 12
+  chargeSpeed: 15
 --- !u!54 &4307547472317244433 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1700951489309660050, guid: 64081ec2118255b478f415e5413b58a0,
