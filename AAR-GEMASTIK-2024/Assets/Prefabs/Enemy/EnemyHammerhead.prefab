@@ -17,16 +17,16 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyBase
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4468480434649984843}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 24.905453
       objectReference: {fileID: 0}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.67603445
       objectReference: {fileID: 0}
     - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
@@ -104,13 +104,13 @@ MonoBehaviour:
   damage: 34
   health: 800
   fishName: Hammerhead
-  detectionIdleRadius: 15
+  detectionIdleRadius: 25
   biteRadius: 4
   biteDamage: 20
   linearSpeed: 7
   rotatingSpeed: 12
   maxLinearSpeed: 12
-  chargeSpeed: 15
+  chargeSpeed: 30
 --- !u!54 &4307547472317244433 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1700951489309660050, guid: 64081ec2118255b478f415e5413b58a0,

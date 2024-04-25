@@ -13,6 +13,7 @@ public class AbilityGameplayUI : MonoBehaviour
     [SerializeField] private Image abilityIcon;
     private void Awake()
     {
+        if (abilitySystem == null) abilitySystem = FindFirstObjectByType<PlayerCoreSystem>().abilitySystem;
         PlayerUsableGeneralData data = abilitySystem.GetAbilitySO().generalData;
         abilityName.text = data.name;
         if(data.icon != null ) abilityIcon.sprite = data.icon;

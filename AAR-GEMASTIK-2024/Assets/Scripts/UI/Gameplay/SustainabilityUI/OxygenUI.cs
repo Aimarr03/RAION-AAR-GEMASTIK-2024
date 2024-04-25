@@ -11,6 +11,7 @@ public class OxygenUI : MonoBehaviour
     private void Awake()
     {
         oxygenUI = GetComponent<Transform>();
+        if(playerCoreSystem == null) playerCoreSystem = FindFirstObjectByType<PlayerCoreSystem>();
     }
     private void Start()
     {

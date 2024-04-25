@@ -12,6 +12,7 @@ public class CapacityUI : MonoBehaviour
     private void Awake()
     {
         capacityUI = GetComponent<Transform>();
+        if(playerCoreSystem == null) playerCoreSystem = FindFirstObjectByType<PlayerCoreSystem>();
     }
     private void Start()
     {

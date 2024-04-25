@@ -328,6 +328,74 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1001 &1520810334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4078054779206883935, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHammerhead
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.905453
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67603445
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368925192541294534, guid: f967ae048bc76874fb69c002177d52fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f967ae048bc76874fb69c002177d52fd, type: 3}
 --- !u!1001 &1748733661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +409,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: energyConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f8284a2ad5bddf442853ca452c1d45b0,
+        type: 2}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: healthConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d1101adbba6091a448788aa7678cf151,
+        type: 2}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: oxygenConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 3fb3f16c79f9d2c47b80dcce7a2595f9,
+        type: 2}
     - target: {fileID: 4589858134610249025, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -391,6 +477,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6665911419686144876, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: abilitySO
+      value: 
+      objectReference: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade,
+        type: 2}
+    - target: {fileID: 7279481074748977735, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: weaponSo
+      value: 
+      objectReference: {fileID: 11400000, guid: d0b9424210900204fb74d8fcace3a6e4,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -522,3 +620,4 @@ SceneRoots:
   - {fileID: 2131102702}
   - {fileID: 1748733661}
   - {fileID: 713271458}
+  - {fileID: 1520810334}

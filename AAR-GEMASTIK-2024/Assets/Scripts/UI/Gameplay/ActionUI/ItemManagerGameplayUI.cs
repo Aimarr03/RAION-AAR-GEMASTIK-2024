@@ -10,6 +10,10 @@ public class ItemManagerGameplayUI : MonoBehaviour
 
     private void Awake()
     {
+        if(consumptionSystem == null)
+        {
+            consumptionSystem = FindFirstObjectByType<PlayerCoreSystem>().consumptionItemSystem;
+        }
         SustainabilityType type = consumptionSystem.GetSustainabilityTypeBasedOnIndex();
         foreach(ItemGameplayUI item in gameplayUIList)
         {

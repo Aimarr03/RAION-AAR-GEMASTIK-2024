@@ -14,6 +14,7 @@ public class WeaponGameplayUI : MonoBehaviour
 
     private void Awake()
     {
+        if(playerWeaponSystem == null) playerWeaponSystem = FindFirstObjectByType<PlayerCoreSystem>().weaponSystem;
         PlayerUsableGeneralData data = playerWeaponSystem.GetWeaponSO().generalData;
         weaponName.text = data.name;
         if(data.icon != null) weaponIcon.sprite = data.icon;

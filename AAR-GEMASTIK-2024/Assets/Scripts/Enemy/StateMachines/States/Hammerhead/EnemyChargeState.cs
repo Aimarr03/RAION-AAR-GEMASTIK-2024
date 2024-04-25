@@ -9,7 +9,8 @@ using Task = System.Threading.Tasks.Task;
 public class EnemyChargeState : EnemyBaseState
 {
     private float chargeSpeed;
-    private float maxDuration = 3f;
+    private float maxDurationBeforeCharging = 1.2f;
+    private float maxDurationCharging = 3f;
     private bool isCharging;
     private Vector3 direction;
 
@@ -27,14 +28,13 @@ public class EnemyChargeState : EnemyBaseState
     public override void OnEnterState()
     {
         Debug.Log("Enter Charge State");
-        isCharging = true;
-        direction = (playerCoreSystem.transform.position - enemy.transform.position).normalized;
+        
         OnCharging();
     }
 
     public override void OnExitState()
     {
-        
+        BeforeCharging();
     }
 
     public override void OnUpdateState()
@@ -42,12 +42,19 @@ public class EnemyChargeState : EnemyBaseState
         if (!isCharging) return;
         enemy.transform.position += direction * chargeSpeed * Time.deltaTime;
         if(Vector2.Distance(playerCoreSystem.transform.position, enemy.transform.position) > 40) isCharging=false;
-        
     }
     private async void OnCharging()
     {
-        await Task.Delay((int)maxDuration * 1000);
-        isCharging=false;
+        await Task.Delay((int)(maxDurationCharging * 1000));
+        isCharging= false;
         enemyStateMachine.OnTransitionState(nextState);
+    }
+    private async void BeforeCharging()
+    {
+        await Task.Delay((int)(maxDurationBeforeCharging * 1000));
+        direction = (playerCoreSystem.transform.position - enemy.transform.position).normalized;
+        await Task.Delay(300);
+        isCharging = true;
+        OnCharging();
     }
 }

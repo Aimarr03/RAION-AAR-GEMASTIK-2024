@@ -11,6 +11,10 @@ public class HealthUI : MonoBehaviour
     private void Awake()
     {
         healthUI = GetComponent<Transform>();
+        if(playerCoreSystem == null)
+        {
+            playerCoreSystem = FindFirstObjectByType<PlayerCoreSystem>();
+        }
     }
     private void Start()
     {

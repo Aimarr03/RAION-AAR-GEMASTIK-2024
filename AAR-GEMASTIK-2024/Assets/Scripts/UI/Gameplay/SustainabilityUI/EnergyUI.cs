@@ -11,6 +11,7 @@ public class EnergyUI : MonoBehaviour
     private void Awake()
     {
         energyUI = GetComponent<Transform>();
+        if(playerCoreSystem == null) playerCoreSystem = FindFirstObjectByType<PlayerCoreSystem>();
     }
     private void Start()
     {
