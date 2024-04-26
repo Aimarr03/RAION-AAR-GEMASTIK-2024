@@ -44,3 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2816570455
+    locked: 0
+  - name: Player
+    uniqueID: 3718978523
+    locked: 0
+  - name: Ocean Effect
+    uniqueID: 996763023
+    locked: 0
+  - name: UI
+    uniqueID: 3427045335
+    locked: 0
