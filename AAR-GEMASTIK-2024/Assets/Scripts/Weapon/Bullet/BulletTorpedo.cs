@@ -12,6 +12,8 @@ public class BulletTorpedo : BaseBullet
         if(collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
         {
             damagableUnit.TakeDamage(weaponData.totalDamage);
+            Vector3 direction = (collision.transform.position - transform.position).normalized;
+            damagableUnit.AddSuddenForce(direction, 12f);
             OnExplode();
         }
         if (collision.gameObject.CompareTag(WALLTAG))
