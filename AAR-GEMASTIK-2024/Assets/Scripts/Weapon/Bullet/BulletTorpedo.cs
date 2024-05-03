@@ -7,6 +7,7 @@ public class BulletTorpedo : BaseBullet
 {
     [SerializeField] private const string WALLTAG = "Wall";
     [SerializeField] private float radiusExplosion;
+    [SerializeField] private Transform particleSystemOnExplode; 
     public override void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
@@ -39,6 +40,13 @@ public class BulletTorpedo : BaseBullet
     
     private void OnExplode()
     {
+        Transform particleSystemInstantiate = Instantiate(particleSystemOnExplode, transform.position, transform.rotation);
+        foreach(ParticleSystem childParticleSystem in particleSystemInstantiate.GetComponentsInChildren<ParticleSystem>())
+        {
+            childParticleSystem.transform.parent = null;
+            childParticleSystem.Play();
+        }
+        Destroy(particleSystemInstantiate.gameObject);
         Collider[] explodedUnit = Physics.OverlapSphere(transform.position, radiusExplosion);
         for(int index = 0; index < explodedUnit.Length; index++)
         {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5496969134195704284}
   - component: {fileID: 4212926837481089621}
   m_Layer: 8
-  m_Name: Explosion_PS
+  m_Name: DebrisExplosion_PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730509105753854337}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2144306713197914660}
+  m_Father: {fileID: 7751342646416333640}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &5496969134195704284
 ParticleSystem:
@@ -43,14 +43,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -116,8 +116,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.4
+      scalar: 0.8
+      minScalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 15
+      scalar: 20
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4886,6 +4886,39 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &3543672715956217488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7751342646416333640}
+  m_Layer: 8
+  m_Name: PS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7751342646416333640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3543672715956217488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3698564245874889781}
+  - {fileID: 6944101993995256803}
+  m_Father: {fileID: 2144306713197914660}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6068421952501392762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,7 +4931,7 @@ GameObject:
   - component: {fileID: 1756444360701902420}
   - component: {fileID: 2856532250408549583}
   m_Layer: 8
-  m_Name: Particle System
+  m_Name: BaseExplosion_PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4912,12 +4945,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6068421952501392762}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2144306713197914660}
+  m_Father: {fileID: 7751342646416333640}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &1756444360701902420
 ParticleSystem:
@@ -4929,14 +4962,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5173,8 +5206,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 4
+      scalar: 8
+      minScalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5637,7 +5670,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 3
+      value: 4
       mode: 0
       spread: 0
       speed:
@@ -9863,11 +9896,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3698564245874889781}
-    - targetCorrespondingSourceObject: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6944101993995256803}
+      addedObject: {fileID: 7751342646416333640}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4347130143675064377, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
@@ -9899,6 +9928,7 @@ MonoBehaviour:
     isFullyCharge: 0
   TimeToLive: 0
   radiusExplosion: 6
+  particleSystemOnExplode: {fileID: 7751342646416333640}
 --- !u!4 &2144306713197914660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6,
