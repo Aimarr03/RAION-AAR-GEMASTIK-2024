@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
+
 public enum ItemType
 {
     Sustainabillity, Weapon, Ability, Item
@@ -21,6 +23,8 @@ public class ShopUI : BasePreparingPlayerUI
     private List<ItemBaseSO> list;
     private List<ShopItemCard> itemCards;
     public static event Action<ItemType> OnDisplayItem;
+    public Image buyFocus;
+    public Image upgradeFocus;
     private void Awake()
     {
         templateContainer.gameObject.SetActive(false);
@@ -97,10 +101,14 @@ public class ShopUI : BasePreparingPlayerUI
         switch(shopManager.shopMode)
         {
             case ShopMode.Buy:
+                buyFocus.gameObject.SetActive(true);
+                upgradeFocus.gameObject.SetActive(false);
                 ShowBuyable();
                 
                 break;
             case ShopMode.Upgrade:
+                buyFocus.gameObject.SetActive(false);
+                upgradeFocus.gameObject.SetActive(true);
                 ShowUpgradable();
                 break;
         }
