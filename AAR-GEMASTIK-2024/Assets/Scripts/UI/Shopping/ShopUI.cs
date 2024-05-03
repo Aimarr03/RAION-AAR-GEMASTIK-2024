@@ -99,13 +99,12 @@ public class ShopUI : BasePreparingPlayerUI
                 break;
             case ShopMode.Upgrade:
                 ShowUpgradable();
-                
                 break;
         }
     }
     private void ShowUpgradable() 
     {
-        list.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
+        list.Sort((item1, item2) => item1.BuyModeComparison(item2));
         if (itemCards.Count <= 0) return;
         itemCards.Sort((item1, item2) => item1.UpgradeModeComparison(item2));
     }
