@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -19,6 +20,7 @@ public class ShopUI : BasePreparingPlayerUI
     [SerializeField] private DetailedCardView cardDetailedInfo;
     private List<ItemBaseSO> list;
     private List<ShopItemCard> itemCards;
+    public static event Action<ItemType> OnDisplayItem;
     private void Awake()
     {
         templateContainer.gameObject.SetActive(false);
@@ -75,6 +77,7 @@ public class ShopUI : BasePreparingPlayerUI
             itemCards.Add(detailItemCard);
             detailItemCard.SetGeneralData(item, ShopManager.instance.shopMode);
         }
+        OnDisplayItem?.Invoke(type);
     }
     public void BuyModeAction() 
     { 

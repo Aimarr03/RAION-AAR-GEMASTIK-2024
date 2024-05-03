@@ -2,32 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CategoryButtonUI : MonoBehaviour
 {
+    public UnityEvent unityEvent;
     [SerializeField] private Image buttonImage;
+    [SerializeField] private ItemType itemType;
     private Button buttonCategory;
-    public static event Action<CategoryButtonUI> onClick;
     private void Awake()
     {
         buttonCategory = GetComponent<Button>();
-        buttonImage = GetComponent<Image>();
+        //buttonImage = GetComponentInChildren<Image>();
     }
     private void Start()
     {
-        onClick += CategoryButtonUI_onClick;
-        buttonCategory.onClick.AddListener(OnClickButton);
+        ShopUI.OnDisplayItem += ShopUI_OnDisplayItem;
     }
-    private void OnDestroy()
-    {
-        onClick -= CategoryButtonUI_onClick;
-    }
-
-    private void CategoryButtonUI_onClick(CategoryButtonUI obj)
+    private void ShopUI_OnDisplayItem(ItemType itemType)
     {
         Color buttonColor = buttonImage.color;
-        if (obj != this)
+        if (itemType != this.itemType)
         {
             buttonColor.a = 0;
             buttonImage.color = buttonColor;
@@ -38,6 +34,11 @@ public class CategoryButtonUI : MonoBehaviour
             buttonImage.color = buttonColor;
         }
     }
+
+    private void OnDestroy()
+    {
+        ShopUI.OnDisplayItem -= ShopUI_OnDisplayItem;
+    }
     private void OnMouseEnter()
     {
         Debug.Log("Mouse enter on " + gameObject.name);
@@ -45,8 +46,8 @@ public class CategoryButtonUI : MonoBehaviour
         buttonColor.a = 0.5f;
         buttonImage.color = buttonColor;
     }
-    private void OnClickButton()
+    private void OnMouseDown()
     {
-        onClick?.Invoke(this);
+        Debug.Log("Testing ANJING");
     }
 }
