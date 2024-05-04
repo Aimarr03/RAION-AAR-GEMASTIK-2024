@@ -33,6 +33,7 @@ public class ShopUI : BasePreparingPlayerUI
     }
     private void Start()
     {
+        cardDetailedInfo.gameObject.SetActive(false);
         DisplayItem(ItemType.Weapon);
         DetailedCardView.OnBoughtSomething += DetailedCardView_OnBoughtSomething;
     }

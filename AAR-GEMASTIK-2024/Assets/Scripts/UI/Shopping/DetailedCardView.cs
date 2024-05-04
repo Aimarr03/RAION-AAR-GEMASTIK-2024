@@ -36,7 +36,7 @@ public class DetailedCardView : MonoBehaviour
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
         if (itemSO is ConsumableItemSO) unlockable = !unlockable;
-        TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI buttonText = BuyAction.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         switch(mode)
         {
             case ShopMode.Buy:
