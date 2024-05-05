@@ -4653,6 +4653,7 @@ MonoBehaviour:
   contentText: {fileID: 1808553146}
   levelText: {fileID: 144710107}
   itemSO: {fileID: 0}
+  Background: {fileID: 875262000}
 --- !u!1 &469807135
 GameObject:
   m_ObjectHideFlags: 0
@@ -13322,7 +13323,7 @@ MonoBehaviour:
   levelText: {fileID: 459338704}
   UnavailableContainer: {fileID: 2141266096}
   icon: {fileID: 2038300592}
-  unavailableRed: {r: 1, g: 0, b: 0, a: 1}
+  unavailableRed: {r: 0.6037736, g: 0.15037379, b: 0.15037379, a: 1}
   unavailableGrey: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
 --- !u!114 &1300651527
 MonoBehaviour:
@@ -18229,6 +18230,7 @@ MonoBehaviour:
   contentText: {fileID: 1617256918}
   levelText: {fileID: 1569649714}
   itemSO: {fileID: 0}
+  Background: {fileID: 0}
 --- !u!1 &1668111406
 GameObject:
   m_ObjectHideFlags: 0

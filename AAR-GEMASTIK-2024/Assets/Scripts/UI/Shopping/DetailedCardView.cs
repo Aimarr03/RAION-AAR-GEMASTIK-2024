@@ -12,6 +12,8 @@ public class DetailedCardView : MonoBehaviour
     public TextMeshProUGUI contentText;
     public TextMeshProUGUI levelText;
     public ItemBaseSO itemSO;
+    public Image Background;
+    public List<DetailedItemCategory> categoryList;
     public static event Action OnBoughtSomething;
     public static event Action OnUpgradedSomething;
     private PlayerUsableGeneralData generalData
@@ -19,14 +21,20 @@ public class DetailedCardView : MonoBehaviour
         get => itemSO.generalData;
     }
     private bool isBuyable;
-    public void CloseTab() => gameObject.SetActive(false);
+    public void CloseTab()
+    {
+        Background.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
 
     public void OpenTab(ItemBaseSO itemSO, ShopMode mode, bool isBuyable)
     {
+        Background.gameObject.SetActive(true);
         this.itemSO = itemSO;
         gameObject.SetActive(true);
         headerText.text = generalData.name;
         contentText.text = generalData.description;
+        SetCategoryType();
         if (itemSO is ConsumableItemSO consumableItemSO) levelText.text = consumableItemSO.quantity.ToString();
         else levelText.text = "LVL" + generalData.level.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
@@ -128,6 +136,7 @@ public class DetailedCardView : MonoBehaviour
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.text = "Already Bought!";
         gameObject.SetActive(false);
+        Background.gameObject.SetActive(false);
         OnBoughtSomething?.Invoke();
     }
     private void OnBuyToGet()
@@ -157,5 +166,13 @@ public class DetailedCardView : MonoBehaviour
         bool isBuyable = EconomyManager.Instance.isPurchasable(generalData.buyPrice);
         levelText.text = quantity.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
+    }
+    private void SetCategoryType()
+    {
+        foreach(DetailedItemCategory detailedCardCategory in categoryList)
+        {
+            if (detailedCardCategory.Type == itemSO.generalData.itemType) detailedCardCategory.gameObject.SetActive(true);
+            else detailedCardCategory.gameObject.SetActive(false);
+        }
     }
 }
