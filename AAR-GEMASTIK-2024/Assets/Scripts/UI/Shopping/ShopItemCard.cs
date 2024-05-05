@@ -57,14 +57,13 @@ public class ShopItemCard : MonoBehaviour
         if (itemSO is ConsumableItemSO) canBeInterracted = !canBeInterracted;
         UnavailableContainer.gameObject.SetActive(!canBeInterracted);
         UnavailableContainer.GetComponentInChildren<TextMeshProUGUI>().text = text;
-
+    
 
         GetComponent<Image>().color = !canBeInterracted ? Color.white : unavailableGrey;
         icon.color = canBeInterracted ? Color.white : unavailableGrey;
-
-        IsBuyableOrNotVisually(mode);
+        IsBuyableOrNotVisually(mode, canBeInterracted);
     }
-    private void IsBuyableOrNotVisually(ShopMode mode)
+    private void IsBuyableOrNotVisually(ShopMode mode, bool canBeInterracted)
     {
         int price = 0;
         switch (mode)
@@ -73,7 +72,10 @@ public class ShopItemCard : MonoBehaviour
             case ShopMode.Upgrade: price = generalData.upgradePrice; break;
         }
         isBuyable = EconomyManager.Instance.isPurchasable(price);
-        
+        if (!canBeInterracted)
+        {
+            isBuyable = false;
+        }
         priceText.text = price.ToString();
         priceText.color = isBuyable ? Color.white : unavailableRed;
 

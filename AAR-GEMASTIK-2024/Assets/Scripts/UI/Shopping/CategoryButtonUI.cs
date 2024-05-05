@@ -19,6 +19,12 @@ public class CategoryButtonUI : MonoBehaviour
     private void Start()
     {
         ShopUI.OnDisplayItem += ShopUI_OnDisplayItem;
+        if(itemType == ItemType.Weapon)
+        {
+            Color buttonColor = buttonImage.color;
+            buttonColor.a = 1;
+            buttonImage.color = buttonColor;
+        }
     }
     private void ShopUI_OnDisplayItem(ItemType itemType)
     {

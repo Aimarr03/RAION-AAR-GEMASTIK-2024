@@ -28,12 +28,12 @@ public class DetailedCardView : MonoBehaviour
         headerText.text = generalData.name;
         contentText.text = generalData.description;
         if (itemSO is ConsumableItemSO consumableItemSO) levelText.text = consumableItemSO.quantity.ToString();
-        else levelText.text = generalData.level.ToString();
-        CanBeUseBuyActionOrNot(generalData.unlocked, mode);
+        else levelText.text = "LVL" + generalData.level.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
+        CanUseBuyActionOrNot(generalData.unlocked, mode);
         SetAction(isBuyable, mode);
     }
-    private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
+    private void CanUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
         if (itemSO is ConsumableItemSO) unlockable = !unlockable;
         TextMeshProUGUI buttonText = BuyAction.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -66,6 +66,16 @@ public class DetailedCardView : MonoBehaviour
     private void SetButtonIsBuyableOrNot(bool input)
     {
         isBuyable = input;
+        switch (ShopManager.instance.shopMode)
+        {
+            case ShopMode.Buy:
+                isBuyable = EconomyManager.Instance.isPurchasable(itemSO.generalData.buyPrice);
+                break;
+            case ShopMode.Upgrade:
+                isBuyable = EconomyManager.Instance.isPurchasable(itemSO.generalData.totalUpgradePrice);
+                break;
+        }
+        BuyAction.interactable = isBuyable;
         if (!isBuyable)
         {
             BuyAction.interactable = false;
