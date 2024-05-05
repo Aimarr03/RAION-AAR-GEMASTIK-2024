@@ -20,6 +20,7 @@ MonoBehaviour:
     buyPrice: 160
     upgradePrice: 0
     unlocked: 1
+    itemType: 3
   itemTier: 1
   value: 75
   quantity: 5

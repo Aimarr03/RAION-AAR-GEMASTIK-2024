@@ -9,15 +9,15 @@ public class WeaponGameplayUI : MonoBehaviour
 {
     [SerializeField] private PlayerWeaponSystem playerWeaponSystem;
 
-    [SerializeField] private TextMeshProUGUI weaponName;
     [SerializeField] private Image weaponIcon;
+    [SerializeField] private Image backgroundIcon;
 
     private void Awake()
     {
         if(playerWeaponSystem == null) playerWeaponSystem = FindFirstObjectByType<PlayerCoreSystem>().weaponSystem;
         PlayerUsableGeneralData data = playerWeaponSystem.GetWeaponSO().generalData;
-        weaponName.text = data.name;
         if(data.icon != null) weaponIcon.sprite = data.icon;
+        backgroundIcon.sprite = weaponIcon.sprite;
         playerWeaponSystem.DoneFire += PlayerWeaponSystem_DoneFire;
     }
     private void OnDestroy()
