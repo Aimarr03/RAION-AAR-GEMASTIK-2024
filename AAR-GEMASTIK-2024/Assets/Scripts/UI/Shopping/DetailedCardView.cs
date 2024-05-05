@@ -35,6 +35,7 @@ public class DetailedCardView : MonoBehaviour
     }
     private void CanUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
+        if (!BuyAction.interactable) return;
         if (itemSO is ConsumableItemSO) unlockable = !unlockable;
         TextMeshProUGUI buttonText = BuyAction.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         switch(mode)
@@ -144,7 +145,7 @@ public class DetailedCardView : MonoBehaviour
     }
     private void OnUpdateUpgrade()
     {
-        levelText.text = generalData.level.ToString();
+        levelText.text = "LVL " + generalData.level.ToString();
         int newPrice = generalData.totalUpgradePrice;
         bool isBuyable = EconomyManager.Instance.isPurchasable(newPrice);
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();

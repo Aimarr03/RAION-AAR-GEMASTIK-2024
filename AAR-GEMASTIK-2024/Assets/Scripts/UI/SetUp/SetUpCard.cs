@@ -41,13 +41,13 @@ public class SetUpCard : MonoBehaviour
             isUnlocked = generalData.unlocked;
         }
         thisButton.interactable = isUnlocked;
-        UpdateColor(isUnlocked);   
+        UpdateCardData(isUnlocked);   
     }
     private void UpdateColor()
     {
         background.color = generalData.unlocked ? Color.white : Color.gray;
     }
-    private void UpdateColor(bool input)
+    private void UpdateCardData(bool input)
     {
         background.color = input ? Color.white : Color.gray;
     }

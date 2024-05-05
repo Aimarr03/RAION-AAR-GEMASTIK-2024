@@ -25,6 +25,23 @@ public class ShopItemCard : MonoBehaviour
     public Color unavailableRed;
     public Color unavailableGrey;
     private bool isBuyable;
+    private void Start()
+    {
+        DetailedCardView.OnUpgradedSomething += UpdateData;
+    }
+    private void OnDestroy()
+    {
+        DetailedCardView.OnUpgradedSomething -= UpdateData;
+    }
+
+    private void UpdateData()
+    {
+        Debug.Log(itemSO);
+        Debug.Log(generalData.unlocked);
+        Debug.Log(ShopManager.instance.shopMode);
+        CanBeUseBuyActionOrNot(generalData.unlocked, ShopManager.instance.shopMode);
+    }
+
     public void SetGeneralData(ItemBaseSO itemBaseSO, ShopMode mode)
     {
         itemSO = itemBaseSO;
@@ -37,6 +54,7 @@ public class ShopItemCard : MonoBehaviour
     public void OnOpenDetailedCardView()
     {
         if (detailedCardView.gameObject.activeSelf) return;
+        //Debug.Log(itemSO);
         detailedCardView.OpenTab(itemSO, ShopManager.instance.shopMode, isBuyable);
     }
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
@@ -69,7 +87,7 @@ public class ShopItemCard : MonoBehaviour
         switch (mode)
         {
             case ShopMode.Buy: price = generalData.buyPrice; break;
-            case ShopMode.Upgrade: price = generalData.upgradePrice; break;
+            case ShopMode.Upgrade: price = generalData.totalUpgradePrice; break;
         }
         isBuyable = EconomyManager.Instance.isPurchasable(price);
         if (!canBeInterracted)
