@@ -175,4 +175,18 @@ public class ShopUI : BasePreparingPlayerUI
             
         }
     }
+
+    public override IEnumerator OnEnterState()
+    {
+        gameObject.SetActive(true);
+        GetComponent<RectTransform>().DOAnchorPosX(0, 0.7f);
+        yield return new WaitForSeconds(0.7f);
+    }
+
+    public override IEnumerator OnExitState()
+    {
+        GetComponent<RectTransform>().DOAnchorPosX(1000, 0.7f);
+        yield return new WaitForSeconds(0.7f);
+        gameObject.SetActive(false);
+    }
 }

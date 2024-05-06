@@ -65,28 +65,34 @@ public class PreparingUIManager : MonoBehaviour
     }
     public void NextPage()
     {
-        BasePreparingPlayerUI currentPage = list[currentPageIndex];
+        
+        StartCoroutine(OnTransitionNext());
         currentPageIndex++;
         if(currentPageIndex > list.Count - 1)
         {
             currentPageIndex = 0;
         }
-        BasePreparingPlayerUI nextPage = list[currentPageIndex];
-        currentPage.gameObject.SetActive(false);
-        nextPage.gameObject.SetActive(true);
+        
         CheckButtonCondition();
     }
     public void PreviousPage()
     {
-        BasePreparingPlayerUI currentPage = list[currentPageIndex];
+        StartCoroutine(OnTransitionPrevious());
         currentPageIndex--;
         if (currentPageIndex < 0)
         {
             currentPageIndex = list.Count-1;
         }
-        BasePreparingPlayerUI previouosLayer = list[currentPageIndex];
-        currentPage.gameObject.SetActive(false);
-        previouosLayer.gameObject.SetActive(true);
         CheckButtonCondition();
+    }
+    private IEnumerator OnTransitionNext()
+    {
+        yield return list[currentPageIndex].OnExitState();
+        StartCoroutine(list[currentPageIndex].OnEnterState());
+    }
+    private IEnumerator OnTransitionPrevious()
+    {
+        yield return list[currentPageIndex].OnExitState();
+        StartCoroutine(list[currentPageIndex].OnEnterState());
     }
 }
