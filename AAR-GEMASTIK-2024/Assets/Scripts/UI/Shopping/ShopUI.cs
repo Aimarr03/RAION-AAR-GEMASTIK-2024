@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,13 +78,23 @@ public class ShopUI : BasePreparingPlayerUI
         foreach (ItemBaseSO item in list)
         {
             Transform currentCard = Instantiate(templateContainer, CardContainer);
+            currentCard.localScale = Vector3.zero;
             currentCard.gameObject.SetActive(true);
             currentCard.name = item.generalData.name;
             ShopItemCard detailItemCard = currentCard.GetComponent<ShopItemCard>();
             itemCards.Add(detailItemCard);
             detailItemCard.SetGeneralData(item, ShopManager.instance.shopMode);
         }
+        DOScaleTweenItemCard();
         OnDisplayItem?.Invoke(type);
+    }
+    private async void DOScaleTweenItemCard()
+    {
+        foreach(ShopItemCard currentItemCard in itemCards)
+        {
+            currentItemCard.transform.DOScale(1, 0.3f).SetEase(Ease.OutBounce);
+            await Task.Delay(150);
+        }
     }
     public void BuyModeAction() 
     { 
@@ -139,6 +151,7 @@ public class ShopUI : BasePreparingPlayerUI
             Transform currentCardTransform = card.transform;
             card.SetGeneralData(ShopManager.instance.shopMode);
             currentCardTransform.SetSiblingIndex(i);
+            
         }
     }
 }
