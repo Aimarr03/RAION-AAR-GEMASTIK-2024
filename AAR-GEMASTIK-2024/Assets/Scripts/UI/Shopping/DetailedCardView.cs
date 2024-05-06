@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,9 @@ public class DetailedCardView : MonoBehaviour
 
     public void OpenTab(ItemBaseSO itemSO, ShopMode mode, bool isBuyable)
     {
+        transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        transform.position += new Vector3(0, 1f, 0);
+        transform.DOScale(1, 0.2f);
         Background.gameObject.SetActive(true);
         this.itemSO = itemSO;
         gameObject.SetActive(true);
