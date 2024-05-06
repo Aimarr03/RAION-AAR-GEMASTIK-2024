@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class ShopUI : BasePreparingPlayerUI
     [SerializeField] private Transform templateContainer;
     
     [SerializeField] private DetailedCardView cardDetailedInfo;
+    [SerializeField] private TextMeshProUGUI headerText;
     private List<ItemBaseSO> list;
     private List<ShopItemCard> itemCards;
     public static event Action<ItemType> OnDisplayItem;
@@ -37,6 +39,7 @@ public class ShopUI : BasePreparingPlayerUI
     {
         cardDetailedInfo.gameObject.SetActive(false);
         DisplayItem(ItemType.Weapon);
+        headerText.text = "WEAPON";
         DetailedCardView.OnBoughtSomething += DetailedCardView_OnBoughtSomething;
     }
 
@@ -90,8 +93,10 @@ public class ShopUI : BasePreparingPlayerUI
     }
     private async void DOScaleTweenItemCard()
     {
-        foreach(ShopItemCard currentItemCard in itemCards)
+        for(int index = 0; index < itemCards.Count; index++)
         {
+            ShopItemCard currentItemCard = itemCards[index];
+            if(currentItemCard == null) continue;
             currentItemCard.transform.DOScale(1, 0.3f).SetEase(Ease.OutBounce);
             await Task.Delay(150);
         }
@@ -138,10 +143,26 @@ public class ShopUI : BasePreparingPlayerUI
         if (itemCards.Count <= 0) return;
         itemCards.Sort((item1, item2) => item1.BuyModeComparison(item2));
     }
-    public void DisplayWeapon() => DisplayItem(ItemType.Weapon);
-    public void DisplayAbility() => DisplayItem(ItemType.Ability);
-    public void DisplayItem() => DisplayItem(ItemType.Item);
-    public void DisplaySustainability() => DisplayItem(ItemType.Sustainabillity);
+    public void DisplayWeapon()
+    {
+        headerText.text = "WEAPON";
+        DisplayItem(ItemType.Weapon);
+    }
+    public void DisplayAbility() 
+    {
+        headerText.text = "ABILITY";
+        DisplayItem(ItemType.Ability); 
+    }
+    public void DisplayItem() 
+    {
+        headerText.text = "ITEM";
+        DisplayItem(ItemType.Item); 
+    }
+    public void DisplaySustainability() 
+    {
+        headerText.text = "SUSTAINABILITY";
+        DisplayItem(ItemType.Sustainabillity);
+    } 
     private void UpdateSorting()
     {
         if (itemCards.Count <= 0) return;
