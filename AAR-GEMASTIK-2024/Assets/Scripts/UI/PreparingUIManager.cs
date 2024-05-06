@@ -14,6 +14,7 @@ public class PreparingUIManager : MonoBehaviour
     [SerializeField] private Image previousButton;
     [SerializeField] private Image nextButton;
     private int currentPageIndex = 0;
+    public static event Action<bool> OnChangeUI;
 
     private void Awake()
     {
@@ -27,10 +28,12 @@ public class PreparingUIManager : MonoBehaviour
             }
             else list[index].gameObject.SetActive(false);
         }
+        OnChangeUI?.Invoke(false);
         CheckButtonCondition();
     }
     private void CheckButtonCondition()
     {
+        bool isLastPage = false;
         Color previousButtonColor = previousButton.color;
         Color nextButtonColor = nextButton.color;
         if (currentPageIndex == 0)
@@ -46,6 +49,7 @@ public class PreparingUIManager : MonoBehaviour
             nextButtonColor.a = 0.3f;
             previousButton.GetComponent<Button>().interactable = true;
             nextButton.GetComponent<Button>().interactable = false;
+            isLastPage = true;
         }
         else
         {
@@ -54,6 +58,7 @@ public class PreparingUIManager : MonoBehaviour
             previousButton.GetComponent<Button>().interactable = true;
             nextButton.GetComponent<Button>().interactable = true;
         }
+        OnChangeUI?.Invoke(isLastPage);
         previousButton.color = previousButtonColor;
         nextButton.color = nextButtonColor;
         headerText.text = headerList[currentPageIndex];

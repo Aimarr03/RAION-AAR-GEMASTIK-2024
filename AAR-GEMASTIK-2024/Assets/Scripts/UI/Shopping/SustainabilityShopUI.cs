@@ -6,7 +6,7 @@ using UnityEngine;
 public class SustainabilityShopUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textInfo;
-    [SerializeField] private SustainabilitySystemSO sustainabilitySO;
+    public SustainabilitySystemSO sustainabilitySO;
 
     private void Start()
     {
