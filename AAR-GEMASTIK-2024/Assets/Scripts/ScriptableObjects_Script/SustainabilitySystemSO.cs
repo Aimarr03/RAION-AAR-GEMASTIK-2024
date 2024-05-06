@@ -8,7 +8,7 @@ public class SustainabilitySystemSO : ItemBaseSO, IUpgradable
     public int maxValue;
     public SustainabilityType sustainabilityType;
 
-    public int maxLevelTimesLevel
+    public int maxValueTimesLevel
     {
         get => maxValue + GetMultiplierLevelValue();
     }

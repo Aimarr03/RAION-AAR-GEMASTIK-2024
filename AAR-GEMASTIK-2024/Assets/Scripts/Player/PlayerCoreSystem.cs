@@ -65,7 +65,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         foreach(SustainabilitySystemSO currentSustainabilityData in SustainabilitySystemsDataList)
         {
             SustainabilityType currentType = currentSustainabilityData.sustainabilityType;
-            int maxValue = currentSustainabilityData.maxLevelTimesLevel;
+            int maxValue = currentSustainabilityData.maxValueTimesLevel;
             Debug.Log($"{currentType} has max value of {maxValue}");
             _BaseSustainabilitySystem currentSustainabilitySystem = new HealthSystem(this, maxValue);
             switch (currentType)

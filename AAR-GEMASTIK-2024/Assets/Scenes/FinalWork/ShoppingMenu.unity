@@ -900,13 +900,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 63891557}
+  - component: {fileID: 63891558}
   m_Layer: 5
   m_Name: WeightContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &63891557
 RectTransform:
   m_ObjectHideFlags: 0
@@ -923,11 +924,25 @@ RectTransform:
   - {fileID: 1761630534}
   m_Father: {fileID: 523217532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 114.23999, y: -385}
-  m_SizeDelta: {x: 218.47998, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &63891558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63891556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9206794394f05684eac8bc650f00db35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textInfo: {fileID: 1845103602}
+  sustainabilitySO: {fileID: 11400000, guid: b72b813dcff9f50449335f29e9511e7f, type: 2}
 --- !u!1 &73727585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,9 +2538,9 @@ RectTransform:
   - {fileID: 1033224222}
   m_Father: {fileID: 1337930602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 317, y: -58.820007}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172910221
@@ -5555,9 +5570,9 @@ RectTransform:
   - {fileID: 1701857728}
   m_Father: {fileID: 1337930602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 57, y: -58.820007}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &485691814
@@ -8317,6 +8332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 718397213}
+  - component: {fileID: 718397214}
   m_Layer: 5
   m_Name: OxygenContainer
   m_TagString: Untagged
@@ -8345,6 +8361,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &718397214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718397212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9206794394f05684eac8bc650f00db35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textInfo: {fileID: 1288501535}
+  sustainabilitySO: {fileID: 11400000, guid: b72b813dcff9f50449335f29e9511e7f, type: 2}
 --- !u!1 &725211105
 GameObject:
   m_ObjectHideFlags: 0
@@ -15254,6 +15284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174698058}
+  - component: {fileID: 1174698059}
   m_Layer: 5
   m_Name: HealthContainer
   m_TagString: Untagged
@@ -15282,6 +15313,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1174698059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174698057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9206794394f05684eac8bc650f00db35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textInfo: {fileID: 1914740546}
+  sustainabilitySO: {fileID: 11400000, guid: 067863a6d7e39d0438063850f76135ed, type: 2}
 --- !u!1 &1183693612
 GameObject:
   m_ObjectHideFlags: 0
@@ -16103,6 +16148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1258688954}
+  - component: {fileID: 1258688955}
   m_Layer: 5
   m_Name: EnergyContainer
   m_TagString: Untagged
@@ -16131,6 +16177,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1258688955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258688953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9206794394f05684eac8bc650f00db35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textInfo: {fileID: 2062311079}
+  sustainabilitySO: {fileID: 11400000, guid: a2f63737bbed6984dafd2fbb05be241e, type: 2}
 --- !u!1 &1274598316
 GameObject:
   m_ObjectHideFlags: 0
@@ -17068,7 +17128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1337930602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26728,9 +26788,9 @@ RectTransform:
   - {fileID: 354997998}
   m_Father: {fileID: 1337930602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187, y: -58.820007}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1995893334
