@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -21,14 +22,16 @@ public struct WeaponBulletData
         get
         {
             int multiplierDamageBasedLevel = (int)damage / 2;
-            return (int)(damage * (level * multiplierDamageBasedLevel));
+            return (int)(damage + (level -1 * multiplierDamageBasedLevel));
         }
     }
+    
 }
 
 [CreateAssetMenu(fileName ="New Weapon SO", menuName ="Weapon/Create New Weapon SO")]
 public class WeaponSO : ItemBaseSO, IBuyable,IUpgradable
 {
+    public List<AbilityStats> statsList;
     public WeaponBulletData bulletData;
     public bool unlocked;
     public float cooldownBetweenFiringBullet;
@@ -36,7 +39,7 @@ public class WeaponSO : ItemBaseSO, IBuyable,IUpgradable
     public Transform bullet;
     public int ammountToHold;
     public WeaponType type;
-
+    
     public void Buy()
     {
         Debug.Log("Attempt to Buy " + generalData.name);

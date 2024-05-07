@@ -9,6 +9,7 @@ public struct AbilityDataSO
 [CreateAssetMenu(fileName ="New Ability SO", menuName = "Ability/Create New Ability SO")]
 public class AbilitySO : ItemBaseSO, IBuyable, IUpgradable
 {
+    public List<AbilityStats> statsList;
     public AbilityDataSO abilityData;
     public Transform prefab;
     public bool isInvokable;

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class DetailedCardView : MonoBehaviour
 {
+    [Header("General Data")]
+    public StatsHandlerUI StatsHandler;
     public Button BuyAction;
     public TextMeshProUGUI headerText;
     public TextMeshProUGUI contentText;
@@ -26,6 +28,10 @@ public class DetailedCardView : MonoBehaviour
     {
         Background.gameObject.SetActive(false);
         gameObject.SetActive(false);
+    }
+    private void Awake()
+    {
+        StatsHandler = GetComponent<StatsHandlerUI>();
     }
 
     public void OpenTab(ItemBaseSO itemSO, ShopMode mode, bool isBuyable)
