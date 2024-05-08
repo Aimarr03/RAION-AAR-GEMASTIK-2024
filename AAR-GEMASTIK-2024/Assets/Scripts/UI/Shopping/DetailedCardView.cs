@@ -44,6 +44,7 @@ public class DetailedCardView : MonoBehaviour
         gameObject.SetActive(true);
         headerText.text = generalData.name;
         contentText.text = generalData.description;
+        StatsHandler.OnSetUpStats(itemSO);
         SetCategoryType();
         if (itemSO is ConsumableItemSO consumableItemSO) levelText.text = consumableItemSO.quantity.ToString();
         else levelText.text = "LVL" + generalData.level.ToString();

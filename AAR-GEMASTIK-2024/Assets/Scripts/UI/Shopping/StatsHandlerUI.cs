@@ -51,21 +51,44 @@ public class StatsHandlerUI : MonoBehaviour
     }
     public void OnSetUpStats(ItemBaseSO itemBaseSO)
     {
-        foreach(Transform currentCard in StatsContainer)
+        for(int index = 0; index< StatsContainer.childCount; index++)
         {
+            Transform currentCard = StatsContainer.GetChild(index);
             if (currentCard == templateCard.transform) continue;
-            Destroy(currentCard);
+            Destroy(currentCard.gameObject);
         }
         switch (itemBaseSO)
         {
-            case WeaponSO weaponSO: break;
+            case WeaponSO weaponSO: 
+                if(ShopManager.instance.shopMode == ShopMode.Buy)
+                {
+                    HandleWeaponStatsUIBuyMode(weaponSO);
+                }
+                break;
             case ConsumableItemSO consumableItemSO: break;
             case AbilitySO abilitySO: break;
             case SustainabilitySystemSO sustainabilitySystemSO: break;
         }
     }
-    private void HandleWeaponStatsUI(WeaponSO weaponSO)
+    private void HandleWeaponStatsUIBuyMode(WeaponSO weaponSO)
     {
-        
+        List<WeaponStats> statsList = weaponSO.statsList;
+        foreach (WeaponStats currentWeaponStatsType in statsList)
+        {
+            Transform newCardStats = Instantiate(templateCard.transform, StatsContainer);
+            newCardStats.gameObject.SetActive(true);
+            StatsCard statsCard = newCardStats.GetComponent<StatsCard>();
+            WeaponStatsType statsData = GetWeaponStatsData(currentWeaponStatsType);
+            float statsValue = weaponSO.GetDataStatsBuyMode(currentWeaponStatsType);
+            statsCard.SetUpData(new StatsDataPassing(null, currentWeaponStatsType.ToString(), statsValue.ToString()));
+        }
+    }
+    private WeaponStatsType GetWeaponStatsData(WeaponStats weaponStats)
+    {
+        foreach(WeaponStatsType statsType in weaponStatsListStats)
+        {
+            if(statsType.type == weaponStats) return statsType;
+        }
+        return weaponStatsListStats[0];
     }
 }
