@@ -16,6 +16,15 @@ public class SustainabilitySystemSO : ItemBaseSO, IUpgradable
     {
         get => maxValue + (int)((maxValue * 0.2f) * generalData.level);
     }
+    public float[] upgradeStatsValue()
+    {
+        float currentValue = maxValueTimesLevel;
+        float nextLevelValue = maxValueTimesNextLevel;
+        return new float[]
+        {
+            currentValue, nextLevelValue
+        };
+    }
     public int GetMultiplierLevelValue() => (int)((maxValue * 0.2f) * (generalData.level - 1));
     
 

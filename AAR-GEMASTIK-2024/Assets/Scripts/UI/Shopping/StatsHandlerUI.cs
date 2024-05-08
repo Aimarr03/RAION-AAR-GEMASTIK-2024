@@ -48,6 +48,7 @@ public class StatsHandlerUI : MonoBehaviour
     private void Awake()
     {
         detailedCardView = GetComponent<DetailedCardView>();
+        templateCard.gameObject.SetActive(false);
     }
     public void OnSetUpStats(ItemBaseSO itemBaseSO)
     {
@@ -64,6 +65,10 @@ public class StatsHandlerUI : MonoBehaviour
                 {
                     HandleWeaponStatsUIBuyMode(weaponSO);
                 }
+                else
+                {
+                    HandleWeaponStatsUIUpgradeMode(weaponSO);
+                }
                 break;
             case ConsumableItemSO consumableItemSO:
                 HandleConsumableItemStatsUIBuyMode(consumableItemSO);
@@ -73,11 +78,19 @@ public class StatsHandlerUI : MonoBehaviour
                 {
                     HandleAbilityStatsUIBuyMode(abilitySO);
                 }
+                else
+                {
+                    HandleAbilityStatsUIUpgradeMode(abilitySO);
+                }
                 break;
             case SustainabilitySystemSO sustainabilitySystemSO:
                 if (ShopManager.instance.shopMode == ShopMode.Buy)
                 {
                     HandleSustainabilityStatsUIBuyMode(sustainabilitySystemSO);
+                }
+                else
+                {
+                    HandleSustainabilityStatsUIUpgradeMode(sustainabilitySystemSO);
                 }
                 break;
         }
@@ -92,7 +105,24 @@ public class StatsHandlerUI : MonoBehaviour
             StatsCard statsCard = newCardStats.GetComponent<StatsCard>();
             WeaponStatsType statsData = GetWeaponStatsData(currentWeaponStatsType);
             float statsValue = weaponSO.GetDataStatsBuyMode(currentWeaponStatsType);
-            statsCard.SetUpData(new StatsDataPassing(null, currentWeaponStatsType.ToString(), statsValue.ToString()));
+            bool unlocked = weaponSO.generalData.unlocked;
+            statsCard.SetUpData(new StatsDataPassing(null, currentWeaponStatsType.ToString(), statsValue.ToString(), unlocked));
+        }
+    }
+    private void HandleWeaponStatsUIUpgradeMode(WeaponSO weaponSO)
+    {
+        List<WeaponStats> statsList = weaponSO.statsList;
+        foreach (WeaponStats currentWeaponStatsType in statsList)
+        {
+            Transform newCardStats = Instantiate(templateCard.transform, StatsContainer);
+            newCardStats.gameObject.SetActive(true);
+            StatsCard statsCard = newCardStats.GetComponent<StatsCard>();
+            WeaponStatsType statsData = GetWeaponStatsData(currentWeaponStatsType);
+            float statsValue = weaponSO.GetDataStatsBuyMode(currentWeaponStatsType);
+            float[] upgradeStatsValue = weaponSO.GetDataStatsUpgradeMode(currentWeaponStatsType);
+            bool unlocked = weaponSO.generalData.unlocked;
+            statsCard.SetUpData(new StatsDataPassing(null, currentWeaponStatsType.ToString(), statsValue.ToString(),unlocked));
+            statsCard.OnUpdateUpgradeStats(upgradeStatsValue, unlocked);
         }
     }
     private void HandleConsumableItemStatsUIBuyMode(ConsumableItemSO consumableItemSO)
@@ -104,7 +134,9 @@ public class StatsHandlerUI : MonoBehaviour
         StatsCard statsCard = newCard.GetComponent<StatsCard>();
         float statsValue = consumableItemSO.GetTotalValueBasedOnTier();
         string type = "RECOVER " + consumableItemSO.type;
-        statsCard.SetUpData(new StatsDataPassing(null, type, statsValue.ToString()));
+        bool unlocked = !consumableItemSO.generalData.unlocked;
+        statsCard.OnUpdateUpgradeStats(null, unlocked);
+        statsCard.SetUpData(new StatsDataPassing(null, type, statsValue.ToString(), unlocked));
     }
     private void HandleAbilityStatsUIBuyMode(AbilitySO abilitySO)
     {
@@ -116,7 +148,24 @@ public class StatsHandlerUI : MonoBehaviour
             StatsCard statsCard = newCardStats.GetComponent<StatsCard>();
             AbilityStatsType abilityStatsData = GetAbilityStatsData(currentStats);
             float statasValue = abilitySO.GetStatsDataBasedOnTypeBuyMode(currentStats);
-            statsCard.SetUpData(new StatsDataPassing(null, currentStats.ToString(), statasValue.ToString()));
+            bool unlocked = abilitySO.generalData.unlocked;
+            statsCard.SetUpData(new StatsDataPassing(null, currentStats.ToString(), statasValue.ToString(), unlocked));
+        }
+    }
+    private void HandleAbilityStatsUIUpgradeMode(AbilitySO abilitySO)
+    {
+        List<AbilityStats> statsList = abilitySO.statsList;
+        foreach (AbilityStats currentStats in statsList)
+        {
+            Transform newCardStats = Instantiate(templateCard.transform, StatsContainer);
+            newCardStats.gameObject.SetActive(true);
+            StatsCard statsCard = newCardStats.GetComponent<StatsCard>();
+            AbilityStatsType abilityStatsData = GetAbilityStatsData(currentStats);
+            float statsValue = abilitySO.GetStatsDataBasedOnTypeBuyMode(currentStats);
+            float[] upgradeStatsValue = abilitySO.GetStatsDataBasedOnTypeUpgradeMode(currentStats);
+            bool unlocked = abilitySO.generalData.unlocked;
+            statsCard.SetUpData(new StatsDataPassing(null, currentStats.ToString(), statsValue.ToString(), unlocked));
+            statsCard.OnUpdateUpgradeStats(upgradeStatsValue, unlocked);
         }
     }
     private void HandleSustainabilityStatsUIBuyMode(SustainabilitySystemSO sustainabillitySO)
@@ -128,7 +177,22 @@ public class StatsHandlerUI : MonoBehaviour
         StatsCard statsCard = newCard.GetComponent<StatsCard>();
         float statsValue = sustainabillitySO.maxValueTimesLevel;
         string type = "" + sustainabillitySO.sustainabilityType;
-        statsCard.SetUpData(new StatsDataPassing(null, type, statsValue.ToString()));
+        bool unlocked = sustainabillitySO.generalData.unlocked;
+        statsCard.SetUpData(new StatsDataPassing(null, type, statsValue.ToString(), unlocked));
+    }
+    private void HandleSustainabilityStatsUIUpgradeMode(SustainabilitySystemSO sustainabillitySO)
+    {
+        SustainabilityType sustainabilityList = sustainabillitySO.sustainabilityType;
+        SustainabilityStatsType statsType = GetSustainabilityType(sustainabilityList);
+        Transform newCard = Instantiate(templateCard.transform, StatsContainer);
+        newCard.gameObject.SetActive(true);
+        StatsCard statsCard = newCard.GetComponent<StatsCard>();
+        float statsValue = sustainabillitySO.maxValueTimesLevel;
+        float[] upgradeStatsValue = sustainabillitySO.upgradeStatsValue();
+        string type = "" + sustainabillitySO.sustainabilityType;
+        bool unlocked = sustainabillitySO.generalData.unlocked;
+        statsCard.SetUpData(new StatsDataPassing(null, type, statsValue.ToString(), unlocked));
+        statsCard.OnUpdateUpgradeStats(upgradeStatsValue, unlocked);
     }
     private SustainabilityStatsType GetSustainabilityType(SustainabilityType sustainabilityStatsType)
     {

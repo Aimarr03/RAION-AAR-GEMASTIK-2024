@@ -46,7 +46,11 @@ public class DetailedCardView : MonoBehaviour
         contentText.text = generalData.description;
         StatsHandler.OnSetUpStats(itemSO);
         SetCategoryType();
-        if (itemSO is ConsumableItemSO consumableItemSO) levelText.text = consumableItemSO.quantity.ToString();
+        if (itemSO is ConsumableItemSO consumableItemSO)
+        {
+            levelText.text = consumableItemSO.quantity.ToString();
+            headerText.text += " " + consumableItemSO.itemTier;
+        }
         else levelText.text = "LVL" + generalData.level.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
         CanUseBuyActionOrNot(generalData.unlocked, mode);

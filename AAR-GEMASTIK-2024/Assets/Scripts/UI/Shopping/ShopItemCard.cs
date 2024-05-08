@@ -98,6 +98,10 @@ public class ShopItemCard : MonoBehaviour
         priceText.color = isBuyable ? Color.white : unavailableRed;
 
         header.text = itemSO.generalData.name;
+        if(itemSO is ConsumableItemSO consumableItemSO)
+        {
+            header.text += " " + consumableItemSO.itemTier;
+        }
         header.color = isBuyable ? Color.white : unavailableRed;
 
         string level = itemSO.generalData.level.ToString();
