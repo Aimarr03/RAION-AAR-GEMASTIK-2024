@@ -22,6 +22,29 @@ public class AbilitySO : ItemBaseSO, IBuyable, IUpgradable
             return prefab.GetComponent<AbilityBase>();
         }
     }
+    public float GetStatsDataBasedOnTypeBuyMode(AbilityStats statsType)
+    {
+        switch (statsType)
+        {
+            case AbilityStats.duration:
+                float duration = prefab.GetComponent<AbilityOvercharge>().duration;
+                return GetMultiplierStatsBasedOnLevel(duration);
+            case AbilityStats.cooldown:
+                return GetMultiplierStatsBasedOnLevel(cooldownDuration);
+            case AbilityStats.damage:
+                float damage = prefab.GetComponent<AbilityShockwave>().damage;
+                return GetMultiplierStatsBasedOnLevel(damage);
+            default: return 0;
+        }
+    }
+    public float GetMultiplierStatsBasedOnLevel(float value)
+    {
+        return value + ((value * 0.2f) * (generalData.level - 1));
+    }
+    public float GetMultiplierStatsBasedOnNextLevel(float value)
+    {
+        return value + ((value * 0.2f) * (generalData.level));
+    }
     public void Buy()
     {
         

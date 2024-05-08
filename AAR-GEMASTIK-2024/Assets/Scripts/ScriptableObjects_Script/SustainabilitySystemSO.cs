@@ -12,7 +12,12 @@ public class SustainabilitySystemSO : ItemBaseSO, IUpgradable
     {
         get => maxValue + GetMultiplierLevelValue();
     }
+    public int maxValueTimesNextLevel
+    {
+        get => maxValue + (int)((maxValue * 0.2f) * generalData.level);
+    }
     public int GetMultiplierLevelValue() => (int)((maxValue * 0.2f) * (generalData.level - 1));
+    
 
     public void Upgrade()
     {
