@@ -2288,6 +2288,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: energyConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: f8284a2ad5bddf442853ca452c1d45b0,
+        type: 2}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: healthConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fddcac3ce6b509947a54797afdca28d1,
+        type: 2}
+    - target: {fileID: 2925264354603428464, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
+        type: 3}
+      propertyPath: oxygenConsumptionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 08ff0b8a577baf741b7566ea9585b82b,
+        type: 2}
     - target: {fileID: 4589858134610249025, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2342,12 +2360,14 @@ PrefabInstance:
         type: 3}
       propertyPath: abilitySO
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade,
+        type: 2}
     - target: {fileID: 7279481074748977735, guid: 885d082a9a956be4f9cd1d202c8bf2bf,
         type: 3}
       propertyPath: weaponSo
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: b299a180e45990b44b9ffb77be51fe4e,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
