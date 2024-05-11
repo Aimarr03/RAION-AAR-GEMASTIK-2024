@@ -111,4 +111,5 @@ public class EnemyChaseState : EnemyBaseState
             enemy.rigidBody.velocity += outputVelocity;
         }
     }
+    public float GetAggroDistance() => distanceAggro;
 }

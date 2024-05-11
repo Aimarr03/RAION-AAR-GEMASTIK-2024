@@ -40,10 +40,12 @@ public class EnemyLongNoseShark : EnemyBase
         chaseState = new(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed, distanceAggro, headFish);
         fencingAttackState = new(stateMachine, this, playerLayerMask, headFish, fencingAttackSize, fencingAttackDamage, fencingForceMove);
         slashAttackState = new(stateMachine, this, playerLayerMask, headFish, slashingDamage, slashingRadius);
-        attackHandlerState = new(stateMachine, this, playerLayerMask, fencingAttackState, slashAttackState, idleState);
+        attackHandlerState = new(stateMachine, this, playerLayerMask, fencingAttackState, slashAttackState, chaseState);
 
         idleState.SetNextState(chaseState);
         chaseState.SetNextState(attackHandlerState);
+        slashAttackState.SetNextState(attackHandlerState);
+        fencingAttackState.SetNextState(attackHandlerState);
 
         stateMachine.InitializeState(idleState);
     }

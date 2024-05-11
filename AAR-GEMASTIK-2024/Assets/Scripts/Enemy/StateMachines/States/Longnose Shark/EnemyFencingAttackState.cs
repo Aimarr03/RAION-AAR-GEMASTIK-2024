@@ -37,7 +37,7 @@ public class EnemyFencingAttackState : EnemyBaseState
 
     public override void OnExitState()
     {
-        
+        hasAttack = false;
     }
 
     public override void OnUpdateState()
@@ -67,5 +67,7 @@ public class EnemyFencingAttackState : EnemyBaseState
         Debug.Log("Stop");
         onFencing = false;
         enemy.rigidBody.velocity = new Vector3(0.3f, 0);
+        await Task.Delay(800);
+        enemyStateMachine.OnTransitionState(nextState);
     }
 }
