@@ -10,6 +10,7 @@ public class EnemyHammerhead : EnemyBase
     [SerializeField] private float linearSpeed;
     [SerializeField] private float rotatingSpeed;
     [SerializeField] private float maxLinearSpeed;
+    [SerializeField] private float distanceAggro;
     [Header("Charge State Data")]
     [SerializeField] private float chargeSpeed;
 
@@ -47,7 +48,7 @@ public class EnemyHammerhead : EnemyBase
         healthSystem = new EnemyHealthSystem(this, health);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask, detectionIdleRadius);
         biteState = new EnemyBiteState(stateMachine, this, playerLayerMask, biteRadius, biteDamage);
-        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, rotatingSpeed, maxLinearSpeed);
+        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, rotatingSpeed, maxLinearSpeed, distanceAggro, headFish);
         thinkingChoiceState = new EnemyThinkingChoiceState(stateMachine, this, playerLayerMask);
         chargeState = new EnemyChargeState(stateMachine, this, playerLayerMask, chargeSpeed);
 

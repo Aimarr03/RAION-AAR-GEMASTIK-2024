@@ -11,6 +11,7 @@ public class EnemyGroupers : EnemyBase
     [SerializeField] private float linearSpeed;
     [SerializeField] private float angularSpeed;
     [SerializeField] private float maxLinearSpeed;
+    [SerializeField] private float distanceAggro;
     
     [Header("Bite Data")]
     [SerializeField] private float attackRadius;
@@ -45,7 +46,7 @@ public class EnemyGroupers : EnemyBase
         base.Awake();
         healthSystem = new EnemyHealthSystem(this, health);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask,radius);
-        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed);
+        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed, distanceAggro, headFish);
         biteState = new EnemyBiteState(stateMachine, this, playerLayerMask, attackRadius, biteDamage);
 
         idleState.SetNextState(chaseState);

@@ -10,6 +10,7 @@ public class EnemyPorcupine : EnemyBase
     [SerializeField] private float linearSpeed;
     [SerializeField] private float angularSpeed;
     [SerializeField] private float maxLinearSpeed;
+    [SerializeField] private float distanceAggro;
     [Header("Spike Data")]
     [SerializeField] private float radiusAttack;
     [SerializeField] private int attackDamage;
@@ -22,7 +23,7 @@ public class EnemyPorcupine : EnemyBase
         base.Awake();
         healthSystem = new EnemyHealthSystem(this, health);
         idleState = new EnemyIdleState(stateMachine, this, playerLayerMask, radiusDetection);
-        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed);
+        chaseState = new EnemyChaseState(stateMachine, this, playerLayerMask, linearSpeed, angularSpeed, maxLinearSpeed, distanceAggro, transform);
         spikeState =new EnemySpikeState(stateMachine, this, playerLayerMask, attackDamage, radiusAttack);
 
         idleState.SetNextState(chaseState);

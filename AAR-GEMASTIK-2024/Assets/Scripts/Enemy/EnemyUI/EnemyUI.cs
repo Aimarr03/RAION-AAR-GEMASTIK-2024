@@ -15,6 +15,10 @@ public class EnemyUI : MonoBehaviour
     private void Awake()
     {
         HealthBar.gameObject.SetActive(false);
+        if(enemyBase == null)
+        {
+            enemyBase = GetComponentInParent<EnemyBase>();
+        }
     }
     private void Start()
     {
