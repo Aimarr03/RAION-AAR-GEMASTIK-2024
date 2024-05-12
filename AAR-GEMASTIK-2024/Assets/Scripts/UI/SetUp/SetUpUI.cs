@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ public class SetUpUI : BasePreparingPlayerUI
     [SerializeField] private Transform templateCard;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private Transform weaponContainer, abilityContainer, itemContainer;
+    [SerializeField] private List<Transform> containerList;
     private List<SetUpCard> weaponList;
     private List<SetUpCard> abilityList;
     private List<SetUpCard> itemList;
@@ -17,6 +19,12 @@ public class SetUpUI : BasePreparingPlayerUI
         weaponList = new List<SetUpCard>();
         abilityList = new List<SetUpCard>();
         itemList = new List<SetUpCard>();
+        containerList = new List<Transform> { weaponContainer, abilityContainer, itemContainer };
+        transform.localScale = Vector3.zero;
+        foreach(Transform t in containerList)
+        {
+            t.localScale = Vector3.zero;
+        }
         SetUp();
     }
     private void Start()
@@ -109,5 +117,29 @@ public class SetUpUI : BasePreparingPlayerUI
     {
         if (GameManager.Instance.chosenWeaponSO == null) return;
         GameManager.Instance.LoadScene(1);
+    }
+
+    public override IEnumerator OnEnterState()
+    {
+        gameObject.SetActive(true);
+        transform.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
+        foreach(Transform currentContainer in containerList)
+        {
+            currentContainer.gameObject.SetActive(true);
+            currentContainer.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    public override IEnumerator OnExitState()
+    {
+        foreach (Transform currentContainer in containerList)
+        {
+            currentContainer.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
+            yield return new WaitForSeconds(0.3f);
+        }
+        transform.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
     }
 }

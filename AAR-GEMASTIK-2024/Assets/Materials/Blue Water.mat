@@ -96,6 +96,10 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _FoamAmount: 3
+    - _FoamCutoff: 5
+    - _FoamScale: 4
+    - _FoamSpeed: 0.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -105,6 +109,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _RefractionScale: 1.72
+    - _RefractionSpeed: 2
+    - _RefractionStrength: 3.07
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -116,12 +123,16 @@ Material:
     - _celldensity: 2
     - _rippleslimness: 3
     - _ripplespeed: 1
+    - _waterdepth: 120.31
     m_Colors:
     - _BaseColor: {r: 0.50377357, g: 0.9230027, b: 1, a: 1}
     - _Color: {r: 0.5037735, g: 0.9230027, b: 1, a: 1}
+    - _DepthWater_Color: {r: 0.12758118, g: 0.090196066, b: 0.5568628, a: 0.4627451}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShallowWaterColor: {r: 0.2773584, g: 0.5214294, b: 1, a: 0.34901962}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Underwater_Color: {r: 0.107547104, g: 0.45815355, b: 1, a: 0.6392157}
+    - _Underwater_Color: {r: 0, g: 0.57333636, b: 1, a: 1}
     - _basecolor: {r: 0.22764325, g: 0.42726886, b: 0.8207547, a: 1}
     - _rippleColor: {r: 0.1384427, g: 0.6225762, b: 1.183462, a: 1}
   m_BuildTextureStacks: []

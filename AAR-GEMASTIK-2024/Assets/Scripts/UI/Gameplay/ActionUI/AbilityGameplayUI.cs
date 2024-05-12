@@ -9,14 +9,14 @@ public class AbilityGameplayUI : MonoBehaviour
 {
     [SerializeField] private PlayerAbilitySystem abilitySystem;
 
-    [SerializeField] private TextMeshProUGUI abilityName;
     [SerializeField] private Image abilityIcon;
+    [SerializeField] private Image backgroundIcon;
     private void Awake()
     {
         if (abilitySystem == null) abilitySystem = FindFirstObjectByType<PlayerCoreSystem>().abilitySystem;
         PlayerUsableGeneralData data = abilitySystem.GetAbilitySO().generalData;
-        abilityName.text = data.name;
         if(data.icon != null ) abilityIcon.sprite = data.icon;
+        backgroundIcon.sprite = abilityIcon.sprite;
         if(abilitySystem.GetAbilitySO().isInvokable) abilitySystem.OnDoneInvokingAbility += AbilitySystem_OnDoneInvokingAbility;
     }
     private void OnDestroy()

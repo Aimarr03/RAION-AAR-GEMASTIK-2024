@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,11 +8,15 @@ using UnityEngine.UI;
 
 public class DetailedCardView : MonoBehaviour
 {
+    [Header("General Data")]
+    public StatsHandlerUI StatsHandler;
     public Button BuyAction;
     public TextMeshProUGUI headerText;
     public TextMeshProUGUI contentText;
     public TextMeshProUGUI levelText;
     public ItemBaseSO itemSO;
+    public Image Background;
+    public List<DetailedItemCategory> categoryList;
     public static event Action OnBoughtSomething;
     public static event Action OnUpgradedSomething;
     private PlayerUsableGeneralData generalData
@@ -19,24 +24,43 @@ public class DetailedCardView : MonoBehaviour
         get => itemSO.generalData;
     }
     private bool isBuyable;
-    public void CloseTab() => gameObject.SetActive(false);
+    public void CloseTab()
+    {
+        Background.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
+    private void Awake()
+    {
+        StatsHandler = GetComponent<StatsHandlerUI>();
+    }
 
     public void OpenTab(ItemBaseSO itemSO, ShopMode mode, bool isBuyable)
     {
+        transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        transform.position += new Vector3(0, 1f, 0);
+        transform.DOScale(1, 0.2f);
+        Background.gameObject.SetActive(true);
         this.itemSO = itemSO;
         gameObject.SetActive(true);
         headerText.text = generalData.name;
         contentText.text = generalData.description;
-        if (itemSO is ConsumableItemSO consumableItemSO) levelText.text = consumableItemSO.quantity.ToString();
-        else levelText.text = generalData.level.ToString();
-        CanBeUseBuyActionOrNot(generalData.unlocked, mode);
+        StatsHandler.OnSetUpStats(itemSO);
+        SetCategoryType();
+        if (itemSO is ConsumableItemSO consumableItemSO)
+        {
+            levelText.text = consumableItemSO.quantity.ToString();
+            headerText.text += " " + consumableItemSO.itemTier;
+        }
+        else levelText.text = "LVL" + generalData.level.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
+        CanUseBuyActionOrNot(generalData.unlocked, mode);
         SetAction(isBuyable, mode);
     }
-    private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
+    private void CanUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
+        if (!BuyAction.interactable) return;
         if (itemSO is ConsumableItemSO) unlockable = !unlockable;
-        TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI buttonText = BuyAction.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         switch(mode)
         {
             case ShopMode.Buy:
@@ -66,6 +90,16 @@ public class DetailedCardView : MonoBehaviour
     private void SetButtonIsBuyableOrNot(bool input)
     {
         isBuyable = input;
+        switch (ShopManager.instance.shopMode)
+        {
+            case ShopMode.Buy:
+                isBuyable = EconomyManager.Instance.isPurchasable(itemSO.generalData.buyPrice);
+                break;
+            case ShopMode.Upgrade:
+                isBuyable = EconomyManager.Instance.isPurchasable(itemSO.generalData.totalUpgradePrice);
+                break;
+        }
+        BuyAction.interactable = isBuyable;
         if (!isBuyable)
         {
             BuyAction.interactable = false;
@@ -117,6 +151,7 @@ public class DetailedCardView : MonoBehaviour
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.text = "Already Bought!";
         gameObject.SetActive(false);
+        Background.gameObject.SetActive(false);
         OnBoughtSomething?.Invoke();
     }
     private void OnBuyToGet()
@@ -134,7 +169,7 @@ public class DetailedCardView : MonoBehaviour
     }
     private void OnUpdateUpgrade()
     {
-        levelText.text = generalData.level.ToString();
+        levelText.text = "LVL " + generalData.level.ToString();
         int newPrice = generalData.totalUpgradePrice;
         bool isBuyable = EconomyManager.Instance.isPurchasable(newPrice);
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
@@ -146,5 +181,13 @@ public class DetailedCardView : MonoBehaviour
         bool isBuyable = EconomyManager.Instance.isPurchasable(generalData.buyPrice);
         levelText.text = quantity.ToString();
         SetButtonIsBuyableOrNot(isBuyable);
+    }
+    private void SetCategoryType()
+    {
+        foreach(DetailedItemCategory detailedCardCategory in categoryList)
+        {
+            if (detailedCardCategory.Type == itemSO.generalData.itemType) detailedCardCategory.gameObject.SetActive(true);
+            else detailedCardCategory.gameObject.SetActive(false);
+        }
     }
 }

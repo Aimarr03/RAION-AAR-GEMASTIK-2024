@@ -20,6 +20,8 @@ MonoBehaviour:
     buyPrice: 150
     upgradePrice: 50
     unlocked: 1
+    itemType: 1
+  statsList: 0000000002000000
   bulletData:
     level: 1
     speed: 15

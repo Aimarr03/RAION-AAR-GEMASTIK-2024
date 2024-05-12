@@ -8,20 +8,27 @@ public class EnemyChaseState : EnemyBaseState
     private float linearSpeed = 2f;
     private float maxSpeed = 4f;
     private bool isOnRightDirection = true;
+    private float distanceAggro;
     private Vector3 direction;
     private EnemyBaseState nextState;
-    public EnemyChaseState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float linearSpeed, float rotatingSpeed, float maxSpeed) : base(enemyStateMachine, enemy, playerLayerMask)
+    private Transform centerCheckDistance;
+    public EnemyChaseState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, 
+        float linearSpeed, float rotatingSpeed, float maxSpeed, float distanceAggro, Transform centerCheckDistance) : base(enemyStateMachine, enemy, playerLayerMask)
     {
         this.linearSpeed = linearSpeed;
         this.rotatingSpeed = rotatingSpeed;
         this.maxSpeed = maxSpeed;
+        this.distanceAggro = distanceAggro;
+        this.centerCheckDistance = centerCheckDistance;
     }
     public void SetNextState(EnemyBaseState nextState) => this.nextState = nextState;
 
     public override void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(enemy.headFish.transform.position, radius);
+        Gizmos.DrawWireSphere(centerCheckDistance.position, radius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(centerCheckDistance.position, distanceAggro);
     }
 
     public override void OnEnterState()
@@ -48,7 +55,9 @@ public class EnemyChaseState : EnemyBaseState
     }
     private void WithinBiteRange()
     {
-        if (Vector3.Distance(playerCoreSystem.transform.position, enemy.transform.position) > 3) return;
+        Debug.Log(Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position));
+        Debug.Log((Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position) > distanceAggro) + " Aggro Within Range");
+        if (Vector3.Distance(playerCoreSystem.transform.position, enemy.transform.position) > distanceAggro) return;
         Debug.Log("Engage Biting");
         nextState.SetPlayerCoreSystem(playerCoreSystem);
         enemyStateMachine.OnTransitionState(nextState);
@@ -102,4 +111,5 @@ public class EnemyChaseState : EnemyBaseState
             enemy.rigidBody.velocity += outputVelocity;
         }
     }
+    public float GetAggroDistance() => distanceAggro;
 }

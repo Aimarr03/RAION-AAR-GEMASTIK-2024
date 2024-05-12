@@ -14,55 +14,103 @@ public class ShopItemCard : MonoBehaviour
     {
         get => itemSO.generalData;
     }
+    [Header("Text")]
     public TextMeshProUGUI header;
     public TextMeshProUGUI priceText;
+    public TextMeshProUGUI levelText;
+    [Header("Additional Component")]
+    public Transform UnavailableContainer;
+    public Image icon;
+    [Header("Color")]
+    public Color unavailableRed;
+    public Color unavailableGrey;
     private bool isBuyable;
+    private void Start()
+    {
+        DetailedCardView.OnUpgradedSomething += UpdateData;
+    }
+    private void OnDestroy()
+    {
+        DetailedCardView.OnUpgradedSomething -= UpdateData;
+    }
+
+    private void UpdateData()
+    {
+        Debug.Log(itemSO);
+        Debug.Log(generalData.unlocked);
+        Debug.Log(ShopManager.instance.shopMode);
+        CanBeUseBuyActionOrNot(generalData.unlocked, ShopManager.instance.shopMode);
+    }
+
     public void SetGeneralData(ItemBaseSO itemBaseSO, ShopMode mode)
     {
-        this.itemSO = itemBaseSO;
-        header.text = generalData.name;
-        IsBuyableOrNot(mode);
+        itemSO = itemBaseSO;
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
     }
     public void SetGeneralData(ShopMode mode)
     {
-        IsBuyableOrNot(mode);
         CanBeUseBuyActionOrNot(generalData.unlocked, mode);
     }
     public void OnOpenDetailedCardView()
     {
         if (detailedCardView.gameObject.activeSelf) return;
+        //Debug.Log(itemSO);
         detailedCardView.OpenTab(itemSO, ShopManager.instance.shopMode, isBuyable);
     }
     private void CanBeUseBuyActionOrNot(bool unlockable, ShopMode mode)
     {
-        ColorBlock colorBlock = thisButton.colors;
         bool canBeInterracted = false;
+        string text = "";
         switch (mode)
         {
             case ShopMode.Buy:
                 canBeInterracted = !unlockable;
+                text = "Already Bought";
                 break;
             case ShopMode.Upgrade:
                 canBeInterracted = unlockable;
+                text = "Not Upgradable";
                 break;
         }
         if (itemSO is ConsumableItemSO) canBeInterracted = !canBeInterracted;
-        colorBlock.normalColor = canBeInterracted ? Color.white : Color.red;
-        if (!canBeInterracted) priceText.text = "";
-        thisButton.colors = colorBlock;
+        UnavailableContainer.gameObject.SetActive(!canBeInterracted);
+        UnavailableContainer.GetComponentInChildren<TextMeshProUGUI>().text = text;
+    
+
+        GetComponent<Image>().color = !canBeInterracted ? Color.white : unavailableGrey;
+        icon.color = canBeInterracted ? Color.white : unavailableGrey;
+        IsBuyableOrNotVisually(mode, canBeInterracted);
     }
-    private void IsBuyableOrNot(ShopMode mode)
+    private void IsBuyableOrNotVisually(ShopMode mode, bool canBeInterracted)
     {
         int price = 0;
         switch (mode)
         {
             case ShopMode.Buy: price = generalData.buyPrice; break;
-            case ShopMode.Upgrade: price = generalData.upgradePrice; break;
+            case ShopMode.Upgrade: price = generalData.totalUpgradePrice; break;
+        }
+        isBuyable = EconomyManager.Instance.isPurchasable(price);
+        if (!canBeInterracted)
+        {
+            isBuyable = false;
         }
         priceText.text = price.ToString();
-        isBuyable = EconomyManager.Instance.isPurchasable(price);
-        priceText.color = isBuyable ? Color.black : Color.red;
+        priceText.color = isBuyable ? Color.white : unavailableRed;
+
+        header.text = itemSO.generalData.name;
+        if(itemSO is ConsumableItemSO consumableItemSO)
+        {
+            header.text += " " + consumableItemSO.itemTier;
+        }
+        header.color = isBuyable ? Color.white : unavailableRed;
+
+        string level = itemSO.generalData.level.ToString();
+        levelText.text = "lvl "+level;
+        levelText.color = isBuyable ? Color.white : unavailableGrey;
+
+        header.color = isBuyable ? Color.white : unavailableRed;
+        transform.GetComponent<Image>().color = isBuyable ? Color.white : unavailableGrey;
+
     }
     public int UpgradeModeComparison(ShopItemCard other)
     {

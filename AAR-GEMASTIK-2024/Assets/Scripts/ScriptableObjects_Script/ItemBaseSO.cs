@@ -13,7 +13,7 @@ public struct PlayerUsableGeneralData
     public int buyPrice;
     public int upgradePrice;
     public bool unlocked;
-
+    public ItemType itemType;
     public int totalUpgradePrice
     {
         get => upgradePrice + ((level - 1) * upgradePrice);

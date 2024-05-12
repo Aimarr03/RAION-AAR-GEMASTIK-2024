@@ -9,6 +9,8 @@ public class AbilityShockwave : AbilityBase
     [SerializeField] private int IncreaseEnergyCapacity, DecreaseHealthCapacity;
     private EnergySystem energySystem;
     private OxygenSystem oxygenSystem;
+
+    public int damage;
     public override void Fire(PlayerCoreSystem playerCoreSystem)
     {
         if (!isInvokable) return;
@@ -21,7 +23,7 @@ public class AbilityShockwave : AbilityBase
         {
             if(collider.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(100);
+                damagableUnit.TakeDamage(damage);
             }
             Debug.Log(collider.gameObject.name);
         }
