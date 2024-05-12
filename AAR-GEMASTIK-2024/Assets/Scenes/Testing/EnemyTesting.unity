@@ -351,6 +351,11 @@ PrefabInstance:
       propertyPath: distanceAggro
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 2820431911509816250, guid: 7b13c52cff1012e4c8b764931d6ed85b,
+        type: 3}
+      propertyPath: fencingForceMove
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 7185188196759936935, guid: 7b13c52cff1012e4c8b764931d6ed85b,
         type: 3}
       propertyPath: m_LocalPosition.x
