@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.181527
       objectReference: {fileID: 0}
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2208805788935501159, guid: 34e8bac76b77b0445993caa5de3c8839,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2315638165918408674, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -82,6 +87,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371260040247924995, guid: 34e8bac76b77b0445993caa5de3c8839,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 4359095447241221788, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
@@ -126,9 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf70c0a2afead05408de6ff46f6e3077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  ForceExplosion: 20
+  damage: 25
+  ForceExplosion: 500
   radiusExplosion: 5
   damagableLayer:
     serializedVersion: 2
     m_Bits: 0
+  disabledDuration: 2.5
+  maxAttemptToRecover: 40

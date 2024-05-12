@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class PlayerMoveSystem : MonoBehaviour
 {
@@ -129,7 +125,6 @@ public class PlayerMoveSystem : MonoBehaviour
             Quaternion targetRotation = onRightDirection ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotatingSpeedOnZAxis);
         }
-        
     }
     private void OnRotatingOnZAxis(float zInput)
     {

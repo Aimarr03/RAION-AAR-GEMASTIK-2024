@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
   m_Name: HarpoonGunSO
   m_EditorClassIdentifier: 
-  weaponData:
+  generalData:
     name: Harpoon
-    description: Strohowhroqj
+    description: HMMMM... WE GONNA MAKE THOSE FISH DEAD
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 150
+    upgradePrice: 50
+    unlocked: 1
+    itemType: 1
+  statsList: 0000000002000000
   bulletData:
     level: 1
     speed: 15
     damage: 12
+    isFullyCharge: 0
+  unlocked: 0
+  cooldownBetweenFiringBullet: 3
   weapon: {fileID: 4031399041348492552, guid: 5c30495d06c4602499ce9356bb226b11, type: 3}
   bullet: {fileID: 1925437002259053520, guid: 71e795c5783179b4c9f50242198d865d, type: 3}
   ammountToHold: 8
+  type: 0

@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3196858389927868291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyHammerhead
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554336259347140605, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: enemyBase
+      value: 
+      objectReference: {fileID: 4468480434649984843}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.905453
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67603445
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376539672034506821, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4468480434649984843}
+  m_SourcePrefab: {fileID: 100100000, guid: 64081ec2118255b478f415e5413b58a0, type: 3}
+--- !u!1 &4078054779206883935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1496792613025836508, guid: 64081ec2118255b478f415e5413b58a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3196858389927868291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4468480434649984843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4078054779206883935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1740fbfbfd5a4f45ac1c5eb3f05fcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headFish: {fileID: 5218392563453552243}
+  rigidBody: {fileID: 4307547472317244433}
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 264
+  damage: 34
+  health: 800
+  fishName: Hammerhead
+  detectionIdleRadius: 25
+  biteRadius: 4
+  biteDamage: 20
+  linearSpeed: 7
+  rotatingSpeed: 12
+  maxLinearSpeed: 12
+  chargeSpeed: 30
+--- !u!54 &4307547472317244433 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1700951489309660050, guid: 64081ec2118255b478f415e5413b58a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3196858389927868291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5218392563453552243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7221224756321767920, guid: 64081ec2118255b478f415e5413b58a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3196858389927868291}
+  m_PrefabAsset: {fileID: 0}

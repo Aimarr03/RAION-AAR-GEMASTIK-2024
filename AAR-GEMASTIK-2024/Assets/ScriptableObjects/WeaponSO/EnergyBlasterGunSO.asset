@@ -12,16 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f98d1d973077d142a62dbe31106fc5e, type: 3}
   m_Name: EnergyBlasterGunSO
   m_EditorClassIdentifier: 
-  weaponData:
-    name: Energy Blaster
-    description: Come out, we can charge the damage, needs to be charge though, or
-      else, it will have less damage
+  generalData:
+    name: EnergyBlaster
+    description: This thing can go BRRRRRRR
     icon: {fileID: 0}
+    level: 1
+    buyPrice: 300
+    upgradePrice: 150
+    unlocked: 0
+    itemType: 1
+  statsList: 0000000002000000
   bulletData:
     level: 1
     speed: 12
     damage: 70
     isFullyCharge: 0
+  unlocked: 0
+  cooldownBetweenFiringBullet: 4.5
   weapon: {fileID: 1191683145976765566, guid: 97d3fe1b8fdeb544ebd7d119312e8723, type: 3}
   bullet: {fileID: 1983719311338810359, guid: b008ab4f76a5006459afdc75a0d119a3, type: 3}
   ammountToHold: 8
+  type: 0

@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d630fed427d0bf4caeb742597c2578d, type: 3}
   m_Name: EnergySystemSO
   m_EditorClassIdentifier: 
+  generalData:
+    name: Energy System
+    description: Responsible for maintaining energy within the ship
+    icon: {fileID: 0}
+    level: 1
+    buyPrice: 0
+    upgradePrice: 250
+    unlocked: 1
   maxValue: 120
-  level: 1
   sustainabilityType: 1

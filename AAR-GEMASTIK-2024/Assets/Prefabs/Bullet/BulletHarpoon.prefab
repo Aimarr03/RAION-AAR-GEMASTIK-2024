@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 4347130143675064377, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Name
-      value: _BulletBase
+      value: BulletHarpoon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

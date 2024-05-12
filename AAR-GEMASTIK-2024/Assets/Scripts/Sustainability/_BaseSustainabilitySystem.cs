@@ -72,7 +72,12 @@ public abstract class _BaseSustainabilitySystem
         currentValue = Mathf.Clamp(currentValue + value, 0, maxValue);
         SustainabilityData healthData = new SustainabilityData(currentValue, maxValue, ChangeState.Increase, SustainabilityType.Health);
         OnChangeValue?.Invoke(healthData);
+        Debug.Log($"INcrease value by {value} => {currentValue}");
     }
     public virtual void OnAddMaxValue(int value) => maxValue += value;
+    public SustainabilityData GetCurretnData(SustainabilityType type)
+    {
+        return new SustainabilityData(currentValue, maxValue, ChangeState.Increase, type);
+    }
     //public abstract void OnUsage();
 }

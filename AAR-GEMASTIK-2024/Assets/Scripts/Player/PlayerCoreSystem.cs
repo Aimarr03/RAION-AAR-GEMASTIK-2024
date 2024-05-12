@@ -19,6 +19,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     public event Action OnDead;
     public event Action OnBlocking;
     public event Action<bool> OnDisabled;
+    public event Action OnBreakingFree;
 
     private bool isVunerable;
     private float invunerableDuration;
@@ -45,6 +46,11 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         invunerableDuration = 2f;
         disabledDuration = 0;
         maxAttempt = 12;
+        if(GameManager.Instance != null)
+        {
+            if (GameManager.Instance.chosenWeaponSO != null) weaponSystem.SetWeaponSO(GameManager.Instance.chosenWeaponSO);
+            if (GameManager.Instance.chosenAbilitySO != null) abilitySystem.SetUpAbilitySO(GameManager.Instance.chosenAbilitySO);
+        }
     }
 
     public void Update()
@@ -59,7 +65,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         foreach(SustainabilitySystemSO currentSustainabilityData in SustainabilitySystemsDataList)
         {
             SustainabilityType currentType = currentSustainabilityData.sustainabilityType;
-            int maxValue = currentSustainabilityData.maxLevelTimesLevel;
+            int maxValue = currentSustainabilityData.maxValueTimesLevel;
             Debug.Log($"{currentType} has max value of {maxValue}");
             _BaseSustainabilitySystem currentSustainabilitySystem = new HealthSystem(this, maxValue);
             switch (currentType)
@@ -148,6 +154,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         PlayerInputSystem.AttemptRecoverFromDisableStatus += PlayerInputSystem_AttemptRecoverFromDisableStatus;
         await Task.Delay((int)(movementDuration * 1000));
         if (!onDisabled) return;
+        OnBreakingFree?.Invoke();
         onDisabled = false;
         OnDisabled?.Invoke(onDisabled);
         moveSystem.SetCanBeUsed(true);
@@ -165,6 +172,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             OnDisabled?.Invoke(onDisabled);
             moveSystem.SetCanBeUsed(true);
             PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
+            OnBreakingFree?.Invoke();
         }
     }
 }

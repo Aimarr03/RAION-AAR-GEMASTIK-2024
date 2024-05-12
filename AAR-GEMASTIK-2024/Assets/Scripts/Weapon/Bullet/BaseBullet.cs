@@ -24,6 +24,7 @@ public abstract class BaseBullet : MonoBehaviour
     {
         gameObject.SetActive(false);
         transform.position = parentPool.transform.position;
+        transform.parent = parentPool.transform;
         parentPool.LoadBullet(this);
     }
 }

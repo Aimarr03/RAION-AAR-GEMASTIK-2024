@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c1127a1c598a642bf5a7efc7e037d5, type: 3}
+  m_Name: ItemHealth_B
+  m_EditorClassIdentifier: 
+  generalData:
+    name: Tool Kit
+    description: Good for Health BRO
+    icon: {fileID: 0}
+    level: 1
+    buyPrice: 160
+    upgradePrice: 0
+    unlocked: 1
+    itemType: 3
+  itemTier: 0
+  value: 175
+  quantity: 5

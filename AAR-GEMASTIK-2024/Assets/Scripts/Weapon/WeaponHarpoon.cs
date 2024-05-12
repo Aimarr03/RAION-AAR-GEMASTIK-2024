@@ -19,6 +19,7 @@ public class WeaponHarpoon : WeaponBase
     {
         Debug.Log("Is Cooldown");
         isCooldown = true;
+        playerCoreSystem.weaponSystem.TriggerDoneFire(interval);
         float currentInterval = 0;
         while(currentInterval <= interval)
         {

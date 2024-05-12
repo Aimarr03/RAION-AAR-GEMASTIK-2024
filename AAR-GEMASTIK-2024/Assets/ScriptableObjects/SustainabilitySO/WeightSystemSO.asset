@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d630fed427d0bf4caeb742597c2578d, type: 3}
   m_Name: WeightSystemSO
   m_EditorClassIdentifier: 
+  generalData:
+    name: Weight System
+    description: For Bringin Weight DUUH
+    icon: {fileID: 0}
+    level: 1
+    buyPrice: 0
+    upgradePrice: 80
+    unlocked: 1
   maxValue: 15
-  level: 1
   sustainabilityType: 3

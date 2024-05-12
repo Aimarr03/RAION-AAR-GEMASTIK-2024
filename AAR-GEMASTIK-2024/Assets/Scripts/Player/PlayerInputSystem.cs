@@ -18,6 +18,8 @@ public class PlayerInputSystem : MonoBehaviour
     public static event Action InvokeInterractUsage;
     public static event Action OnReleasedInvokeWeaponUsage;
     public static event Action AttemptRecoverFromDisableStatus;
+    public static event Action InvokeSwitchItemFocus;
+    public static event Action InvokeUseItem;
     private void Awake()
     {
         playerInput = new DefaultInputAction();
@@ -45,6 +47,47 @@ public class PlayerInputSystem : MonoBehaviour
         }
     }
 
+    
+    private void OnAddCallback()
+    {
+        playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
+        playerInput.Player.InvokeWeaponUsage.canceled += InvokeWeaponUsage_canceled;
+        playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
+        playerInput.Player.InvokeInterract.performed += InvokeInterract_performed;
+        playerInput.Player.InvokeSwitchItemFocus.performed += InvokeSwitchItemFocus_performed;
+        playerInput.Player.InvokeUseItem.performed += InvokeUseItem_performed;
+    }
+    private void OnRemoveCallback()
+    {
+        Debug.Log("Player cannot invoke anything");
+        playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
+        playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
+        playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
+        playerInput.Player.InvokeWeaponUsage.canceled -= InvokeWeaponUsage_canceled;
+        playerInput.Player.InvokeSwitchItemFocus.performed -= InvokeSwitchItemFocus_performed;
+        playerInput.Player.InvokeUseItem.performed -= InvokeUseItem_performed;
+    }
+    private void CoreSystem_OnDead()
+    {
+        OnRemoveCallback();
+    }
+    private void InvokeAbilityUsage_performed(InputAction.CallbackContext obj)
+    {
+        InvokeAbilityUsage?.Invoke();
+    }
+    private void InvokeWeaponUsage_performed(InputAction.CallbackContext obj)
+    {
+        InvokeWeaponUsage?.Invoke();
+    }
+    private void InvokeUseItem_performed(InputAction.CallbackContext obj)
+    {
+        InvokeUseItem?.Invoke();
+    }
+
+    private void InvokeSwitchItemFocus_performed(InputAction.CallbackContext obj)
+    {
+        InvokeSwitchItemFocus?.Invoke();
+    }
     private void AttemptToRecoverDisableStatus(InputAction.CallbackContext obj)
     {
         AttemptRecoverFromDisableStatus?.Invoke();
@@ -60,35 +103,6 @@ public class PlayerInputSystem : MonoBehaviour
     {
         InvokeInterractUsage?.Invoke();
     }
-    private void OnAddCallback()
-    {
-        playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
-        playerInput.Player.InvokeWeaponUsage.canceled += InvokeWeaponUsage_canceled;
-        playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
-        playerInput.Player.InvokeInterract.performed += InvokeInterract_performed;
-        
-    }
-    private void OnRemoveCallback()
-    {
-        Debug.Log("Player cannot invoke anything");
-        playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
-        playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
-        playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
-        playerInput.Player.InvokeWeaponUsage.canceled -= InvokeWeaponUsage_canceled;
-    }
-    private void CoreSystem_OnDead()
-    {
-        OnRemoveCallback();
-    }
-    private void InvokeAbilityUsage_performed(InputAction.CallbackContext obj)
-    {
-        InvokeAbilityUsage?.Invoke();
-    }
-    private void InvokeWeaponUsage_performed(InputAction.CallbackContext obj)
-    {
-        InvokeWeaponUsage?.Invoke();
-    }
-
     public Vector2 GetMoveInput()
     {
         return playerInput.Player.Move.ReadValue<Vector2>();
