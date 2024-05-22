@@ -11,13 +11,6 @@ public class TrashDetectable : TrashBase, IDetectable
         //MoveTowards();
     }
 
-    protected override void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.TryGetComponent(out PlayerCoreSystem playerCoreSystem))
-        {
-            OnTakenByPlayer();
-        }
-    }
     private void Update()
     {
         MoveTowards();
@@ -29,5 +22,11 @@ public class TrashDetectable : TrashBase, IDetectable
         transform.position += direction * movementSpeed * Time.deltaTime;
     }
 
-
+    protected override void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out PlayerCoreSystem playerCoreSystem))
+        {
+            OnTakenByPlayer();
+        }
+    }
 }

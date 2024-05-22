@@ -4,20 +4,6 @@ using UnityEngine;
 
 public class BulletMachineGun : BaseBullet
 {
-
-    public override void OnCollisionEnter(Collision collision)
-    {
-        if(collision != null)
-        {
-            if(collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
-            {
-                damagableUnit.TakeDamage(weaponData.totalDamage);
-            }
-            LoadToPool();
-            canLaunch = false;
-        }
-    }
-
     public override void OnLaunchBullet()
     {
         transform.position += Time.deltaTime * weaponData.speed * Vector3.right;
@@ -27,5 +13,18 @@ public class BulletMachineGun : BaseBullet
     {
         if (!canLaunch) return;
         OnLaunchBullet();
+    }
+
+    public override void OnTriggerEnter(Collider collision)
+    {
+        if (collision != null)
+        {
+            if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
+            {
+                damagableUnit.TakeDamage(weaponData.totalDamage);
+            }
+            LoadToPool();
+            canLaunch = false;
+        }
     }
 }

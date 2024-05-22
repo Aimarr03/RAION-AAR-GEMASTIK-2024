@@ -16,7 +16,7 @@ public abstract class BaseBullet : MonoBehaviour
         canLaunch = true;
     }
     public abstract void Update();
-    public abstract void OnCollisionEnter(Collision collision);
+    public abstract void OnTriggerEnter(Collider other);
     public abstract void OnLaunchBullet();
     public void SetObjectPooling(ObjectPooling parentPool) => this.parentPool = parentPool;
 
