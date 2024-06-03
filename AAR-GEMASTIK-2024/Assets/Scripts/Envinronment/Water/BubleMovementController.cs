@@ -22,7 +22,6 @@ public class BubleMovementController : MonoBehaviour
         var velocityOvertime = particles.velocityOverLifetime;
         velocityOvertime.x = new ParticleSystem.MinMaxCurve(-velocity.x);
         velocityOvertime.y = new ParticleSystem.MinMaxCurve(-velocity.y);
-        velocityOvertime.z = new ParticleSystem.MinMaxCurve(0);
-        Debug.Log(velocityOvertime.ToString());
+        velocityOvertime.z = new ParticleSystem.MinMaxCurve(velocity.z);
     }
 }
