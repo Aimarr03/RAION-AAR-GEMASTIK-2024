@@ -112,8 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f9c52649966f14c88a1efbe9e5d596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCreated: {fileID: 8300000, guid: 1fe0752d787c80c4b9f1b86f47578e70, type: 3}
+  OnHit: {fileID: 8300000, guid: c429d50e98d56bf458210c7558dbe7de, type: 3}
   weaponData:
     level: 0
     speed: 0
     damage: 0
+    isFullyCharge: 0
   TimeToLive: 5

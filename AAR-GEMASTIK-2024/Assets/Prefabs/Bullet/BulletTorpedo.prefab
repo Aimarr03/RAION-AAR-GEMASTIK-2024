@@ -9946,6 +9946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c5f361f3d28b44cbcfa70cc4d49402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCreated: {fileID: 8300000, guid: 8a2a4a3a25d73d84db131fd803592928, type: 3}
+  OnHit: {fileID: 8300000, guid: c429d50e98d56bf458210c7558dbe7de, type: 3}
   weaponData:
     level: 0
     speed: 0

@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -575988773
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
     type: 3}
@@ -140,8 +140,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 25
+  health: 0
   fishName: Ikan Kerapu
   radius: 25
+  linearSpeed: 0
+  angularSpeed: 0
+  maxLinearSpeed: 0
+  distanceAggro: 0
+  attackRadius: 0
+  biteDamage: 0
 --- !u!135 &8231620016335658904
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -583,8 +590,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -575988773
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
     type: 3}

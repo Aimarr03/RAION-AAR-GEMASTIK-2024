@@ -39,6 +39,7 @@ public class BulletEnergyBlaster : BaseBullet
             }
             collision.gameObject.TryGetComponent(out IDamagable damagableUnit);
             damagableUnit.TakeDamage(weaponData.totalDamage);
+            AudioManager.Instance.PlaySFX(OnHit);
             LoadToPool();
         }
     }

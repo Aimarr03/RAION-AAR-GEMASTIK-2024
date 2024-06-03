@@ -22,6 +22,7 @@ public class BulletTorpedo : BaseBullet
     private void OnExplode()
     {
         Transform particleSystemInstantiate = Instantiate(particleSystemOnExplode, transform.position, transform.rotation);
+        AudioManager.Instance.PlaySFX(OnHit);
         foreach(ParticleSystem childParticleSystem in particleSystemInstantiate.GetComponentsInChildren<ParticleSystem>())
         {
             childParticleSystem.transform.parent = null;

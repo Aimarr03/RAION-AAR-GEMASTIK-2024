@@ -17,7 +17,7 @@ TagManager:
   - Interractable
   - Detectable
   - Bullet
-  - 
+  - Ground
   - 
   - 
   - 
@@ -47,8 +47,17 @@ TagManager:
   - name: Background
     uniqueID: 2816570455
     locked: 0
+  - name: Ground
+    uniqueID: 3608004211
+    locked: 0
+  - name: Object
+    uniqueID: 1671037207
+    locked: 0
   - name: Player
     uniqueID: 3718978523
+    locked: 0
+  - name: ObjectFront
+    uniqueID: 488951715
     locked: 0
   - name: Ocean Effect
     uniqueID: 996763023

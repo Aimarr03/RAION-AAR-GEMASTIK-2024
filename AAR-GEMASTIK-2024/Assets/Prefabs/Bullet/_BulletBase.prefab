@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6413d9ad235acbf4e9d8921405702c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCreated: {fileID: 8300000, guid: 0e1f27bc84ba86e45ae452840f57d555, type: 3}
+  OnHit: {fileID: 8300000, guid: 9aba0b1c78a63454ca2674fe1d001d2f, type: 3}
   weaponData:
     level: 0
     speed: 0

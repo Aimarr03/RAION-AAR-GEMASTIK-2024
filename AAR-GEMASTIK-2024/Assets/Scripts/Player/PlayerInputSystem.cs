@@ -20,6 +20,8 @@ public class PlayerInputSystem : MonoBehaviour
     public static event Action AttemptRecoverFromDisableStatus;
     public static event Action InvokeSwitchItemFocus;
     public static event Action InvokeUseItem;
+    public static event Action<bool> InvokeMoveSoundAction;
+    private bool OnMovePressed = false;
     private void Awake()
     {
         playerInput = new DefaultInputAction();
@@ -56,7 +58,12 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeInterract.performed += InvokeInterract_performed;
         playerInput.Player.InvokeSwitchItemFocus.performed += InvokeSwitchItemFocus_performed;
         playerInput.Player.InvokeUseItem.performed += InvokeUseItem_performed;
+        playerInput.Player.Move.performed += Move_performed;
+        playerInput.Player.Move.canceled += Move_canceled;
     }
+
+    
+
     private void OnRemoveCallback()
     {
         Debug.Log("Player cannot invoke anything");
@@ -66,6 +73,8 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeWeaponUsage.canceled -= InvokeWeaponUsage_canceled;
         playerInput.Player.InvokeSwitchItemFocus.performed -= InvokeSwitchItemFocus_performed;
         playerInput.Player.InvokeUseItem.performed -= InvokeUseItem_performed;
+        playerInput.Player.Move.performed -= Move_performed;
+        playerInput.Player.Move.canceled -= Move_canceled;
     }
     private void CoreSystem_OnDead()
     {
@@ -102,6 +111,18 @@ public class PlayerInputSystem : MonoBehaviour
     private void InvokeInterract_performed(InputAction.CallbackContext obj)
     {
         InvokeInterractUsage?.Invoke();
+    }
+    private void Move_canceled(InputAction.CallbackContext obj)
+    {
+        Vector2 input = playerInput.Player.Move.ReadValue<Vector2>();
+        InvokeMoveSoundAction?.Invoke(false);
+    }
+
+    private void Move_performed(InputAction.CallbackContext obj)
+    {
+        Vector2 input = playerInput.Player.Move.ReadValue<Vector2>();
+        bool isPressing = input.x != 0;
+        InvokeMoveSoundAction?.Invoke(isPressing);
     }
     public Vector2 GetMoveInput()
     {
