@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038aa58a2ab0d46458ed52cec1df8710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   headFish: {fileID: 5608642234927599467}
   rigidBody: {fileID: 3346291384632009916}
   playerLayerMask:
@@ -119,6 +120,7 @@ MonoBehaviour:
   damage: 55
   health: 180
   fishName: JellyFish
+  bounty: 200
   idleRadius: 13
   radiusAggro: 5
   forcePush: 10

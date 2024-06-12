@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1740fbfbfd5a4f45ac1c5eb3f05fcaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   headFish: {fileID: 5218392563453552243}
   rigidBody: {fileID: 4307547472317244433}
   playerLayerMask:
@@ -104,12 +105,14 @@ MonoBehaviour:
   damage: 34
   health: 800
   fishName: Hammerhead
+  bounty: 1000
   detectionIdleRadius: 25
   biteRadius: 4
   biteDamage: 20
   linearSpeed: 7
   rotatingSpeed: 12
   maxLinearSpeed: 12
+  distanceAggro: 0
   chargeSpeed: 30
 --- !u!54 &4307547472317244433 stripped
 Rigidbody:

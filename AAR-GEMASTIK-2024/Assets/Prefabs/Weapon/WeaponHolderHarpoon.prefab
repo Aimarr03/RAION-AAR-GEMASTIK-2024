@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143100757617705650, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -58,10 +63,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2212763065792133835, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -984109178, guid: e0470a6f21a70f8449d200db577d998c,
+        type: 3}
+    - target: {fileID: 5779494904012247009, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4578187
+      objectReference: {fileID: 0}
     - target: {fileID: 6191434568923480623, guid: e06eda75318ff1b489c2503b2e2b9647,
         type: 3}
       propertyPath: m_Name
-      value: _WeaponHolderBase
+      value: WeaponHolderHarpoon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -49,6 +49,7 @@ public class PlayerWeaponSystem : MonoBehaviour
     {
         if (baseWeapon == null) return;
         bool isOnRightDirection = playerCoreSystem.moveSystem.GetIsOnRightDirection();
+        Quaternion rotation = playerCoreSystem.transform.rotation;
         baseWeapon.Fire(this, isOnRightDirection);
     }
 

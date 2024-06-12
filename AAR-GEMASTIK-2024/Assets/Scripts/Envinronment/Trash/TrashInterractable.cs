@@ -19,9 +19,9 @@ public class TrashInterractable : TrashBase, IInterractable
         playerCoreSystem = coreSystem;
     }
 
-    protected override void OnCollisionEnter(Collision collision)
+
+    protected override void OnTriggerEnter(Collider other)
     {
         
     }
-
 }

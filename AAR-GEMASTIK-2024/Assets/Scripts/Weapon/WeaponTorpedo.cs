@@ -10,7 +10,7 @@ public class WeaponTorpedo : WeaponBase
         Debug.Log("Torpedo Weapon is firing");
         
         BaseBullet baseBullet = LoadBullet();
-        baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection);
+        baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection, playerCoreSystem.transform.rotation);
 
         StartCoroutine(ProcessCooldown());
     }

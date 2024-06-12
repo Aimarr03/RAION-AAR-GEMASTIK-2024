@@ -37,7 +37,7 @@ public struct WeaponBulletData
 }
 
 [CreateAssetMenu(fileName ="New Weapon SO", menuName ="Weapon/Create New Weapon SO")]
-public class WeaponSO : ItemBaseSO, IBuyable,IUpgradable
+public class WeaponSO : ItemBaseSO, IBuyable,IUpgradable, IDataPersistance
 {
     public List<WeaponStats> statsList;
     public WeaponBulletData bulletData;
@@ -100,5 +100,23 @@ public class WeaponSO : ItemBaseSO, IBuyable,IUpgradable
                 break;
         }
         return data;
+    }
+
+    public void LoadScene(GameData gameData)
+    {
+        Debug.Log(gameData.weaponData[type].unlocked);
+        WeaponSaveData data = gameData.weaponData[type];
+        Debug.Log(data);
+        Debug.Log($"Unlocked = {data.unlocked}, level {data.level}");
+        generalData.level = data.level;
+        generalData.unlocked = data.unlocked;
+    }
+
+    public void SaveScene(ref GameData gameData)
+    {
+        Debug.Log("Saving Game Data For Weapon");
+        WeaponSaveData data = gameData.weaponData[type];
+        data.level = generalData.level;
+        data.unlocked = generalData.unlocked;
     }
 }

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407b001225315064f85ad9a3d28c3184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   headFish: {fileID: 1922384019275029369}
   rigidBody: {fileID: 8721258310707884206}
   playerLayerMask:
@@ -116,6 +117,7 @@ MonoBehaviour:
   damage: 50
   health: 140
   fishName: Belut Moroy
+  bounty: 300
   hiddenStateBoxSize: {x: 18, y: 16}
   forcePush: 18
   radiusSurprise: 3.1

@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AbilityType
+{
+    Dash,
+    Shockwave,
+    Overcharge,
+    Shield
+}
 public struct AbilityDataSO
 {
     public int level;
 }
 [CreateAssetMenu(fileName ="New Ability SO", menuName = "Ability/Create New Ability SO")]
-public class AbilitySO : ItemBaseSO, IBuyable, IUpgradable
+public class AbilitySO : ItemBaseSO, IBuyable, IUpgradable, IDataPersistance
 {
+    public AbilityType type;
     public List<AbilityStats> statsList;
     public AbilityDataSO abilityData;
     public Transform prefab;
@@ -74,5 +82,21 @@ public class AbilitySO : ItemBaseSO, IBuyable, IUpgradable
     public void Upgrade()
     {
         
+    }
+
+    public void LoadScene(GameData gameData)
+    {
+        Debug.Log("Load Ability Data");
+        AbilitySaveData data =  gameData.abilityData[type];
+        generalData.level = data.level;
+        generalData.unlocked = data.unlocked;
+    }
+
+    public void SaveScene(ref GameData gameData)
+    {
+        Debug.Log("Save Ability Data");
+        AbilitySaveData data = gameData.abilityData[type];
+        data.level = generalData.level;
+        data.unlocked = generalData.unlocked;
     }
 }

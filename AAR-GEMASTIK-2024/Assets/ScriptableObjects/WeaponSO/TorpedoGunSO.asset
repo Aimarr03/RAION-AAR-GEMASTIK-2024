@@ -19,17 +19,17 @@ MonoBehaviour:
     level: 1
     buyPrice: 250
     upgradePrice: 75
-    unlocked: 0
+    unlocked: 1
     itemType: 1
   statsList: 0000000002000000
   bulletData:
     level: 1
     speed: 30
-    damage: 100
+    damage: 130
     isFullyCharge: 0
   unlocked: 0
   cooldownBetweenFiringBullet: 6
   weapon: {fileID: 3709811383580993494, guid: 2ca5274f28ed5df44875e4ab7e8274e6, type: 3}
   bullet: {fileID: 2144306713197914660, guid: bc68d4160ad9ba547b52199c3b35d39f, type: 3}
   ammountToHold: 5
-  type: 0
+  type: 1

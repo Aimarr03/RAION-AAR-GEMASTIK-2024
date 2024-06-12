@@ -41,7 +41,7 @@ public struct SustainabilityData
         this.type = type;
     }
 }
-public abstract class _BaseSustainabilitySystem
+public abstract class _BaseSustainabilitySystem : IDataPersistance
 {
     protected PlayerCoreSystem player;
     protected float currentValue;
@@ -75,9 +75,19 @@ public abstract class _BaseSustainabilitySystem
         Debug.Log($"INcrease value by {value} => {currentValue}");
     }
     public virtual void OnAddMaxValue(int value) => maxValue += value;
-    public SustainabilityData GetCurretnData(SustainabilityType type)
+    public SustainabilityData GetCurrentData(SustainabilityType type)
     {
         return new SustainabilityData(currentValue, maxValue, ChangeState.Increase, type);
+    }
+
+    public void LoadScene(GameData gameData)
+    {
+        
+    }
+
+    public void SaveScene(ref GameData gameData)
+    {
+        
     }
     //public abstract void OnUsage();
 }

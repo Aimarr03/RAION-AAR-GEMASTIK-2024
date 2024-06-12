@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main_Menu.unity
+    guid: da5fa3b06116f994dbc74bc8eee9fa98
+  - enabled: 1
     path: Assets/Scenes/FinalWork/ShoppingMenu.unity
     guid: a46b15400eac6d1489eb8ace4cf846ff
   - enabled: 1
-    path: Assets/Scenes/AimarWork.unity
-    guid: 0e2167010e574f2479a0e6f9dd573604
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: d2d6f2c14d383bc4fae29581de03ef46
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: d44f8c29f08b8d647a0a01f81597515b
   m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: 632c953b08ece604498e765ba840a1eb,
+    com.unity.addressableassets: {fileID: 11400000, guid: 3b20e9b76642c52488cfeb12cd4aab97,
       type: 2}

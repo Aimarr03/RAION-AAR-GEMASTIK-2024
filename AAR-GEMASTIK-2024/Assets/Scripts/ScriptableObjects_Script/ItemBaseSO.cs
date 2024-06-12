@@ -51,4 +51,5 @@ public class ItemBaseSO : ScriptableObject, IComparable<ItemBaseSO>
             return generalData.name.CompareTo(other.generalData.name);
         }
     }
+
 }

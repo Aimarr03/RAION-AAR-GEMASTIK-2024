@@ -26,6 +26,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     private float disabledDuration;
     private int attemptToRecover;
     private int maxAttempt;
+    private bool isPaused;
 
 
     private Dictionary<SustainabilityType,_BaseSustainabilitySystem> _sustainabilitySystemsDictionary;
@@ -40,6 +41,9 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         inputSystem = GetComponent<PlayerInputSystem>();
         weaponSystem = GetComponent<PlayerWeaponSystem>();
         abilitySystem = GetComponent<PlayerAbilitySystem>();
+        interractionSystem = GetComponent<PlayerInterractionSystem>();
+        consumptionItemSystem = GetComponent<PlayerConsumptionItemSystem>();
+
         currentDurationUsageOxygen = 0;
         isVunerable = true;
         onDisabled = false;
@@ -52,10 +56,34 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             if (GameManager.Instance.chosenAbilitySO != null) abilitySystem.SetUpAbilitySO(GameManager.Instance.chosenAbilitySO);
         }
     }
+    private void Start()
+    {
+        ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
+        PauseGameplayUI.OnPause += PauseGameplayUI_OnPause;
+    }
+
+    private void PauseGameplayUI_OnPause(bool obj)
+    {
+        isPaused = obj;
+        if (isPaused) OnDisableMove();
+        else OnEnableMove();
+    }
+
+    private void OnDisable()
+    {
+        ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+        PauseGameplayUI.OnPause -= PauseGameplayUI_OnPause;
+    }
+
+    private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
+    {
+        isPaused = true;
+    }
 
     public void Update()
     {
         if (isDead) return;
+        if(isPaused) return;
         OnUseOxygen();
         //Test();
     }
@@ -145,6 +173,16 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         maxAttempt = maxAttemptToRecover;
         DisableMovement(moveDuration);
     }
+    public void OnDisableMove()
+    {
+        onDisabled = true;
+        OnDisabled?.Invoke(onDisabled);
+    }
+    public void OnEnableMove()
+    {
+        onDisabled = false;
+        OnDisabled?.Invoke(onDisabled);
+    }
     private async void DisableMovement(float movementDuration)
     {
         onDisabled = true;
@@ -163,6 +201,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
 
     private void PlayerInputSystem_AttemptRecoverFromDisableStatus()
     {
+        if (isPaused) return;
         Debug.Log("Attempt To Recover");
         attemptToRecover++;
         if(attemptToRecover >= maxAttempt)
@@ -174,6 +213,11 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
             OnBreakingFree?.Invoke();
         }
+    }
+    public void OnReplenishOxygen(int oxygen)
+    {
+        _BaseSustainabilitySystem oxygenSystem = GetSustainabilitySystem(SustainabilityType.Oxygen);
+        oxygenSystem.OnIncreaseValue(oxygen);
     }
 }
 

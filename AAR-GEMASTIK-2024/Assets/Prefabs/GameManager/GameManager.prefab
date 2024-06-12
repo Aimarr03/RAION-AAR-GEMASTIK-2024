@@ -47,7 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chosenWeaponSO: {fileID: 0}
   chosenAbilitySO: {fileID: 0}
-  chosenConsumableItemSO: {fileID: 0}
+  chosenHealthItemSO: {fileID: 0}
+  chosenOxygenItemSO: {fileID: 0}
+  chosenEnergyItemSO: {fileID: 0}
+  level: 1
 --- !u!114 &7245485879995514964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,4 +63,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c79f90ca53dd1f43a3019162b12e630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoney: 0
+  currentMoney: 100

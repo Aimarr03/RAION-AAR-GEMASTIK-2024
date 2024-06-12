@@ -44,7 +44,7 @@ public class WeaponMachineGun : WeaponBase
                 Debug.Log("FIRE BULLET");
                 BaseBullet baseBullet = LoadBullet();
                 Debug.Log(baseBullet.gameObject.name);
-                baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection);
+                baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection, playerCoreSystem.transform.rotation);
             }
             yield return null;
         }

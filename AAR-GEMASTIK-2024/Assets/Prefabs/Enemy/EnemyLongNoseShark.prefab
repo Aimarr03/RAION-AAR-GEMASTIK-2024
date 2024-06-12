@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77616dc94354dd9428796664e2f3e2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   headFish: {fileID: 8340500810948490770}
   rigidBody: {fileID: 5460955804251248}
   playerLayerMask:
@@ -126,6 +127,7 @@ MonoBehaviour:
   damage: 12
   health: 300
   fishName: LongNose Shark
+  bounty: 800
   radiusIdleState: 32
   linearSpeed: 13
   angularSpeed: 18

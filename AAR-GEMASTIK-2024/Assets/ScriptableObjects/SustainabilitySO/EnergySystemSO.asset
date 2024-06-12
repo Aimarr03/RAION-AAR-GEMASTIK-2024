@@ -20,5 +20,6 @@ MonoBehaviour:
     buyPrice: 0
     upgradePrice: 250
     unlocked: 1
-  maxValue: 120
+    itemType: 0
+  maxValue: 80
   sustainabilityType: 1

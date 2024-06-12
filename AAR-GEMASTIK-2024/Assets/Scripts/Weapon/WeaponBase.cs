@@ -33,6 +33,7 @@ public abstract class WeaponBase : MonoBehaviour
         baseBullet.transform.parent = null;
         baseBullet.transform.position = firePointBlank.position;
         baseBullet.transform.rotation = Quaternion.identity;
+        AudioManager.Instance.PlaySFX(baseBullet.OnCreated);
         return baseBullet;
     }
     public void SetUpData()

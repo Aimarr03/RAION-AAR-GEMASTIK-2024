@@ -10,8 +10,7 @@ public class WeaponHarpoon : WeaponBase
         Debug.Log("Harpoon Weapon is firing");
 
         BaseBullet baseBullet = LoadBullet();
-        baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection);
-
+        baseBullet.SetUpBullet(weaponSO.bulletData, isOnRightDirection, playerCoreSystem.transform.rotation);
         StartCoroutine(ProcessCooldown());
     }
 

@@ -29,7 +29,7 @@ public class WeaponEnergyBlaster : WeaponBase
         weaponBulletData.isFullyCharge = isFullyCharge;
         Debug.Log("Weapon charged " + weaponBulletData.isFullyCharge);
 
-        baseBullet.SetUpBullet(weaponBulletData, isOnRightDirection);
+        baseBullet.SetUpBullet(weaponBulletData, isOnRightDirection, playerCoreSystem.transform.rotation);
         StartCoroutine(ProcessCooldown());
         isFullyCharge = false;
     }

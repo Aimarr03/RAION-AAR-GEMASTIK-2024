@@ -25,7 +25,7 @@ MonoBehaviour:
   bulletData:
     level: 1
     speed: 15
-    damage: 12
+    damage: 1000
     isFullyCharge: 0
   unlocked: 0
   cooldownBetweenFiringBullet: 3

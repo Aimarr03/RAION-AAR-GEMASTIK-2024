@@ -8,25 +8,6 @@ public class BulletTorpedo : BaseBullet
     [SerializeField] private const string WALLTAG = "Wall";
     [SerializeField] private float radiusExplosion;
     [SerializeField] private Transform particleSystemOnExplode; 
-    public override void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
-        {
-            damagableUnit.TakeDamage(weaponData.totalDamage);
-            Vector3 direction = (collision.transform.position - transform.position).normalized;
-            damagableUnit.AddSuddenForce(direction, 12f);
-            OnExplode();
-        }
-        if (collision.gameObject.CompareTag(WALLTAG))
-        {
-            OnExplode();
-        }
-        if(collision.gameObject.tag == "Testing")
-        {
-            OnExplode();
-        }
-    }
-
     public override void OnLaunchBullet()
     {
         transform.position += Time.deltaTime * weaponData.speed * Vector3.right;
@@ -41,6 +22,7 @@ public class BulletTorpedo : BaseBullet
     private void OnExplode()
     {
         Transform particleSystemInstantiate = Instantiate(particleSystemOnExplode, transform.position, transform.rotation);
+        AudioManager.Instance.PlaySFX(OnHit);
         foreach(ParticleSystem childParticleSystem in particleSystemInstantiate.GetComponentsInChildren<ParticleSystem>())
         {
             childParticleSystem.transform.parent = null;
@@ -59,5 +41,24 @@ public class BulletTorpedo : BaseBullet
         }
         canLaunch = false;
         LoadToPool();
+    }
+
+    public override void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
+        {
+            damagableUnit.TakeDamage(weaponData.totalDamage);
+            Vector3 direction = (collision.transform.position - transform.position).normalized;
+            damagableUnit.AddSuddenForce(direction, 12f);
+            OnExplode();
+        }
+        if (collision.gameObject.CompareTag(WALLTAG))
+        {
+            OnExplode();
+        }
+        if (collision.gameObject.tag == "Testing")
+        {
+            OnExplode();
+        }
     }
 }

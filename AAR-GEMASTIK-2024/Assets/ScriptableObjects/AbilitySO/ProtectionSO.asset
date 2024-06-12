@@ -21,6 +21,7 @@ MonoBehaviour:
     upgradePrice: 120
     unlocked: 0
     itemType: 2
+  type: 3
   statsList: 01000000
   prefab: {fileID: 7489221764443930691, guid: ed0274dc6f8963a4ab2759a1431c77d5, type: 3}
   isInvokable: 0

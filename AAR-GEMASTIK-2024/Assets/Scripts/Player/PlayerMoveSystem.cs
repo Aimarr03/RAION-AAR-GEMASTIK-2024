@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMoveSystem : MonoBehaviour
@@ -24,7 +25,36 @@ public class PlayerMoveSystem : MonoBehaviour
     private bool isSlowed;
     private float slowedMultiplier;
 
+    [SerializeField] private AudioClip OnDrive;
+    [SerializeField] private AudioClip OffDrive;
+    [SerializeField] private AudioSource OnDriveSource;
+
+    public static event Action<Vector3> onMoving;
+
     public event Action OnUseOneEnergy;
+    private void Start()
+    {
+        PlayerInputSystem.InvokeMoveSoundAction += PlayerInputSystem_InvokeMoveSoundAction;
+        ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
+    }
+    private void OnDisable()
+    {
+        PlayerInputSystem.InvokeMoveSoundAction -= PlayerInputSystem_InvokeMoveSoundAction;
+        ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+    }
+
+    private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
+    {
+        playerRigid.velocity = Vector3.zero;
+    }
+
+    private void PlayerInputSystem_InvokeMoveSoundAction(bool obj)
+    {
+        Debug.Log("Is Attempt Moving " + obj);
+        if(obj) OnStartDriveSound();
+        else OnStopDrivingSound();
+    }
+
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
@@ -84,7 +114,6 @@ public class PlayerMoveSystem : MonoBehaviour
         input.y = 0;
         //Debug.Log(input);
         input = onRightDirection ? input : -input;
-        
         Vector3 outputVelocity = transform.TransformDirection(Vector3.right * (linearSpeed * Time.fixedDeltaTime * input));
         if (isSlowed)
         {
@@ -92,8 +121,9 @@ public class PlayerMoveSystem : MonoBehaviour
         }
         playerRigid.velocity += outputVelocity;
         playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
+        OnSettingAudioVolume();
         //transform.Translate(input * linearSpeed * Time.fixedDeltaTime);
-        
+        onMoving?.Invoke(playerRigid.velocity);
     }
     private void InvokeHorizontalBrake(Vector2 input)
     {
@@ -117,7 +147,7 @@ public class PlayerMoveSystem : MonoBehaviour
             InvokeVerticalBrake(new Vector2(0, z_input));
             OnRotatingOnZAxis(z_input);
             if (playerRigid.velocity.x < minHorizontalMovement && playerRigid.velocity.x > -minHorizontalMovement) return;
-            Vector3 outputVelocity = Vector3.up * (linearSpeed * Time.fixedDeltaTime * z_input);
+            Vector3 outputVelocity = Vector3.up * ((linearSpeed * 0.66f) * Time.fixedDeltaTime * z_input);
             playerRigid.velocity += outputVelocity;
         }
         else
@@ -190,5 +220,24 @@ public class PlayerMoveSystem : MonoBehaviour
     private Vector3 SlowAction(Vector3 velocityInput, float slowMultiplier)
     {
         return velocityInput *= slowMultiplier;
+    }
+    private void OnStartDriveSound()
+    {
+        OnDriveSource.Stop();
+        OnDriveSource.clip = OnDrive;
+        OnDriveSource.loop = true;
+        OnDriveSource.Play();
+    }
+    private void OnStopDrivingSound()
+    {
+        OnDriveSource.Stop();
+        OnDriveSource.loop = false;
+        OnDriveSource.clip = OffDrive;
+        OnDriveSource.Play();
+    }
+    private void OnSettingAudioVolume()
+    {
+        float volume = (Mathf.Abs(playerRigid.velocity.x) / maxLinearSpeed);
+        OnDriveSource.volume = Mathf.Clamp(volume, 0.1f, 0.5f);
     }
 }
