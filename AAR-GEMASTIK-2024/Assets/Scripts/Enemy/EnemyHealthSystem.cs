@@ -27,15 +27,15 @@ public class EnemyHealthSystem
     }
     public void OnDecreaseHealth(int damage)
     {
+        if (enemyBase.GetIsFishKnockout()) return;
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         if(currentHealth == 0)
         {
             enemyBase.SetDead();
         }
-        else
-        {
-            UpdateEnemyHealthValue HealthData = new UpdateEnemyHealthValue(currentHealth, maxHealth);
-            OnChangeValue?.Invoke(HealthData);
-        }
+        UpdateEnemyHealthValue HealthData = new UpdateEnemyHealthValue(currentHealth, maxHealth);
+        OnChangeValue?.Invoke(HealthData);
+        
+        
     }
 }

@@ -119,4 +119,5 @@ MonoBehaviour:
     speed: 0
     damage: 0
     isFullyCharge: 0
+  TimeToLiveDurationHolder: 5
   TimeToLive: 5

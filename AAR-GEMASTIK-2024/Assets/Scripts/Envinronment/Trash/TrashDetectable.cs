@@ -13,7 +13,7 @@ public class TrashDetectable : TrashBase, IDetectable
 
     private void Update()
     {
-        MoveTowards();
+        if(!collected) MoveTowards();
     }
     private void MoveTowards()
     {

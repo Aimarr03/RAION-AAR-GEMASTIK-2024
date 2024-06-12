@@ -17,6 +17,7 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     private Collider[] detectionResult = new Collider[0];
     private IInterractable ClosestInterractableObject;
+    private List<IInterractable> DetectableInterractiveObjectWhenHolding;
     private bool isHolding;
     private Vector3 OffSetPosition
     {
@@ -34,6 +35,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
+        DetectableInterractiveObjectWhenHolding = new List<IInterractable>();
         Debug.Log("Interraction is ON");
     }
     private void Start()
@@ -71,6 +73,20 @@ public class PlayerInterractionSystem : MonoBehaviour
         {
             FindClosestInterractableObjectToPlayer();
         }
+        else
+        {
+            foreach (IInterractable objectInterractable in DetectableInterractiveObjectWhenHolding)
+            {
+                objectInterractable.OnDetectedAsTheClosest(null);
+            }
+            DetectableInterractiveObjectWhenHolding.Clear();
+            if(ClosestInterractableObject != null)
+            {
+                ClosestInterractableObject.OnDetectedAsTheClosest(null);
+                ClosestInterractableObject = null;
+            }
+            
+        }
     }
     private void DetectionForDetectableObject()
     {
@@ -79,7 +95,7 @@ public class PlayerInterractionSystem : MonoBehaviour
         {
             if(collider.TryGetComponent<IDetectable>(out IDetectable detectable))
             {
-                //Debug.Log("Detectable Object Found " + collider.gameObject.name);
+                Debug.Log("Detectable Object Found " + collider.gameObject.name);
                 detectable.DetectedByPlayer(coreSystem);
             }
         }
@@ -87,7 +103,16 @@ public class PlayerInterractionSystem : MonoBehaviour
     }
     private void FindClosestInterractableObjectToPlayer()
     {
-        if (isHolding) return;
+        if (isHolding)
+        {
+            foreach(Collider coll in detectionResult)
+            {
+                coll.TryGetComponent(out IInterractable interractableObject);
+                interractableObject.OnDetectedAsTheClosest(coreSystem);
+                if(!DetectableInterractiveObjectWhenHolding.Contains(interractableObject))DetectableInterractiveObjectWhenHolding.Add(interractableObject);
+            }
+            return;
+        }
         if (detectionResult.Length <= 0) return;
         float closestTotalDistance = float.MaxValue;
         foreach(Collider coll in detectionResult)
@@ -115,4 +140,6 @@ public class PlayerInterractionSystem : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radiusForDetectableObjects);
     }
     public void SetIsHolding(bool input) => isHolding = input;
+
+    public bool IsHolding() => isHolding;
 }

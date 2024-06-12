@@ -12,6 +12,7 @@ public class BulletHarpoon : BaseBullet
     public override void OnLaunchBullet()
     {
         if (isCollidedWithWall) return;
+        TimeToLive = TimeToLiveDurationHolder;
         transform.position += Time.deltaTime * weaponData.speed * Vector3.right;
     }
     public override void SetUpBullet(WeaponBulletData weaponData, bool isOnRightDirection, Quaternion angle)

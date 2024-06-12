@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public HealthItemSO chosenHealthItemSO;
     public OxygenItemSO chosenOxygenItemSO;
     public EnergyItemSO chosenEnergyItemSO;
+    public int level;
     private void Awake()
     {
         if(Instance == null)
@@ -45,6 +46,18 @@ public class GameManager : MonoBehaviour
     public bool CheckHasAssigned()
     {
         return chosenAbilitySO != null && chosenWeaponSO != null;
+    }
+    public void SetLevel(int index)
+    {
+        level = index;
+    }
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene($"Level{level}");
+    }
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
     public void LoadScene(int index)
     {

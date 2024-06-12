@@ -14815,6 +14815,7 @@ MonoBehaviour:
     speed: 0
     damage: 0
     isFullyCharge: 0
+  TimeToLiveDurationHolder: 2
   TimeToLive: 2
   blastRadius: 10
 --- !u!4 &1983719311338810359 stripped

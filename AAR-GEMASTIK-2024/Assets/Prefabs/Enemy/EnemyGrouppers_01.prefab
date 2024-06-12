@@ -15,6 +15,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
         type: 3}
+      propertyPath: bounty
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273201265818197984, guid: 64081ec2118255b478f415e5413b58a0,
+        type: 3}
       propertyPath: health
       value: 250
       objectReference: {fileID: 0}

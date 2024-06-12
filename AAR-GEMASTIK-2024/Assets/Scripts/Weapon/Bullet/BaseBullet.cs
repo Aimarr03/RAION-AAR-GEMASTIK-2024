@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public abstract class BaseBullet : MonoBehaviour
     public AudioClip OnHit;
     public WeaponBulletData weaponData;
     protected bool canLaunch = false;
+    [SerializeField] protected float TimeToLiveDurationHolder;
     [SerializeField] protected float TimeToLive;
     protected ObjectPooling parentPool;
     public virtual void SetUpBullet(WeaponBulletData weaponData, bool isOnRightDirection, Quaternion angle)
@@ -25,9 +27,16 @@ public abstract class BaseBullet : MonoBehaviour
 
     public void LoadToPool()
     {
-        gameObject.SetActive(false);
-        transform.position = parentPool.transform.position;
-        transform.parent = parentPool.transform;
-        parentPool.LoadBullet(this);
+        try
+        {
+            gameObject.SetActive(false);
+            transform.position = parentPool.transform.position;
+            transform.parent = parentPool.transform;
+            parentPool.LoadBullet(this);
+        }
+        catch(Exception e)
+        {
+
+        }
     }
 }

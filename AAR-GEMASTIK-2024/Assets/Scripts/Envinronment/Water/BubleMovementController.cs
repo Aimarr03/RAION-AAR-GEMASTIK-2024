@@ -11,11 +11,18 @@ public class BubleMovementController : MonoBehaviour
     }
     void Start()
     {
+        AirReplenisher.OnResurface += AirReplenisher_OnResurface;
         PlayerMoveSystem.onMoving += PlayerMoveSystem_onMoving;
     }
     private void OnDisable()
     {
+        AirReplenisher.OnResurface -= AirReplenisher_OnResurface;
         PlayerMoveSystem.onMoving -= PlayerMoveSystem_onMoving;
+    }
+    private void AirReplenisher_OnResurface(bool resurface)
+    {
+        if(resurface) particles.Stop();
+        else particles.Play();
     }
     private void PlayerMoveSystem_onMoving(Vector3 velocity)
     {

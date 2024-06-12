@@ -19,7 +19,7 @@ public class CapacityUI : MonoBehaviour
         _BaseSustainabilitySystem sustainabilitySystem = playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity);
         sustainabilitySystem.OnChangeValue += CapacityUI_OnChangeValue;
         playerCoreSystem.OnDead += PlayerCoreSystem_OnDead;
-        SustainabilityData sustainabilityData = sustainabilitySystem.GetCurretnData(SustainabilityType.Capacity);
+        SustainabilityData sustainabilityData = sustainabilitySystem.GetCurrentData(SustainabilityType.Capacity);
         SetCapacityTextUI(sustainabilityData);
     }
     private void OnDestroy()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134104086921824414}
   - component: {fileID: 8484865151677326612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6273201265818197984}
   - component: {fileID: 8231620016335658904}
   - component: {fileID: 1700951489309660050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8b96a38f2cb4f4cb9780fea68f318d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   headFish: {fileID: 7221224756321767920}
   rigidBody: {fileID: 1700951489309660050}
   playerLayerMask:
@@ -142,6 +143,7 @@ MonoBehaviour:
   damage: 25
   health: 0
   fishName: Ikan Kerapu
+  bounty: 0
   radius: 25
   linearSpeed: 0
   angularSpeed: 0
@@ -208,7 +210,7 @@ GameObject:
   - component: {fileID: 7763667155642952925}
   - component: {fileID: 7292084693802385300}
   - component: {fileID: 5562891405458510077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +286,7 @@ GameObject:
   - component: {fileID: 899569143537064336}
   - component: {fileID: 4435534705455124879}
   - component: {fileID: 4067863969842273149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2995228767253647577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +399,7 @@ GameObject:
   - component: {fileID: 5232098266934980145}
   - component: {fileID: 3578405842151780515}
   - component: {fileID: 5925351096581215805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FishType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7221224756321767920}
   - component: {fileID: 5578677410325107567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +620,7 @@ GameObject:
   - component: {fileID: 2255983591119131057}
   - component: {fileID: 344467433863250374}
   - component: {fileID: 3554336259347140605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

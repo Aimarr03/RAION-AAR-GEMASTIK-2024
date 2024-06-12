@@ -7,6 +7,8 @@ public class EnemyIdleState : EnemyBaseState
 {
     private float radius;
     private EnemyBaseState nextState;
+    private bool OnHitFirstTime;
+
 
     public EnemyIdleState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float radius) : base(enemyStateMachine, enemy, playerLayerMask)
     {
@@ -18,11 +20,29 @@ public class EnemyIdleState : EnemyBaseState
     public override void OnEnterState()
     {
         enemy.rigidBody.velocity = Vector3.zero;
+        enemy.OnHitEvent += Enemy_OnHitEvent;
+        OnHitFirstTime = false;
+    }
+
+    private void Enemy_OnHitEvent()
+    {
+        OnHitFirstTime = true;
+        Collider[] collidedUnit = Physics.OverlapSphere(enemy.transform.position, radius * 3, playerLayerMask);
+        if (collidedUnit.Length > 0)
+        {
+            Collider player = collidedUnit[0];
+            PlayerCoreSystem coreSystem = player.GetComponent<PlayerCoreSystem>();
+            SetPlayerCoreSystem(coreSystem);
+            nextState.SetPlayerCoreSystem(coreSystem);
+            enemyStateMachine.OnTransitionState(nextState);
+        }
+        enemy.OnHitEvent -= Enemy_OnHitEvent;
     }
 
     public override void OnExitState()
     {
-        Debug.Log("Exiting Idle State");
+        enemy.TriggerOnEncounter();
+        enemy.OnHitEvent -= Enemy_OnHitEvent;
     }
 
     public override void OnUpdateState()
@@ -36,6 +56,7 @@ public class EnemyIdleState : EnemyBaseState
             nextState.SetPlayerCoreSystem(coreSystem);
             enemyStateMachine.OnTransitionState(nextState);
         }
+        
     }
     public override void OnDrawGizmos()
     {

@@ -3,12 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetUpUI : BasePreparingPlayerUI
 {
     [SerializeField] private Transform templateCard;
     [SerializeField] private ShopManager shopManager;
-    [SerializeField] private Transform weaponContainer, abilityContainer, itemContainer;
+    [SerializeField] private Transform weaponContainer, abilityContainer, itemContainer, StartLevel;
     [SerializeField] private List<Transform> containerList;
     private List<SetUpCard> weaponList;
     private List<SetUpCard> abilityList;
@@ -30,6 +31,7 @@ public class SetUpUI : BasePreparingPlayerUI
     private void Start()
     {
         SetUpCard.onChoseItem += SetUpCard_onChoseItem;
+        StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(GameManager.Instance.LoadLevel);
     }
     private void OnDestroy()
     {
@@ -129,6 +131,7 @@ public class SetUpUI : BasePreparingPlayerUI
             currentContainer.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.3f);
         }
+        StartLevel.GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutBounce);
     }
 
     public override IEnumerator OnExitState()
@@ -138,6 +141,7 @@ public class SetUpUI : BasePreparingPlayerUI
             currentContainer.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.3f);
         }
+        StartLevel.GetComponent<RectTransform>().DOAnchorPosY(-300, 0.7f).SetEase(Ease.InBounce);
         transform.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);

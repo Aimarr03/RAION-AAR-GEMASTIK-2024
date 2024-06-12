@@ -74,7 +74,11 @@ public class EnemyLongNoseShark : EnemyBase
 
     protected override void Update()
     {
-        if (isDead) return;
+        if (isKnockout)
+        {
+            OnBeingHeld();
+            return;
+        }
         stateMachine.OnExecuteState();
     }
 }

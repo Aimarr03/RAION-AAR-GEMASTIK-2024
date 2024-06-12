@@ -100,13 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NonZeroValueInput: {x: 0, y: 0}
-  linearSpeed: 4
-  maxLinearSpeed: 6
+  linearSpeed: 7.9
+  maxLinearSpeed: 14.5
   rotatingSpeedOnZAxis: 6
   rotatingSpeedOnYAxis: 3
   rotateDegreeLimit: 50
   maxDistanceUseForOneEnergy: 20
-  minHorizontalMovement: 2
+  minHorizontalMovement: 3.65
   OnDrive: {fileID: 8300000, guid: 62ffc7ec5014f3847b29858a475353c0, type: 3}
   OffDrive: {fileID: 8300000, guid: fe150a01126250a4aa4c12f10e71f393, type: 3}
   OnDriveSource: {fileID: 1662455627097500317}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f779a8a0e60d814289904d64e221d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilitySO: {fileID: 11400000, guid: 2eb13f4237bc76c41834aa272d65eee2, type: 2}
+  abilitySO: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade, type: 2}
   abilityBase: {fileID: 0}
   abilityHolderPosition: {fileID: 3040946834985921998}
 --- !u!114 &2925264354603428464
@@ -164,10 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c9635d6ced81a44844deda8c190de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthConsumptionSO: {fileID: 0}
-  oxygenConsumptionSO: {fileID: 0}
-  energyConsumptionSO: {fileID: 0}
-  cooldownDuration: 0
+  healthConsumptionSO: {fileID: 11400000, guid: d1101adbba6091a448788aa7678cf151,
+    type: 2}
+  oxygenConsumptionSO: {fileID: 11400000, guid: 32d569248f87494488fe37d88d731aa9,
+    type: 2}
+  energyConsumptionSO: {fileID: 11400000, guid: 0c247dc5c29200c4cb5dd6f15d012027,
+    type: 2}
+  cooldownDuration: 3
 --- !u!114 &5073589522926302912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,9 +377,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 62ffc7ec5014f3847b29858a475353c0, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.747
+  m_Pitch: 0.45
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -665,8 +668,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -575988773
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b9c09fe454d2064095dc845d14ca8c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

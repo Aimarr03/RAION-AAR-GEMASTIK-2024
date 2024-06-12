@@ -55,8 +55,8 @@ public class EnemyChaseState : EnemyBaseState
     }
     private void WithinBiteRange()
     {
-        Debug.Log(Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position));
-        Debug.Log((Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position) > distanceAggro) + " Aggro Within Range");
+        //Debug.Log(Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position));
+        //Debug.Log((Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position) > distanceAggro) + " Aggro Within Range");
         if (Vector3.Distance(playerCoreSystem.transform.position, enemy.transform.position) > distanceAggro) return;
         Debug.Log("Engage Biting");
         nextState.SetPlayerCoreSystem(playerCoreSystem);

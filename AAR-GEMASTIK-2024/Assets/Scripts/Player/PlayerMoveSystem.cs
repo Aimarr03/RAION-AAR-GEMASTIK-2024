@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMoveSystem : MonoBehaviour
@@ -34,6 +35,17 @@ public class PlayerMoveSystem : MonoBehaviour
     private void Start()
     {
         PlayerInputSystem.InvokeMoveSoundAction += PlayerInputSystem_InvokeMoveSoundAction;
+        ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
+    }
+    private void OnDisable()
+    {
+        PlayerInputSystem.InvokeMoveSoundAction -= PlayerInputSystem_InvokeMoveSoundAction;
+        ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+    }
+
+    private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
+    {
+        playerRigid.velocity = Vector3.zero;
     }
 
     private void PlayerInputSystem_InvokeMoveSoundAction(bool obj)
@@ -135,7 +147,7 @@ public class PlayerMoveSystem : MonoBehaviour
             InvokeVerticalBrake(new Vector2(0, z_input));
             OnRotatingOnZAxis(z_input);
             if (playerRigid.velocity.x < minHorizontalMovement && playerRigid.velocity.x > -minHorizontalMovement) return;
-            Vector3 outputVelocity = Vector3.up * (linearSpeed * Time.fixedDeltaTime * z_input);
+            Vector3 outputVelocity = Vector3.up * ((linearSpeed * 0.66f) * Time.fixedDeltaTime * z_input);
             playerRigid.velocity += outputVelocity;
         }
         else

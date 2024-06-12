@@ -2,10 +2,12 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ChooseLevel : BasePreparingPlayerUI
+public class ChooseLevel : BasePreparingPlayerUI, IDataPersistance
 {
     [SerializeField] private Transform mainPanel;
+    [SerializeField] private RectTransform Level1, Level2, Level3;
     private void Awake()
     {
         
@@ -30,5 +32,20 @@ public class ChooseLevel : BasePreparingPlayerUI
     {
 
     }
-    
+
+    public void LoadScene(GameData gameData)
+    {
+        Level1.GetComponent<Button>().interactable = gameData.levels[0].hasBeenUnlocked;
+        Level1.GetComponent<Button>().onClick.AddListener(()=>GameManager.Instance.SetLevel(1));
+        Level2.GetComponent<Button>().interactable = gameData.levels[1].hasBeenUnlocked;
+        Level2.GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.SetLevel(2));
+        Level3.GetComponent<Button>().interactable = gameData.levels[2].hasBeenUnlocked;
+        Level3.GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.SetLevel(3));
+
+    }
+
+    public void SaveScene(ref GameData gameData)
+    {
+        
+    }
 }

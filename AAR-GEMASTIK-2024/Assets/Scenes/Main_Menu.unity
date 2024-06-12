@@ -369,6 +369,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 904193087}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &277416607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 879106615258556642, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: gameData.weaponData.keyValuePairList.Array.data[1].Value.unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879106615258556642, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: gameData.weaponData.keyValuePairList.Array.data[2].Value.unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879106615258556642, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: gameData.weaponData.keyValuePairList.Array.data[3].Value.unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568485939051373623, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_Name
+      value: DataManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5002651284626564628, guid: 0e4aa2a7fb19df6429d892e30eeb668d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e4aa2a7fb19df6429d892e30eeb668d, type: 3}
 --- !u!1 &315918774
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +527,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315918774}
   m_CullTransparentMesh: 1
+--- !u!1 &348443515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348443516}
+  m_Layer: 5
+  m_Name: CreditPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &348443516
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348443515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1418691543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &477189500
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +621,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -527,7 +645,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 477189503}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636745146}
+        m_TargetAssemblyTypeName: FlowMainMenuGameManager, Assembly-CSharp
+        m_MethodName: ToggleCredit
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &477189503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +717,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5785568388366055167, guid: d81564cc1c232924bbc9917a2c601763,
+        type: 3}
+      propertyPath: chosenWeaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d0b9424210900204fb74d8fcace3a6e4,
+        type: 2}
+    - target: {fileID: 5785568388366055167, guid: d81564cc1c232924bbc9917a2c601763,
+        type: 3}
+      propertyPath: chosenAbilitySO
+      value: 
+      objectReference: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade,
+        type: 2}
+    - target: {fileID: 5785568388366055167, guid: d81564cc1c232924bbc9917a2c601763,
+        type: 3}
+      propertyPath: chosenEnergyItemSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c247dc5c29200c4cb5dd6f15d012027,
+        type: 2}
+    - target: {fileID: 5785568388366055167, guid: d81564cc1c232924bbc9917a2c601763,
+        type: 3}
+      propertyPath: chosenHealthItemSO
+      value: 
+      objectReference: {fileID: 11400000, guid: fddcac3ce6b509947a54797afdca28d1,
+        type: 2}
+    - target: {fileID: 5785568388366055167, guid: d81564cc1c232924bbc9917a2c601763,
+        type: 3}
+      propertyPath: chosenOxygenItemSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 32d569248f87494488fe37d88d731aa9,
+        type: 2}
     - target: {fileID: 8034724812115952881, guid: d81564cc1c232924bbc9917a2c601763,
         type: 3}
       propertyPath: m_Name
@@ -811,6 +971,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebf8f60499841249aeeb535beed6fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonList:
+  - {fileID: 882076464}
+  - {fileID: 699847226}
+  - {fileID: 477189502}
+  - {fileID: 1164637888}
+  loadButton: {fileID: 699847226}
+  CreditPanel: {fileID: 348443516}
 --- !u!4 &636745147
 Transform:
   m_ObjectHideFlags: 0
@@ -885,7 +1052,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -909,7 +1076,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 699847227}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636745146}
+        m_TargetAssemblyTypeName: FlowMainMenuGameManager, Assembly-CSharp
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &699847227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,7 +1199,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1047,7 +1226,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 636745146}
         m_TargetAssemblyTypeName: FlowMainMenuGameManager, Assembly-CSharp
-        m_MethodName: OnNewGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1487,7 +1666,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1514,7 +1693,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 636745146}
         m_TargetAssemblyTypeName: FlowMainMenuGameManager, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: OnQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1899,6 +2078,7 @@ RectTransform:
   - {fileID: 315918775}
   - {fileID: 1213508209}
   - {fileID: 1475122600}
+  - {fileID: 348443516}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2442,3 +2622,4 @@ SceneRoots:
   - {fileID: 527277274}
   - {fileID: 636745147}
   - {fileID: 904193087}
+  - {fileID: 277416607}

@@ -19,7 +19,7 @@ MonoBehaviour:
     level: 1
     buyPrice: 300
     upgradePrice: 150
-    unlocked: 0
+    unlocked: 1
     itemType: 1
   statsList: 0000000002000000
   bulletData:
@@ -32,4 +32,4 @@ MonoBehaviour:
   weapon: {fileID: 1191683145976765566, guid: 97d3fe1b8fdeb544ebd7d119312e8723, type: 3}
   bullet: {fileID: 1983719311338810359, guid: b008ab4f76a5006459afdc75a0d119a3, type: 3}
   ammountToHold: 8
-  type: 0
+  type: 3
