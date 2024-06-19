@@ -98,6 +98,7 @@ public class ShopUI : BasePreparingPlayerUI
             ShopItemCard currentItemCard = itemCards[index];
             if(currentItemCard == null) continue;
             currentItemCard.transform.DOScale(1, 0.3f).SetEase(Ease.OutBounce);
+            AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnPop);
             await Task.Delay(150);
         }
     }
@@ -180,12 +181,14 @@ public class ShopUI : BasePreparingPlayerUI
     {
         gameObject.SetActive(true);
         GetComponent<RectTransform>().DOAnchorPosX(0, 0.7f);
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnDisplay);
         yield return new WaitForSeconds(0.7f);
     }
 
     public override IEnumerator OnExitState()
     {
         GetComponent<RectTransform>().DOAnchorPosX(1000, 0.7f);
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnHide);
         yield return new WaitForSeconds(0.7f);
         gameObject.SetActive(false);
     }

@@ -11,8 +11,10 @@ public class LevelData
     public bool hasBeenUnlocked;
     public bool hasBeenExpediction;
     public float progress;
-    public float fishProgress;
+    public float sharkMutatedProgress;
+    public float fishNeededHelpProgress;
     public float trashProgress;
     public SerializableDictionary<string, bool> trashList;
-    public SerializableDictionary<string, bool> fishList;
+    public SerializableDictionary<string, bool> sharkMutatedList;
+    public SerializableDictionary<string, bool> fishNeedHelpList;
 }

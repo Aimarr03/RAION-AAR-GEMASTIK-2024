@@ -46,20 +46,22 @@ public abstract class _BaseSustainabilitySystem : IDataPersistance
     protected PlayerCoreSystem player;
     protected float currentValue;
     protected float maxValue;
+    protected SustainabilityType type;
     public event Action<SustainabilityData> OnChangeValue;
 
-    public _BaseSustainabilitySystem(PlayerCoreSystem player, float maxValue)
+    public _BaseSustainabilitySystem(PlayerCoreSystem player, float maxValue, SustainabilityType type)
     {
         this.player = player;
         this.maxValue = maxValue;
         this.currentValue = maxValue;
+        this.type = type;
     }
     public virtual void OnDecreaseValue(float value)
     {
         currentValue = Mathf.Clamp(currentValue - value, 0, maxValue);
         if (currentValue == 0)
         {
-            player.SetDead();
+            player.SetDead(type);
         }
         else
         {
@@ -79,6 +81,8 @@ public abstract class _BaseSustainabilitySystem : IDataPersistance
     {
         return new SustainabilityData(currentValue, maxValue, ChangeState.Increase, type);
     }
+    public float GetCurrentValue() => currentValue;
+    public void InvokeOnIncreaseValue(SustainabilityData data) => OnChangeValue?.Invoke(data);
 
     public void LoadScene(GameData gameData)
     {

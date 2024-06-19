@@ -13,12 +13,16 @@ public class AudioContainer : MonoBehaviour
     private void Start()
     {
         IsFighting = false;
+        AudioManager.Instance.OnInstantStartNewMusic(normalBGM, 3f);
+        
         EnemyBase.OnEncounter += EnemyBase_OnEncounter;
-        AudioManager.Instance.OnInstantStartNewMusic(normalBGM, 6f);
+        ExpedictionManager.Instance.OnLose += Instance_OnLose;
+        
     }
     private void OnDisable()
     {
         EnemyBase.OnEncounter -= EnemyBase_OnEncounter;
+        ExpedictionManager.Instance.OnLose -= Instance_OnLose;
     }
 
     private void EnemyBase_OnEncounter()
@@ -30,5 +34,9 @@ public class AudioContainer : MonoBehaviour
             AudioManager.Instance.PlaySFX(AlertSFX);
             AudioManager.Instance.StartNewMusic(fightBGM, 2f, 4f);
         }
+    }
+    private void Instance_OnLose(SustainabilityType obj)
+    {
+        AudioManager.Instance.StartNewMusic(gameOverBGM, 1f, 2f);
     }
 }

@@ -12,33 +12,44 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
 {
     [SerializeField] private Transform Container;
     [SerializeField] private TextMeshProUGUI trashCollectedTextUI;
-    [SerializeField] private TextMeshProUGUI mutatedFishCollectedTextUI;
+    [SerializeField] private TextMeshProUGUI mutatedSharkCollectedTextUI;
+    [SerializeField] private TextMeshProUGUI helpedFishCollectedTextUI;
     [SerializeField] private TextMeshProUGUI coinObtainedTextUI;
     [SerializeField] private TextMeshProUGUI NumericProgressBar;
     [SerializeField] private Image ProgressBar;
     private List<TextMeshProUGUI> textUIList;
-    private int totalEnemyDefeated = 0;
     private int moneyObtainedFromEnemyDefeated = 0;
+    private int moneyObtainedFromHelpingFish = 0;
     private float maxDuration = 2;
-
+    private float currentWeightTrashCollected;
     
-    private int trashTotalCollected = 0;
+    private int currrentTrashTotalCollected = 0;
+    private int trashHasBeenCollectedPreviously = 0;
     private int trashCount = 0;
-    private int fishTotalCollected = 0;
+    
+    private int currentSharkTotalCollected = 0;
+    private int sharkHasBeenCollectedPreviously = 0;
+    private int sharkCount = 0;
+
+    private int currentFishNeedHelpTotalCollected = 0;
+    private int fishHasBeenCollectedPreviously = 0;
     private int fishCount = 0;
     
     private int totalCount = 0;
     private int totalCountCollected = 0;
 
     private float trashProgress = 0f;
+    private float sharkProgress = 0f;
     private float fishProgress = 0f;
     private float totalProgress = 0f;
+    
 
     private void Awake()
     {
+        currentWeightTrashCollected = 0f;
         textUIList = new List<TextMeshProUGUI>
         {
-            trashCollectedTextUI, mutatedFishCollectedTextUI, coinObtainedTextUI,
+            trashCollectedTextUI, mutatedSharkCollectedTextUI, coinObtainedTextUI, helpedFishCollectedTextUI
         };
         foreach (TextMeshProUGUI text in textUIList)
         {
@@ -50,35 +61,64 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     }
     private void Start()
     {
-        OnCalculateTrashAndEnemy();
+        OnCalculateData();
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
+        ExpedictionManager.Instance.OnCollectedTrash += Instance_OnCollectedTrash;
+        ExpedictionManager.Instance.OnCaughtFishDelivarable += Instance_OnCaughtFishDelivarable;
+        FishBaseNeedHelp.OnBroadcastGettingHelp += FishBaseNeedHelp_OnBroadcastGettingHelp;
         TrashBase.OnCollectedEvent += TrashBase_OnCollectedEvent;
         EnemyBase.OnCaught += EnemyBase_OnCaught;
     }
     private void OnDisable()
     {
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+        ExpedictionManager.Instance.OnCollectedTrash -= Instance_OnCollectedTrash;
+        ExpedictionManager.Instance.OnCaughtFishDelivarable -= Instance_OnCaughtFishDelivarable;
+        FishBaseNeedHelp.OnBroadcastGettingHelp -= FishBaseNeedHelp_OnBroadcastGettingHelp;
         TrashBase.OnCollectedEvent -= TrashBase_OnCollectedEvent;
         EnemyBase.OnCaught -= EnemyBase_OnCaught;
     }
+
+    
+
     private void EnemyBase_OnCaught(int bounty)
     {
-        fishTotalCollected++;
+        currentSharkTotalCollected++;
         totalCountCollected++;
         moneyObtainedFromEnemyDefeated += bounty;
     }
 
     private void TrashBase_OnCollectedEvent()
     {
-        trashTotalCollected++;
+        currrentTrashTotalCollected++;
         totalCountCollected++;
     }
-
-    private void OnDestroy()
+    private void Instance_OnCollectedTrash(float weightTrashCollected)
     {
+        currentWeightTrashCollected += weightTrashCollected;
+    }
+    private void FishBaseNeedHelp_OnBroadcastGettingHelp(int bounty)
+    {
+        totalCountCollected++;
+        currentFishNeedHelpTotalCollected++;
+        moneyObtainedFromEnemyDefeated += bounty;
+    }
+    private void Instance_OnCaughtFishDelivarable(IDelivarable fishDelivarable)
+    {
+        fishDelivarable.OnDelivered();
+        switch (fishDelivarable.GetDelivarableType())
+        {
+            case DelivarableType.Mutated:
+                currentSharkTotalCollected++;
+                totalCountCollected++;
+                moneyObtainedFromEnemyDefeated += fishDelivarable.GetBounty();
+                break;
+            case DelivarableType.Poisoned: 
+                
+                break;
+        }
         
     }
-
     private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
     {
         Debug.Log("Invoke when Done Expediction");
@@ -88,32 +128,36 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     }
     private IEnumerator OnStartDisplayScore(PlayerCoreSystem coreSystem)
     {
-        float trashValue = coreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).GetCurrentData(SustainabilityType.Capacity).currentValue;
         Container.GetComponent<RectTransform>().DOAnchorPosY(0, 0.4f).SetEase(Ease.OutBack);
         
         yield return new WaitForSeconds(0.57f);
-        yield return OnIncrementValueUI(trashCollectedTextUI, trashValue);
-        yield return OnIncrementValueUI(mutatedFishCollectedTextUI, fishTotalCollected);
+        yield return OnIncrementValueUI(trashCollectedTextUI, currrentTrashTotalCollected);
+        yield return OnIncrementValueUI(mutatedSharkCollectedTextUI, currentSharkTotalCollected);
+        yield return OnIncrementValueUI(helpedFishCollectedTextUI, currentFishNeedHelpTotalCollected);
 
-        int totalMoneyObtained = EconomyManager.Instance.GetMoneyMultiplierBasedOnTrash(trashValue);
+        int totalMoneyObtained = EconomyManager.Instance.GetMoneyMultiplierBasedOnTrash(currentWeightTrashCollected);
         totalMoneyObtained += moneyObtainedFromEnemyDefeated;
+        totalMoneyObtained += moneyObtainedFromHelpingFish;
         
         yield return OnIncrementValueUI(coinObtainedTextUI, totalMoneyObtained);
         EconomyManager.Instance.OnGainMoney(totalMoneyObtained);
 
         float totalProgress = totalCountCollected / totalCount;
-        float trashProgress = trashTotalCollected / trashCount;
-        float enemyProgress = fishTotalCollected / fishCount;
+        float trashProgress = (currrentTrashTotalCollected + trashHasBeenCollectedPreviously) / trashCount;
+        float sharkProgress = (currentSharkTotalCollected + sharkHasBeenCollectedPreviously) / sharkCount;
+        float fishProgress = (currentFishNeedHelpTotalCollected + fishHasBeenCollectedPreviously) / fishCount;
 
         totalProgress = (float)Math.Round(totalProgress, 2);
         trashProgress = (float)Math.Round(trashProgress, 2);
-        enemyProgress = (float)Math.Round(enemyProgress, 2);
+        sharkProgress = (float)Math.Round(sharkProgress, 2);
+        fishProgress = (float)Math.Round(fishProgress, 2);
 
         this.totalProgress = totalProgress;
         this.trashProgress = trashProgress;
-        this.fishProgress = enemyProgress;
+        this.sharkProgress = sharkProgress;
+        this.fishProgress = fishProgress;
 
-        yield return OnIncrementValueUI(NumericProgressBar, ProgressBar, totalProgress);
+        yield return OnIncrementValueUI(NumericProgressBar, ProgressBar, this.totalProgress);
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI text, Image targetUI, float targetValue)
     {
@@ -147,26 +191,34 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         DataManager.instance.SaveGame();
         SceneManager.LoadScene("ShoppingMenu");
     }
-    private void OnCalculateTrashAndEnemy()
+    private void OnCalculateData()
     {
         IEnumerable<TrashBase> trashCalculatedFromScene = FindObjectsOfType<MonoBehaviour>().OfType<TrashBase>();
-        trashTotalCollected = 0;
+        trashHasBeenCollectedPreviously = 0;
         foreach (TrashBase trash in trashCalculatedFromScene)
         {
-            if(trash.HasBeenCollected()) trashTotalCollected++;
+            if(trash.HasBeenCollected()) trashHasBeenCollectedPreviously++;
         }
         trashCount = trashCalculatedFromScene.Count();
 
-        IEnumerable<EnemyBase> enemyCalculatedFromScene = FindObjectsOfType<MonoBehaviour>().OfType<EnemyBase>();
-        fishTotalCollected = 0;
-        foreach(EnemyBase enemy in enemyCalculatedFromScene)
+        IEnumerable<SharkBase> SharkCalculatedFromScene = FindObjectsOfType<MonoBehaviour>().OfType<SharkBase>();
+        sharkHasBeenCollectedPreviously = 0;
+        foreach(SharkBase shark in SharkCalculatedFromScene)
         {
-            if(enemy.GetIsFishKnockout()) fishTotalCollected++;
+            if(shark.HasBeenDelivered()) sharkHasBeenCollectedPreviously++;
         }
-        fishCount = enemyCalculatedFromScene.Count();
+        sharkCount = SharkCalculatedFromScene.Count();
+        
+        IEnumerable<FishBaseNeedHelp> FishNeedHelpList = FindObjectsOfType<MonoBehaviour>().OfType<FishBaseNeedHelp>();
+        fishHasBeenCollectedPreviously = 0;
+        foreach (FishBaseNeedHelp fish in FishNeedHelpList)
+        {
+            if (fish.HasBeenHelped()) fishHasBeenCollectedPreviously++;
+        }
+        fishCount = SharkCalculatedFromScene.Count();
 
-        totalCount = fishCount + trashCount;
-        totalCountCollected = fishTotalCollected + trashTotalCollected;
+        totalCount = sharkCount + trashCount + fishCount;
+        totalCountCollected = trashHasBeenCollectedPreviously + sharkHasBeenCollectedPreviously+ fishHasBeenCollectedPreviously;
     }
 
     public void LoadScene(GameData gameData)
@@ -177,10 +229,10 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     public void SaveScene(ref GameData gameData)
     {
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        levelData.fishProgress = fishProgress;
+        levelData.sharkMutatedProgress = sharkProgress;
         levelData.trashProgress = trashProgress;
-        Debug.Log(levelData.fishProgress);
-        Debug.Log(levelData.trashProgress);
+        levelData.fishNeededHelpProgress = fishProgress;
+        levelData.progress = totalProgress;
     }
-
+    
 }

@@ -37,6 +37,10 @@ public class DataManager : MonoBehaviour
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(ExpedictionManager.Instance != null)
+        {
+            if (ExpedictionManager.Instance.IsLosing()) return;
+        }
         ListDataPersistance = GetListDataPersistance();
         Debug.Log(ListDataPersistance.Count);
         LoadGame();

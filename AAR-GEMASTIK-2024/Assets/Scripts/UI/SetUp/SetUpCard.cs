@@ -82,6 +82,7 @@ public class SetUpCard : MonoBehaviour
                 GameManager.Instance.chosenAbilitySO = abilitySO;
                 break;
         }
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.interractable);
         onChoseItem?.Invoke(itemBaseSO);
     }
 }

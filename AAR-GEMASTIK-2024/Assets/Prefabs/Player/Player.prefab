@@ -66,6 +66,7 @@ MonoBehaviour:
   abilitySystem: {fileID: 0}
   consumptionItemSystem: {fileID: 0}
   interractionSystem: {fileID: 0}
+  animator: {fileID: 1479364938559905473}
   SustainabilitySystemsDataList:
   - {fileID: 11400000, guid: a2f63737bbed6984dafd2fbb05be241e, type: 2}
   - {fileID: 11400000, guid: 067863a6d7e39d0438063850f76135ed, type: 2}
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c1fd0146225de43bb81e12430937d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSo: {fileID: 11400000, guid: c82559fd3bcf88046b84a35ade7a280f, type: 2}
+  weaponSo: {fileID: 11400000, guid: 6e9310d082b0d4c45831ab0c949c79cd, type: 2}
   baseWeapon: {fileID: 0}
   weaponHolderPosition: {fileID: 7566336452850951035}
 --- !u!114 &3605303883239413623
@@ -166,9 +167,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthConsumptionSO: {fileID: 11400000, guid: d1101adbba6091a448788aa7678cf151,
     type: 2}
-  oxygenConsumptionSO: {fileID: 11400000, guid: 32d569248f87494488fe37d88d731aa9,
+  oxygenConsumptionSO: {fileID: 11400000, guid: 3fb3f16c79f9d2c47b80dcce7a2595f9,
     type: 2}
-  energyConsumptionSO: {fileID: 11400000, guid: 0c247dc5c29200c4cb5dd6f15d012027,
+  energyConsumptionSO: {fileID: 11400000, guid: f8284a2ad5bddf442853ca452c1d45b0,
     type: 2}
   cooldownDuration: 3
 --- !u!114 &5073589522926302912
@@ -608,6 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829471898277700743}
   - component: {fileID: 919314168307291871}
+  - component: {fileID: 1479364938559905473}
   m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
@@ -682,6 +684,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1479364938559905473
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103521100010483770}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7f27e9892d415844ba9249a4045eb15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6798494218436555752
 GameObject:
   m_ObjectHideFlags: 0

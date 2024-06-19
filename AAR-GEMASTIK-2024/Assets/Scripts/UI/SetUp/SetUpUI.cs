@@ -125,8 +125,10 @@ public class SetUpUI : BasePreparingPlayerUI
     {
         gameObject.SetActive(true);
         transform.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
-        foreach(Transform currentContainer in containerList)
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnDisplay);
+        foreach (Transform currentContainer in containerList)
         {
+            AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnPop);
             currentContainer.gameObject.SetActive(true);
             currentContainer.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.3f);
@@ -138,11 +140,13 @@ public class SetUpUI : BasePreparingPlayerUI
     {
         foreach (Transform currentContainer in containerList)
         {
+            AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnPop);
             currentContainer.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.3f);
         }
         StartLevel.GetComponent<RectTransform>().DOAnchorPosY(-300, 0.7f).SetEase(Ease.InBounce);
         transform.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnHide);
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OxygenSystem : _BaseSustainabilitySystem
 {
-    public OxygenSystem(PlayerCoreSystem player, int maxValue) : base(player, maxValue)
+    public OxygenSystem(PlayerCoreSystem player, int maxValue, SustainabilityType type) : base(player, maxValue, type)
     {
     }
 

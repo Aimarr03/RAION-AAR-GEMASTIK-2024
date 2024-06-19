@@ -18,6 +18,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable, IInterractable, IDa
     protected bool isBeingHeld;
     
     public Transform headFish;
+    public RectTransform UI;
     
     protected EnemyStateMachine stateMachine;
     public Rigidbody rigidBody;
@@ -27,6 +28,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable, IInterractable, IDa
     public int damage;
     public int health;
     public string fishName;
+    public float weight;
     public int bounty;
 
     public event Action OnEnemyDead;
@@ -101,7 +103,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable, IInterractable, IDa
     public void LoadScene(GameData gameData)
     {
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        levelData.fishList.TryGetValue(id, out bool hasCollected);
+        levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
         if (hasCollected)
         {
             OnDeloading();
@@ -111,11 +113,11 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable, IInterractable, IDa
     public void SaveScene(ref GameData gameData)
     {
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        if (levelData.fishList.ContainsKey(id))
+        if (levelData.sharkMutatedList.ContainsKey(id))
         {
-            levelData.fishList.Remove(id);
+            levelData.sharkMutatedList.Remove(id);
         }
-        levelData.fishList.Add(id, isKnockout);
+        levelData.sharkMutatedList.Add(id, isKnockout);
     }
     public bool GetIsFishKnockout() => isKnockout;
     

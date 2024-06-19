@@ -28,6 +28,7 @@ public class ShopItemCard : MonoBehaviour
     private void Start()
     {
         DetailedCardView.OnUpgradedSomething += UpdateData;
+        this.thisButton.onClick.AddListener(SoundEffectClick);
     }
     private void OnDestroy()
     {
@@ -80,6 +81,10 @@ public class ShopItemCard : MonoBehaviour
         GetComponent<Image>().color = !canBeInterracted ? Color.white : unavailableGrey;
         icon.color = canBeInterracted ? Color.white : unavailableGrey;
         IsBuyableOrNotVisually(mode, canBeInterracted);
+    }
+    private void SoundEffectClick()
+    {
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.interractable, 2.5f);
     }
     private void IsBuyableOrNotVisually(ShopMode mode, bool canBeInterracted)
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthSystem : _BaseSustainabilitySystem
 {
-    public HealthSystem(PlayerCoreSystem player, int maxValue) : base(player, maxValue)
+    public HealthSystem(PlayerCoreSystem player, int maxValue, SustainabilityType type) : base(player, maxValue, type)
     {
         
     }

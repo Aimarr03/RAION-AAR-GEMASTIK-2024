@@ -40,6 +40,7 @@ public class FlowMainMenuGameManager : MonoBehaviour
     }
     public void OnCustomDisable()
     {
+        AudioManager.Instance.OnGraduallyStopUnderwaterSFX(0.8f);
         foreach (Button button in buttonList)
         {
             button.interactable = false;

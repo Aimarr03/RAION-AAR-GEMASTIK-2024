@@ -35,11 +35,16 @@ public class PlayerMoveSystem : MonoBehaviour
     private void Start()
     {
         PlayerInputSystem.InvokeMoveSoundAction += PlayerInputSystem_InvokeMoveSoundAction;
+        WeightSystem.OnOverweight += WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
     }
+
+    
+
     private void OnDisable()
     {
         PlayerInputSystem.InvokeMoveSoundAction -= PlayerInputSystem_InvokeMoveSoundAction;
+        WeightSystem.OnOverweight -= WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
     }
 
@@ -239,5 +244,17 @@ public class PlayerMoveSystem : MonoBehaviour
     {
         float volume = (Mathf.Abs(playerRigid.velocity.x) / maxLinearSpeed);
         OnDriveSource.volume = Mathf.Clamp(volume, 0.1f, 0.5f);
+    }
+    private void WeightSystem_OnOverweight(bool isOverweight, float arg2)
+    {
+        if(isOverweight)
+        {
+            slowedMultiplier = arg2;
+        }
+        else
+        {
+            slowedMultiplier = 1;
+        }
+        isSlowed = isOverweight;
     }
 }

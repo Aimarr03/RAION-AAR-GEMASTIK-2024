@@ -15,10 +15,9 @@ public class PreparingUIManager : MonoBehaviour
     [SerializeField] private Image nextButton;
     private int currentPageIndex = 0;
     public static event Action<bool> OnChangeUI;
-
     private void Awake()
     {
-        for(int index = 0; index < list.Count; index++)
+        /*for(int index = 0; index < list.Count; index++)
         {
             Debug.Log(currentPageIndex == index);
             if (currentPageIndex == index) 
@@ -27,9 +26,13 @@ public class PreparingUIManager : MonoBehaviour
                 list[index].gameObject.SetActive(true); 
             }
             else list[index].gameObject.SetActive(false);
-        }
+        }*/
         OnChangeUI?.Invoke(false);
         CheckButtonCondition();
+    }
+    private void Start()
+    {
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnDisplay);
     }
     private void CheckButtonCondition()
     {
@@ -65,7 +68,7 @@ public class PreparingUIManager : MonoBehaviour
     }
     public void NextPage()
     {
-        
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.interractable);
         StartCoroutine(OnTransitionNext());
         currentPageIndex++;
         if(currentPageIndex > list.Count - 1)
@@ -77,6 +80,7 @@ public class PreparingUIManager : MonoBehaviour
     }
     public void PreviousPage()
     {
+        AudioManager.Instance.PlaySFX(AudioContainerUI.instance.interractable);
         StartCoroutine(OnTransitionPrevious());
         currentPageIndex--;
         if (currentPageIndex < 0)

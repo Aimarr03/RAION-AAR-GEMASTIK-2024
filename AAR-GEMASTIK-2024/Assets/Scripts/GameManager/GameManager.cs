@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public OxygenItemSO chosenOxygenItemSO;
     public EnergyItemSO chosenEnergyItemSO;
     public int level;
+    public event Action<int> OnChangeLevelChoice;
     private void Awake()
     {
         if(Instance == null)
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     public void SetLevel(int index)
     {
         level = index;
+        OnChangeLevelChoice?.Invoke(index);
     }
     public void LoadLevel()
     {

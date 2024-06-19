@@ -12,6 +12,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     public PlayerAbilitySystem abilitySystem;
     public PlayerConsumptionItemSystem consumptionItemSystem;
     public PlayerInterractionSystem interractionSystem;
+    public Animator animator;
     public List<SustainabilitySystemSO> SustainabilitySystemsDataList;
     public bool isDead;
     public bool canBlock;
@@ -55,6 +56,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             if (GameManager.Instance.chosenWeaponSO != null) weaponSystem.SetWeaponSO(GameManager.Instance.chosenWeaponSO);
             if (GameManager.Instance.chosenAbilitySO != null) abilitySystem.SetUpAbilitySO(GameManager.Instance.chosenAbilitySO);
         }
+        
     }
     private void Start()
     {
@@ -85,7 +87,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         if (isDead) return;
         if(isPaused) return;
         OnUseOxygen();
-        //Test();
+        Test();
     }
     private void SetUpData()
     {
@@ -95,30 +97,32 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             SustainabilityType currentType = currentSustainabilityData.sustainabilityType;
             int maxValue = currentSustainabilityData.maxValueTimesLevel;
             Debug.Log($"{currentType} has max value of {maxValue}");
-            _BaseSustainabilitySystem currentSustainabilitySystem = new HealthSystem(this, maxValue);
+            _BaseSustainabilitySystem currentSustainabilitySystem = new HealthSystem(this, maxValue, SustainabilityType.Health);
             switch (currentType)
             {
                 case SustainabilityType.Health:
-                    currentSustainabilitySystem = new HealthSystem(this, maxValue);
+                    currentSustainabilitySystem = new HealthSystem(this, maxValue, SustainabilityType.Health);
                     break;
                 case SustainabilityType.Energy:
-                    currentSustainabilitySystem = new EnergySystem(this, maxValue);
+                    currentSustainabilitySystem = new EnergySystem(this, maxValue, SustainabilityType.Energy);
                     break;
                 case SustainabilityType.Oxygen:
-                    currentSustainabilitySystem = new OxygenSystem(this, maxValue);
+                    currentSustainabilitySystem = new OxygenSystem(this, maxValue, SustainabilityType.Oxygen);
                     break;
                 case SustainabilityType.Capacity:
-                    currentSustainabilitySystem = new WeightSystem(this, maxValue);
+                    currentSustainabilitySystem = new WeightSystem(this, maxValue, SustainabilityType.Capacity);
                     break;
             }
             _sustainabilitySystemsDictionary.Add(currentType, currentSustainabilitySystem);
             Debug.Log($"Succesfully added {currentType} system into dictionary");
         }
     }
-    public void SetDead()
+    public void SetDead(SustainabilityType type)
     {
         isDead = true;
         OnDead?.Invoke();
+        GetComponent<Collider>().enabled = false;
+        ExpedictionManager.Instance.InvokeOnLose(type);
         Debug.Log("Player Dead");
     }
     public void TakeDamage(int value)
@@ -150,15 +154,17 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     }
     private async void InvunerabilityAfterTakeDamage()
     {
+        animator.SetBool("Hurt", true);
         isVunerable = false;
         await Task.Delay((int)(invunerableDuration * 1000));
+        animator.SetBool("Hurt", false);
         isVunerable = true;
     }
     private void Test()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(10);
+            TakeDamage(10000);
         }
     }
 

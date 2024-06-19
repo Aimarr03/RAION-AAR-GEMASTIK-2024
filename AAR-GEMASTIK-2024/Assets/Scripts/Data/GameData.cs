@@ -30,12 +30,13 @@ public class GameData
         {
             LevelData level = new LevelData();
             level.trashList = new SerializableDictionary<string, bool>();
-            level.fishList= new SerializableDictionary<string, bool>();
+            level.sharkMutatedList= new SerializableDictionary<string, bool>();
+            level.fishNeedHelpList = new SerializableDictionary<string, bool>();
             level.levelName = $"Level{i + 1}";
             level.hasBeenExpediction = false;
             if(i == 0) level.hasBeenUnlocked = true;
             level.progress = 0;
-            level.fishProgress = 0;
+            level.sharkMutatedProgress = 0;
             level.trashProgress = 0;
             levels.Add(level);
         }

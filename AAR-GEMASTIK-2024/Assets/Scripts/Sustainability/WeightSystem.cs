@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class WeightSystem : _BaseSustainabilitySystem
 {
-    public event Action UnableToAddWeight;
-    public WeightSystem(PlayerCoreSystem player, int maxValue) : base(player, maxValue)
+    public static event Action<bool, float> OnOverweight;
+    public WeightSystem(PlayerCoreSystem player, int maxValue, SustainabilityType type) : base(player, maxValue, type)
     {
         currentValue = 0;
     }
@@ -18,18 +18,24 @@ public class WeightSystem : _BaseSustainabilitySystem
 
     public override void OnDecreaseValue(float value)
     {
-        base.OnDecreaseValue(value);
+        currentValue = Mathf.Clamp(currentValue - value, 0, maxValue);
+        SustainabilityData healthData = new SustainabilityData(currentValue, maxValue, ChangeState.Increase, SustainabilityType.Health);
+        InvokeOnIncreaseValue(healthData);
+        Debug.Log("Current Value = " + currentValue);
     }
 
     public override void OnIncreaseValue(float value)
     {
-        if (!canAddWeight(value))
+        currentValue = currentValue + value;
+        SustainabilityData healthData = new SustainabilityData(currentValue, maxValue, ChangeState.Increase, SustainabilityType.Capacity);
+        InvokeOnIncreaseValue(healthData);
+        Debug.Log("Current Value = " + currentValue);
+        bool isOverweight = currentValue > maxValue;
+        if (isOverweight)
         {
-            UnableToAddWeight?.Invoke();
-            return;
+            float percentage = maxValue / currentValue;
+            OnOverweight?.Invoke(isOverweight, percentage);
         }
-        base.OnIncreaseValue(value);
-        Debug.Log("Player remaining capacity " + (maxValue - currentValue));
     }
     public bool canAddWeight(float value)
     {

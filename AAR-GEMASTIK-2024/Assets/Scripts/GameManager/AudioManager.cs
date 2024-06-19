@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,35 +10,31 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource EffectSource;
     [SerializeField] private AudioSource UnderwaterMusicSource;
     public static AudioManager Instance;
-
+    private AudioData music, sfx, underwatersfx, additionaleffect;
     private float originalVolumeMusic;
-    private float originalVolumeSFX;
-    private float originalVolumeEffect;
-    private float originalVolumeUnderwaterEffect;
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
         }
-        originalVolumeMusic = MusicSource.volume;
-        originalVolumeSFX = SFXSource.volume;
-        originalVolumeEffect = EffectSource.volume;
-        originalVolumeUnderwaterEffect = UnderwaterMusicSource.volume;
+        music = new AudioData(MusicSource, MusicSource.volume);
+        sfx = new AudioData(SFXSource, SFXSource.volume);
+        underwatersfx = new AudioData(UnderwaterMusicSource, UnderwaterMusicSource.volume);
+        additionaleffect = new AudioData(EffectSource, EffectSource.volume);
     }
     private void Start()
     {
-        
         OnGraduallyStartUnderwaterSFX(1.2f);
     }
     public void OnGraduallyStartUnderwaterSFX(float duration)
     {
         UnderwaterMusicSource.volume = 0;
-        StartCoroutine(OnStartNewMusicGradually(UnderwaterMusicSource, duration));
+        StartCoroutine(OnStartNewMusicGradually(underwatersfx, duration));
     }
     public void OnGraduallyStopUnderwaterSFX(float duration)
     {
-        StartCoroutine(OnStopOldMusicGradually(UnderwaterMusicSource, duration));
+        StartCoroutine(OnStopOldMusicGradually(underwatersfx, duration));
     }
     public void OnInstantStartNewMusic(AudioClip clip, float startDuration)
     {
@@ -45,7 +42,7 @@ public class AudioManager : MonoBehaviour
         MusicSource.volume = 0;
         MusicSource.clip = clip;
         MusicSource.Play();
-        StartCoroutine(OnStartNewMusicGradually(MusicSource, startDuration));
+        StartCoroutine(OnStartNewMusicGradually(music, startDuration));
     }
     public void StartNewMusic(AudioClip clip, float stopDuration, float startDuration)
     {
@@ -53,40 +50,45 @@ public class AudioManager : MonoBehaviour
     }
     private IEnumerator StartNewMusicCoroutine(AudioClip clip, float stopDuration, float startDuration)
     {
-        yield return OnStopOldMusicGradually(MusicSource,stopDuration);
+        yield return OnStopOldMusicGradually(music,stopDuration);
         MusicSource.clip = clip;
-        yield return OnStartNewMusicGradually(MusicSource, startDuration);
+        yield return OnStartNewMusicGradually(music, startDuration);
     }
-    private IEnumerator OnStopOldMusicGradually(AudioSource source, float stopDuration)
+    private IEnumerator OnStopOldMusicGradually(AudioData data, float stopDuration)
     {
-        float volume = originalVolumeMusic;
+        float volume = data.original_volume;
         float elapsedTime = 0;
         while(elapsedTime < stopDuration)
         {
             elapsedTime += Time.deltaTime;
-            source.volume = Mathf.Lerp(volume, 0, elapsedTime / stopDuration);
+            data.audioSource.volume = Mathf.Lerp(volume, 0, elapsedTime / stopDuration);
             yield return null;
         }
-        source.volume = 0;
-        source.Stop();
+        data.audioSource.volume = 0;
+        data.audioSource.Stop();
     }
-    private IEnumerator OnStartNewMusicGradually(AudioSource source,float startDuration)
+    private IEnumerator OnStartNewMusicGradually(AudioData data,float startDuration)
     {
-        source.Play();
+        data.audioSource.Play();
         float volume = 0f;
         float elapsedTime = 0;
         while(elapsedTime < startDuration)
         {
             elapsedTime += Time.deltaTime;
-            source.volume = Mathf.Lerp(volume, originalVolumeMusic, elapsedTime / startDuration);
+            data.audioSource.volume = Mathf.Lerp(volume, data.original_volume, elapsedTime / startDuration);
             yield return null;
         }
-        source.volume = originalVolumeMusic;
+        data.audioSource.volume = data.original_volume;
     }
     public void PlaySFX(AudioClip clip)
     {
         Debug.Log("PLAY SFX " + clip);
         SFXSource.PlayOneShot(clip);
+    }
+    public void PlaySFX(AudioClip clip, float volume)
+    {
+        Debug.Log("PLAY SFX " + clip);
+        SFXSource.PlayOneShot(clip, volume);
     }
     public void StartEffectSource()
     {
@@ -100,5 +102,16 @@ public class AudioManager : MonoBehaviour
     {
         EffectSource.clip = clip;
         EffectSource.Play();
+    }
+}
+[Serializable]
+public class AudioData
+{
+    public AudioSource audioSource;
+    public float original_volume;
+    public AudioData(AudioSource audioSource, float original_volume)
+    {
+        this.audioSource = audioSource;
+        this.original_volume = original_volume;
     }
 }

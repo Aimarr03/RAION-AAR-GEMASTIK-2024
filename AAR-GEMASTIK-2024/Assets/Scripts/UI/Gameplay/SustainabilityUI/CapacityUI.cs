@@ -39,6 +39,6 @@ public class CapacityUI : MonoBehaviour
     {
         float currentValue = data.currentValue;
         float maxValue = data.maxValue;
-        capacityTextUI.text = $"{currentValue} / {maxValue}";
+        capacityTextUI.text = $"{currentValue.ToString("0.00")} / {maxValue.ToString("0.00")}";
     }
 }
