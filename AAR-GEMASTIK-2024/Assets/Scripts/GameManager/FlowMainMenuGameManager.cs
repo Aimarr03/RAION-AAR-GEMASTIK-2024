@@ -17,7 +17,6 @@ public class FlowMainMenuGameManager : MonoBehaviour
         {
             loadButton.interactable = false;
         }
-        
         CreditPanel.gameObject.SetActive(false);
     }
     public void OnQuit()
@@ -29,14 +28,14 @@ public class FlowMainMenuGameManager : MonoBehaviour
         OnCustomDisable();
         Debug.Log("Start New Game");
         DataManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("Level1");
+        GameManager.Instance.LoadScene("Level1");
     }
     public void LoadGame()
     {
         OnCustomDisable();
         Debug.Log("Continue Game");
         DataManager.instance.LoadGame();
-        SceneManager.LoadSceneAsync(1);
+        GameManager.Instance.LoadScene(1);
     }
     public void OnCustomDisable()
     {
@@ -46,8 +45,8 @@ public class FlowMainMenuGameManager : MonoBehaviour
             button.interactable = false;
         }
     }
-    public void ToggleCredit(bool toggle)
+    public void OnLoadCredit()
     {
-        CreditPanel.gameObject.SetActive(toggle);
+        GameManager.Instance.LoadScene("Credits");
     }
 }

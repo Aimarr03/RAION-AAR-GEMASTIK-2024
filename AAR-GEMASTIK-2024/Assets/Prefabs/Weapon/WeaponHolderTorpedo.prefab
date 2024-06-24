@@ -134,8 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSO: {fileID: 11400000, guid: 6e9310d082b0d4c45831ab0c949c79cd, type: 2}
+  level: 0
   firePointBlank: {fileID: 7823344257780394629}
   interval: 1
+  baseDamage: 80
+  baseRadius: 10
 --- !u!4 &7823344257780394629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5779494904012247009, guid: e06eda75318ff1b489c2503b2e2b9647,

@@ -10,7 +10,7 @@ public class BulletTorpedo : BaseBullet
     [SerializeField] private Transform particleSystemOnExplode; 
     public override void OnLaunchBullet()
     {
-        transform.position += Time.deltaTime * weaponData.speed * Vector3.right;
+        transform.position += Time.deltaTime * Vector3.right;
     }
 
     public override void Update()
@@ -35,7 +35,7 @@ public class BulletTorpedo : BaseBullet
             string gameObjectName = explodedUnit[index].gameObject.ToString();
             if (explodedUnit[index].gameObject.TryGetComponent(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(weaponData.totalDamage);
+                damagableUnit.TakeDamage(0);
             }
             Debug.Log($"{gameObjectName} is within the explosion area");
         }
@@ -47,7 +47,7 @@ public class BulletTorpedo : BaseBullet
     {
         if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
         {
-            damagableUnit.TakeDamage(weaponData.totalDamage);
+            damagableUnit.TakeDamage(0);
             Vector3 direction = (collision.transform.position - transform.position).normalized;
             damagableUnit.AddSuddenForce(direction, 12f);
             OnExplode();

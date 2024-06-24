@@ -68,7 +68,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         yield return new WaitForSeconds(0.2f);
         while (true)
         {
-            shark.animator.SetBool("IsMoving", true);
+            //shark.animator.SetBool("IsMoving", true);
             while (Vector3.Distance(targetPos, shark.transform.position) > 0.05f)
             {
                 shark.transform.position = Vector3.MoveTowards(shark.transform.position, targetPos, speed * Time.deltaTime);
@@ -77,7 +77,7 @@ public class SharkIdleHorizontalState : SharkBaseState
 
             GoLeft = !GoLeft;
             targetPos = GoLeft ? Pos1 : Pos2;
-            shark.animator.SetBool("IsMoving", false);
+            //shark.animator.SetBool("IsMoving", false);
             yield return new WaitForSeconds(1f);
             yield return OnRotatingYAxis();
         }

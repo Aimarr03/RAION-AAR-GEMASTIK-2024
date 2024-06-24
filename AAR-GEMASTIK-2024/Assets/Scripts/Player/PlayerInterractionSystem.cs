@@ -12,13 +12,15 @@ public class PlayerInterractionSystem : MonoBehaviour
     
     [SerializeField] private Transform interractiveHolderPositionForInterractableObject;
     [SerializeField] private Vector3 boxSizeForInterractableObject;
+    [SerializeField] private RectTransform InteraksiGuide;
 
     [SerializeField] private float radiusForDetectableObjects;
-
+    
     private Collider[] detectionResult = new Collider[0];
     private IInterractable ClosestInterractableObject;
     private List<IInterractable> DetectableInterractiveObjectWhenHolding;
     private bool isHolding;
+    public Vector3 GetHolderPosition { get => interractiveHolderPositionForInterractableObject.GetChild(0).transform.position; }
     private Vector3 OffSetPosition
     {
         get
@@ -71,10 +73,12 @@ public class PlayerInterractionSystem : MonoBehaviour
         detectionResult = Physics.OverlapBox(OffSetPosition, boxSizeForInterractableObject, Quaternion.identity, targetLayerMaskForInterractableObject);
         if(detectionResult.Length > 0)
         {
+            InteraksiGuide.gameObject.SetActive(!isHolding);
             FindClosestInterractableObjectToPlayer();
         }
         else
         {
+            InteraksiGuide.gameObject.SetActive(false);
             foreach (IInterractable objectInterractable in DetectableInterractiveObjectWhenHolding)
             {
                 objectInterractable.OnDetectedAsTheClosest(null);
@@ -139,7 +143,11 @@ public class PlayerInterractionSystem : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, radiusForDetectableObjects);
     }
-    public void SetIsHolding(bool input) => isHolding = input;
+    public void SetIsHolding(bool input)
+    {
+        InteraksiGuide.gameObject.SetActive(!input);
+        isHolding = input;
+    }
 
     public bool IsHolding() => isHolding;
 }

@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,10 +31,13 @@ public class ShopItemCard : MonoBehaviour
     {
         DetailedCardView.OnUpgradedSomething += UpdateData;
         this.thisButton.onClick.AddListener(SoundEffectClick);
+        RectTransform rect = GetComponent<RectTransform>();
+        float localY = rect.anchoredPosition.y;
     }
     private void OnDestroy()
     {
         DetailedCardView.OnUpgradedSomething -= UpdateData;
+        GetComponent<RectTransform>().DOKill();
     }
 
     private void UpdateData()

@@ -4,9 +4,32 @@ using UnityEngine;
 
 public class AbilityShockwave : AbilityBase
 {
-    [SerializeField] private float radiusShock;
-    [SerializeField] private int energyUsage;
+    [SerializeField] private float radiusShock = 10f;
+    [SerializeField] private float stunDuration = 1.3f;
+    [SerializeField] private int energyUsage = 20;
+    [SerializeField] private int baseDamage = 30;
     [SerializeField] private int IncreaseEnergyCapacity, DecreaseHealthCapacity;
+
+    public float GetMultiplierRadiusShock(int level)
+    {
+        float maxRadiusShock = radiusShock + ((level-1) * (radiusShock * 0.05f));
+        return maxRadiusShock;
+    }
+    public float GetMultiplierStunDuration(int level)
+    {
+        float maxDurationStun = stunDuration + ((level - 1) * (stunDuration * 0.05f));
+        return maxDurationStun;
+    }
+    public int GetMultiplierEnergyUsage(int level)
+    {
+        float maxUsage = energyUsage + ((level - 1) * (energyUsage * 0.2f));
+        return (int) maxUsage;
+    }
+    public float GetMultiplierCooldown(int level)
+    {
+        float maxCooldown = intervalCooldown - ((level - 1) * (intervalCooldown * 0.06f));
+        return maxCooldown;
+    }
     private EnergySystem energySystem;
     private OxygenSystem oxygenSystem;
 
@@ -17,13 +40,15 @@ public class AbilityShockwave : AbilityBase
         if (isCooldown) return;
         if(this.playerCoreSystem == null || this.playerCoreSystem != playerCoreSystem) this.playerCoreSystem = playerCoreSystem;
         _BaseSustainabilitySystem energySystem = playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Energy);
-        energySystem.OnDecreaseValue(energyUsage);
-        Collider[] targetHit = Physics.OverlapSphere(playerCoreSystem.transform.position, radiusShock);
+        energySystem.OnDecreaseValue(GetMultiplierEnergyUsage(level));
+        Collider[] targetHit = Physics.OverlapSphere(playerCoreSystem.transform.position, GetMultiplierRadiusShock(level));
         foreach (Collider collider in targetHit)
         {
             if(collider.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
+                if (collider.gameObject.TryGetComponent(out PlayerCoreSystem coreSystem)) continue;
                 damagableUnit.TakeDamage(damage);
+                damagableUnit.OnDisableMove(GetMultiplierStunDuration(level), 20);
             }
             Debug.Log(collider.gameObject.name);
         }
@@ -35,7 +60,7 @@ public class AbilityShockwave : AbilityBase
     {
         playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
         float currentInterval = 0;
-        while(currentInterval < intervalCooldown)
+        while(currentInterval < GetMultiplierCooldown(level))
         {
             currentInterval += Time.deltaTime;
             yield return null;
@@ -64,5 +89,32 @@ public class AbilityShockwave : AbilityBase
     {
         energySystem.OnIncreaseValue(1);
         Debug.Log("Energy System is Increase by One");
+    }
+    public override AbilityType GetAbilityType() => AbilityType.Shockwave;
+
+    public override List<BuyStats> GetBuyStats()
+    {
+        return new List<BuyStats>{
+            new BuyStats("Damage", damage.ToString()),
+            new BuyStats("Radius Shock", GetMultiplierRadiusShock(level).ToString("0.0")),
+            new BuyStats("Energy Usage", GetMultiplierEnergyUsage(level).ToString()),
+            new BuyStats("Stun", GetMultiplierStunDuration(level).ToString("0.0")),
+            new BuyStats("Cooldown", GetMultiplierCooldown(level).ToString("0.0")),
+            new BuyStats("Decreased Health", DecreaseHealthCapacity.ToString()),
+            new BuyStats("Increase Energy", IncreaseEnergyCapacity.ToString()),
+        };
+    }
+
+    public override List<UpgradeStats> GetUpgradeStats()
+    {
+        return new List<UpgradeStats>{
+            new UpgradeStats("Damage", damage.ToString(), null),
+            new UpgradeStats("Radius Shock", GetMultiplierRadiusShock(level).ToString("0.0"), GetMultiplierRadiusShock(level+1).ToString("0.0")),
+            new UpgradeStats("Energy Usage", GetMultiplierEnergyUsage(level).ToString(), GetMultiplierEnergyUsage(level + 1).ToString()),
+            new UpgradeStats("Stun", GetMultiplierStunDuration(level).ToString("0.0"), GetMultiplierStunDuration(level + 1).ToString("0.0")),
+            new UpgradeStats("Cooldown", GetMultiplierCooldown(level).ToString("0.0"), GetMultiplierCooldown(level + 1).ToString("0.0")),
+            new UpgradeStats("Decreased Health", DecreaseHealthCapacity.ToString(), null),
+            new UpgradeStats("Increase Energy", IncreaseEnergyCapacity.ToString(), null),
+        };
     }
 }

@@ -23,25 +23,26 @@ public class StatsCard : MonoBehaviour
     public TextMeshProUGUI statsName;
     public TextMeshProUGUI BuyStatsValue;
     public Transform upgradeContainerStatsValue;
-    private float[] upgradeValue;
-    public void SetUpData(StatsDataPassing dataPassing)
+    private UpgradeStats upgradeValue;
+    public void SetUpData(BuyStats buyStats)
     {
-        if(dataPassing.imageData != null)
+        /*if(dataPassing.imageData != null)
         {
             IconStats.sprite = dataPassing.imageData;
-        }
-        statsName.text = dataPassing.statsNameString;
-        BuyStatsValue.text = dataPassing.statsValueString;
+        }*/
+        statsName.text = buyStats.header;
+        BuyStatsValue.text = buyStats.value;
         BuyStatsValue.gameObject.SetActive(true);
         upgradeContainerStatsValue.gameObject.SetActive(false);
     }
-    public void OnUpdateUpgradeStats(float[] upgradeValue, bool unlocked)
+    public void OnUpdateUpgradeStats(UpgradeStats upgradeValue, bool unlocked)
     {
+        if (upgradeValue.nextValue == null) return;
         if(!unlocked)
         {
             if(upgradeValue != null)
             {
-                BuyStatsValue.text = upgradeValue[0].ToString();
+                BuyStatsValue.text = upgradeValue.value;
                 BuyStatsValue.gameObject.SetActive(true);
                 upgradeContainerStatsValue.gameObject.SetActive(false);
             }
@@ -51,8 +52,8 @@ public class StatsCard : MonoBehaviour
         upgradeContainerStatsValue.gameObject.SetActive(true);
         BuyStatsValue.gameObject.SetActive(false);
         TextMeshProUGUI currentValue = upgradeContainerStatsValue.GetChild(0).GetComponent<TextMeshProUGUI>();
-        currentValue.text = this.upgradeValue[0].ToString();
+        currentValue.text = upgradeValue.value;
         TextMeshProUGUI nextLevelValue = upgradeContainerStatsValue.GetChild(2).GetComponent<TextMeshProUGUI>();
-        nextLevelValue.text = this.upgradeValue[1].ToString();
+        nextLevelValue.text = upgradeValue.nextValue;
     }
 }

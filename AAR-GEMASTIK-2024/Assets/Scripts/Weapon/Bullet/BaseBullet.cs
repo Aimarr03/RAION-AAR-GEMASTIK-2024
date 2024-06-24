@@ -5,18 +5,16 @@ using UnityEngine;
 
 public abstract class BaseBullet : MonoBehaviour
 {
+    public WeaponBase weaponBase;
     public AudioClip OnCreated;
     public AudioClip OnHit;
-    public WeaponBulletData weaponData;
     protected bool canLaunch = false;
     [SerializeField] protected float TimeToLiveDurationHolder;
     [SerializeField] protected float TimeToLive;
     protected ObjectPooling parentPool;
-    public virtual void SetUpBullet(WeaponBulletData weaponData, bool isOnRightDirection, Quaternion angle)
+    public virtual void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
         transform.rotation = angle;
-        weaponData.speed = isOnRightDirection ? weaponData.speed : -1 * weaponData.speed;
-        this.weaponData = weaponData;
         Debug.Log("bullet data has been set up");
         canLaunch = true;
     }

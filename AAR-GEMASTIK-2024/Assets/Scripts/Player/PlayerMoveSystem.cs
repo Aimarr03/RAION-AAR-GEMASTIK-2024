@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -35,17 +36,16 @@ public class PlayerMoveSystem : MonoBehaviour
     private void Start()
     {
         PlayerInputSystem.InvokeMoveSoundAction += PlayerInputSystem_InvokeMoveSoundAction;
+        coreSystem.OnDead += CoreSystem_OnDead;
         WeightSystem.OnOverweight += WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
     }
-
-    
-
     private void OnDisable()
     {
         PlayerInputSystem.InvokeMoveSoundAction -= PlayerInputSystem_InvokeMoveSoundAction;
         WeightSystem.OnOverweight -= WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+        coreSystem.OnDead -= CoreSystem_OnDead;
     }
 
     private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
@@ -87,6 +87,7 @@ public class PlayerMoveSystem : MonoBehaviour
         currentInput = coreSystem.inputSystem.GetMoveInput();
         if(currentInput != Vector2.zero) NonZeroValueInput = currentInput;
     }
+    
     private void CheckMovementStatus()
     {
         currentDistanceUse += playerRigid.velocity.magnitude * Time.fixedDeltaTime;
@@ -256,5 +257,15 @@ public class PlayerMoveSystem : MonoBehaviour
             slowedMultiplier = 1;
         }
         isSlowed = isOverweight;
+    }
+    private void CoreSystem_OnDead()
+    {
+        OnDead();
+    }
+    private async void OnDead()
+    {
+        playerRigid.velocity = new Vector3(0.2f, 0.2f, 0.2f);
+        await Task.Delay(800);
+        playerRigid.velocity = Vector3.zero;
     }
 }

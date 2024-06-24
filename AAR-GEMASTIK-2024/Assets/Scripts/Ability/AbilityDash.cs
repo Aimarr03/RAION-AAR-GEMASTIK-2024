@@ -1,10 +1,21 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class AbilityDash : AbilityBase
 {
     [SerializeField] private float ForceDash;
+    public float GetMultiplierForceDash(int level)
+    {
+        float MaxForceDash = ForceDash + ((level - 1) * (ForceDash * 0.1f));
+        return MaxForceDash;
+    }
+    public float GetMultiplierCooldown(int level)
+    {
+        float MaxCooldown = intervalCooldown - ((level - 1) * (intervalCooldown * 0.08f));
+        return MaxCooldown;
+    }
     public override void Fire(PlayerCoreSystem playerCoreSystem)
     {
         if (!isInvokable) return;
@@ -14,7 +25,7 @@ public class AbilityDash : AbilityBase
             this.playerCoreSystem = playerCoreSystem;
         }
         PlayerMoveSystem playerMoveSystem = playerCoreSystem.moveSystem;
-        playerMoveSystem.AddSuddenForce(ForceDash);
+        playerMoveSystem.AddSuddenForce(GetMultiplierForceDash(level));
         isCooldown = true;
         DisableEnablePlayerMovementSystem();
         StartCoroutine(OnCooldown());
@@ -30,12 +41,32 @@ public class AbilityDash : AbilityBase
     {
         playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
         float currentTimer = 0;
-        while(currentTimer <= intervalCooldown)
+        while(currentTimer <= GetMultiplierCooldown(level))
         {
             currentTimer += Time.deltaTime;
             yield return null;
         }
         isCooldown = false;
         Debug.Log("Dash can be Used AGAIN");
+    }
+
+    public override AbilityType GetAbilityType() => AbilityType.Dash;
+
+    public override List<BuyStats> GetBuyStats()
+    {
+        return new List<BuyStats>
+        {
+            new BuyStats("Dash Power:", GetMultiplierForceDash(level).ToString("0.0")),
+            new BuyStats("Cooldown: ", GetMultiplierForceDash(level +1).ToString("0.0"))
+        };
+    }
+
+    public override List<UpgradeStats> GetUpgradeStats()
+    {
+        return new List<UpgradeStats>
+        {
+            new UpgradeStats("Dash Power:", GetMultiplierForceDash(level).ToString("0.0"), GetMultiplierForceDash(level+1).ToString("0.0")),
+            new UpgradeStats("Cooldown: ", GetMultiplierForceDash(level).ToString("0.0"), GetMultiplierForceDash(level +1).ToString("0.0"))
+        };
     }
 }

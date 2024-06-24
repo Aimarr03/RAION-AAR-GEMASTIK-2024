@@ -51,5 +51,26 @@ public class ItemBaseSO : ScriptableObject, IComparable<ItemBaseSO>
             return generalData.name.CompareTo(other.generalData.name);
         }
     }
-
+}
+public class BuyStats
+{
+    public string header;
+    public string value;
+    public BuyStats(string header, string value)
+    {
+        this.header = header;
+        this.value = value;
+    }
+}
+public class UpgradeStats
+{
+    public string header;
+    public string value;
+    public string nextValue;
+    public UpgradeStats(string header, string value, string nextValue)
+    {
+        this.header = header;
+        this.value = value;
+        this.nextValue = nextValue;
+    }
 }

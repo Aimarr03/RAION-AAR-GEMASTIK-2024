@@ -10,6 +10,7 @@ public class BaseDataPlayerUI : MonoBehaviour
     [SerializeField] private RectTransform itemUI;
     [SerializeField] private RectTransform weaponUI;
     [SerializeField] private RectTransform weightUI;
+    [SerializeField] private RectTransform playerIcon;
 
     private void Start()
     {
@@ -22,6 +23,9 @@ public class BaseDataPlayerUI : MonoBehaviour
                 break;
             }
         }
+        playerIcon.DORotate(new Vector3(0, 360, 0), 7.6f, RotateMode.WorldAxisAdd)
+            .SetLoops(-1, LoopType.Restart)
+            .SetEase(Ease.Linear);
     }
 
     private void PreparingUIManager_OnChangeUI(bool isSetUpUI)

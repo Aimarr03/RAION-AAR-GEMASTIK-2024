@@ -13,11 +13,11 @@ public class BulletHarpoon : BaseBullet
     {
         if (isCollidedWithWall) return;
         TimeToLive = TimeToLiveDurationHolder;
-        transform.position += Time.deltaTime * weaponData.speed * Vector3.right;
+        transform.position += Time.deltaTime * 11 * Vector3.right;
     }
-    public override void SetUpBullet(WeaponBulletData weaponData, bool isOnRightDirection, Quaternion angle)
+    public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
-        base.SetUpBullet(weaponData, isOnRightDirection, angle);
+        base.SetUpBullet(isOnRightDirection, angle);
         TimeToLiveBullet();
     }
     public override void Update()
@@ -49,7 +49,7 @@ public class BulletHarpoon : BaseBullet
             default:
                 if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
                 {
-                    damagableUnit.TakeDamage(weaponData.totalDamage);
+                    damagableUnit.TakeDamage(0);
                     AudioManager.Instance.PlaySFX(OnHit);
                 }
                 break;

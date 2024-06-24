@@ -242,6 +242,74 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Credits"",
+            ""id"": ""6e3fcae9-0f77-4d7c-8656-e3aabebb3a5a"",
+            ""actions"": [
+                {
+                    ""name"": ""Next Page"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3613c05-ae6c-4c37-adf8-c169e565940b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Previous page"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c2a7bea-d7c2-4d45-a2d9-1ad74644abec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""94a1945d-74e7-4ce0-af27-e782e9ad5b93"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""282729dd-9a3d-41d2-b144-5985bc6b8929"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next Page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9c1381d-e68c-4f1f-a84d-8804604e8185"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Previous page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc0a33a6-fa18-4d0a-afaa-4b0564ddce34"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -275,6 +343,11 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        // Credits
+        m_Credits = asset.FindActionMap("Credits", throwIfNotFound: true);
+        m_Credits_NextPage = m_Credits.FindAction("Next Page", throwIfNotFound: true);
+        m_Credits_Previouspage = m_Credits.FindAction("Previous page", throwIfNotFound: true);
+        m_Credits_Escape = m_Credits.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -472,6 +545,68 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Credits
+    private readonly InputActionMap m_Credits;
+    private List<ICreditsActions> m_CreditsActionsCallbackInterfaces = new List<ICreditsActions>();
+    private readonly InputAction m_Credits_NextPage;
+    private readonly InputAction m_Credits_Previouspage;
+    private readonly InputAction m_Credits_Escape;
+    public struct CreditsActions
+    {
+        private @DefaultInputAction m_Wrapper;
+        public CreditsActions(@DefaultInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NextPage => m_Wrapper.m_Credits_NextPage;
+        public InputAction @Previouspage => m_Wrapper.m_Credits_Previouspage;
+        public InputAction @Escape => m_Wrapper.m_Credits_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_Credits; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CreditsActions set) { return set.Get(); }
+        public void AddCallbacks(ICreditsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CreditsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CreditsActionsCallbackInterfaces.Add(instance);
+            @NextPage.started += instance.OnNextPage;
+            @NextPage.performed += instance.OnNextPage;
+            @NextPage.canceled += instance.OnNextPage;
+            @Previouspage.started += instance.OnPreviouspage;
+            @Previouspage.performed += instance.OnPreviouspage;
+            @Previouspage.canceled += instance.OnPreviouspage;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+        }
+
+        private void UnregisterCallbacks(ICreditsActions instance)
+        {
+            @NextPage.started -= instance.OnNextPage;
+            @NextPage.performed -= instance.OnNextPage;
+            @NextPage.canceled -= instance.OnNextPage;
+            @Previouspage.started -= instance.OnPreviouspage;
+            @Previouspage.performed -= instance.OnPreviouspage;
+            @Previouspage.canceled -= instance.OnPreviouspage;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+        }
+
+        public void RemoveCallbacks(ICreditsActions instance)
+        {
+            if (m_Wrapper.m_CreditsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICreditsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CreditsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CreditsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CreditsActions @Credits => new CreditsActions(this);
     private int m_DefaultControlSchemeIndex = -1;
     public InputControlScheme DefaultControlScheme
     {
@@ -494,5 +629,11 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface ICreditsActions
+    {
+        void OnNextPage(InputAction.CallbackContext context);
+        void OnPreviouspage(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

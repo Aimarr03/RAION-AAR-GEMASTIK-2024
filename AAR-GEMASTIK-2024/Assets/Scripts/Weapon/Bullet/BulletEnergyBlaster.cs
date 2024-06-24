@@ -7,7 +7,7 @@ public class BulletEnergyBlaster : BaseBullet
     [SerializeField] private float blastRadius;
     public override void OnLaunchBullet()
     {
-        transform.position += Vector3.right * Time.deltaTime * weaponData.speed;
+        transform.position += Vector3.right * Time.deltaTime;
     }
 
     public override void Update()
@@ -24,7 +24,7 @@ public class BulletEnergyBlaster : BaseBullet
             Collider currentHitWithinRadius = hitObjectWithinRadius[i];
             if (currentHitWithinRadius.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(weaponData.totalDamage);
+                damagableUnit.TakeDamage(0);
             }
         }
     }
@@ -33,12 +33,12 @@ public class BulletEnergyBlaster : BaseBullet
     {
         if (collision != null)
         {
-            if (weaponData.isFullyCharge)
+            if (false)
             {
                 OnExplode();
             }
             collision.gameObject.TryGetComponent(out IDamagable damagableUnit);
-            damagableUnit.TakeDamage(weaponData.totalDamage);
+            damagableUnit.TakeDamage(0);
             AudioManager.Instance.PlaySFX(OnHit);
             LoadToPool();
         }

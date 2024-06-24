@@ -27,6 +27,11 @@ public class PauseGameplayUI : MonoBehaviour
     {
         inputAction.UI.Pause.performed += Pause_performed;
     }
+    private void OnDisable()
+    {
+        inputAction.UI.Disable();
+        inputAction.UI.Pause.performed -= Pause_performed;
+    }
     private void Pause()
     {
         isPause = !isPause;

@@ -6,6 +6,7 @@ public abstract class AbilityBase : MonoBehaviour
 {
     public AbilitySO abilitySO;
     public bool isInvokable;
+    public int level;
     protected bool isCooldown;
     protected PlayerCoreSystem playerCoreSystem;
     [SerializeField] protected float intervalCooldown;
@@ -19,6 +20,11 @@ public abstract class AbilityBase : MonoBehaviour
     public void SetUpData()
     {
         intervalCooldown = abilitySO.cooldownDuration;
+        level = abilitySO.generalData.level;
         isInvokable = abilitySO.isInvokable;
     }
+    public abstract AbilityType GetAbilityType();
+
+    public abstract List<BuyStats> GetBuyStats();
+    public abstract List<UpgradeStats> GetUpgradeStats();
 }

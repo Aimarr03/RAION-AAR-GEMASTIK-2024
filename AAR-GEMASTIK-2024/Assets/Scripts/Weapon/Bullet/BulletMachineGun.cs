@@ -6,7 +6,7 @@ public class BulletMachineGun : BaseBullet
 {
     public override void OnLaunchBullet()
     {
-        transform.Translate(Time.deltaTime * weaponData.speed * transform.right);
+        transform.Translate(Time.deltaTime * transform.right);
     }
 
     public override void Update()
@@ -21,7 +21,7 @@ public class BulletMachineGun : BaseBullet
         {
             if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(weaponData.totalDamage);
+                damagableUnit.TakeDamage(0);
                 AudioManager.Instance.PlaySFX(OnHit);
             }
 

@@ -16,13 +16,13 @@ public class AudioContainer : MonoBehaviour
         AudioManager.Instance.OnInstantStartNewMusic(normalBGM, 3f);
         
         EnemyBase.OnEncounter += EnemyBase_OnEncounter;
-        ExpedictionManager.Instance.OnLose += Instance_OnLose;
+        if(ExpedictionManager.Instance != null ) ExpedictionManager.Instance.OnLose += Instance_OnLose;
         
     }
     private void OnDisable()
     {
         EnemyBase.OnEncounter -= EnemyBase_OnEncounter;
-        ExpedictionManager.Instance.OnLose -= Instance_OnLose;
+        if (ExpedictionManager.Instance != null) ExpedictionManager.Instance.OnLose -= Instance_OnLose;
     }
 
     private void EnemyBase_OnEncounter()

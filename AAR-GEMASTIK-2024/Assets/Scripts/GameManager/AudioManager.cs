@@ -48,6 +48,24 @@ public class AudioManager : MonoBehaviour
     {
         StartCoroutine(StartNewMusicCoroutine(clip, stopDuration, startDuration));
     }
+    public void StopMusic(float duration)
+    {
+        StartCoroutine(StopOldMusicSourceGradually(duration));
+    }
+    private IEnumerator StopOldMusicSourceGradually(float duration)
+    {
+        float volume = MusicSource.volume;
+        float elapseTime = 0;
+        float maxDuration = duration;
+        while (elapseTime < maxDuration)
+        {
+            elapseTime += Time.deltaTime;
+            MusicSource.volume = Mathf.Lerp(volume, 0, elapseTime/maxDuration);
+            yield return null;
+        }
+        MusicSource.volume = 0;
+        MusicSource.Stop();
+    }
     private IEnumerator StartNewMusicCoroutine(AudioClip clip, float stopDuration, float startDuration)
     {
         yield return OnStopOldMusicGradually(music,stopDuration);

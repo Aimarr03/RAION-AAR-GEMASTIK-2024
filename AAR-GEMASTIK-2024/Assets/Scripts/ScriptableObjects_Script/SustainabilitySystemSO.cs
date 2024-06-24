@@ -16,15 +16,7 @@ public class SustainabilitySystemSO : ItemBaseSO, IUpgradable, IDataPersistance
     {
         get => maxValue + (int)((maxValue * 0.2f) * generalData.level);
     }
-    public float[] upgradeStatsValue()
-    {
-        float currentValue = maxValueTimesLevel;
-        float nextLevelValue = maxValueTimesNextLevel;
-        return new float[]
-        {
-            currentValue, nextLevelValue
-        };
-    }
+    
     public int GetMultiplierLevelValue() => (int)((maxValue * 0.2f) * (generalData.level - 1));
     
 
@@ -44,5 +36,21 @@ public class SustainabilitySystemSO : ItemBaseSO, IUpgradable, IDataPersistance
     {
         Debug.Log("Saving Sustainability Data");
         gameData.sustainabilityData[sustainabilityType] = generalData.level;
+    }
+    public List<UpgradeStats> GetUpgradeStats()
+    {
+        return new List<UpgradeStats>
+        {
+            new UpgradeStats($"Type", $"{sustainabilityType}", null),
+            new UpgradeStats($"Max Value", $"{maxValueTimesLevel}", $"{maxValueTimesNextLevel}"),
+        };
+    }
+    public List<BuyStats> GetBuyStats()
+    {
+        return new List<BuyStats> 
+        {
+            new BuyStats($"Type", $"{sustainabilityType}"),
+            new BuyStats($"Max Value", $"{maxValueTimesLevel}"),
+        };
     }
 }

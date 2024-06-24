@@ -18,6 +18,15 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     [SerializeField] private TextMeshProUGUI NumericProgressBar;
     [SerializeField] private Image ProgressBar;
     private List<TextMeshProUGUI> textUIList;
+
+    [Header("Progress Ocean Color")]
+    [SerializeField] private Color ForegroundOldColor = new Color(139, 190, 209, 47);
+    [SerializeField] private Color ForegroundNewColor = new Color(92,136,255, 47);
+    [SerializeField] private Color BackgroundOldColor = new Color(51, 103, 60, 254); 
+    [SerializeField] private Color BackgroundNewColor = new Color(0, 110, 171, 254);
+    [Header("Foreground-Background")]
+    [SerializeField] private SpriteRenderer foreground;
+    [SerializeField] private SpriteRenderer background;
     private int moneyObtainedFromEnemyDefeated = 0;
     private int moneyObtainedFromHelpingFish = 0;
     private float maxDuration = 2;
@@ -57,6 +66,8 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         }
         Container.GetComponent<RectTransform>().DOAnchorPosY(1000, 0f);
         Container.gameObject.SetActive(false);
+        foreground.color = ForegroundOldColor;
+        background.color = BackgroundOldColor;
         
     }
     private void Start()
@@ -92,6 +103,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     {
         currrentTrashTotalCollected++;
         totalCountCollected++;
+        OnCalculateBackgroundColorTransition();
     }
     private void Instance_OnCollectedTrash(float weightTrashCollected)
     {
@@ -125,6 +137,12 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         Container.gameObject.SetActive(true);
         StartCoroutine(OnStartDisplayScore(coreSystem));
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+    }
+    private void OnCalculateBackgroundColorTransition()
+    {
+        float totalProgress = (currentWeightTrashCollected + trashHasBeenCollectedPreviously) / trashCount;
+        foreground.color = Color.Lerp(ForegroundOldColor, ForegroundNewColor, totalProgress);
+        background.color = Color.Lerp(BackgroundOldColor, BackgroundNewColor, totalProgress);
     }
     private IEnumerator OnStartDisplayScore(PlayerCoreSystem coreSystem)
     {
@@ -223,9 +241,11 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
 
     public void LoadScene(GameData gameData)
     {
-        
+        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        float trashProgress = levelData.trashProgress;
+        foreground.color = Color.Lerp(ForegroundOldColor, ForegroundNewColor, trashProgress);
     }
-
+    
     public void SaveScene(ref GameData gameData)
     {
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);

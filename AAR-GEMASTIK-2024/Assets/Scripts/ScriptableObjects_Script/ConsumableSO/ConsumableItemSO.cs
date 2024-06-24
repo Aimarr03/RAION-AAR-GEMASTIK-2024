@@ -38,7 +38,6 @@ public abstract class ConsumableItemSO : ItemBaseSO, IBuyable, IUpgradable, IQua
         }
         return totalValue;
     }
-
     public void Buy()
     {
         Debug.Log("Attempt to Buy " + generalData.name);
@@ -90,5 +89,21 @@ public abstract class ConsumableItemSO : ItemBaseSO, IBuyable, IUpgradable, IQua
                 gameData.oxygenItemData[itemTier] = quantity;
                 break;
         }
+    }
+    public List<UpgradeStats> GetUpgradeStats()
+    {
+        return new List<UpgradeStats>
+        {
+            new UpgradeStats($"Tier", $"{itemTier}", $"{itemTier}"),
+            new UpgradeStats($"Recover {type}", $"{value}", $"{value}")
+        };
+    }
+    public List<BuyStats> GetBuyStats()
+    {
+        return new List<BuyStats>()
+        {
+            new BuyStats($"Tier", $"{itemTier}"),
+            new BuyStats($"Recover {type}", $"{value}")
+        };
     }
 }

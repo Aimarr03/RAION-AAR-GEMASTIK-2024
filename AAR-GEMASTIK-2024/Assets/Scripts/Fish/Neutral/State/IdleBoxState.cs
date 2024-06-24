@@ -97,7 +97,7 @@ public class IdleBoxState : FishBaseState
     }
     private IEnumerator OnRotatingYAxis()
     {
-        fish.animator.SetBool("IsMoving", true);
+        //fish.animator.SetBool("IsMoving", true);
         float targetY = GoLeft ? 0 : 180;
         Quaternion target = Quaternion.Euler(0, targetY, 0);
         while (Quaternion.Angle(fish.transform.rotation, target) > 1f)

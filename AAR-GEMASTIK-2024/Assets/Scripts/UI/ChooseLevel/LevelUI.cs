@@ -9,6 +9,7 @@ public class LevelUI : MonoBehaviour, IDataPersistance
     [SerializeField] private int levelIndex;
     [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI trashProgress;
+    [SerializeField] private TextMeshProUGUI sharkProgress;
     [SerializeField] private TextMeshProUGUI fishProgress;
     [SerializeField] private Image image;
     [SerializeField] private Image lockedBackground;
@@ -31,7 +32,8 @@ public class LevelUI : MonoBehaviour, IDataPersistance
         button.interactable = levelData.hasBeenUnlocked;
         lockedBackground.gameObject.SetActive(!button.interactable);
         trashProgress.text = $"{levelData.trashProgress.ToString("0")}%";
-        fishProgress.text = $"{levelData.sharkMutatedProgress.ToString("0")}%";
+        sharkProgress.text = $"{levelData.sharkMutatedProgress.ToString("0")}%";
+        fishProgress.text = $"{levelData.fishNeededHelpProgress.ToString("0")}%";
     }
 
     public void SaveScene(ref GameData gameData)

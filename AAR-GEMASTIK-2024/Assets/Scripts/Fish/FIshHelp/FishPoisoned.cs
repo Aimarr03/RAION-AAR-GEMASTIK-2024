@@ -7,12 +7,14 @@ public class FishPoisoned : FishBaseNeedHelp, IDelivarable
     private bool IsDelivered = false;
     public float weight;
     private bool isBeingHeld = false;
+    [SerializeField] private RectTransform Ui_Guide;
     public override void AltInterracted(PlayerInterractionSystem playerInterractionSystem)
     {
         isBeingHeld = false;
         playerInterractionSystem.SetIsHolding(false);
         playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).OnDecreaseValue(weight);
         Collider[] colliders = Physics.OverlapSphere(transform.position, 4f);
+        Ui_Guide.gameObject.SetActive(true);
         foreach (Collider collider in colliders)
         {
             if (collider.TryGetComponent(out ExpedictionManager expedictionManager))
@@ -27,6 +29,7 @@ public class FishPoisoned : FishBaseNeedHelp, IDelivarable
         if (IsDelivered) return;
         isBeingHeld = true;
         playerInterractionSystem.SetIsHolding(true);
+        Ui_Guide.gameObject.SetActive(false);
         playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).OnIncreaseValue(weight);
     }
 
@@ -45,7 +48,7 @@ public class FishPoisoned : FishBaseNeedHelp, IDelivarable
     {
         if (IsDelivered) return;
         if (playerCoreSystem == null) return;
-        transform.position = playerCoreSystem.transform.position;
+        transform.position = playerCoreSystem.interractionSystem.GetHolderPosition;
     }
 
     public DelivarableType GetDelivarableType() => DelivarableType.Poisoned;

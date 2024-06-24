@@ -19,6 +19,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     [SerializeField] private TextMeshProUGUI UI_Text_OnWantToFinish;
     [SerializeField] private string ekspedisiSelesai = "Usai Ekspediksi?";
     [SerializeField] private string masukkanIkan = "Klik E untuk Masukkan Ikan";
+    [SerializeField] private string memindahkanSampah = "Dalam Proses memindahkan Sampah";
     public List<EnemyBase> CaughtFish;
 
     [Header("UI Progress")]
@@ -74,6 +75,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
         if (_playerCoreSystem == null)
         {
             UI_OnWantToFinish.gameObject.SetActive(false);
+            ProcessRectUI.gameObject.SetActive(false);
             currentProcess = 0f;
         }
         else
@@ -82,6 +84,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
             if (_playerCoreSystem.interractionSystem.IsHolding()) UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = masukkanIkan;
             else UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = ekspedisiSelesai;
             UI_OnWantToFinish.gameObject.SetActive(true);
+            ProcessRectUI.gameObject.SetActive(false);
         }
     }
 
@@ -97,12 +100,13 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     private void Update()
     {
         if (_playerCoreSystem == null) return;
-        if(_playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).GetCurrentValue() > 0)
+        if(_playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).GetCurrentValue() > 0 && !_playerCoreSystem.interractionSystem.IsHolding())
         {
             ProcessRectUI.gameObject.SetActive(true);
             currentProcess += Time.deltaTime;
             foregroundProcess.fillAmount = currentProcess / maxDuration;
-            if(currentProcess >= maxDuration)
+            UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = memindahkanSampah;
+            if (currentProcess >= maxDuration)
             {
                 currentProcess = 0f;
                 WeightSystem weightSystem = _playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity) as WeightSystem;
@@ -110,6 +114,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
                 weightSystem.OnDecreaseValue(currentValue);
                 ProcessRectUI.gameObject.SetActive(false);
                 OnCollectedTrash?.Invoke(currentValue);
+                UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = ekspedisiSelesai;
             }
         }
     }

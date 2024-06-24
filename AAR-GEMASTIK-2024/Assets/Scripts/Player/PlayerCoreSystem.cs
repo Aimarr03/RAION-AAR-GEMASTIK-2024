@@ -21,6 +21,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     public event Action OnBlocking;
     public event Action<bool> OnDisabled;
     public event Action OnBreakingFree;
+    public RectTransform UIGuideDisable;
 
     private bool isVunerable;
     private float invunerableDuration;
@@ -84,6 +85,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
 
     public void Update()
     {
+        UIGuideDisable.parent.transform.rotation = Quaternion.identity;
         if (isDead) return;
         if(isPaused) return;
         OnUseOxygen();
@@ -123,6 +125,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         OnDead?.Invoke();
         GetComponent<Collider>().enabled = false;
         ExpedictionManager.Instance.InvokeOnLose(type);
+        animator.SetBool("Dead", true);
         Debug.Log("Player Dead");
     }
     public void TakeDamage(int value)
@@ -191,6 +194,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     }
     private async void DisableMovement(float movementDuration)
     {
+        UIGuideDisable.gameObject.SetActive(true);
         onDisabled = true;
         OnDisabled?.Invoke(onDisabled);
         moveSystem.SetCanBeUsed(false);
@@ -202,6 +206,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         onDisabled = false;
         OnDisabled?.Invoke(onDisabled);
         moveSystem.SetCanBeUsed(true);
+        UIGuideDisable.gameObject.SetActive(false);
         PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
     }
 
