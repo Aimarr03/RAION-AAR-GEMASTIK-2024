@@ -42,7 +42,11 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
         PlayerInputSystem.InvokeSwitchItemFocus += PlayerInputSystem_InvokeSwitchItemFocus;
         PlayerInputSystem.InvokeUseItem += PlayerInputSystem_InvokeUseItem;
     }
-
+    private void OnDisable()
+    {
+        PlayerInputSystem.InvokeSwitchItemFocus -= PlayerInputSystem_InvokeSwitchItemFocus;
+        PlayerInputSystem.InvokeUseItem -= PlayerInputSystem_InvokeUseItem;
+    }
     private void PlayerInputSystem_InvokeUseItem()
     {
         if (isCooldown) return;

@@ -58,7 +58,7 @@ public class PauseShoppingUI : MonoBehaviour
     {
         DataManager.instance.SaveGame();
         Pause();
-        GameManager.Instance.LoadScene(0);
+        GameManager.Instance.LoadScene(1);
     }
     public void OnExit()
     {

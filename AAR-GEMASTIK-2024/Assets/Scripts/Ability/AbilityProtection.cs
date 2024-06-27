@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class AbilityProtection : AbilityBase
 {
     [SerializeField] private AudioClip unInterractable;
+    [SerializeField] private Transform effect;
     public float GetMultiplierCooldown(int level)
     {
         float maxCooldown = intervalCooldown - ((level -1)* (intervalCooldown * 0.05f));
@@ -15,7 +17,16 @@ public class AbilityProtection : AbilityBase
         Debug.Log("Passive cannot be invoked");
         AudioManager.Instance?.PlaySFX(unInterractable);
     }
-    
+    private void Start()
+    {
+        StartEffect();
+    }
+    private void StartEffect()
+    {
+        effect.DORotate(new Vector3(0, 360, 0), 3.3f, RotateMode.FastBeyond360)
+                 .SetEase(Ease.Linear)
+                 .SetLoops(-1, LoopType.Restart);
+    }
     public override AbilityType GetAbilityType() => AbilityType.Shield;
 
     public override List<BuyStats> GetBuyStats()
@@ -35,6 +46,7 @@ public class AbilityProtection : AbilityBase
     }
     public override IEnumerator OnCooldown()
     {
+        effect.gameObject.SetActive(false);
         playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
         float currentTimer = 0;
         while (currentTimer <= GetMultiplierCooldown(level))
@@ -42,6 +54,8 @@ public class AbilityProtection : AbilityBase
             currentTimer += Time.deltaTime;
             yield return null;
         }
+        effect.gameObject.SetActive(true);
+        StartEffect();
         isCooldown = false;
         playerCoreSystem.canBlock = true;
         Debug.Log("Protection Is UP");

@@ -16,6 +16,7 @@ public class DetailedCardView : MonoBehaviour
     public TextMeshProUGUI levelText;
     public ItemBaseSO itemSO;
     public Image Background;
+    public Image Icon;
     public List<DetailedItemCategory> categoryList;
     public static event Action OnBoughtSomething;
     public static event Action OnUpgradedSomething;
@@ -45,6 +46,7 @@ public class DetailedCardView : MonoBehaviour
         headerText.text = generalData.name;
         contentText.text = generalData.description;
         StatsHandler.OnSetUpStats(itemSO);
+        if (itemSO.generalData.icon != null) Icon.sprite = itemSO.generalData.icon;
         SetCategoryType();
         if (itemSO is ConsumableItemSO consumableItemSO)
         {

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SustainabilitySystemSO : ItemBaseSO, IUpgradable, IDataPersistance
 {
     public int maxValue;
+    public float multiplierValue;
     public SustainabilityType sustainabilityType;
 
     public int maxValueTimesLevel
@@ -14,10 +15,10 @@ public class SustainabilitySystemSO : ItemBaseSO, IUpgradable, IDataPersistance
     }
     public int maxValueTimesNextLevel
     {
-        get => maxValue + (int)((maxValue * 0.2f) * generalData.level);
+        get => maxValue + (int)((maxValue * multiplierValue) * generalData.level);
     }
     
-    public int GetMultiplierLevelValue() => (int)((maxValue * 0.2f) * (generalData.level - 1));
+    public int GetMultiplierLevelValue() => (int)((maxValue * multiplierValue) * (generalData.level - 1));
     
 
     public void Upgrade()

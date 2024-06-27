@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class SharkStateMachine
@@ -14,6 +15,7 @@ public class SharkStateMachine
     }
     public void OnUpdate()
     {
+        if (shark.GetIsKnockout()) return;
         if (onTransitioning) return;
         sharkBaseState?.OnUpdateState();
     }
@@ -23,15 +25,17 @@ public class SharkStateMachine
     }
     public void OnTransitionState(SharkBaseState nextState)
     {
-        shark.StartCoroutine(OnTransitionStateWithDelay(nextState));
+        if(onTransitioning) return;
+        OnTransitionStateWithDelay(nextState);
+        //shark.StartCoroutine(OnTransitionStateWithDelay(nextState));
     }
-    private IEnumerator OnTransitionStateWithDelay(SharkBaseState nextState)
+    private async void OnTransitionStateWithDelay(SharkBaseState nextState)
     {
         onTransitioning = true;
         sharkBaseState.OnExitState();
         sharkBaseState = nextState;
-        Debug.Log(nextState);
-        yield return new WaitForSeconds(0.75f);
+        Debug.Log(sharkBaseState);
+        await Task.Delay(750);
         onTransitioning = false;
         sharkBaseState.OnEnterState();
     }

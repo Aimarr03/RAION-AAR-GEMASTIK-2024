@@ -15,7 +15,7 @@ public class AbilityGameplayUI : MonoBehaviour
     {
         if (abilitySystem == null) abilitySystem = FindFirstObjectByType<PlayerCoreSystem>().abilitySystem;
         PlayerUsableGeneralData data = abilitySystem.GetAbilitySO().generalData;
-        if(data.icon != null ) abilityIcon.sprite = data.icon;
+        //if(data.icon != null ) abilityIcon.sprite = data.icon;
         backgroundIcon.sprite = abilityIcon.sprite;
         if(abilitySystem.GetAbilitySO().isInvokable) abilitySystem.OnDoneInvokingAbility += AbilitySystem_OnDoneInvokingAbility;
     }

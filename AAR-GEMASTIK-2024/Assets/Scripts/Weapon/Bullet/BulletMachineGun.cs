@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BulletMachineGun : BaseBullet
 {
+    public WeaponMachineGun machineGun => weaponBase as WeaponMachineGun;
+    public int level => machineGun.level;
+    [SerializeField] private float speed = 18f;
     public override void OnLaunchBullet()
     {
-        transform.Translate(Time.deltaTime * transform.right);
+        transform.Translate(Time.deltaTime * transform.right * speed);
     }
 
     public override void Update()
@@ -21,12 +24,18 @@ public class BulletMachineGun : BaseBullet
         {
             if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(0);
-                AudioManager.Instance.PlaySFX(OnHit);
+                damagableUnit.TakeDamage(machineGun.GetMultiplierDamage(machineGun.level));
+                AudioManager.Instance?.PlaySFX(OnHit);
             }
 
             LoadToPool();
             canLaunch = false;
         }
+    }
+
+    public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
+    {
+        base.SetUpBullet(isOnRightDirection, angle);
+        speed = isOnRightDirection ? speed : -speed;
     }
 }

@@ -150,4 +150,5 @@ public class PlayerInterractionSystem : MonoBehaviour
     }
 
     public bool IsHolding() => isHolding;
+    public PlayerCoreSystem getcore => coreSystem;
 }

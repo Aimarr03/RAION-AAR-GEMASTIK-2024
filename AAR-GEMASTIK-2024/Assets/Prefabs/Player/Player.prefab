@@ -76,6 +76,7 @@ MonoBehaviour:
   isDead: 0
   canBlock: 0
   onDisabled: 0
+  UIGuideDisable: {fileID: 2385256556310654782}
   intervalUsageOxygen: 4
 --- !u!114 &4081413818861832678
 MonoBehaviour:
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c1fd0146225de43bb81e12430937d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSo: {fileID: 11400000, guid: 6e9310d082b0d4c45831ab0c949c79cd, type: 2}
+  weaponSo: {fileID: 11400000, guid: c82559fd3bcf88046b84a35ade7a280f, type: 2}
   baseWeapon: {fileID: 0}
   weaponHolderPosition: {fileID: 7566336452850951035}
 --- !u!114 &3605303883239413623
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f779a8a0e60d814289904d64e221d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilitySO: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade, type: 2}
+  abilitySO: {fileID: 11400000, guid: 3f14b296e0ac50043a067aac29d1821c, type: 2}
   abilityBase: {fileID: 0}
   abilityHolderPosition: {fileID: 3040946834985921998}
 --- !u!114 &2925264354603428464
@@ -186,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interractiveHolderPositionForInterractableObject: {fileID: 3029604626624895113}
-  boxSizeForInterractableObject: {x: 3.75, y: 4, z: 0}
+  boxSizeForInterractableObject: {x: 3.75, y: 4, z: 3}
   InteraksiGuide: {fileID: 3871052505791955895}
   radiusForDetectableObjects: 10
   targetLayerMaskForInterractableObject:
@@ -242,7 +243,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.8896933, y: 6.230305, z: 1}
+  m_Size: {x: 7.8896933, y: 6.230305, z: 3}
   m_Center: {x: 0.45154142, y: 0.2014358, z: 0}
 --- !u!1 &1450611871762932952
 GameObject:
@@ -269,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 1450611871762932952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.11, z: 0}
+  m_LocalPosition: {x: 0, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -951,7 +952,7 @@ Transform:
   m_GameObject: {fileID: 4121229698270950186}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0.25, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1294,7 +1295,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -575988773
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 6b9c09fe454d2064095dc845d14ca8c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

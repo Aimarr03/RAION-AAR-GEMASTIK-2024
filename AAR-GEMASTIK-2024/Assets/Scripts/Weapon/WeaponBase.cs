@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class WeaponBase : MonoBehaviour
 {
     public WeaponSO weaponSO;
-    public int level;
+    public int level => weaponSO.generalData.level;
     public Transform firePointBlank;
     protected bool isCooldown;
     protected PlayerCoreSystem playerCoreSystem;
@@ -15,7 +15,6 @@ public abstract class WeaponBase : MonoBehaviour
     
     public virtual void Awake()
     {
-        level = 0;
         objectPooling = GetComponentInChildren<ObjectPooling>();
     }
     public abstract void Fire(PlayerWeaponSystem coreSystem, bool isOnRightDirection);
@@ -35,12 +34,12 @@ public abstract class WeaponBase : MonoBehaviour
         baseBullet.transform.parent = null;
         baseBullet.transform.position = firePointBlank.position;
         baseBullet.transform.rotation = Quaternion.identity;
-        AudioManager.Instance.PlaySFX(baseBullet.OnCreated);
+        AudioManager.Instance?.PlaySFX(baseBullet.OnCreated);
         return baseBullet;
     }
     public void SetUpData()
     {
-        level = weaponSO.generalData.level;
+        
     }
     public abstract WeaponType GetWeaponType();
 

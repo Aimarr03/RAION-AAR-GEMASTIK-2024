@@ -15,11 +15,12 @@ MonoBehaviour:
   generalData:
     name: Weight System
     description: For Bringin Weight DUUH
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b65338a61db09fe4fb3b1a5ee075847e, type: 3}
     level: 1
     buyPrice: 0
     upgradePrice: 80
     unlocked: 1
     itemType: 0
   maxValue: 10
+  multiplierValue: 0.2
   sustainabilityType: 3

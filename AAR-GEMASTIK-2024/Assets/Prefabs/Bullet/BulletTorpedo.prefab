@@ -19654,6 +19654,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 68237ecde5d64f247b0ebaeca730ee86,
@@ -19681,12 +19686,12 @@ PrefabInstance:
     - target: {fileID: 5734984282407363160, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Radius
-      value: 0.7
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 5734984282407363160, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Center.x
-      value: -0.35
+      value: -0.01
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6372101173359054477, guid: fd32a70a3341a644fbca2261f2a678c6, type: 3}
@@ -19720,17 +19725,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c5f361f3d28b44cbcfa70cc4d49402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponBase: {fileID: 0}
   OnCreated: {fileID: 8300000, guid: 8a2a4a3a25d73d84db131fd803592928, type: 3}
   OnHit: {fileID: 8300000, guid: c429d50e98d56bf458210c7558dbe7de, type: 3}
-  weaponData:
-    level: 0
-    speed: 0
-    damage: 0
-    isFullyCharge: 0
   TimeToLiveDurationHolder: 0
   TimeToLive: 6
   radiusExplosion: 6
   particleSystemOnExplode: {fileID: 7751342646416333640}
+  speed: 25
 --- !u!4 &2144306713197914660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6,

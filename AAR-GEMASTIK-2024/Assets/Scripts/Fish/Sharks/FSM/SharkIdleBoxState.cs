@@ -61,6 +61,12 @@ public class SharkIdleBoxState : SharkBaseState
         detectedPlayer = false;
         canDetect = true;
         idleCoroutine = shark.StartCoroutine(OnIdlingWithDelay());
+        shark.onTakeDamage += Shark_onTakeDamage;
+    }
+
+    private void Shark_onTakeDamage(bool arg1, float arg2)
+    {
+        fsm.OnTransitionState(nextState);
     }
 
     public override void OnExitState()
@@ -69,6 +75,9 @@ public class SharkIdleBoxState : SharkBaseState
         {
             shark.StopCoroutine(idleCoroutine);
         }
+        shark.animator.SetTrigger(shark.Surprise);
+        shark.OnInvokeEncounter();
+        shark.onTakeDamage -= Shark_onTakeDamage;
     }
 
     public override void OnUpdateState()

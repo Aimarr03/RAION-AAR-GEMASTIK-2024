@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class AbilityShockwave : AbilityBase
 {
-    [SerializeField] private float radiusShock = 10f;
+    [SerializeField] private float radiusShock = 75f;
     [SerializeField] private float stunDuration = 1.3f;
     [SerializeField] private int energyUsage = 20;
     [SerializeField] private int baseDamage = 30;
     [SerializeField] private int IncreaseEnergyCapacity, DecreaseHealthCapacity;
-
+    [SerializeField] private ParticleSystem ElectricShockEffect;
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, GetMultiplierRadiusShock(level));
+    }
     public float GetMultiplierRadiusShock(int level)
     {
-        float maxRadiusShock = radiusShock + ((level-1) * (radiusShock * 0.05f));
+        float maxRadiusShock = radiusShock + ((level-1) * (radiusShock * 0.02f));
         return maxRadiusShock;
     }
     public float GetMultiplierStunDuration(int level)
@@ -42,12 +46,13 @@ public class AbilityShockwave : AbilityBase
         _BaseSustainabilitySystem energySystem = playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Energy);
         energySystem.OnDecreaseValue(GetMultiplierEnergyUsage(level));
         Collider[] targetHit = Physics.OverlapSphere(playerCoreSystem.transform.position, GetMultiplierRadiusShock(level));
+        ElectricShockEffect.Play();
         foreach (Collider collider in targetHit)
         {
             if(collider.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
                 if (collider.gameObject.TryGetComponent(out PlayerCoreSystem coreSystem)) continue;
-                damagableUnit.TakeDamage(damage);
+                damagableUnit.TakeDamage(baseDamage);
                 damagableUnit.OnDisableMove(GetMultiplierStunDuration(level), 20);
             }
             Debug.Log(collider.gameObject.name);
@@ -58,7 +63,7 @@ public class AbilityShockwave : AbilityBase
 
     public override IEnumerator OnCooldown()
     {
-        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
+        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(GetMultiplierCooldown(level));
         float currentInterval = 0;
         while(currentInterval < GetMultiplierCooldown(level))
         {

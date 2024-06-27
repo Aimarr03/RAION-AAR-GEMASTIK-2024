@@ -81,7 +81,7 @@ public class ShopItemCard : MonoBehaviour
         if (itemSO is ConsumableItemSO) canBeInterracted = !canBeInterracted;
         UnavailableContainer.gameObject.SetActive(!canBeInterracted);
         UnavailableContainer.GetComponentInChildren<TextMeshProUGUI>().text = text;
-    
+        icon.sprite = generalData.icon;
 
         GetComponent<Image>().color = !canBeInterracted ? Color.white : unavailableGrey;
         icon.color = canBeInterracted ? Color.white : unavailableGrey;

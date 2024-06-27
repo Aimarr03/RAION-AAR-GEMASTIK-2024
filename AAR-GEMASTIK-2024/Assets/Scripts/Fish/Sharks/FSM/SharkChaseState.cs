@@ -44,7 +44,7 @@ public class SharkChaseState : SharkBaseState
 
     public override void OnEnterState()
     {
-        Collider[] colliders = Physics.OverlapSphere(shark.transform.position, 35f, playerMask);
+        Collider[] colliders = Physics.OverlapSphere(shark.transform.position, 350f, playerMask);
         foreach (Collider collider in colliders)
         {
             if (collider.TryGetComponent(out PlayerCoreSystem coreSystem))
@@ -53,6 +53,8 @@ public class SharkChaseState : SharkBaseState
                 break;
             }
         }
+        shark.animator.SetTrigger(shark.Hit);
+        Debug.Log(playerCoreSystem);
     }
 
     public override void OnExitState()
@@ -64,13 +66,16 @@ public class SharkChaseState : SharkBaseState
 
     public override void OnUpdateState()
     {
+        Debug.Log(playerCoreSystem == null);
+        if (playerCoreSystem == null) return;
         CheckDistance();
         CheckPlayer();
         WithinBiteRange();
     }
     private void CheckDistance()
     {
-        if(Vector3.Distance(shark.transform.position, originalPosition) > 40f)
+        if (playerCoreSystem == null) return;
+        if (Vector3.Distance(shark.transform.position, originalPosition) > 40f && Vector3.Distance(shark.transform.position, playerCoreSystem.transform.position) > 40f)
         {
             fsm.OnTransitionState(nextState);
         }
@@ -87,6 +92,7 @@ public class SharkChaseState : SharkBaseState
     {
         //Debug.Log(Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position));
         //Debug.Log((Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position) > distanceAggro) + " Aggro Within Range");
+        if (playerCoreSystem == null) return;
         if (Vector3.Distance(playerCoreSystem.transform.position, shark.transform.position) > distanceAggro || onCooldown) return;
         OnBiting();
     }

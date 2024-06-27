@@ -14,13 +14,13 @@ public class WeaponMachineGun : WeaponBase
     [Header("Base Data")]
     [SerializeField] private float intervalBetweenAttack = 0.2f;
     [SerializeField] private float baseMaxDurationToPrepare = 1.3f;
-    [SerializeField] private float baseDamage = 10;
-    [SerializeField] private int maxBullet = 5;
+    [SerializeField] private float baseDamage = 18;
+    [SerializeField] private int maxBullet = 7;
 
-    public float GetMultiplierDamage(int level)
+    public int GetMultiplierDamage(int level)
     {
         float totalDamage = baseDamage + ((level - 1) * (baseDamage * 0.75f));
-        return totalDamage;
+        return (int)totalDamage;
     }
     public float GetMultiplierMaxDurationToPrepare(int level)
     {
@@ -64,6 +64,7 @@ public class WeaponMachineGun : WeaponBase
         {
             BaseBullet baseBullet = LoadBullet();
             baseBullet.SetUpBullet(isOnRightDirection, playerCoreSystem.transform.rotation);
+            currentBullet++;
             yield return new WaitForSeconds(0.15f);
         }
         if (onCooldown == null) onCooldown = StartCoroutine(ProcessCooldown());

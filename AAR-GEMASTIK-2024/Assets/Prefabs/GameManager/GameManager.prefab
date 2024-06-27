@@ -302,8 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chosenWeaponSO: {fileID: 11400000, guid: d0b9424210900204fb74d8fcace3a6e4, type: 2}
   chosenAbilitySO: {fileID: 11400000, guid: d3f713c5b8481a847a05d77341c81ade, type: 2}
-  chosenHealthItemSO: {fileID: 11400000, guid: fddcac3ce6b509947a54797afdca28d1, type: 2}
-  chosenOxygenItemSO: {fileID: 11400000, guid: 32d569248f87494488fe37d88d731aa9, type: 2}
+  chosenHealthItemSO: {fileID: 11400000, guid: aebbb3887346cff4181f8dc0f2c43871, type: 2}
+  chosenOxygenItemSO: {fileID: 11400000, guid: 3fb3f16c79f9d2c47b80dcce7a2595f9, type: 2}
   chosenEnergyItemSO: {fileID: 11400000, guid: 0c247dc5c29200c4cb5dd6f15d012027, type: 2}
   level: 1
   canvasLoadingScreen: {fileID: 2681906053940345017}

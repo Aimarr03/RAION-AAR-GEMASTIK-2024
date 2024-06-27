@@ -15,11 +15,12 @@ MonoBehaviour:
   generalData:
     name: Energy System
     description: Responsible for maintaining energy within the ship
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b23635d8736faf54a8a5d5f4e5febf4d, type: 3}
     level: 1
     buyPrice: 0
     upgradePrice: 250
     unlocked: 1
     itemType: 0
-  maxValue: 80
+  maxValue: 120
+  multiplierValue: 0.2
   sustainabilityType: 1

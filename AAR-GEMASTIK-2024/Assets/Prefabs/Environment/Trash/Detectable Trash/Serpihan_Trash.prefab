@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: weight
       value: 0.19
       objectReference: {fileID: 0}
+    - target: {fileID: 959801101830356184, guid: a3c9080debd47304ca9fb192cb9bea6e,
+        type: 3}
+      propertyPath: collectedAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 708fbdd9d5858994f9cb4849cbaf1a0a, type: 3}
     - target: {fileID: 4071177877280890918, guid: a3c9080debd47304ca9fb192cb9bea6e,
         type: 3}
       propertyPath: m_Sprite

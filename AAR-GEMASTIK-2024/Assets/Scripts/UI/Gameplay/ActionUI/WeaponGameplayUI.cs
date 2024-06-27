@@ -16,7 +16,7 @@ public class WeaponGameplayUI : MonoBehaviour
     {
         if(playerWeaponSystem == null) playerWeaponSystem = FindFirstObjectByType<PlayerCoreSystem>().weaponSystem;
         PlayerUsableGeneralData data = playerWeaponSystem.GetWeaponSO().generalData;
-        if(data.icon != null) weaponIcon.sprite = data.icon;
+        //if(data.icon != null) weaponIcon.sprite = data.icon;
         backgroundIcon.sprite = weaponIcon.sprite;
         playerWeaponSystem.DoneFire += PlayerWeaponSystem_DoneFire;
     }

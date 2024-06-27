@@ -122,7 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836ce2386c49500499a8fddce3359968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSO: {fileID: 0}
+  weaponSO: {fileID: 11400000, guid: b299a180e45990b44b9ffb77be51fe4e, type: 2}
   firePointBlank: {fileID: 0}
   interval: 2
   maxDurationCharge: 3.5
+  baseDamage: 100
+  baseRadius: 7.5
+  stunDuration: 0.4

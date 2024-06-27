@@ -59,6 +59,7 @@ public class IdleHorizontallyState : FishBaseState
         {
             fish.StopCoroutine(idleCoroutine);
         }
+        fish.animator.SetTrigger("Surprise");
     }
 
     public override void OnUpdateState()

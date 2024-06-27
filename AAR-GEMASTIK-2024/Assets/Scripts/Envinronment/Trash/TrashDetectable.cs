@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrashDetectable : TrashBase, IDetectable
 {
     [SerializeField] protected float movementSpeed;
+    [SerializeField] AudioClip collectedAudio;
     public void DetectedByPlayer(PlayerCoreSystem playerCoreSystem)
     {
         this.playerCoreSystem = playerCoreSystem;
@@ -27,6 +28,7 @@ public class TrashDetectable : TrashBase, IDetectable
         if (other.gameObject.TryGetComponent(out PlayerCoreSystem playerCoreSystem))
         {
             OnTakenByPlayer();
+            AudioManager.Instance?.PlaySFX(collectedAudio);
         }
     }
 }

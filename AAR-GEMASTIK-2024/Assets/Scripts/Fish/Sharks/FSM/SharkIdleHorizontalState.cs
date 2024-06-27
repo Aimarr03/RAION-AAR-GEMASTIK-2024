@@ -10,6 +10,7 @@ public class SharkIdleHorizontalState : SharkBaseState
 
     private Vector3 Pos1, Pos2;
     private Vector3 targetPos;
+    private Vector3 originalPos;
     private bool GoLeft;
     private bool detectedPlayer;
     private float angle;
@@ -28,6 +29,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         GoLeft = true;
 
         Vector3 fishPosition = shark.transform.position;
+        originalPos = fishPosition;
         Pos1 = new Vector3(fishPosition.x - maxDistance, fishPosition.y, fishPosition.z);
         Pos2 = new Vector3(fishPosition.x + maxDistance, fishPosition.y, fishPosition.z);
         targetPos = Pos1;
@@ -41,13 +43,29 @@ public class SharkIdleHorizontalState : SharkBaseState
 
     public override void OnEnterState()
     {
+        Debug.Log("Entering Idle Horizontal State for " + shark.gameObject.name);
         if (idleCoroutine != null)
         {
             shark.StopCoroutine(idleCoroutine);
             OnResetRotation();
         }
         detectedPlayer = false;
-        idleCoroutine = shark.StartCoroutine(OnIdlingWithDelay());
+        Debug.Log("Distance to Original Position " + Vector3.Distance(shark.transform.position, originalPos));
+        if(Vector3.Distance(shark.transform.position, originalPos) > maxDistance)
+        {
+            shark.StartCoroutine(OnGoHome());
+            shark.OnInvokeStopEncounter();
+        }
+        else
+        {
+            idleCoroutine = shark.StartCoroutine(OnIdlingWithDelay());
+        }
+        shark.onTakeDamage += Shark_onTakeDamage;
+    }
+
+    private void Shark_onTakeDamage(bool arg1, float arg2)
+    {
+        fsm.OnTransitionState(nextState);
     }
 
     public override void OnExitState()
@@ -56,6 +74,9 @@ public class SharkIdleHorizontalState : SharkBaseState
         {
             shark.StopCoroutine(idleCoroutine);
         }
+        shark.animator.SetTrigger(shark.Surprise);
+        shark.OnInvokeEncounter();
+        shark.onTakeDamage -= Shark_onTakeDamage;
     }
 
     public override void OnUpdateState()
@@ -69,6 +90,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         while (true)
         {
             //shark.animator.SetBool("IsMoving", true);
+            Debug.Log(Vector3.Distance(targetPos, shark.transform.position));
             while (Vector3.Distance(targetPos, shark.transform.position) > 0.05f)
             {
                 shark.transform.position = Vector3.MoveTowards(shark.transform.position, targetPos, speed * Time.deltaTime);
@@ -93,6 +115,16 @@ public class SharkIdleHorizontalState : SharkBaseState
             yield return null;
         }
         shark.transform.rotation = target;
+    }
+    private IEnumerator OnGoHome()
+    {
+        Debug.Log((shark.transform.position - originalPos).normalized.x);
+        GoLeft = (shark.transform.position - originalPos).normalized.x > 0 ? true : false;
+        yield return OnRotatingYAxis();
+        targetPos = originalPos;
+        shark.StopAllCoroutines();
+        idleCoroutine = shark.StartCoroutine(OnIdlingWithDelay());
+        Debug.Log(targetPos);
     }
     private void OnTryToDetect()
     {

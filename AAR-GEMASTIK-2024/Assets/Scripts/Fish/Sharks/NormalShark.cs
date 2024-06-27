@@ -39,11 +39,6 @@ public class NormalShark : SharkBase
         
     }
 
-    public override void OnDisableMove(float moveDuration, int maxAttemptToRecover)
-    {
-        
-    }
-
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();

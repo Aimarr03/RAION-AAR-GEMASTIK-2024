@@ -17,7 +17,7 @@ public class SharkUI : MonoBehaviour
 
     private void SharkBase_onTakeDamage(bool isDead, float percentage)
     {
-        healthHolder.gameObject.SetActive(isDead);
+        healthHolder.gameObject.SetActive(!isDead);
         currentHealthUI.fillAmount = percentage;
         if(isDead) sharkBase.onTakeDamage -= SharkBase_onTakeDamage;
     }

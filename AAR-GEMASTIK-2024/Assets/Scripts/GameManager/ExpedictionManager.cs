@@ -28,6 +28,8 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     private float currentProcess = 0f;
     private float maxDuration = 3f;
 
+    [Header("Audio Clip")]
+    [SerializeField] private AudioClip OnReceiving;
     private void Awake()
     {
         if (Instance == null)
@@ -96,6 +98,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     public void OnGainCaughtFish(IDelivarable fish)
     {
         OnCaughtFishDelivarable?.Invoke(fish);
+        AudioManager.Instance?.PlaySFX(OnReceiving);
     }
     private void Update()
     {
@@ -115,6 +118,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
                 ProcessRectUI.gameObject.SetActive(false);
                 OnCollectedTrash?.Invoke(currentValue);
                 UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = ekspedisiSelesai;
+                AudioManager.Instance?.PlaySFX(OnReceiving);
             }
         }
     }

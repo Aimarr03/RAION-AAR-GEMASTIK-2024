@@ -6,18 +6,26 @@ using UnityEngine;
 
 public class BulletHarpoon : BaseBullet
 {
+    public WeaponHarpoon weaponHarpoon => weaponBase as WeaponHarpoon;
+    public int level => weaponBase.level;
     [SerializeField] private const string WALLTAG = "Wall";
     [SerializeField] private LayerMask wallLayer;
     private bool isCollidedWithWall;
+    private float speed;
     public override void OnLaunchBullet()
     {
         if (isCollidedWithWall) return;
         TimeToLive = TimeToLiveDurationHolder;
-        transform.position += Time.deltaTime * 11 * Vector3.right;
+        transform.Translate(speed * Time.deltaTime * Vector3.right, Space.Self);
     }
     public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
         base.SetUpBullet(isOnRightDirection, angle);
+        speed = weaponHarpoon.GetMultiplierSpeed(level);
+        //speed = isOnRightDirection ? speed : -speed;
+        float y_angle = isOnRightDirection ? 0 : 180;
+        transform.rotation = Quaternion.Euler(transform.rotation.x, y_angle, transform.rotation.z);
+        Debug.Log(speed);
         TimeToLiveBullet();
     }
     public override void Update()
@@ -49,8 +57,8 @@ public class BulletHarpoon : BaseBullet
             default:
                 if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
                 {
-                    damagableUnit.TakeDamage(0);
-                    AudioManager.Instance.PlaySFX(OnHit);
+                    damagableUnit.TakeDamage(weaponHarpoon.GetMultiplierDamage(level));
+                    AudioManager.Instance?.PlaySFX(OnHit);
                 }
                 break;
         }

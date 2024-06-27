@@ -15,11 +15,12 @@ MonoBehaviour:
   generalData:
     name: Oxygen System
     description: Oxygen BRO
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 4e484638330ea1e4cb860d4a93c2f058, type: 3}
     level: 1
     buyPrice: 0
     upgradePrice: 50
     unlocked: 1
     itemType: 0
-  maxValue: 50
+  maxValue: 60
+  multiplierValue: 0.25
   sustainabilityType: 2

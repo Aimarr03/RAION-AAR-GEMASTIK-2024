@@ -6,6 +6,7 @@ using UnityEngine;
 public class AbilityDash : AbilityBase
 {
     [SerializeField] private float ForceDash;
+    [SerializeField] private ParticleSystem effect;
     public float GetMultiplierForceDash(int level)
     {
         float MaxForceDash = ForceDash + ((level - 1) * (ForceDash * 0.1f));
@@ -24,6 +25,7 @@ public class AbilityDash : AbilityBase
         {
             this.playerCoreSystem = playerCoreSystem;
         }
+        effect.Play();
         PlayerMoveSystem playerMoveSystem = playerCoreSystem.moveSystem;
         playerMoveSystem.AddSuddenForce(GetMultiplierForceDash(level));
         isCooldown = true;
@@ -39,7 +41,7 @@ public class AbilityDash : AbilityBase
     }
     public override IEnumerator OnCooldown()
     {
-        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
+        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(GetMultiplierCooldown(level));
         float currentTimer = 0;
         while(currentTimer <= GetMultiplierCooldown(level))
         {

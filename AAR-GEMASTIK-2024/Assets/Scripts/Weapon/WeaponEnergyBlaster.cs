@@ -86,7 +86,7 @@ public class WeaponEnergyBlaster : WeaponBase
         Debug.Log("Is Cooldown");
         isCooldown = true;
         float currentInterval = 0;
-        while (currentInterval <= GetMultiplierMaxDurationCharge(level))
+        while (currentInterval <= GetMultiplierInterval(level))
         {
             currentInterval += Time.deltaTime;
             yield return null;

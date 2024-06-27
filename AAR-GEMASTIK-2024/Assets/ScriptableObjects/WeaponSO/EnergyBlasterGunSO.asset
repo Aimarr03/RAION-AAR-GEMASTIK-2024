@@ -15,21 +15,12 @@ MonoBehaviour:
   generalData:
     name: EnergyBlaster
     description: This thing can go BRRRRRRR
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 03c3fc9e0afd6e148b4c6e31c079d690, type: 3}
     level: 1
     buyPrice: 300
     upgradePrice: 150
-    unlocked: 1
+    unlocked: 0
     itemType: 1
-  statsList: 0000000002000000
-  bulletData:
-    level: 1
-    speed: 12
-    damage: 70
-    isFullyCharge: 0
-  unlocked: 0
-  cooldownBetweenFiringBullet: 4.5
   weapon: {fileID: 1191683145976765566, guid: 97d3fe1b8fdeb544ebd7d119312e8723, type: 3}
   bullet: {fileID: 1983719311338810359, guid: b008ab4f76a5006459afdc75a0d119a3, type: 3}
   ammountToHold: 8
-  type: 3

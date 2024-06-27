@@ -58,6 +58,7 @@ public class IdleBoxState : FishBaseState
         {
             fish.StopCoroutine(idleCoroutine);
         }
+        fish.animator.SetTrigger("Surprise");
     }
 
     public override void OnUpdateState()

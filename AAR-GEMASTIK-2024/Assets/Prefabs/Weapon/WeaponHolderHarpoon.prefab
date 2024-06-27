@@ -79,6 +79,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponHolderHarpoon
       objectReference: {fileID: 0}
+    - target: {fileID: 7440299536006325490, guid: e06eda75318ff1b489c2503b2e2b9647,
+        type: 3}
+      propertyPath: baseDamage
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,13 +13,15 @@ public class ItemGameplayUI : MonoBehaviour
     Color defaultColor;
     public SustainabilityType type;
     public TextMeshProUGUI quantity;
+    ConsumableItemSO itemData;
     public void SetUp(ConsumableItemSO itemData)
     {
-        if (itemData.generalData.icon != null)
+        /*if (itemData.generalData.icon != null)
         {
             icon.sprite = itemData.generalData.icon;
             cooldownIcon.sprite = icon.sprite;
-        }
+        }*/
+        this.itemData = itemData;
         quantity.text = itemData.quantity.ToString();
         defaultColor = background.color;
     }
@@ -31,6 +33,7 @@ public class ItemGameplayUI : MonoBehaviour
     private IEnumerator OnUICooldown(float duration)
     {
         float currentDuration = 0;
+        quantity.text = itemData.quantity.ToString();
         icon.fillAmount = 0;
         while(currentDuration < duration)
         {

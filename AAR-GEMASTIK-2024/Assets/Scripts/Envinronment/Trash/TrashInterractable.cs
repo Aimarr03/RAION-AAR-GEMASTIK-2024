@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrashInterractable : TrashBase, IInterractable
 {
+    [SerializeField] private AudioClip OnTakenAudio;
     public void AltInterracted(PlayerInterractionSystem playerInterractionSystem)
     {
         return;
@@ -12,6 +13,7 @@ public class TrashInterractable : TrashBase, IInterractable
     public void Interracted(PlayerInterractionSystem playerInterractionSystem)
     {
         OnTakenByPlayer();
+        AudioManager.Instance?.PlaySFX(OnTakenAudio);
     }
 
     public void OnDetectedAsTheClosest(PlayerCoreSystem coreSystem)

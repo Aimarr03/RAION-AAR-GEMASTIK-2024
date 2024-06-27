@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AbilityOvercharge : AbilityBase
 {
+    [SerializeField] private ParticleSystem effect;
     public float duration;
     public float GetMultiplierDuration(int level)
     {
@@ -23,19 +24,21 @@ public class AbilityOvercharge : AbilityBase
     }
     private IEnumerator OnExecute()
     {
+        effect.Play();
         float tempCooldown = playerCoreSystem.weaponSystem.GetWeaponSO().GetWeapon.interval;
         canBeUsed = false;
         playerCoreSystem.weaponSystem.GetWeaponSO().GetWeapon.interval = tempCooldown / 2;
         Debug.Log("POWAAHHHH " + playerCoreSystem.weaponSystem.GetWeaponSO().GetWeapon.interval);
         yield return new WaitForSeconds(GetMultiplierCooldown(level));
         playerCoreSystem.weaponSystem.GetWeaponSO().GetWeapon.interval = tempCooldown;
+        effect.Stop();
         Debug.Log("NO PWAHH RIP " + playerCoreSystem.weaponSystem.GetWeaponSO().GetWeapon.interval);
         StartCoroutine(OnCooldown());
     }
 
     public override IEnumerator OnCooldown()
     {
-        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(intervalCooldown);
+        playerCoreSystem.abilitySystem.TriggerDoneInvokingAbility(GetMultiplierCooldown(level));
         float currentInterval = 0;
         while (currentInterval < intervalCooldown)
         {

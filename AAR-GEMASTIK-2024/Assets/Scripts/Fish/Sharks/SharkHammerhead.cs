@@ -18,16 +18,12 @@ public class SharkHammerhead : SharkBase
     public SharkIdleBoxState idleBoxState;
     public SharkChargeState chargeState;
     public SharkChaseState chaseState;
+
+    
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
     }
-
-    public override void OnDisableMove(float moveDuration, int maxAttemptToRecover)
-    {
-        
-    }
-
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();

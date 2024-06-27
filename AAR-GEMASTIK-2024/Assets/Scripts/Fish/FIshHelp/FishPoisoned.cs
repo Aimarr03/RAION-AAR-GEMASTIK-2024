@@ -36,6 +36,11 @@ public class FishPoisoned : FishBaseNeedHelp, IDelivarable
     public override void OnDetectedAsTheClosest(PlayerCoreSystem coreSystem)
     {
         if (IsDelivered) return;
+        if(playerCoreSystem != null)
+        {
+            if (playerCoreSystem.interractionSystem.IsHolding()) return;
+        }
+        Ui_Guide.gameObject.SetActive(coreSystem != null);
         playerCoreSystem = coreSystem;
         if(!isBeingHeld) InvokeOnBeingNoticed();
     }

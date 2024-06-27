@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDelivarable, IDataPersistance
@@ -28,9 +29,18 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     protected SharkStateMachine stateMachine;
 
     public event Action<bool, float> onTakeDamage;
+    public static event Action OnEncounter;
     public static event Action OnNeutralized;
+    public static event Action OnStopEncounter;
     public int bounty;
     private PlayerCoreSystem playerCoreSystem;
+    protected bool isDisabled;
+
+    [Header("Trigger Animator")]
+    public string Die = "Dead";
+    public string Surprise = "Surprise";
+    public string Hit = "Hit";
+    public string Happy = "Happy";
     protected virtual void Awake()
     {
         //rigidBody = GetComponent<Rigidbody>();
@@ -54,22 +64,32 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     {
         if (isDead)
         {
-            this.isKnockout = true;
+            isKnockout = true;
+            isDisabled = true;
+            rigidBody.velocity = Vector3.zero;
+            transform.rotation =Quaternion.identity;
+            StopAllCoroutines();
             OnNeutralized?.Invoke();
-            animator.SetBool("Dead", true);
+            animator.SetBool(Die, true);
             onTakeDamage -= SharkBase_onTakeDamage;
+
         }
     }
 
     public virtual void Update()
     {
-        if (isPause) return;
         if (isKnockout)
         {
             if (isBeingHeld) OnBeingHeld();
             return;
         }
+        if (isDisabled) return;
+        if (isPause) return;
         stateMachine?.OnUpdate();
+        
+    }
+    private void LateUpdate()
+    {
         UI.rotation = Quaternion.identity;
     }
     public virtual void OnDrawGizmos()
@@ -80,16 +100,29 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     {
         health = Mathf.Clamp(health - damage, 0, maxHealth);
         bool dead = health == 0;
-        onTakeDamage?.Invoke(dead, health/maxHealth);
+        Debug.Log(health);
+        Debug.Log(maxHealth);
+        onTakeDamage?.Invoke(dead, ((float)health)/maxHealth);
+        
     }
 
     public abstract void AddSuddenForce(Vector3 directiom, float forcePower);
 
-    public abstract void OnDisableMove(float moveDuration, int maxAttemptToRecover);
+    public virtual void OnDisableMove(float moveDuration, int maxAttemptToRecover)
+    {
+        OnDisabledDuration(moveDuration);
+    }
+    protected async void OnDisabledDuration(float moveDuration)
+    {
+        isDisabled = true;
+        await Task.Delay((int)(moveDuration*1000));
+        isDisabled = false;
+    }
 
     public void Interracted(PlayerInterractionSystem playerInterractionSystem)
     {
         isBeingHeld = true;
+        if (playerCoreSystem == null) playerCoreSystem = playerInterractionSystem.getcore;
         playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).OnIncreaseValue(weight);
         playerInterractionSystem.SetIsHolding(true);
     }
@@ -164,4 +197,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         isPause = true;
     }
     public bool HasBeenDelivered() => isDelievered;
+    public void OnInvokeEncounter() => OnEncounter?.Invoke();
+    public void OnInvokeStopEncounter() => OnStopEncounter?.Invoke();
+    public bool GetIsKnockout() => isKnockout;
 }

@@ -39,6 +39,7 @@ public class SetUpCard : MonoBehaviour
             icon.sprite = itemBaseSO.generalData.icon;
         }
         thisButton.interactable = generalData.unlocked;
+        Debug.Log($"{itemBaseSO} + {generalData.unlocked}");
         icon.color = generalData.unlocked ? Color.white : unavailableColor;
         textLevel.color = generalData.unlocked? textLevel.color : unavailableColor;
         textHeader.color = generalData.unlocked ? textHeader.color : unavailableColor;

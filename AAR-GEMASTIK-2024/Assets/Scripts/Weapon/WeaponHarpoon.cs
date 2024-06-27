@@ -27,7 +27,7 @@ public class WeaponHarpoon : WeaponBase
         if (isCooldown) return;
         Debug.Log("Harpoon Weapon is firing");
 
-        BaseBullet baseBullet = LoadBullet();
+        BulletHarpoon baseBullet = LoadBullet() as BulletHarpoon;
         baseBullet.SetUpBullet(isOnRightDirection, playerCoreSystem.transform.rotation);
         StartCoroutine(ProcessCooldown());
     }

@@ -18,11 +18,13 @@ public class PlayerWeaponSystem : MonoBehaviour
         {
             weaponSo = GameManager.Instance.chosenWeaponSO;
             SettingUp();
+            return;
         }
-        if(weaponSo != null && baseWeapon == null)
+        SettingUp();
+        /*if(weaponSo != null && baseWeapon == null)
         {
             SettingUp();
-        }
+        }*/
     }
     private void SettingUp()
     {

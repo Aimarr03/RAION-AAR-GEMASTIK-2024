@@ -10,6 +10,7 @@ public class PauseGameplayUI : MonoBehaviour
     [SerializeField] RectTransform background;
     [SerializeField] RectTransform PauseContainer;
     [SerializeField] RectTransform ReallyContainer;
+    [SerializeField] AudioClip interractable, showup, closeup;
 
     private DefaultInputAction inputAction;
     private bool isPause;
@@ -34,6 +35,7 @@ public class PauseGameplayUI : MonoBehaviour
     }
     private void Pause()
     {
+        
         isPause = !isPause;
         if (isPause) PerformedPause();
         else PerformedResume();
@@ -48,14 +50,16 @@ public class PauseGameplayUI : MonoBehaviour
     {
         PauseContainer.DOAnchorPosY(0, 0.3f).SetEase(Ease.OutBack);
         background.gameObject.SetActive(true);
+        AudioManager.Instance.PlaySFX(showup);
         await Task.Delay(600);
         OnPause?.Invoke(isPause);
         Time.timeScale = 0;
     }
     private async void PerformedResume()
     {
-        PauseContainer.DOAnchorPosY(1080, 0.6f).SetEase(Ease.InBack);
+        PauseContainer.DOAnchorPosY(1080, 0.3f).SetEase(Ease.InBack);
         background.gameObject.SetActive(false);
+        AudioManager.Instance.PlaySFX(closeup);
         await Task.Delay(600);
         Time.timeScale = 1;
         OnPause?.Invoke(isPause);
@@ -63,15 +67,19 @@ public class PauseGameplayUI : MonoBehaviour
     public void OnResume()
     {
         Pause();
+        AudioManager.Instance.PlaySFX(closeup);
     }
     public void OnSetToLoadScene(string sceneName)
     {
+        AudioManager.Instance.PlaySFX(interractable);
         nameSceneToLoad = sceneName;
         ReallyContainer.gameObject.SetActive(true);
     }
     public void OnExitReallyContainer() => ReallyContainer.gameObject.SetActive(false);
     public void OnLoadScne()
     {
+        AudioManager.Instance.PlaySFX(interractable);
+        Time.timeScale = 1;
         if(nameSceneToLoad == "Quit")
         {
             Application.Quit();

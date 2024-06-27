@@ -207,7 +207,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     public void OnLoadShopping()
     {
         DataManager.instance.SaveGame();
-        SceneManager.LoadScene("ShoppingMenu");
+        GameManager.Instance.LoadScene("ShoppingMenu");
     }
     private void OnCalculateData()
     {

@@ -52,6 +52,7 @@ public class SetUpUI : BasePreparingPlayerUI
             SetUpCard cardData = currentCard.GetComponent<SetUpCard>();
             cardData.SetUpData(currentWeaponSO, ItemType.Weapon);
             currentCard.gameObject.SetActive(true);
+            Debug.Log(currentWeaponSO.generalData.unlocked);
             weaponList.Add(cardData);
         }
         foreach (ItemBaseSO currentAbilitySO in shopManager.abilityList)
@@ -119,6 +120,7 @@ public class SetUpUI : BasePreparingPlayerUI
     {
         if (GameManager.Instance.chosenWeaponSO == null) return;
         GameManager.Instance.LoadScene(1);
+        DataManager.instance.SaveGame();
     }
 
     public override IEnumerator OnEnterState()

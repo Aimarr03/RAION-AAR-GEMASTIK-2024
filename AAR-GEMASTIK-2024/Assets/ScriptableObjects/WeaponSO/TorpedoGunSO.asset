@@ -15,21 +15,12 @@ MonoBehaviour:
   generalData:
     name: TORPEDO
     description: THE AMERICAN WAAAAAAY KAKAAAWW
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 4dcffa2bcb4822c46a898439145a56b2, type: 3}
     level: 1
     buyPrice: 250
     upgradePrice: 75
-    unlocked: 1
+    unlocked: 0
     itemType: 1
-  statsList: 0000000002000000
-  bulletData:
-    level: 1
-    speed: 30
-    damage: 130
-    isFullyCharge: 0
-  unlocked: 0
-  cooldownBetweenFiringBullet: 6
   weapon: {fileID: 3709811383580993494, guid: 2ca5274f28ed5df44875e4ab7e8274e6, type: 3}
   bullet: {fileID: 2144306713197914660, guid: bc68d4160ad9ba547b52199c3b35d39f, type: 3}
   ammountToHold: 5
-  type: 1

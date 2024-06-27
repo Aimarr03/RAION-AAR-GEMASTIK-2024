@@ -56,6 +56,7 @@ public class IdleCircleState : FishBaseState
         {
             fish.StopCoroutine(idleCoroutine);
         }
+        fish.animator.SetTrigger("Surprise");
     }
 
     public override void OnUpdateState()

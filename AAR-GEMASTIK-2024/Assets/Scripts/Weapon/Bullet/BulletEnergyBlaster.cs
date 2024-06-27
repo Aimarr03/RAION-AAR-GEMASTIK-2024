@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class BulletEnergyBlaster : BaseBullet
 {
+    public WeaponEnergyBlaster energyBlaster => weaponBase as WeaponEnergyBlaster;
+    public int level => energyBlaster.level;
+    private bool isFullyCharge = false;
+    private float speed = 20;
     [SerializeField] private float blastRadius;
     public override void OnLaunchBullet()
     {
-        transform.position += Vector3.right * Time.deltaTime;
+        transform.Translate(speed * Time.deltaTime * Vector3.right);
+        isFullyCharge = energyBlaster.GetIsFullyCharge();
     }
 
     public override void Update()
@@ -18,13 +23,14 @@ public class BulletEnergyBlaster : BaseBullet
     public void OnExplode()
     {
         Debug.Log("On Explode");
-        Collider[] hitObjectWithinRadius = Physics.OverlapSphere(transform.position, blastRadius);
+        Collider[] hitObjectWithinRadius = Physics.OverlapSphere(transform.position, energyBlaster.GetMultiplierRadius(level));
         for(int i = 0; i < hitObjectWithinRadius.Length; i++)
         {
             Collider currentHitWithinRadius = hitObjectWithinRadius[i];
+            if (currentHitWithinRadius.TryGetComponent(out PlayerCoreSystem coreSystem)) continue;
             if (currentHitWithinRadius.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(0);
+                damagableUnit.TakeDamage(energyBlaster.GetMultiplierDamage(level));
             }
         }
     }
@@ -33,14 +39,20 @@ public class BulletEnergyBlaster : BaseBullet
     {
         if (collision != null)
         {
-            if (false)
+            if (isFullyCharge)
             {
                 OnExplode();
             }
             collision.gameObject.TryGetComponent(out IDamagable damagableUnit);
-            damagableUnit.TakeDamage(0);
-            AudioManager.Instance.PlaySFX(OnHit);
+            damagableUnit.TakeDamage(energyBlaster.GetMultiplierDamage(level));
+            AudioManager.Instance?.PlaySFX(OnHit);
             LoadToPool();
         }
+    }
+
+    public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
+    {
+        base.SetUpBullet(isOnRightDirection, angle);
+        speed = isOnRightDirection ? speed : -speed;
     }
 }
