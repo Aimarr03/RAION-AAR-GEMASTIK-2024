@@ -18,14 +18,12 @@ MonoBehaviour:
 
       *YOU
       ARE MY SPECIALZ*'
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: d350d5ab76634d24494256772dd2e250, type: 3}
     level: 1
     buyPrice: 550
     upgradePrice: 250
     unlocked: 0
     itemType: 2
-  type: 1
-  statsList: 0000000001000000
   prefab: {fileID: 2988426221509979636, guid: 4af83b5e9c7d5654081ccd0c01866a25, type: 3}
   isInvokable: 1
   cooldownDuration: 4

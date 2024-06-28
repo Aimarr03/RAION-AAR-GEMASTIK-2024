@@ -101,7 +101,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         Debug.Log("PLAY SFX " + clip);
-        SFXSource.PlayOneShot(clip);
+        SFXSource.PlayOneShot(clip);  
     }
     public void PlaySFX(AudioClip clip, float volume)
     {

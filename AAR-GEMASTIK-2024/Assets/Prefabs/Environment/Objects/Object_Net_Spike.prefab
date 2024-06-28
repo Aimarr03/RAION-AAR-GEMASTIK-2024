@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 22.63
       objectReference: {fileID: 0}
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -9.93
       objectReference: {fileID: 0}
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
@@ -87,29 +87,40 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+      objectReference: {fileID: 21300000, guid: 0f181addbb7377f4aa407b92f6841cd8,
         type: 3}
     - target: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.44716978
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.44716978
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.60989857
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -867921961
       objectReference: {fileID: 0}
     - target: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2208805788935501159, guid: 34e8bac76b77b0445993caa5de3c8839, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -117,7 +128,17 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5299077913355385753}
+    - targetCorrespondingSourceObject: {fileID: 4359095447241221788, guid: 34e8bac76b77b0445993caa5de3c8839,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 186029346049975367}
   m_SourcePrefab: {fileID: 100100000, guid: 34e8bac76b77b0445993caa5de3c8839, type: 3}
+--- !u!212 &770866436652441333 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5877531201641048793, guid: 34e8bac76b77b0445993caa5de3c8839,
+    type: 3}
+  m_PrefabInstance: {fileID: 6567239519520060460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7448139848196788912 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4359095447241221788, guid: 34e8bac76b77b0445993caa5de3c8839,
@@ -138,4 +159,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAttemptToRecover: 45
   disabledDuration: 4
-  damage: 1
+  damage: 8
+  spriteRenderer: {fileID: 770866436652441333}
+  onGrabPlayer: {fileID: 8300000, guid: 8a9db7abcee9d2845912e28d57b06814, type: 3}
+  onReleasedPlayer: {fileID: 8300000, guid: 1b9776162f27ffd47980acadc82e7c2f, type: 3}
+--- !u!65 &186029346049975367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448139848196788912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.61, y: 13.83, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

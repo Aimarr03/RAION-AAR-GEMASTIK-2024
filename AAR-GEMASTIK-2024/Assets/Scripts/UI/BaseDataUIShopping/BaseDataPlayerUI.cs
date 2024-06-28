@@ -39,7 +39,7 @@ public class BaseDataPlayerUI : MonoBehaviour
 
         weightUI.DOAnchorPosX(-450, 0.75f).SetEase(Ease.InBack);
         itemUI.DOAnchorPosX(0, 0.75f).SetEase(Ease.OutBack).SetDelay(0.4f);
-        weaponUI.DOAnchorPosY(-60, 0.75f).SetEase(Ease.OutBack).SetDelay(0.4f);
+        weaponUI.DOAnchorPosY(-125, 0.75f).SetEase(Ease.OutBack).SetDelay(0.4f);
     }
     private void CaseNotSetUpUI()
     {

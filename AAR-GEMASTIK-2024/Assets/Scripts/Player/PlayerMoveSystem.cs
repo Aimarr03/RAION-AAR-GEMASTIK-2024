@@ -37,12 +37,17 @@ public class PlayerMoveSystem : MonoBehaviour
     {
         PlayerInputSystem.InvokeMoveSoundAction += PlayerInputSystem_InvokeMoveSoundAction;
         coreSystem.OnDead += CoreSystem_OnDead;
+        coreSystem.OnDisabled += CoreSystem_OnDisabled;
         WeightSystem.OnOverweight += WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
     }
+
+    
+
     private void OnDisable()
     {
         PlayerInputSystem.InvokeMoveSoundAction -= PlayerInputSystem_InvokeMoveSoundAction;
+        coreSystem.OnDisabled -= CoreSystem_OnDisabled;
         WeightSystem.OnOverweight -= WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
         coreSystem.OnDead -= CoreSystem_OnDead;
@@ -52,7 +57,32 @@ public class PlayerMoveSystem : MonoBehaviour
     {
         playerRigid.velocity = Vector3.zero;
     }
-
+    private async void CoreSystem_OnDisabled(bool obj)
+    {
+        if (obj) return;
+        playerRigid.velocity = Vector3.zero;
+        float y_value = onRightDirection ? 0 : 180;
+        Quaternion targetRotaion = Quaternion.Euler(0f, y_value, 0f);
+        canBeUsed = false;
+        await Task.Delay(800);
+        while (Quaternion.Angle(transform.rotation, targetRotaion) > 0.05)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotaion, rotatingSpeedOnYAxis);
+            await Task.Yield();
+        }
+        await Task.Delay(300);
+        transform.rotation = targetRotaion;
+        ResetPlayerOrientation();
+        Debug.Log(transform.rotation);
+        canBeUsed = true;
+    }
+    private void ResetPlayerOrientation()
+    {
+        playerRigid.velocity = Vector3.zero;
+        playerRigid.angularVelocity = Vector3.zero;
+        transform.rotation = Quaternion.Euler(0f, onRightDirection ? 0f : 180f, 0f);
+        Debug.Log("Player orientation reset.");
+    }
     private void PlayerInputSystem_InvokeMoveSoundAction(bool obj)
     {
         Debug.Log("Is Attempt Moving " + obj);
@@ -151,10 +181,10 @@ public class PlayerMoveSystem : MonoBehaviour
         if(z_input != 0)
         {
             InvokeVerticalBrake(new Vector2(0, z_input));
-            OnRotatingOnZAxis(z_input);
             if (playerRigid.velocity.x < minHorizontalMovement && playerRigid.velocity.x > -minHorizontalMovement) return;
             Vector3 outputVelocity = Vector3.up * ((linearSpeed * 0.66f) * Time.fixedDeltaTime * z_input);
             playerRigid.velocity += outputVelocity;
+            OnRotatingOnZAxis(z_input);
         }
         else
         {
@@ -164,16 +194,24 @@ public class PlayerMoveSystem : MonoBehaviour
     }
     private void OnRotatingOnZAxis(float zInput)
     {
+        // Calculate the rotation amount
         float zRotation = zInput * rotatingSpeedOnZAxis * Time.fixedDeltaTime;
 
-        transform.Rotate(0, 0, zRotation);
-        float zValue = transform.rotation.eulerAngles.z;
-        if (zValue > 180) zValue -= 360;
-        if ((zValue >= rotateDegreeLimit || zValue <= -rotateDegreeLimit))
-        {
-            transform.Rotate(0, 0, -zRotation);
-        }
+        // Get the current global rotation on the Z axis
+        float currentZRotation = transform.eulerAngles.z;
+
+        // Calculate the new rotation on the global Z axis
+        float newZRotation = currentZRotation + zRotation;
+
+        // Clamp the rotation to the desired limits
+        if (newZRotation > 180) newZRotation -= 360;
+        if (newZRotation < -180) newZRotation += 360;
+        newZRotation = Mathf.Clamp(newZRotation, -rotateDegreeLimit, rotateDegreeLimit);
+
+        // Apply the new rotation
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, newZRotation);
     }
+
     private void InvokeVerticalBrake(Vector2 input)
     {
         if (playerRigid.velocity.x < linearSpeed && playerRigid.velocity.x > -linearSpeed) return;

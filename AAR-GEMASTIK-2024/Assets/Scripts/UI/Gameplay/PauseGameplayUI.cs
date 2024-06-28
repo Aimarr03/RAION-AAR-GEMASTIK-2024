@@ -10,6 +10,7 @@ public class PauseGameplayUI : MonoBehaviour
     [SerializeField] RectTransform background;
     [SerializeField] RectTransform PauseContainer;
     [SerializeField] RectTransform ReallyContainer;
+    [SerializeField] RectTransform UI_Guide;
     [SerializeField] AudioClip interractable, showup, closeup;
 
     private DefaultInputAction inputAction;
@@ -21,6 +22,7 @@ public class PauseGameplayUI : MonoBehaviour
         inputAction = new DefaultInputAction();
         inputAction.UI.Enable();
         ReallyContainer.gameObject.SetActive(false);
+        UI_Guide.gameObject.SetActive(false);
         isPause = false;
         nameSceneToLoad = "";
     }
@@ -57,12 +59,24 @@ public class PauseGameplayUI : MonoBehaviour
     }
     private async void PerformedResume()
     {
+        Time.timeScale = 1;
         PauseContainer.DOAnchorPosY(1080, 0.3f).SetEase(Ease.InBack);
         background.gameObject.SetActive(false);
         AudioManager.Instance.PlaySFX(closeup);
         await Task.Delay(600);
-        Time.timeScale = 1;
         OnPause?.Invoke(isPause);
+    }
+    public void ShowGuide()
+    {
+        UI_Guide.gameObject.SetActive(true);
+        inputAction.UI.Pause.performed -= Pause_performed;
+        inputAction.UI.Pause.performed += UIGuide_performed;
+    }
+    private void UIGuide_performed(UnityEngine.InputSystem.InputAction.CallbackContext input)
+    {
+        UI_Guide.gameObject.SetActive(false);
+        inputAction.UI.Pause.performed += Pause_performed;
+        inputAction.UI.Pause.performed -= UIGuide_performed;
     }
     public void OnResume()
     {

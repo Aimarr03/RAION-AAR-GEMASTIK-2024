@@ -15,14 +15,12 @@ MonoBehaviour:
   generalData:
     name: Protection
     description: Protect Player from Damage
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: a4b1d2e8c39e50d4a9f5b66086b97c32, type: 3}
     level: 1
     buyPrice: 300
     upgradePrice: 120
     unlocked: 0
     itemType: 2
-  type: 3
-  statsList: 01000000
   prefab: {fileID: 7489221764443930691, guid: ed0274dc6f8963a4ab2759a1431c77d5, type: 3}
   isInvokable: 0
   cooldownDuration: 5

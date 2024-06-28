@@ -173,7 +173,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
 
     public void AddSuddenForce(Vector3 direction, float powerForce)
     {
-        moveSystem.AddSuddenForce(direction, powerForce, ForceMode.Force); 
+        moveSystem.AddSuddenForce(direction, powerForce, ForceMode.Impulse); 
     }
 
     public void OnDisableMove(float moveDuration, int maxAttemptToRecover)
@@ -223,6 +223,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             moveSystem.SetCanBeUsed(true);
             PlayerInputSystem.AttemptRecoverFromDisableStatus -= PlayerInputSystem_AttemptRecoverFromDisableStatus;
             OnBreakingFree?.Invoke();
+            UIGuideDisable.gameObject.SetActive(false);
         }
     }
     public void OnReplenishOxygen(int oxygen)

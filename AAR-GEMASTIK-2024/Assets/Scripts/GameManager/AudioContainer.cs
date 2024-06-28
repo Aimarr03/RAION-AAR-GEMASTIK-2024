@@ -58,6 +58,7 @@ public class AudioContainer : MonoBehaviour
     {
         if(manyEncounter == 0)
         {
+            AudioManager.Instance?.PlaySFX(AlertSFX);
             AudioManager.Instance?.StartNewMusic(fightBGM, 1f, 2f);
         }
         manyEncounter++;

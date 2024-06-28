@@ -50,5 +50,6 @@ public class EconomyManager : MonoBehaviour, IDataPersistance
     public void SaveScene(ref GameData gameData)
     {
         gameData.money = currentMoney;
+        Debug.Log(gameData.money);
     }
 }

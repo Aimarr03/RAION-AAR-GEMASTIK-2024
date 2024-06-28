@@ -160,15 +160,18 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         yield return OnIncrementValueUI(coinObtainedTextUI, totalMoneyObtained);
         EconomyManager.Instance.OnGainMoney(totalMoneyObtained);
 
-        float totalProgress = totalCountCollected / totalCount;
-        float trashProgress = (currrentTrashTotalCollected + trashHasBeenCollectedPreviously) / trashCount;
-        float sharkProgress = (currentSharkTotalCollected + sharkHasBeenCollectedPreviously) / sharkCount;
-        float fishProgress = (currentFishNeedHelpTotalCollected + fishHasBeenCollectedPreviously) / fishCount;
-
-        totalProgress = (float)Math.Round(totalProgress, 2);
+        float totalProgress = ((float)totalCountCollected) / totalCount;
+        float trashProgress = ((float)(currrentTrashTotalCollected + trashHasBeenCollectedPreviously)) / trashCount;
+        float sharkProgress = ((float)(currentSharkTotalCollected + sharkHasBeenCollectedPreviously)) / sharkCount;
+        float fishProgress = ((float)(currentFishNeedHelpTotalCollected + fishHasBeenCollectedPreviously)) / fishCount;
+        Debug.Log(totalProgress);
+        Debug.Log(trashProgress);
+        Debug.Log(sharkProgress);
+        Debug.Log(fishProgress);
+        /*totalProgress = (float)Math.Round(totalProgress, 2);
         trashProgress = (float)Math.Round(trashProgress, 2);
         sharkProgress = (float)Math.Round(sharkProgress, 2);
-        fishProgress = (float)Math.Round(fishProgress, 2);
+        fishProgress = (float)Math.Round(fishProgress, 2);*/
 
         this.totalProgress = totalProgress;
         this.trashProgress = trashProgress;
@@ -187,9 +190,10 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
             float t = Mathf.Clamp01(currentDuration / maxDuration);
             float currentValue = Mathf.Lerp(startValue, targetValue, t);
             targetUI.fillAmount = currentValue;
-            text.text = targetUI.fillAmount.ToString() + " %";
+            text.text = (currentValue*100).ToString("0.00") + " %";
             yield return null;
         }
+        text.text = targetValue.ToString("0.00") + " %";
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI targetUI, float targetValue)
     {
@@ -203,6 +207,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
             targetUI.text = currentValue.ToString("0.0");
             yield return null;
         }
+        targetUI.text = targetValue.ToString("0");
     }
     public void OnLoadShopping()
     {
@@ -249,10 +254,15 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     public void SaveScene(ref GameData gameData)
     {
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        levelData.sharkMutatedCountDone = sharkHasBeenCollectedPreviously + currentSharkTotalCollected;
         levelData.sharkMutatedProgress = sharkProgress;
+        levelData.trashCountDone = trashHasBeenCollectedPreviously + currrentTrashTotalCollected;
         levelData.trashProgress = trashProgress;
+        levelData.fishNeededHelpCountDone = fishHasBeenCollectedPreviously + currentFishNeedHelpTotalCollected;
         levelData.fishNeededHelpProgress = fishProgress;
         levelData.progress = totalProgress;
+        gameData.money = EconomyManager.Instance.currentMoney;
+        if(!levelData.hasBeenExpediction) levelData.hasBeenExpediction = true;
     }
     
 }

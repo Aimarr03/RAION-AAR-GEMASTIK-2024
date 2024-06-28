@@ -15,14 +15,12 @@ MonoBehaviour:
   generalData:
     name: OverCharge
     description: We will Make things OVERPOWAAAHHH
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: f3967217b104e274eb5eb8d6be376a59, type: 3}
     level: 1
     buyPrice: 250
     upgradePrice: 50
     unlocked: 0
     itemType: 2
-  type: 2
-  statsList: 0100000002000000
   prefab: {fileID: 7086245503285468533, guid: 0f46464b43f943541a2b83fce5ec33cd, type: 3}
   isInvokable: 1
   cooldownDuration: 7

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Environment_Seaweed : _EnvironmentBase
 {
     private float originalLinearMovement, originalRotatingMovement;
-    [SerializeField] private float slowMultiplier;
+    [Range(0,0.75f)][SerializeField] private float slowMultiplier;
 
     private void OnTriggerEnter(Collider other)
     {

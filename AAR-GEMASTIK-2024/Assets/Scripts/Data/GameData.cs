@@ -34,7 +34,7 @@ public class GameData
             level.fishNeedHelpList = new SerializableDictionary<string, bool>();
             level.levelName = $"Level{i + 1}";
             level.hasBeenExpediction = false;
-            if(i == 0) level.hasBeenUnlocked = true;
+            if(i < 2) level.hasBeenUnlocked = true;
             level.progress = 0;
             level.sharkMutatedProgress = 0;
             level.trashProgress = 0;
