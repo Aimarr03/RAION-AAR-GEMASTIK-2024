@@ -68,7 +68,7 @@ public class IdleCircleState : FishBaseState
         yield return new WaitForSeconds(1.8f);
         while (true)
         {
-            fish.animator.SetBool("IsMoving", true);
+            //fish.animator.SetBool("IsMoving", true);
             while (Vector3.Distance(targetPosition, fish.transform.position) > 0.05f)
             {
                 fish.transform.position = Vector3.MoveTowards(fish.transform.position, targetPosition, speed * Time.deltaTime);
@@ -96,7 +96,7 @@ public class IdleCircleState : FishBaseState
     }
     private IEnumerator OnRotatingYAxis()
     {
-        fish.animator.SetBool("IsMoving", true);
+        //fish.animator.SetBool("IsMoving", true);
         float targetY = GoLeft ? 0 : 180;
         Quaternion target = Quaternion.Euler(0, targetY, 0);
         while (Quaternion.Angle(fish.transform.rotation, target) > 1f)
@@ -108,10 +108,10 @@ public class IdleCircleState : FishBaseState
     }
     private void OnTryToDetect()
     {
-        Collider[] colliderList = Physics.OverlapSphere(fish.transform.position, radiusDetection, playerMask);
+        Collider2D[] colliderList = Physics2D.OverlapCircleAll(fish.transform.position, radiusDetection, playerMask);
         if (colliderList.Length > 0)
         {
-            foreach (Collider collider in colliderList)
+            foreach (Collider2D collider in colliderList)
             {
                 if (collider.TryGetComponent(out PlayerCoreSystem coreSystem))
                 {

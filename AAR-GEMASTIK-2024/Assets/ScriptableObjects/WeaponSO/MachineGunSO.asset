@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Machine Gun
-    description: BRRRRRRAAAAAAAAH I NEED MORE BULLETS
+    description: 'Senjata ketiga yang menembak peluru dengan beruntun, memerlukan
+      waktu untuk memanaskan senjata sebelum menembak.
+
+      Bilamana berhenti secara
+      manual atau sudah mencapai maksimal peluru yang ditembak akan berada di status
+      cooldown'
     icon: {fileID: 21300000, guid: e2a405e2e4a97f24a8ce7d538fba3352, type: 3}
     level: 1
     buyPrice: 160

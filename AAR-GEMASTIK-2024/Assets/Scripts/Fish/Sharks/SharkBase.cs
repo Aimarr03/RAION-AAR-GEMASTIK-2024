@@ -21,8 +21,8 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     protected bool isDelievered;
     protected bool isBeingHeld;
     protected bool isPause;
-    [SerializeField] public Rigidbody rigidBody;
-    [SerializeField] public Collider sphereCollider;
+    [SerializeField] public Rigidbody2D rigidBody;
+    [SerializeField] public Collider2D sharkCollider;
     [SerializeField] public SpriteRenderer spriteRenderer;
     [SerializeField] public Animator animator;
     [SerializeField] protected float weight;
@@ -46,6 +46,8 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         //rigidBody = GetComponent<Rigidbody>();
         //sphereCollider = GetComponent<SphereCollider>();
         stateMachine = new SharkStateMachine(this);
+        rigidBody = GetComponent<Rigidbody2D>();
+        sharkCollider = GetComponent<Collider2D>();
         health = maxHealth;
         isKnockout = false;
         isBeingHeld = false;
@@ -133,8 +135,8 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).OnDecreaseValue(weight);
         playerInterractionSystem.SetIsHolding(false);
         playerCoreSystem = null;
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20f);
-        foreach (Collider collider in colliders)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 20f);
+        foreach (Collider2D collider in colliders)
         {
             if(collider.TryGetComponent(out ExpedictionManager expedictionManager))
             {
@@ -158,7 +160,8 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     public void OnDeloading()
     {
         isDelievered = true;
-        GetComponent<Collider>().enabled = false;
+        isKnockout = true;
+        GetComponent<Collider2D>().enabled = false;
         int totalChild = transform.childCount;
         Debug.Log("Total Component: " + totalChild);
         for (int index = 0; index < totalChild; index++)

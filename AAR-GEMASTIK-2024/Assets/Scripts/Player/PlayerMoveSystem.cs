@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMoveSystem : MonoBehaviour
 {
     private PlayerCoreSystem coreSystem;
-    private Rigidbody playerRigid;
+    private Rigidbody2D playerRigid;
     
     private Vector2 currentInput;
     public Vector2 NonZeroValueInput;
@@ -79,7 +79,7 @@ public class PlayerMoveSystem : MonoBehaviour
     private void ResetPlayerOrientation()
     {
         playerRigid.velocity = Vector3.zero;
-        playerRigid.angularVelocity = Vector3.zero;
+        playerRigid.angularVelocity = 0;
         transform.rotation = Quaternion.Euler(0f, onRightDirection ? 0f : 180f, 0f);
         Debug.Log("Player orientation reset.");
     }
@@ -93,7 +93,7 @@ public class PlayerMoveSystem : MonoBehaviour
     private void Awake()
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
-        playerRigid = GetComponent<Rigidbody>();
+        playerRigid = GetComponent<Rigidbody2D>();
         onRightDirection = true;
         canBeUsed = true;
         isSlowed = false;
@@ -150,7 +150,7 @@ public class PlayerMoveSystem : MonoBehaviour
         input.y = 0;
         //Debug.Log(input);
         input = onRightDirection ? input : -input;
-        Vector3 outputVelocity = transform.TransformDirection(Vector3.right * (linearSpeed * Time.fixedDeltaTime * input));
+        Vector2 outputVelocity = transform.TransformDirection(Vector3.right * (linearSpeed * Time.fixedDeltaTime * input));
         if (isSlowed)
         {
             outputVelocity = SlowAction(outputVelocity, slowedMultiplier);
@@ -182,7 +182,7 @@ public class PlayerMoveSystem : MonoBehaviour
         {
             InvokeVerticalBrake(new Vector2(0, z_input));
             if (playerRigid.velocity.x < minHorizontalMovement && playerRigid.velocity.x > -minHorizontalMovement) return;
-            Vector3 outputVelocity = Vector3.up * ((linearSpeed * 0.66f) * Time.fixedDeltaTime * z_input);
+            Vector2 outputVelocity = Vector3.up * ((linearSpeed * 0.66f) * Time.fixedDeltaTime * z_input);
             playerRigid.velocity += outputVelocity;
             OnRotatingOnZAxis(z_input);
         }
@@ -235,10 +235,10 @@ public class PlayerMoveSystem : MonoBehaviour
             isRotating = false;
         }
     }
-    public void AddSuddenForce(float force) => playerRigid.AddForce(NonZeroValueInput * force, ForceMode.Impulse);
-    public void AddSuddenForce(Vector3 direction, float force) => playerRigid.AddForce(direction * force, ForceMode.Impulse);
+    public void AddSuddenForce(float force) => playerRigid.AddForce(NonZeroValueInput * force, ForceMode2D.Impulse);
+    public void AddSuddenForce(Vector3 direction, float force) => playerRigid.AddForce(direction * force, ForceMode2D.Impulse);
 
-    public void AddSuddenForce(Vector3 direction, float force, ForceMode mode) => playerRigid.AddForce(direction * force, mode);
+    public void AddSuddenForce(Vector3 direction, float force, ForceMode2D mode) => playerRigid.AddForce(direction * force, mode);
     public void SetCanBeUsed(bool value) => canBeUsed = value;
     public void SetMovement(float linearValue, float rotatingValue)
     {

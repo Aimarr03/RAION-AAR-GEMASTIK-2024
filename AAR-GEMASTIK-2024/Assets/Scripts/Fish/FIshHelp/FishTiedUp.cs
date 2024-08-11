@@ -79,7 +79,7 @@ public class FishTiedUp : FishBaseNeedHelp
         }
         newColorvalue = new Color(oldColorValue.r, oldColorValue.g, oldColorValue.b, 0);
         visual.color = newColorvalue;
-        GetComponent<Collider>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
 
 }

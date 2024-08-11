@@ -11,7 +11,7 @@ public class SplashScreenManager : MonoBehaviour
 {
     [SerializeField] private RectTransform LogoGemastik;
     [SerializeField] private RectTransform LogoUB;
-    [SerializeField] private TextMeshProUGUI RAION_SEA;
+    [SerializeField] private RectTransform RAION_SEA;
     [SerializeField] private TextMeshProUGUI Memperkenalkan;
 
     private void Start()
@@ -23,15 +23,14 @@ public class SplashScreenManager : MonoBehaviour
         await LogoGemastik.GetComponent<Image>().DOFade(1, 0.7f).AsyncWaitForCompletion();
         await Task.Delay(1000);
         await LogoGemastik.GetComponent<Image>().DOFade(0, 0.7f).AsyncWaitForCompletion();
+        await LogoUB.GetComponent<Image>().DOFade(1, 0.7f).AsyncWaitForCompletion();
+        await Task.Delay(1000);
+        await LogoUB.GetComponent<Image>().DOFade(0, 0.7f).AsyncWaitForCompletion();
+        await Task.Delay(1000);
+        await RAION_SEA.GetComponent<Image>().DOFade(1, 0.7f).AsyncWaitForCompletion();
+        await Task.Delay(1000);
+        await RAION_SEA.GetComponent<Image>().DOFade(0, 0.7f).AsyncWaitForCompletion();
         await Task.Delay(500);
-        LogoUB.GetComponent<Image>().DOFade(1, 0.7f);
-        Memperkenalkan.DOFade(1, 0.7f).SetDelay(0.2f);
-        RAION_SEA.DOFade(1, 0.7f);
-        await Task.Delay(1700);
-        LogoUB.GetComponent<Image>().DOFade(0, 0.7f);
-        Memperkenalkan.DOFade(0, 0.7f).SetDelay(0.2f);
-        RAION_SEA.DOFade(0, 0.7f);
-        await Task.Delay(1700);
         SceneManager.LoadScene(1);
     }
 }

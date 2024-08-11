@@ -6,10 +6,9 @@ public class Environment_Seaweed : _EnvironmentBase
 {
     private float originalLinearMovement, originalRotatingMovement;
     [Range(0,0.75f)][SerializeField] private float slowMultiplier;
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(other.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))
+        if (collision.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))
         {
             Debug.Log("Player enter the seaweed ");
             coreSystem.moveSystem.SetIsSlowed(true, slowMultiplier);
@@ -19,13 +18,14 @@ public class Environment_Seaweed : _EnvironmentBase
             coreSystem.moveSystem.SetMovement(originalLinearMovement * slowMultiplier, originalRotatingMovement * slowMultiplier);*/
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))
+        if (collision.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))
         {
             Debug.Log("Player exit the seaweed ");
             coreSystem.moveSystem.SetIsSlowed(false, 1f);
             /*coreSystem.moveSystem.SetMovement(originalLinearMovement, originalRotatingMovement);*/
         }
     }
+    
 }

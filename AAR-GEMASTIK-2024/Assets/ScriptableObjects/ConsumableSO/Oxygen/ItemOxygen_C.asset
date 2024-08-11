@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Oxygen Tube
-    description: IT'S NOT SUSSY BAKA, NI CHAN NO BAKA
+    description: Kalau oksigen habis, kau tidak bisa fokus karena tubuh membutuhkannya
+      ketika berekspediksi. Agar tidak terjadi pengalaman yang traumatis dan sebenarnya
+      bisa tertangani, bawalah tabung oksigen untuk jaga-jaga.
     icon: {fileID: 21300000, guid: 10536bf584da1704f8b65eecdf62bed0, type: 3}
     level: 1
     buyPrice: 100

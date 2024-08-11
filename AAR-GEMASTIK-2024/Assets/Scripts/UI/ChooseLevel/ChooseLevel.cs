@@ -17,7 +17,6 @@ public class ChooseLevel : BasePreparingPlayerUI, IDataPersistance
     
     public override IEnumerator OnEnterState()
     {
-        gameObject.SetActive(true);
         mainPanel.gameObject.SetActive(true);
         GetComponent<RectTransform>().DOAnchorPosX(0, 0.7f);
         levelUIText.GetComponent<RectTransform>().DOAnchorPosY(5, 0.7f).SetEase(Ease.InOutQuint);
@@ -37,7 +36,6 @@ public class ChooseLevel : BasePreparingPlayerUI, IDataPersistance
         levelUIText.GetComponent<RectTransform>().DOAnchorPosY(-50, 0.7f).SetEase(Ease.InOutQuint);
         yield return new WaitForSeconds(0.8f);
         mainPanel.gameObject.SetActive(false);
-        gameObject.SetActive(false);
     }
     public void OnChooseLevel(int level)
     {

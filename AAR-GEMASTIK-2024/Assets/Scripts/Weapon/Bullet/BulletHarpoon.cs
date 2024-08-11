@@ -22,9 +22,6 @@ public class BulletHarpoon : BaseBullet
     {
         base.SetUpBullet(isOnRightDirection, angle);
         speed = weaponHarpoon.GetMultiplierSpeed(level);
-        //speed = isOnRightDirection ? speed : -speed;
-        float y_angle = isOnRightDirection ? 0 : 180;
-        transform.rotation = Quaternion.Euler(transform.rotation.x, y_angle, transform.rotation.z);
         Debug.Log(speed);
         TimeToLiveBullet();
     }
@@ -45,7 +42,7 @@ public class BulletHarpoon : BaseBullet
         LoadToPool();
     }
 
-    public override void OnTriggerEnter(Collider collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.tag)
         {

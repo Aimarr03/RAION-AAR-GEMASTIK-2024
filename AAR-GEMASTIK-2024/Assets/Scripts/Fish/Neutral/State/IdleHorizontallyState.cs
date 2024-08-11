@@ -100,10 +100,10 @@ public class IdleHorizontallyState : FishBaseState
     }
     private void OnTryToDetect()
     {
-        Collider[] colliderList = Physics.OverlapSphere(fish.transform.position, radiusDetection, playerMask);
+        Collider2D[] colliderList = Physics2D.OverlapCircleAll(fish.transform.position, radiusDetection, playerMask);
         if (colliderList.Length > 0)
         {
-            foreach (Collider collider in colliderList)
+            foreach (Collider2D collider in colliderList)
             {
                 if (collider.TryGetComponent(out PlayerCoreSystem coreSystem))
                 {

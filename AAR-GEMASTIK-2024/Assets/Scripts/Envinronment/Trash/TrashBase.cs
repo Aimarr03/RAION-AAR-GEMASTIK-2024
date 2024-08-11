@@ -15,7 +15,7 @@ public abstract class TrashBase : MonoBehaviour, IDataPersistance
     protected PlayerCoreSystem playerCoreSystem;
     [SerializeField] protected float weight;
     public static event Action OnCollectedEvent;
-    protected abstract void OnTriggerEnter(Collider other);
+    protected abstract void OnTriggerEnter2D(Collider2D other);
     public void OnTakenByPlayer()
     {
         if (playerCoreSystem == null) return;
@@ -50,7 +50,7 @@ public abstract class TrashBase : MonoBehaviour, IDataPersistance
     {
         collected = true;
         GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
-        GetComponent<SphereCollider>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
     private void OnCollected()
     {

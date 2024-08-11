@@ -45,6 +45,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     public abstract List<UpgradeStats> GetUpgradeStats();
     public abstract List<BuyStats> GetBuyStats();
+    public PlayerCoreSystem GetPlayerCoreSystem => playerCoreSystem;
 }
 
 

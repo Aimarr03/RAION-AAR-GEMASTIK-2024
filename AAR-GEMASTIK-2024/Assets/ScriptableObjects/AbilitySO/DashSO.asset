@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Dash
-    description: "Player Can GO Dash\t"
+    description: Bilamana situasi mendesak, kemampuan ini dapat mengeluarkan kau
+      dari situasi tersebut.
     icon: {fileID: 21300000, guid: 8afae75f38ada564f816f798be760744, type: 3}
     level: 1
     buyPrice: 100

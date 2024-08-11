@@ -22,6 +22,7 @@ public class PlayerInputSystem : MonoBehaviour
     public static event Action InvokeSwitchItemFocus;
     public static event Action InvokeUseItem;
     public static event Action<bool> InvokeMoveSoundAction;
+    public static event Action InvokePause;
     private bool OnMovePressed = false;
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class PlayerInputSystem : MonoBehaviour
     
     private void OnAddCallback()
     {
+        playerInput.Player.Enable();
         playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
         playerInput.Player.InvokeWeaponUsage.canceled += InvokeWeaponUsage_canceled;
         playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
@@ -62,13 +64,13 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeUseItem.performed += InvokeUseItem_performed;
         playerInput.Player.Move.performed += Move_performed;
         playerInput.Player.Move.canceled += Move_canceled;
+        playerInput.Player.Pause.performed += Pause_performed;
     }
-
-    
 
     private void OnRemoveCallback()
     {
         Debug.Log("Player cannot invoke anything");
+        playerInput.Player.Disable();
         playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
         playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
         playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
@@ -77,6 +79,7 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.InvokeUseItem.performed -= InvokeUseItem_performed;
         playerInput.Player.Move.performed -= Move_performed;
         playerInput.Player.Move.canceled -= Move_canceled;
+        playerInput.Player.Pause.performed -= Pause_performed;
     }
     private void CoreSystem_OnDead()
     {
@@ -119,7 +122,11 @@ public class PlayerInputSystem : MonoBehaviour
         Vector2 input = playerInput.Player.Move.ReadValue<Vector2>();
         InvokeMoveSoundAction?.Invoke(false);
     }
-
+    private void Pause_performed(InputAction.CallbackContext obj)
+    {
+        Debug.Log("Invoke Pause");
+        InvokePause?.Invoke();
+    }
     private void Move_performed(InputAction.CallbackContext obj)
     {
         Vector2 input = playerInput.Player.Move.ReadValue<Vector2>();

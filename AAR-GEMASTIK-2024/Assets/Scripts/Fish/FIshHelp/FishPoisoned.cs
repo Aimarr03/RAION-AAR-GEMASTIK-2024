@@ -13,9 +13,9 @@ public class FishPoisoned : FishBaseNeedHelp, IDelivarable
         isBeingHeld = false;
         playerInterractionSystem.SetIsHolding(false);
         playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity).OnDecreaseValue(weight);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 4f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 4f);
         Ui_Guide.gameObject.SetActive(true);
-        foreach (Collider collider in colliders)
+        foreach (Collider2D collider in colliders)
         {
             if (collider.TryGetComponent(out ExpedictionManager expedictionManager))
             {
@@ -62,7 +62,7 @@ public class FishPoisoned : FishBaseNeedHelp, IDelivarable
 
     public void OnDeloading()
     {
-        GetComponent<Collider>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
         int childrenCount = transform.childCount;
         for(int index = 0; index < childrenCount; index++)
         {

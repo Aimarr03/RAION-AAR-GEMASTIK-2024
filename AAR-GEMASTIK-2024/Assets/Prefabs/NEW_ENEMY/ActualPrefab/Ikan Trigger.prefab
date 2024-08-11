@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5741250467719165683}
   - component: {fileID: 4947324983905189111}
-  - component: {fileID: 6483415659419752531}
-  - component: {fileID: 8328856282582042956}
+  - component: {fileID: 6750511338057530829}
+  - component: {fileID: 2350908953839305139}
   m_Layer: 0
   m_Name: Ikan Trigger
   m_TagString: Untagged
@@ -52,8 +52,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 8
-  rigidBody: {fileID: 6483415659419752531}
-  sphereCollider: {fileID: 8328856282582042956}
+  rigidBody: {fileID: 0}
+  fishCollider: {fileID: 0}
   spriteRenderer: {fileID: 8369955165383208423}
   animator: {fileID: 7381437838626360520}
   originalPosition: {x: 0, y: 0, z: 0}
@@ -61,41 +61,43 @@ MonoBehaviour:
   radius: 15
   speed: 5
   maxDistance: 15
-  radiusCheck: 8
---- !u!54 &6483415659419752531
-Rigidbody:
+  radiusCheck: 80
+--- !u!50 &6750511338057530829
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137422090217845072}
-  serializedVersion: 4
-  m_Mass: 0.0000001
-  m_Drag: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
   m_AngularDrag: 0
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!135 &8328856282582042956
-SphereCollider:
+  m_Constraints: 0
+--- !u!58 &2350908953839305139
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137422090217845072}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -104,12 +106,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.52
 --- !u!1 &4081711857965633774
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196377118013425954, guid: 24a61103b8bf4cf4ba3d0b8c5e430e36,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4196377118013425954, guid: 24a61103b8bf4cf4ba3d0b8c5e430e36,
         type: 3}

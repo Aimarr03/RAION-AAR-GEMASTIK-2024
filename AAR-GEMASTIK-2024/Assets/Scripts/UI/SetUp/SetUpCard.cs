@@ -11,6 +11,7 @@ public class SetUpCard : MonoBehaviour
     public Image backgroundFocus;
     public Image unavailableIcon;
     public Image icon;
+    private bool isUnlocked;
     public PlayerUsableGeneralData generalData
     {
         get => itemBaseSO.generalData;
@@ -47,10 +48,11 @@ public class SetUpCard : MonoBehaviour
         unavailableIcon.gameObject.SetActive(!generalData.unlocked);
         backgroundFocus.gameObject.SetActive(false);
         UpdateData();
-    }
-    private void Start()
-    {
         DetailedCardView.OnBoughtSomething += UpdateData;
+    }
+    private void OnDisable()
+    {
+        DetailedCardView.OnBoughtSomething -= UpdateData;
     }
     private void UpdateData()
     {
@@ -62,7 +64,14 @@ public class SetUpCard : MonoBehaviour
         else
         {
             isUnlocked = generalData.unlocked;
+            unavailableIcon.gameObject.SetActive(!isUnlocked);
+            textHeader.gameObject.SetActive(isUnlocked);
+            textLevel.gameObject.SetActive(isUnlocked);
+            icon.color = generalData.unlocked ? Color.white : unavailableColor;
+            textLevel.color = generalData.unlocked ? textLevel.color : unavailableColor;
+            textHeader.color = generalData.unlocked ? textHeader.color : unavailableColor;
         }
+        this.isUnlocked = isUnlocked;
         thisButton.interactable = isUnlocked;
     }
     

@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 429491920694209261, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
@@ -121,6 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: bf21fbf34f641f347a90879934612616, type: 2}
     m_RemovedComponents:
     - {fileID: 2208805788935501159, guid: 34e8bac76b77b0445993caa5de3c8839, type: 3}
+    - {fileID: -3077369740824117277, guid: 34e8bac76b77b0445993caa5de3c8839, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -131,7 +132,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4359095447241221788, guid: 34e8bac76b77b0445993caa5de3c8839,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1977529210531488878}
+      addedObject: {fileID: 2368344362945593201}
   m_SourcePrefab: {fileID: 100100000, guid: 34e8bac76b77b0445993caa5de3c8839, type: 3}
 --- !u!212 &1476751000716348439 stripped
 SpriteRenderer:
@@ -162,13 +163,15 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1476751000716348439}
   onGrabPlayer: {fileID: 8300000, guid: 8a9db7abcee9d2845912e28d57b06814, type: 3}
   onReleasedPlayer: {fileID: 8300000, guid: 2c26071249fd0f54288b1f026510bac9, type: 3}
---- !u!65 &1977529210531488878
-BoxCollider:
+--- !u!60 &2368344362945593201
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8760003187255378002}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -177,9 +180,36 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 17.88, y: 13.4, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.4255295, y: 14.829776}
+      - {x: -13.453175, y: 2.9643342}
+      - {x: -5.0133147, y: -14.196241}
+      - {x: 4.5707603, y: -5.123908}
+      - {x: 12.457431, y: -1.2399178}
+  m_UseDelaunayMesh: 0

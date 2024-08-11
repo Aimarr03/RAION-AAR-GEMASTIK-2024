@@ -16,6 +16,7 @@ public class CreditsManager : MonoBehaviour
     {
         inputAction = new DefaultInputAction();
         inputAction.Credits.Enable();
+        maxIndex = CreditsContainer.transform.childCount-1;
         index = 0;
     }
     private void Start()
@@ -55,7 +56,7 @@ public class CreditsManager : MonoBehaviour
         }
         index--;
         AudioManager.Instance?.PlaySFX(interactableAction);
-        CreditsContainer.DOAnchorPosX((index * multiplierMove), 1.3f).SetEase(Ease.OutBack);
+        CreditsContainer.DOAnchorPosX((-index * multiplierMove), 1.3f).SetEase(Ease.OutBack);
     }
     private void Escape_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

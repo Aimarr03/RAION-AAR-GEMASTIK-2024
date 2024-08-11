@@ -193,7 +193,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
             text.text = (currentValue*100).ToString("0.00") + " %";
             yield return null;
         }
-        text.text = targetValue.ToString("0.00") + " %";
+        text.text = (targetValue*100).ToString("0.00") + " %";
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI targetUI, float targetValue)
     {
@@ -238,7 +238,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         {
             if (fish.HasBeenHelped()) fishHasBeenCollectedPreviously++;
         }
-        fishCount = SharkCalculatedFromScene.Count();
+        fishCount = FishNeedHelpList.Count();
 
         totalCount = sharkCount + trashCount + fishCount;
         totalCountCollected = trashHasBeenCollectedPreviously + sharkHasBeenCollectedPreviously+ fishHasBeenCollectedPreviously;

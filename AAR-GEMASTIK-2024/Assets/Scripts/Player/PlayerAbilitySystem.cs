@@ -30,6 +30,7 @@ public class PlayerAbilitySystem : MonoBehaviour
             abilityBase = abilityInstantiate.GetComponent<AbilityBase>();
             abilityBase.SetPlayerCoreSystem(playerCoreSystem);
             abilityBase.SetUpData();
+            return;
         }
     }
     private void Start()

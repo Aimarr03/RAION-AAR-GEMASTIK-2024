@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: TorpedoGunSO
   m_EditorClassIdentifier: 
   generalData:
-    name: TORPEDO
-    description: THE AMERICAN WAAAAAAY KAKAAAWW
+    name: Torpedo Sleeper
+    description: 'Senjata kedua yang memiliki kerusakan tingkat tinggi dengan melemahkan
+      target dengan gas tidur di area ledakannya.
+
+      Target yang terkena langsung
+      dengan pelurunya akan terkena kerusakan sebesar dua kali lipat.'
     icon: {fileID: 21300000, guid: 4dcffa2bcb4822c46a898439145a56b2, type: 3}
     level: 1
     buyPrice: 250

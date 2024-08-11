@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Emergency Battery
-    description: This Thing is robust for energy recovery
+    description: Tentunya kapal selam ini dirancang dengan menggunakan listrik untuk
+      bisa menyala. Di dalam laut tidak ada listrik sehingga lebih baik membawa baterai
+      cadangan agar tidak terjebak di dalam laut.
     icon: {fileID: 21300000, guid: db36047b4df69824fba94ffa73367b15, type: 3}
     level: 1
     buyPrice: 160
@@ -22,5 +24,5 @@ MonoBehaviour:
     unlocked: 1
     itemType: 3
   itemTier: 1
-  value: 75
+  value: 60
   quantity: 5

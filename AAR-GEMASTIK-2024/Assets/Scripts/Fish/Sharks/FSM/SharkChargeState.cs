@@ -68,8 +68,8 @@ public class SharkChargeState : SharkBaseState
     }
     private void OnHit()
     {
-        Collider[] colliders = Physics.OverlapBox(attackCenter.position, size, Quaternion.identity, playerMask);
-        foreach (Collider collider in colliders)
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(attackCenter.position, size, 0, playerMask);
+        foreach (Collider2D collider in colliders)
         {
             if (collider.TryGetComponent(out IDamagable idamagable)) idamagable.TakeDamage(damage);
         }

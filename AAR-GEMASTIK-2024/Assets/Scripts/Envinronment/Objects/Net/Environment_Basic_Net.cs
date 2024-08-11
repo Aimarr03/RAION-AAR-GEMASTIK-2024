@@ -10,10 +10,10 @@ public class Environment_Basic_Net : MonoBehaviour
     [SerializeField] protected AudioClip onGrabPlayer;
     [SerializeField] protected AudioClip onReleasedPlayer;
     protected PlayerCoreSystem coreSystem;
-    protected void OnTriggerEnter(Collider collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("enter something");
-        if(collision.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))
+        if (collision.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))
         {
             this.coreSystem = coreSystem;
             spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
@@ -23,7 +23,6 @@ public class Environment_Basic_Net : MonoBehaviour
             transform.position = this.coreSystem.transform.position;
         }
     }
-
     private void CoreSystem_OnBreakingFree()
     {
         AudioManager.Instance?.PlaySFX(onReleasedPlayer);

@@ -16,7 +16,7 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     [SerializeField] private float radiusForDetectableObjects;
     
-    private Collider[] detectionResult = new Collider[0];
+    private Collider2D[] detectionResult = new Collider2D[0];
     private IInterractable ClosestInterractableObject;
     private List<IInterractable> DetectableInterractiveObjectWhenHolding;
     private bool isHolding;
@@ -70,7 +70,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     }
     private void DetectionForInterractableObject()
     {
-        detectionResult = Physics.OverlapBox(OffSetPosition, boxSizeForInterractableObject, Quaternion.identity, targetLayerMaskForInterractableObject);
+        detectionResult = Physics2D.OverlapBoxAll(OffSetPosition, boxSizeForInterractableObject, 0, targetLayerMaskForInterractableObject);
         if(detectionResult.Length > 0)
         {
             InteraksiGuide.gameObject.SetActive(!isHolding);
@@ -94,8 +94,8 @@ public class PlayerInterractionSystem : MonoBehaviour
     }
     private void DetectionForDetectableObject()
     {
-        Collider[] detectableObjects = Physics.OverlapSphere(transform.position, radiusForDetectableObjects, targetLayerMaskForDetectableObject);
-        foreach(Collider collider in detectableObjects)
+        Collider2D[] detectableObjects = Physics2D.OverlapCircleAll(transform.position, radiusForDetectableObjects, targetLayerMaskForDetectableObject);
+        foreach(Collider2D collider in detectableObjects)
         {
             if(collider.TryGetComponent<IDetectable>(out IDetectable detectable))
             {
@@ -109,7 +109,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     {
         if (isHolding)
         {
-            foreach(Collider coll in detectionResult)
+            foreach(Collider2D coll in detectionResult)
             {
                 coll.TryGetComponent(out IInterractable interractableObject);
                 interractableObject.OnDetectedAsTheClosest(coreSystem);
@@ -119,7 +119,7 @@ public class PlayerInterractionSystem : MonoBehaviour
         }
         if (detectionResult.Length <= 0) return;
         float closestTotalDistance = float.MaxValue;
-        foreach(Collider coll in detectionResult)
+        foreach(Collider2D coll in detectionResult)
         {
             float currentObjectDistance = Vector3.Distance(interractiveHolderPositionForInterractableObject.position, coll.transform.position);
             if(currentObjectDistance < closestTotalDistance && coll.TryGetComponent<IInterractable>(out IInterractable interractableObject))

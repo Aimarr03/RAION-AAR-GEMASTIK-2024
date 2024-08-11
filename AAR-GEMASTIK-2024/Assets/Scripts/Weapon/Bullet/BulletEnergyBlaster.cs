@@ -35,7 +35,7 @@ public class BulletEnergyBlaster : BaseBullet
         }
     }
 
-    public override void OnTriggerEnter(Collider collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null)
         {

@@ -14,13 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Health System
-    description: For Health Boy
-    icon: {fileID: 0}
+    description: 'Bagian ini berguna untuk menahan berapa besar kerusakan kapal saat
+      berekspediksi. Bisa dari ikan mutasi yang agresif, objek-objek yang berbahaya,
+      dan sebagainya.
+
+      Kalau kerusakan kapal selam sudah melebihi batas.. yaa,
+      sudah tidak bisa berjalan lagi..
+
+      Jangan dipikirin panjang yaa
+
+      Ntar
+      Panik'
+    icon: {fileID: 21300000, guid: 380e3d22f98408743943aaf9ac1523fa, type: 3}
     level: 1
     buyPrice: 0
     upgradePrice: 150
     unlocked: 1
     itemType: 0
   maxValue: 100
-  multiplierValue: 0.35
+  multiplierValue: 0.25
   sustainabilityType: 0

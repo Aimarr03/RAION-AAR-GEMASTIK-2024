@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
     }
     public async Task LoadingScreen()
     {
+        DataManager.instance?.SaveGame();
         float maxDuration = 0.5f;
         float currentDuration = 0f;
         Color oldColor = screenLoader.color;

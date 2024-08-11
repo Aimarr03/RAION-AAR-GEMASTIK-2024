@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Oxygen System
-    description: Oxygen BRO
+    description: 'Kau memperlukan oksigen untuk napas, itu mengapa oksigen selalu
+      diomongin ketika mengenai udara. Oksigen habis di kapal selam, yaa
+
+      Bisa
+      bahaya...
+
+      Kalau tahu kepengapan Jakarta.. nah.. lebih buruk dari itu..
+      jangan dipikirin panjang yaa..'
     icon: {fileID: 21300000, guid: 4e484638330ea1e4cb860d4a93c2f058, type: 3}
     level: 1
     buyPrice: 0
@@ -22,5 +29,5 @@ MonoBehaviour:
     unlocked: 1
     itemType: 0
   maxValue: 60
-  multiplierValue: 0.25
+  multiplierValue: 0.3
   sustainabilityType: 2

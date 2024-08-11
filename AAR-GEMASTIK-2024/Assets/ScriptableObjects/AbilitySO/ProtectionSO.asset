@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Protection
-    description: Protect Player from Damage
+    description: 'Dengan memiliki kemampuan ini, kapal selam dapat menahan satu kerusakan
+      dari apa pun.
+
+      Setelah menahan satu kerusakan, kemampuan ini akan cooldown
+      dalam waktu tertentu sebelum aktif kembali lagi'
     icon: {fileID: 21300000, guid: a4b1d2e8c39e50d4a9f5b66086b97c32, type: 3}
     level: 1
     buyPrice: 300

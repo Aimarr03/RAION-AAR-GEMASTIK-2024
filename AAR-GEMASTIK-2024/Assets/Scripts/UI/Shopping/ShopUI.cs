@@ -42,6 +42,10 @@ public class ShopUI : BasePreparingPlayerUI
         headerText.text = "WEAPON";
         DetailedCardView.OnBoughtSomething += DetailedCardView_OnBoughtSomething;
     }
+    private void OnDisable()
+    {
+        DetailedCardView.OnBoughtSomething -= DetailedCardView_OnBoughtSomething;
+    }
 
     private void DetailedCardView_OnBoughtSomething()
     {

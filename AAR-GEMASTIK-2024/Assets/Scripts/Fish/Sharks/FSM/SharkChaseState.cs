@@ -44,8 +44,8 @@ public class SharkChaseState : SharkBaseState
 
     public override void OnEnterState()
     {
-        Collider[] colliders = Physics.OverlapSphere(shark.transform.position, 350f, playerMask);
-        foreach (Collider collider in colliders)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(shark.transform.position, 350f, playerMask);
+        foreach (Collider2D collider in colliders)
         {
             if (collider.TryGetComponent(out PlayerCoreSystem coreSystem))
             {
@@ -66,7 +66,7 @@ public class SharkChaseState : SharkBaseState
 
     public override void OnUpdateState()
     {
-        Debug.Log(playerCoreSystem == null);
+        if (onCooldown) return;
         if (playerCoreSystem == null) return;
         CheckDistance();
         CheckPlayer();
@@ -75,10 +75,11 @@ public class SharkChaseState : SharkBaseState
     private void CheckDistance()
     {
         if (playerCoreSystem == null) return;
-        if (Vector3.Distance(shark.transform.position, originalPosition) > 40f && Vector3.Distance(shark.transform.position, playerCoreSystem.transform.position) > 40f)
+        if (Vector3.Distance(shark.transform.position, originalPosition) > 80f)
         {
             fsm.OnTransitionState(nextState);
         }
+        else if(Vector3.Distance(shark.transform.position, playerCoreSystem.transform.position) > 60f) fsm.OnTransitionState(nextState);
     }
     private void CheckPlayer()
     {
@@ -112,8 +113,8 @@ public class SharkChaseState : SharkBaseState
             return;
         }
 
-        shark.rigidBody.velocity += linearSpeed * Time.fixedDeltaTime * x_direction * Vector3.right;
-        shark.rigidBody.velocity = Vector3.ClampMagnitude(shark.rigidBody.velocity, maxSpeed);
+        shark.rigidBody.velocity += linearSpeed * Time.fixedDeltaTime * x_direction * Vector2.right;
+        shark.rigidBody.velocity = Vector2.ClampMagnitude(shark.rigidBody.velocity, maxSpeed);
     }
     private bool CheckHasToRotate(float x)
     {
@@ -127,7 +128,7 @@ public class SharkChaseState : SharkBaseState
         shark.rigidBody.velocity = Vector3.zero;
         float y_axis_target = isOnRightDirection ? 180 : 0;
         Quaternion targetRotate = Quaternion.Euler(0, y_axis_target, 0);
-        shark.transform.rotation = Quaternion.RotateTowards(shark.transform.rotation, targetRotate, rotatingSpeed * Time.fixedDeltaTime);
+        shark.transform.rotation = Quaternion.RotateTowards(shark.transform.rotation, targetRotate, rotatingSpeed * 2.4f * Time.fixedDeltaTime);
         if (Quaternion.Angle(shark.transform.rotation, targetRotate) < 5f)
         {
             shark.transform.rotation = targetRotate;
@@ -142,7 +143,7 @@ public class SharkChaseState : SharkBaseState
         float z_input = direction.y;
         if (z_input != 0)
         {
-            Vector3 outputVelocity = Vector3.up * (linearSpeed / 4 * Time.fixedDeltaTime * z_input);
+            Vector2 outputVelocity = Vector2.up * (linearSpeed / 2 * Time.fixedDeltaTime * z_input);
             shark.rigidBody.velocity += outputVelocity;
         }
     }
@@ -151,8 +152,8 @@ public class SharkChaseState : SharkBaseState
         shark.animator.SetTrigger("Bite");
         float angle = 75f;
         float bitingRange = distanceAggro + 1.5f;
-        Collider[] colliderList = Physics.OverlapSphere(shark.transform.position, bitingRange, playerMask);
-        foreach (Collider collider in colliderList)
+        Collider2D[] colliderList = Physics2D.OverlapCircleAll(shark.transform.position, bitingRange, playerMask);
+        foreach (Collider2D collider in colliderList)
         {
             if (collider.TryGetComponent(out PlayerCoreSystem coreSystem))
             {

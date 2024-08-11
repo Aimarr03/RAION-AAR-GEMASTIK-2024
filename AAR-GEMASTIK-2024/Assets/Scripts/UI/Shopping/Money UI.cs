@@ -18,6 +18,10 @@ public class MoneyUI : MonoBehaviour
         currentMoney = Int32.Parse(text.text);
         EconomyManager.Instance.UseMoney += Instance_UseMoney;
     }
+    private void OnDisable()
+    {
+        EconomyManager.Instance.UseMoney -= Instance_UseMoney;
+    }
 
     private void Instance_UseMoney(int newMoneyValue)
     {

@@ -15,11 +15,17 @@ public abstract class BaseBullet : MonoBehaviour
     public virtual void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
         transform.rotation = angle;
+        //speed = isOnRightDirection ? speed : -speed;
+        float y_angle = isOnRightDirection ? 0 : 180;
+        Vector3 playerRotation = weaponBase.GetPlayerCoreSystem.transform.eulerAngles;
+        /*Debug.Log(playerRotation);*/
+        transform.rotation = Quaternion.Euler(playerRotation.x, y_angle, playerRotation.z);
         Debug.Log("bullet data has been set up");
+        /*Debug.Log($"Bullet Rotation {transform.eulerAngles}");*/
         canLaunch = true;
     }
     public abstract void Update();
-    public abstract void OnTriggerEnter(Collider other);
+    public abstract void OnTriggerEnter2D(Collider2D other);
     public abstract void OnLaunchBullet();
     public void SetObjectPooling(ObjectPooling parentPool) => this.parentPool = parentPool;
 

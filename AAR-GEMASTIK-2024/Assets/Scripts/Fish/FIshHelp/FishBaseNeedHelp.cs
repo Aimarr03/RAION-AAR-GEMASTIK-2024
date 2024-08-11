@@ -15,7 +15,7 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
     public bool playerIsNull { get => playerCoreSystem == null; }
     public int bounty;
     protected bool hasBeenHelped = false;
-    [SerializeField] protected Collider fishCollider;
+    [SerializeField] protected Collider2D fishCollider;
     protected PlayerCoreSystem playerCoreSystem;
     public event Action OnGettingHelp;
     public event Action OnBeingNoticed;

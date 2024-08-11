@@ -51,13 +51,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         onDisabled = false;
         invunerableDuration = 2f;
         disabledDuration = 0;
-        maxAttempt = 12;
-        if(GameManager.Instance != null)
-        {
-            if (GameManager.Instance.chosenWeaponSO != null) weaponSystem.SetWeaponSO(GameManager.Instance.chosenWeaponSO);
-            if (GameManager.Instance.chosenAbilitySO != null) abilitySystem.SetUpAbilitySO(GameManager.Instance.chosenAbilitySO);
-        }
-        
+        maxAttempt = 12;        
     }
     private void Start()
     {
@@ -123,7 +117,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     {
         isDead = true;
         OnDead?.Invoke();
-        GetComponent<Collider>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
         ExpedictionManager.Instance.InvokeOnLose(type);
         animator.SetBool("Dead", true);
         Debug.Log("Player Dead");
@@ -173,7 +167,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
 
     public void AddSuddenForce(Vector3 direction, float powerForce)
     {
-        moveSystem.AddSuddenForce(direction, powerForce, ForceMode.Impulse); 
+        moveSystem.AddSuddenForce(direction, powerForce, ForceMode2D.Impulse); 
     }
 
     public void OnDisableMove(float moveDuration, int maxAttemptToRecover)

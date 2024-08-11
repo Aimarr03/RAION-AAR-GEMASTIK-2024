@@ -12,9 +12,9 @@ public abstract class Environment_BombBase : MonoBehaviour
     [SerializeField] protected int maxAttemptToRecover;
     [SerializeField] protected AudioClip ExplosionAudio;
     [SerializeField] protected AudioClip AdditionalExplosionAudio;
-    protected virtual void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
+        if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
         {
             OnExplode();
         }

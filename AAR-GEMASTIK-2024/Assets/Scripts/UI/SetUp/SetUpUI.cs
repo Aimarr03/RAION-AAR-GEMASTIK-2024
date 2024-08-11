@@ -125,7 +125,6 @@ public class SetUpUI : BasePreparingPlayerUI
 
     public override IEnumerator OnEnterState()
     {
-        gameObject.SetActive(true);
         transform.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
         AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnDisplay);
         foreach (Transform currentContainer in containerList)
@@ -150,6 +149,5 @@ public class SetUpUI : BasePreparingPlayerUI
         transform.DOScale(0, 0.5f).SetEase(Ease.OutBounce);
         AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnHide);
         yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
     }
 }

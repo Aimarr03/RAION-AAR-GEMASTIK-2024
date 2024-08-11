@@ -16,11 +16,13 @@ public class PauseGameplayUI : MonoBehaviour
     private DefaultInputAction inputAction;
     private bool isPause;
     public static event Action<bool> OnPause;
+    public static event Action<float> OnNavigatePauseUI;
+    public static event Action OnConfirm;
+    public static event Action OnNegate;
     private string nameSceneToLoad;
     private void Awake()
     {
         inputAction = new DefaultInputAction();
-        inputAction.UI.Enable();
         ReallyContainer.gameObject.SetActive(false);
         UI_Guide.gameObject.SetActive(false);
         isPause = false;
@@ -28,25 +30,40 @@ public class PauseGameplayUI : MonoBehaviour
     }
     private void Start()
     {
-        inputAction.UI.Pause.performed += Pause_performed;
+        PlayerInputSystem.InvokePause += PlayerInputSystem_InvokePause;
+        inputAction.Pause_UI.Disable();
+        inputAction.Pause_UI.Navigation.performed += Navigation_performed;
+        inputAction.Pause_UI.Negate.performed += Negate_performed;
+        inputAction.Pause_UI.Confirm.performed += Confirm_performed;
     }
     private void OnDisable()
     {
-        inputAction.UI.Disable();
-        inputAction.UI.Pause.performed -= Pause_performed;
+        PlayerInputSystem.InvokePause -= PlayerInputSystem_InvokePause;
     }
-    private void Pause()
+    private void Confirm_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        
-        isPause = !isPause;
-        if (isPause) PerformedPause();
-        else PerformedResume();
+        OnConfirm?.Invoke();
     }
-    private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+
+    private void Negate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        isPause = !isPause;
-        if (isPause) PerformedPause();
-        else PerformedResume();
+        OnNegate?.Invoke();
+    }
+
+    private void Navigation_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        float readValue = inputAction.Pause_UI.Navigation.ReadValue<float>();
+        Debug.Log("Value on Navigation " + readValue);
+        OnNavigatePauseUI?.Invoke(readValue);
+    }
+    public void Pause()
+    {
+        PlayerInputSystem_InvokePause();
+    }
+    private void PlayerInputSystem_InvokePause()
+    {
+        isPause = true;
+        PerformedPause();
     }
     private async void PerformedPause()
     {
@@ -56,6 +73,12 @@ public class PauseGameplayUI : MonoBehaviour
         await Task.Delay(600);
         OnPause?.Invoke(isPause);
         Time.timeScale = 0;
+        inputAction.Pause_UI.Enable();
+    }
+    public void Resume()
+    {
+        isPause = false;
+        PerformedResume();
     }
     private async void PerformedResume()
     {
@@ -66,23 +89,7 @@ public class PauseGameplayUI : MonoBehaviour
         await Task.Delay(600);
         OnPause?.Invoke(isPause);
     }
-    public void ShowGuide()
-    {
-        UI_Guide.gameObject.SetActive(true);
-        inputAction.UI.Pause.performed -= Pause_performed;
-        inputAction.UI.Pause.performed += UIGuide_performed;
-    }
-    private void UIGuide_performed(UnityEngine.InputSystem.InputAction.CallbackContext input)
-    {
-        UI_Guide.gameObject.SetActive(false);
-        inputAction.UI.Pause.performed += Pause_performed;
-        inputAction.UI.Pause.performed -= UIGuide_performed;
-    }
-    public void OnResume()
-    {
-        Pause();
-        AudioManager.Instance.PlaySFX(closeup);
-    }
+    
     public void OnSetToLoadScene(string sceneName)
     {
         AudioManager.Instance.PlaySFX(interractable);
@@ -100,5 +107,15 @@ public class PauseGameplayUI : MonoBehaviour
             return;
         }
         GameManager.Instance.LoadScene(nameSceneToLoad);
+    }
+    public void ShowGuide()
+    {
+        UI_Guide.gameObject.SetActive(true);
+        inputAction.UI.ResumeFromPause.performed += UIGuide_performed;
+    }
+    private void UIGuide_performed(UnityEngine.InputSystem.InputAction.CallbackContext input)
+    {
+        UI_Guide.gameObject.SetActive(false);
+        inputAction.UI.ResumeFromPause.performed -= UIGuide_performed;
     }
 }

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalData:
     name: Weight System
-    description: For Bringin Weight DUUH
+    description: Bagian ini fokus pada berapa banyak berat yang bisa ditampung oleh
+      kapal. Tentunya bilamana tampungan melebihi kapasitas akan memperlambat kapal
+      selam bergerak.
     icon: {fileID: 21300000, guid: b65338a61db09fe4fb3b1a5ee075847e, type: 3}
     level: 1
     buyPrice: 0
@@ -22,5 +24,5 @@ MonoBehaviour:
     unlocked: 1
     itemType: 0
   maxValue: 10
-  multiplierValue: 0.2
+  multiplierValue: 0.175
   sustainabilityType: 3

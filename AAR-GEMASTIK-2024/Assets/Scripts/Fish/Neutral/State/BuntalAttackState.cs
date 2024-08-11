@@ -49,8 +49,8 @@ public class BuntalAttackState : FishBaseState
     }
     private void OnTriggerAttacking()
     {
-        Collider[] colliders = Physics.OverlapSphere(fish.transform.position, radiusTrigger, playerMask);
-        foreach(Collider collider in colliders)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(fish.transform.position, radiusTrigger, playerMask);
+        foreach(Collider2D collider in colliders)
         {
             if(collider.TryGetComponent(out IDamagable damagable))
             {

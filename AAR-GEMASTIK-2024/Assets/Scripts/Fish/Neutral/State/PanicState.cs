@@ -33,7 +33,7 @@ public class PanicState : FishBaseState
         Color oldColorValue = fish.spriteRenderer.color;
         Color newColorValue = new Color(oldColorValue.r, oldColorValue.g, oldColorValue.b, 255);
         fish.spriteRenderer.color = newColorValue;
-        fish.sphereCollider.enabled = true;
+        fish.fishCollider.enabled = true;
         fish.UI.gameObject.SetActive(true);
     }
 
@@ -43,7 +43,7 @@ public class PanicState : FishBaseState
     }
     private void OnDetectPlayer()
     {
-        Collider[] collider = Physics.OverlapSphere(fish.transform.position, 16f, playerMask);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(fish.transform.position, 16f, playerMask);
         if(collider.Length > 0 )
         {
             collider[0].TryGetComponent(out PlayerCoreSystem coreSystem);
@@ -81,7 +81,7 @@ public class PanicState : FishBaseState
         }
         newColorvalue = new Color(oldColorValue.r, oldColorValue.g, oldColorValue.b, 0);
         fish.spriteRenderer.color = newColorvalue;
-        fish.sphereCollider.enabled = false;
+        fish.fishCollider.enabled = false;
         fish.UI.gameObject.SetActive(false);
         onHidingState = true;
     }

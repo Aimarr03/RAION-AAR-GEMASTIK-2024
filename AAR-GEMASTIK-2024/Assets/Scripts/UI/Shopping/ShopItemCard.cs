@@ -30,6 +30,7 @@ public class ShopItemCard : MonoBehaviour
     private void Start()
     {
         DetailedCardView.OnUpgradedSomething += UpdateData;
+        DetailedCardView.OnBoughtSomething += UpdateData;
         this.thisButton.onClick.AddListener(SoundEffectClick);
         RectTransform rect = GetComponent<RectTransform>();
         float localY = rect.anchoredPosition.y;
@@ -37,6 +38,7 @@ public class ShopItemCard : MonoBehaviour
     private void OnDestroy()
     {
         DetailedCardView.OnUpgradedSomething -= UpdateData;
+        DetailedCardView.OnBoughtSomething -= UpdateData;
         GetComponent<RectTransform>().DOKill();
     }
 

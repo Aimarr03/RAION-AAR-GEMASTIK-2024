@@ -22,7 +22,7 @@ public class TrashInterractable : TrashBase, IInterractable
     }
 
 
-    protected override void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
         
     }

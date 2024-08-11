@@ -22,11 +22,11 @@ public class PauseShoppingUI : MonoBehaviour
     private void Start()
     {
         PauseContainer.DOAnchorPosY(1080, 0.3f);
-        playerInput.UI.Pause.performed += Pause_performed;
+        playerInput.UI.ResumeFromPause.performed += Pause_performed;
     }
     private void OnDisable()
     {
-        playerInput.UI.Pause.performed -= Pause_performed;
+        playerInput.UI.ResumeFromPause.performed -= Pause_performed;
     }
     private void Pause()
     {

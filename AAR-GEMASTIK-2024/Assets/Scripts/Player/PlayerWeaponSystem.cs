@@ -20,7 +20,7 @@ public class PlayerWeaponSystem : MonoBehaviour
             SettingUp();
             return;
         }
-        SettingUp();
+        //SettingUp();
         /*if(weaponSo != null && baseWeapon == null)
         {
             SettingUp();

@@ -9,8 +9,8 @@ public abstract class FishNeutralBase : MonoBehaviour, IDamagable
 {
     public RectTransform UI;
     public LayerMask playerMask;
-    [SerializeField] public Rigidbody rigidBody;
-    [SerializeField] public Collider sphereCollider;
+    [SerializeField] public Rigidbody2D rigidBody;
+    [SerializeField] public Collider2D fishCollider;
     [SerializeField] public SpriteRenderer spriteRenderer;
     [SerializeField] public Animator animator;
     protected FishNeutralStateMachine stateMachine;
@@ -23,8 +23,8 @@ public abstract class FishNeutralBase : MonoBehaviour, IDamagable
     }
     protected virtual void Awake()
     {
-        //rigidBody = GetComponent<Rigidbody>();
-        //sphereCollider = GetComponent<SphereCollider>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        fishCollider = GetComponent<Collider2D>();
         stateMachine = new FishNeutralStateMachine(this);
         isPause = false;
     }
@@ -45,6 +45,6 @@ public abstract class FishNeutralBase : MonoBehaviour, IDamagable
     public abstract void OnDisableMove(float moveDuration, int maxAttemptToRecover);
     protected void Instance_OnLose(SustainabilityType obj)
     {
-           isPause = true;
+        isPause = true;
     }
 }

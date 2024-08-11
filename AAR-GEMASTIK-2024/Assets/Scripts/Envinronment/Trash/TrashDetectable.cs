@@ -22,8 +22,7 @@ public class TrashDetectable : TrashBase, IDetectable
         Vector3 direction = (playerCoreSystem.transform.position - transform.position).normalized;
         transform.position += direction * movementSpeed * Time.deltaTime;
     }
-
-    protected override void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.TryGetComponent(out PlayerCoreSystem playerCoreSystem))
         {
