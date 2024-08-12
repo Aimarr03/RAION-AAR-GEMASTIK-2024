@@ -19,6 +19,7 @@ public class PauseGameplayUI : MonoBehaviour
     public static event Action<float> OnNavigatePauseUI;
     public static event Action OnConfirm;
     public static event Action OnNegate;
+    public static event Action<bool> OnShowConfirmation;
     private string nameSceneToLoad;
     private void Awake()
     {
@@ -94,9 +95,14 @@ public class PauseGameplayUI : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(interractable);
         nameSceneToLoad = sceneName;
+        OnShowConfirmation?.Invoke(true);
         ReallyContainer.gameObject.SetActive(true);
     }
-    public void OnExitReallyContainer() => ReallyContainer.gameObject.SetActive(false);
+    public void OnExitReallyContainer()
+    {
+        OnShowConfirmation?.Invoke(false);
+        ReallyContainer.gameObject.SetActive(false);
+    }
     public void OnLoadScne()
     {
         AudioManager.Instance.PlaySFX(interractable);
@@ -111,11 +117,13 @@ public class PauseGameplayUI : MonoBehaviour
     public void ShowGuide()
     {
         UI_Guide.gameObject.SetActive(true);
-        inputAction.UI.ResumeFromPause.performed += UIGuide_performed;
+        inputAction.Pause_UI.Negate.performed -= Negate_performed;
+        inputAction.Pause_UI.Negate.performed += UIGuide_performed;
     }
     private void UIGuide_performed(UnityEngine.InputSystem.InputAction.CallbackContext input)
     {
         UI_Guide.gameObject.SetActive(false);
-        inputAction.UI.ResumeFromPause.performed -= UIGuide_performed;
+        inputAction.Pause_UI.Negate.performed += Negate_performed;
+        inputAction.Pause_UI.Negate.performed -= UIGuide_performed;
     }
 }

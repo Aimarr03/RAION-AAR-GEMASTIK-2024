@@ -17,6 +17,10 @@ public class GameplayUIVisualHelperButton : MonoBehaviour
     {
         image = GetComponent<Image>();
     }
+    private void OnEnable()
+    {
+        image = GetComponent<Image>();
+    }
     public void OnFoccusedButton()
     {
         image.color = FocusedColor;

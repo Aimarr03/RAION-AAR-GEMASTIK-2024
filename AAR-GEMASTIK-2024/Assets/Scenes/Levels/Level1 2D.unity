@@ -6972,6 +6972,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1377017553}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &254244558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 468433890346907986, guid: f5d111c1e772e934fbe48ba8010e6bf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 950987242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &254244563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254244558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseUIScript: {fileID: 0}
+  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
+  FocusedColor: {r: 0.3529412, g: 0.46666667, b: 1, a: 1}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 118988427}
+        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
+        m_MethodName: OnExitReallyContainer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &260182718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7570,7 +7606,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Quit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &350482910 stripped
@@ -26719,6 +26755,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1304229726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &871502596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8738641219301455872, guid: f5d111c1e772e934fbe48ba8010e6bf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 950987242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &871502601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871502596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseUIScript: {fileID: 0}
+  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
+  FocusedColor: {r: 0.3529412, g: 0.46666667, b: 1, a: 1}
+  OnPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 118988427}
+        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
+        m_MethodName: OnLoadScne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &871563162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27745,6 +27817,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 341621831}
+    - targetCorrespondingSourceObject: {fileID: 8738641219301455872, guid: f5d111c1e772e934fbe48ba8010e6bf9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 871502601}
+    - targetCorrespondingSourceObject: {fileID: 468433890346907986, guid: f5d111c1e772e934fbe48ba8010e6bf9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 254244563}
   m_SourcePrefab: {fileID: 100100000, guid: f5d111c1e772e934fbe48ba8010e6bf9, type: 3}
 --- !u!1001 &951471086
 PrefabInstance:
@@ -53481,11 +53561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameplayUI_Script: {fileID: 118988427}
-  buttonList:
-  - {fileID: 804205868}
-  - {fileID: 891897074}
-  - {fileID: 275422611}
-  - {fileID: 341621831}
+  buttonGameplayUI_List: []
+  buttonConfirmationUI_List: []
 --- !u!1001 &1902734849
 PrefabInstance:
   m_ObjectHideFlags: 0

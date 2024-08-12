@@ -106,7 +106,7 @@ public class SharkIdleHorizontalState : SharkBaseState
     }
     private IEnumerator OnRotatingYAxis()
     {
-        shark.animator.SetBool("IsMoving", true);
+        //shark.animator.SetBool("IsMoving", true);
         float targetY = GoLeft ? 0 : 180;
         Quaternion target = Quaternion.Euler(0, targetY, 0);
         while (Quaternion.Angle(shark.transform.rotation, target) > 1f)
