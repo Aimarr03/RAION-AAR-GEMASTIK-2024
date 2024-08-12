@@ -365,7 +365,29 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""282729dd-9a3d-41d2-b144-5985bc6b8929"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""DefaultControl"",
+                    ""action"": ""Next Page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4eb1b7eb-fa53-453e-8233-cd1cf6aa693c"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad  Controller"",
+                    ""action"": ""Next Page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3888b0da-bc2a-491f-8cf0-85366807d204"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad  Controller"",
@@ -376,7 +398,29 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c9c1381d-e68c-4f1f-a84d-8804604e8185"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""DefaultControl"",
+                    ""action"": ""Previous page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0012cc5-c4ba-47ab-8ee8-89e55e128b51"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad  Controller"",
+                    ""action"": ""Previous page"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06277752-7e6c-4733-923b-a20a35e9e599"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad  Controller"",
@@ -387,7 +431,29 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bc0a33a6-fa18-4d0a-afaa-4b0564ddce34"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""DefaultControl"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c483323-72ea-4c3a-99de-af68d4bed9a3"",
                     ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad  Controller"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db1cbda1-fdc2-4e2c-8a94-1d4220d24221"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad  Controller"",

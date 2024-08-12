@@ -6059,18 +6059,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 118882237}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &118988427 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2828828236123771605, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eafc895c465e00489b5057e97ae5ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &132018062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860122235345554801, guid: 685495c99c593e64d9442a7b299fe9d0,
@@ -6972,42 +6960,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1377017553}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &254244558 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 468433890346907986, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &254244563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254244558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUIScript: {fileID: 0}
-  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
-  FocusedColor: {r: 0.3529412, g: 0.46666667, b: 1, a: 1}
-  OnPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 118988427}
-        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
-        m_MethodName: OnExitReallyContainer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &260182718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7087,42 +7039,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 260182718}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &275422606 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1363662677143688836, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &275422611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275422606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUIScript: {fileID: 118988427}
-  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
-  FocusedColor: {r: 0.35283017, g: 0.46561873, b: 1, a: 1}
-  OnPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 118988427}
-        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
-        m_MethodName: OnSetToLoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Main_Menu
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &282727801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860122235345554801, guid: 685495c99c593e64d9442a7b299fe9d0,
@@ -7573,42 +7489,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1194774136}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &341621826 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6429987847849699810, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &341621831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341621826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUIScript: {fileID: 118988427}
-  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
-  FocusedColor: {r: 0.35283017, g: 0.46561873, b: 1, a: 1}
-  OnPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 118988427}
-        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
-        m_MethodName: OnSetToLoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Quit
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &350482910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860122235345554801, guid: 685495c99c593e64d9442a7b299fe9d0,
@@ -26104,42 +25984,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 428355248}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &804205863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4113201754817026883, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &804205868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804205863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUIScript: {fileID: 118988427}
-  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
-  FocusedColor: {r: 0.35283017, g: 0.46561873, b: 1, a: 1}
-  OnPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 118988427}
-        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
-        m_MethodName: Resume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &808365656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 860122235345554801, guid: 685495c99c593e64d9442a7b299fe9d0,
@@ -26755,42 +26599,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1304229726}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &871502596 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8738641219301455872, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &871502601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871502596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUIScript: {fileID: 0}
-  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
-  FocusedColor: {r: 0.3529412, g: 0.46666667, b: 1, a: 1}
-  OnPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 118988427}
-        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
-        m_MethodName: OnLoadScne
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &871563162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26864,42 +26672,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6784c5ce7462b6f41b3aa02fd0bac9dc, type: 3}
---- !u!1 &891897069 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5213324241193980122, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &891897074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891897069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af18f4ea13388b841826486dae7ee8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUIScript: {fileID: 118988427}
-  notFocusedColor: {r: 0.003921569, g: 0.34117648, b: 0.94509804, a: 1}
-  FocusedColor: {r: 0.35283017, g: 0.46561873, b: 1, a: 1}
-  OnPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 118988427}
-        m_TargetAssemblyTypeName: PauseGameplayUI, Assembly-CSharp
-        m_MethodName: ShowGuide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &905167806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27328,46 +27100,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayUI
       objectReference: {fileID: 0}
-    - target: {fileID: 1765243389140094085, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1765243389140094085, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1765243389140094085, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1765243389140094085, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862992798359604781, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862992798359604781, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862992798359604781, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862992798359604781, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2202137634983470028, guid: f5d111c1e772e934fbe48ba8010e6bf9,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -27608,26 +27340,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039563371981345225, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039563371981345225, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039563371981345225, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039563371981345225, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6575801318993445805, guid: f5d111c1e772e934fbe48ba8010e6bf9,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -27649,26 +27361,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6575801318993445805, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865531472468917961, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865531472468917961, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865531472468917961, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6865531472468917961, guid: f5d111c1e772e934fbe48ba8010e6bf9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -27722,72 +27414,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329680224601899291, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_Colors.m_DisabledColor.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8263472164069430829, guid: f5d111c1e772e934fbe48ba8010e6bf9,
         type: 3}
       propertyPath: playerCoreSystem
       value: 
       objectReference: {fileID: 1171809001}
-    - target: {fileID: 8827759818814253884, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8827759818814253884, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8827759818814253884, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8827759818814253884, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9050733539103658572, guid: f5d111c1e772e934fbe48ba8010e6bf9,
         type: 3}
       propertyPath: abilitySystem
@@ -27796,35 +27428,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7091633749215638573, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1902053753}
-    - targetCorrespondingSourceObject: {fileID: 4113201754817026883, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 804205868}
-    - targetCorrespondingSourceObject: {fileID: 5213324241193980122, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 891897074}
-    - targetCorrespondingSourceObject: {fileID: 1363662677143688836, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 275422611}
-    - targetCorrespondingSourceObject: {fileID: 6429987847849699810, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 341621831}
-    - targetCorrespondingSourceObject: {fileID: 8738641219301455872, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 871502601}
-    - targetCorrespondingSourceObject: {fileID: 468433890346907986, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 254244563}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5d111c1e772e934fbe48ba8010e6bf9, type: 3}
 --- !u!1001 &951471086
 PrefabInstance:
@@ -53542,27 +53146,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895498810}
   m_CullTransparentMesh: 1
---- !u!1 &1902053749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7091633749215638573, guid: f5d111c1e772e934fbe48ba8010e6bf9,
-    type: 3}
-  m_PrefabInstance: {fileID: 950987242}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1902053753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902053749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20bd08cd299e7574ba37e608910e1ab3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameplayUI_Script: {fileID: 118988427}
-  buttonGameplayUI_List: []
-  buttonConfirmationUI_List: []
 --- !u!1001 &1902734849
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,22 @@ public class FlowMainMenuGameManager : MonoBehaviour
     public Button loadButton;
     public Transform CreditPanel;
 
+    private List<MainMenuButtonUI> mainMenuButtonList;
+    private int currentIndex = -1;
+    private int maxIndex = 4;
+    private DefaultInputAction inputSystem;
+    private MainMenuButtonUI currentMainMenuButton;
+    private void Awake()
+    {
+        inputSystem = new DefaultInputAction();
+        inputSystem.Pause_UI.Enable();
+        mainMenuButtonList = new List<MainMenuButtonUI>();
+        maxIndex = buttonList.Count;
+        foreach (var button in buttonList)
+        {
+            mainMenuButtonList.Add(button.gameObject.GetComponent<MainMenuButtonUI>());
+        }
+    }
     public void Start()
     {
         OnStartLoading();
@@ -28,6 +44,33 @@ public class FlowMainMenuGameManager : MonoBehaviour
             loadButton.interactable = false;
         }
         CreditPanel.gameObject.SetActive(false);
+
+        inputSystem.Pause_UI.Navigation.performed += Navigation_performed;
+        inputSystem.Pause_UI.Confirm.performed += Confirm_performed;
+    }
+    private void OnDisable()
+    {
+        inputSystem.Pause_UI.Navigation.performed -= Navigation_performed;
+        inputSystem.Pause_UI.Confirm.performed -= Confirm_performed;
+    }
+    private void Confirm_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        currentMainMenuButton?.GetComponent<Button>().onClick.Invoke();
+    }
+
+    private void Navigation_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        int input = (int)inputSystem.Pause_UI.Navigation.ReadValue<float>();
+        currentIndex += input;
+        if (currentIndex >= maxIndex) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = maxIndex - 1;
+        OnChangeNewFocusedButton(mainMenuButtonList[currentIndex]);
+    }
+    public void OnChangeNewFocusedButton(MainMenuButtonUI newMainMenuButton)
+    {
+        currentMainMenuButton?.OnNotFocused();
+        currentMainMenuButton = newMainMenuButton;
+        currentMainMenuButton?.OnFocused();
     }
     private void OnStartLoading()
     {
