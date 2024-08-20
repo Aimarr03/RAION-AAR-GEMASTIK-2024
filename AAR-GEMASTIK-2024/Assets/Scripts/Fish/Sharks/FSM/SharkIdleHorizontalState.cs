@@ -124,7 +124,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         targetPos = originalPos;
         shark.StopAllCoroutines();
         idleCoroutine = shark.StartCoroutine(OnIdlingWithDelay());
-        Debug.Log(targetPos);
+        //Debug.Log(targetPos);
     }
     private void OnTryToDetect()
     {

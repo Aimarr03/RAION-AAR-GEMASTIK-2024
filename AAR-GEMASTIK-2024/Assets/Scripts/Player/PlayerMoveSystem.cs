@@ -20,7 +20,6 @@ public class PlayerMoveSystem : MonoBehaviour
     [SerializeField] private float minHorizontalMovement;
     private float currentDistanceUse;
 
-    private bool isRotating;
     private bool onRightDirection;
     private bool canBeUsed;
     private bool isSlowed;
@@ -109,8 +108,6 @@ public class PlayerMoveSystem : MonoBehaviour
         HorizontalMove();
         VerticalMove();
         CheckMovementStatus();
-        FlipSprite();
-        
     }
     private void InputHandler()
     {
@@ -127,56 +124,52 @@ public class PlayerMoveSystem : MonoBehaviour
             currentDistanceUse = 0;
             OnUseOneEnergy?.Invoke();
         }
-
         if (playerRigid.velocity.x < 0 && onRightDirection && currentInput.x < 0)
         {
-            isRotating = true;
             onRightDirection = false;
-            targetRotate = Quaternion.Euler(0, 180, transform.eulerAngles.z);
+            targetRotate = Quaternion.Euler(0, 180, transform.localRotation.eulerAngles.z);
         }
         else if (playerRigid.velocity.x > 0 && !onRightDirection && currentInput.x > 0)
         {
-            isRotating = true;
             onRightDirection = true;
-            targetRotate = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+            targetRotate = Quaternion.Euler(0, 0, transform.localRotation.eulerAngles.z);
         }
+        if(playerRigid.velocity.x < 1.5f && playerRigid.velocity.x > -1.5f) transform.rotation = targetRotate;
     }
     #region HorizontalLogic
     private void HorizontalMove()
     {
-        if (isRotating) return;
         Vector2 input = currentInput;
-        InvokeHorizontalBrake(input);
+        if(InvokeHorizontalBrake(input)) return;
         input.y = 0;
-        //Debug.Log(input);
-        input = onRightDirection ? input : -input;
-        Vector2 outputVelocity = transform.TransformDirection(Vector3.right * (linearSpeed * Time.fixedDeltaTime * input));
+        Vector2 outputVelocity = linearSpeed * Time.fixedDeltaTime * input;
         if (isSlowed)
         {
             outputVelocity = SlowAction(outputVelocity, slowedMultiplier);
         }
+        //Debug.Log("Output Velocity "+outputVelocity);
         playerRigid.velocity += outputVelocity;
-        playerRigid.velocity = Vector3.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
+        playerRigid.velocity = Vector2.ClampMagnitude(playerRigid.velocity, maxLinearSpeed);
         OnSettingAudioVolume();
         //transform.Translate(input * linearSpeed * Time.fixedDeltaTime);
         onMoving?.Invoke(playerRigid.velocity);
     }
-    private void InvokeHorizontalBrake(Vector2 input)
+    private bool InvokeHorizontalBrake(Vector2 input)
     {
-        if (playerRigid.velocity.x < linearSpeed && playerRigid.velocity.x > -linearSpeed) return;
-        if (input.x == 0) return;
+        if (playerRigid.velocity.x < linearSpeed && playerRigid.velocity.x > -linearSpeed) return false;
+        if (input.x == 0) return false;
         bool checkInput = (input.x > 0 && playerRigid.velocity.x < 0) || (input.x < 0 && playerRigid.velocity.x > 0);
         if (checkInput)
         {
             Debug.Log("On Brake!");
             playerRigid.velocity /= 1.5f;
         }
+        return true;
     }
     #endregion
     #region VerticalLogic
     private void VerticalMove()
     {
-        if(isRotating) return;
         float z_input = currentInput.y;
         if(z_input != 0)
         {
@@ -224,17 +217,6 @@ public class PlayerMoveSystem : MonoBehaviour
         }
     }
     #endregion
-    private void FlipSprite()
-    {
-        if(!isRotating) return;
-        playerRigid.velocity = Vector3.zero;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotate, rotatingSpeedOnYAxis);
-        if(Quaternion.Angle(transform.rotation, targetRotate) < 5f)
-        {
-            transform.rotation = targetRotate;
-            isRotating = false;
-        }
-    }
     public void AddSuddenForce(float force) => playerRigid.AddForce(NonZeroValueInput * force, ForceMode2D.Impulse);
     public void AddSuddenForce(Vector3 direction, float force) => playerRigid.AddForce(direction * force, ForceMode2D.Impulse);
 

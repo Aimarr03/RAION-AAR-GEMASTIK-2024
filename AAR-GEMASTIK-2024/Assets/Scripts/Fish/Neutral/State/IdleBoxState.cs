@@ -70,7 +70,7 @@ public class IdleBoxState : FishBaseState
         yield return new WaitForSeconds(1.8f);
         while (true)
         {
-            fish.animator.SetBool("IsMoving", true);
+            //fish.animator.SetBool("IsMoving", true);
             while (Vector3.Distance(targetPosition, fish.transform.position) > 0.05f)
             {
                 fish.transform.position = Vector3.MoveTowards(fish.transform.position, targetPosition, speed * Time.deltaTime);

@@ -213,11 +213,55 @@
                 },
                 {
                     "name": "",
+                    "id": "650a70cb-25f0-49dc-8786-ef5d63eb7f40",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
+                    "action": "InvokeWeaponUsage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77240463-338f-4c41-817f-d25dd16b0c92",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
+                    "action": "InvokeWeaponUsage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "59c8d5e0-e45d-4b58-9eb2-a59ec3fe8146",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad  Controller",
+                    "action": "InvokeAbilityUsage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4228f75-0608-4af7-bdd0-19d49c6b7307",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
+                    "action": "InvokeAbilityUsage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93c24e22-9af2-41f1-aca1-942790047d72",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
                     "action": "InvokeAbilityUsage",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -235,11 +279,33 @@
                 },
                 {
                     "name": "",
+                    "id": "dd13e4f8-9778-4a00-ad54-8dae34c4b9d9",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
+                    "action": "InvokeInterract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6db98813-6e9d-470f-9ace-4b93576c561c",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad  Controller",
+                    "action": "InvokeFlashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b44dd65c-d02b-4e7d-9f42-05c636e54edb",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
                     "action": "InvokeFlashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -257,11 +323,33 @@
                 },
                 {
                     "name": "",
+                    "id": "c7c9f55a-728d-4bb5-bbd7-a9043ce0e68b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
+                    "action": "InvokeSwitchItemFocus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e24aa330-e6e1-46ee-84dd-f677c802d60d",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad  Controller",
+                    "action": "InvokeUseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22cc99fc-b48d-4b5d-8a92-befd46ea5dba",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DefaultControl",
                     "action": "InvokeUseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
