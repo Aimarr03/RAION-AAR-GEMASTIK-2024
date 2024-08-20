@@ -13,7 +13,7 @@ public class AirReplenisher : MonoBehaviour
     public AudioClip OnEnterOcean;
 
     public static event Action<bool> OnResurface;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.TryGetComponent(out PlayerCoreSystem coreSystem))
         {
@@ -26,7 +26,7 @@ public class AirReplenisher : MonoBehaviour
             OnResurface?.Invoke(true);
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.TryGetComponent(out PlayerCoreSystem coreSystem))
         {

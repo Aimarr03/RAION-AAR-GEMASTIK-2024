@@ -170,19 +170,12 @@ public class PlayerMoveSystem : MonoBehaviour
     #region VerticalLogic
     private void VerticalMove()
     {
-        float z_input = currentInput.y;
-        if(z_input != 0)
+        float y_input = currentInput.y;
+        if(y_input != 0)
         {
-            InvokeVerticalBrake(new Vector2(0, z_input));
-            if (playerRigid.velocity.x < minHorizontalMovement && playerRigid.velocity.x > -minHorizontalMovement) return;
-            Vector2 outputVelocity = Vector3.up * ((linearSpeed * 0.66f) * Time.fixedDeltaTime * z_input);
+            InvokeVerticalBrake(new Vector2(0, y_input));
+            Vector2 outputVelocity = Vector3.up * linearSpeed * Time.fixedDeltaTime * y_input;
             playerRigid.velocity += outputVelocity;
-            OnRotatingOnZAxis(z_input);
-        }
-        else
-        {
-            Quaternion targetRotation = onRightDirection ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotatingSpeedOnZAxis);
         }
     }
     private void OnRotatingOnZAxis(float zInput)

@@ -23,9 +23,10 @@ public class BaseDataPlayerUI : MonoBehaviour
                 break;
             }
         }
-        playerIcon.DORotate(new Vector3(0, 360, 0), 7.6f, RotateMode.WorldAxisAdd)
-            .SetLoops(-1, LoopType.Restart)
-            .SetEase(Ease.Linear);
+        playerIcon
+            .DORotate(new Vector3(0, 0, 30), 3.15f)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutSine);
     }
 
     private void PreparingUIManager_OnChangeUI(bool isSetUpUI)
