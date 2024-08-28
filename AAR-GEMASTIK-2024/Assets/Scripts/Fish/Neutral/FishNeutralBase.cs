@@ -38,13 +38,21 @@ public abstract class FishNeutralBase : MonoBehaviour, IDamagable
     {
         stateMachine?.OnDraw();
     }
-    public abstract void TakeDamage(int damage);
+    public virtual void TakeDamage(int damage)
+    {
+        ExpedictionManager.Instance.InvokeOnLose("Kau melanggar <b>KESEPAKATAN KITA</b>, merenggut nyawa makhluk hidup air, bahkan makhluk itu " +
+            "<color=\"red\"><b>TIDAK MELAKUKAN APA-APA KEPADA MU!</b></color>");
+    }
 
     public abstract void AddSuddenForce(Vector3 directiom, float forcePower);
 
     public abstract void OnDisableMove(float moveDuration, int maxAttemptToRecover);
-    protected void Instance_OnLose(SustainabilityType obj)
+    protected void Instance_OnLose(string obj)
     {
         isPause = true;
+    }
+    public IEnumerator GetSlowed(float duration, float multilpier)
+    {
+        yield return null;
     }
 }

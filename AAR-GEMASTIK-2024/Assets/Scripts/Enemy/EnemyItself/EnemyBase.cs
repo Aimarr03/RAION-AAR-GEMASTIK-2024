@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -131,5 +132,10 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable, IInterractable, IDa
             Transform currentChild = transform.GetChild(index);
             currentChild.gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator GetSlowed(float duration, float multilpier)
+    {
+        throw new NotImplementedException();
     }
 }

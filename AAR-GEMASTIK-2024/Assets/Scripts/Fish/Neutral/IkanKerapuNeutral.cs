@@ -29,12 +29,6 @@ public class IkanKerapuNeutral : FishNeutralBase
     {
         base.OnDrawGizmos();
     }
-
-    public override void TakeDamage(int damage)
-    {
-        
-    }
-
     public override void Update()
     {
         base.Update();

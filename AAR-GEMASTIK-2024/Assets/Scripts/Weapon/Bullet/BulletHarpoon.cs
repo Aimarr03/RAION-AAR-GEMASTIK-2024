@@ -22,7 +22,6 @@ public class BulletHarpoon : BaseBullet
     {
         base.SetUpBullet(isOnRightDirection, angle);
         speed = weaponHarpoon.GetMultiplierSpeed(level);
-        Debug.Log(speed);
         TimeToLiveBullet();
     }
     public override void Update()
@@ -38,8 +37,11 @@ public class BulletHarpoon : BaseBullet
             TimeToLive -= Time.deltaTime;
             await Task.Yield();
         }
-        Debug.Log("Bullet exceed time to live");
-        LoadToPool();
+        if(weaponBase != null)
+        {
+            Debug.Log("Bullet exceed time to live");
+            LoadToPool();
+        }
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +57,7 @@ public class BulletHarpoon : BaseBullet
                 if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
                 {
                     damagableUnit.TakeDamage(weaponHarpoon.GetMultiplierDamage(level));
+                    damagableUnit.GetSlowed(weaponHarpoon.GetMultiplierSlowDuration(level), weaponHarpoon.GetMultiplierSlow(level));
                     AudioManager.Instance?.PlaySFX(OnHit);
                 }
                 break;

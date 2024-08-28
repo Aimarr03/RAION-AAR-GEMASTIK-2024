@@ -11,7 +11,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     public event Action<bool, PlayerCoreSystem> OnDoneExpediction;
     public event Action<float> OnCollectedTrash;
     public event Action<IDelivarable> OnCaughtFishDelivarable;
-    public event Action<SustainabilityType> OnLose;
+    public event Action<string> OnLose;
     private bool isLosing;
     private PlayerCoreSystem _playerCoreSystem;
     
@@ -122,10 +122,10 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
             }
         }
     }
-    public void InvokeOnLose(SustainabilityType type)
+    public void InvokeOnLose(string deskripsi)
     {
         isLosing = true;
-        OnLose?.Invoke(type);
+        OnLose?.Invoke(deskripsi);
     }
     public bool IsLosing() => isLosing;
 }

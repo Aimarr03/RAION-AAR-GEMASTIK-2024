@@ -67,7 +67,7 @@ public class AudioContainer : MonoBehaviour
     
 
     
-    private void Instance_OnLose(SustainabilityType obj)
+    private void Instance_OnLose(string obj)
     {
         AudioManager.Instance.StartNewMusic(gameOverBGM, 1f, 2f);
     }

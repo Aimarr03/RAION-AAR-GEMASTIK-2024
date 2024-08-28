@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Schema;
+using Unity.VisualScripting;
 using UnityEngine;
 public enum ChangeState
 {
@@ -48,7 +49,9 @@ public abstract class _BaseSustainabilitySystem : IDataPersistance
     protected float maxValue;
     protected SustainabilityType type;
     public event Action<SustainabilityData> OnChangeValue;
-
+    string healthProblem = "Kapal Selam tidak kuat lagi bertahan dari serangan luar :<";
+    string energyProblem = "Kapal Selam kehabisan energi untuk bergerak";
+    string oxygenProblem = "Pengendara tidak bisa bernafas karena kehabisan oksigen di dalam kapal selam";
     public _BaseSustainabilitySystem(PlayerCoreSystem player, float maxValue, SustainabilityType type)
     {
         this.player = player;
@@ -61,7 +64,20 @@ public abstract class _BaseSustainabilitySystem : IDataPersistance
         currentValue = Mathf.Clamp(currentValue - value, 0, maxValue);
         if (currentValue == 0)
         {
-            player.SetDead(type);
+            string description = "";
+            switch (type)
+            {
+                case SustainabilityType.Health:
+                    description = healthProblem;
+                    break;
+                case SustainabilityType.Energy:
+                    description = energyProblem;
+                    break;
+                case SustainabilityType.Oxygen:
+                    description = oxygenProblem;
+                    break;
+            }
+            player.SetDead(description);
         }
         else
         {

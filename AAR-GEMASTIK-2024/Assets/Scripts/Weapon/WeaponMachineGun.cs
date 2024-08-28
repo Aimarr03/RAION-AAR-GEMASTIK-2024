@@ -14,8 +14,11 @@ public class WeaponMachineGun : WeaponBase
     [Header("Base Data")]
     [SerializeField] private float intervalBetweenAttack = 0.2f;
     [SerializeField] private float baseMaxDurationToPrepare = 1.3f;
-    [SerializeField] private float baseDamage = 18;
+    [SerializeField] private float baseDamage = 12;
     [SerializeField] private int maxBullet = 7;
+    [SerializeField] private float baseSlow = 0.12f;
+    [SerializeField] private float slowDuration = 1.75f;
+    [SerializeField] private float stunDuration = 1.5f;
 
     public int GetMultiplierDamage(int level)
     {
@@ -36,6 +39,21 @@ public class WeaponMachineGun : WeaponBase
     {
         float totalCooldown = interval - ((level - 1) * (interval * 0.2f));
         return (float)totalCooldown;
+    }
+    public float GetMultiplierSlow(int level)
+    {
+        float totalSlow = baseSlow + ((level - 1) * 0.09f);
+        return totalSlow;
+    }
+    public float GetMultiplierSlowDuration(int level)
+    {
+        float totalSlowDuration = slowDuration + ((level - 1) * 0.15f);
+        return totalSlowDuration;
+    }
+    public float GetMultilperStunDuration(int level)
+    {
+        float totalStunDuration = stunDuration + ((level - 1) * 0.1f);
+        return totalStunDuration;
     }
     private void OnEnable()
     {
@@ -126,10 +144,13 @@ public class WeaponMachineGun : WeaponBase
     {
         return new List<UpgradeStats>()
         {
-            new UpgradeStats("Damage", GetMultiplierDamage(level).ToString(), GetMultiplierDamage(level+1).ToString()),
-            new UpgradeStats("Duration To Prepare", GetMultiplierMaxDurationToPrepare(level).ToString(),GetMultiplierMaxDurationToPrepare(level + 1).ToString()),
-            new UpgradeStats("Cooldown", GetMultiplierInterval(level).ToString(),GetMultiplierInterval(level+1).ToString()),
-            new UpgradeStats("Max Bullets", GetMultiplierMaxBullet(level).ToString(),GetMultiplierMaxBullet(level+1).ToString())
+            new UpgradeStats("Damage", GetMultiplierDamage(level).ToString("0.0"), GetMultiplierDamage(level+1).ToString("0.0")),
+            new UpgradeStats("Duration To Prepare", GetMultiplierMaxDurationToPrepare(level).ToString("0.0"),GetMultiplierMaxDurationToPrepare(level + 1).ToString("0.0")),
+            new UpgradeStats("Cooldown", GetMultiplierInterval(level).ToString("0.0"),GetMultiplierInterval(level+1).ToString("0.0")),
+            new UpgradeStats("Max Bullets", GetMultiplierMaxBullet(level).ToString("0.0"),GetMultiplierMaxBullet(level+1).ToString("0.0")),
+            new UpgradeStats("Stun Duration", GetMultilperStunDuration(level).ToString("0.0"), GetMultilperStunDuration(level+1).ToString("0.0")),
+            new UpgradeStats("Slow Duration", GetMultiplierSlowDuration(level).ToString("0.0"), GetMultiplierSlowDuration((level+1)).ToString("0.0")),
+            new UpgradeStats("Slow", GetMultiplierSlow(level).ToString("0.0"), GetMultiplierSlow(level+1).ToString("0.0"))
         };
     }
 
@@ -137,10 +158,13 @@ public class WeaponMachineGun : WeaponBase
     {
         return new List<BuyStats>()
         {
-            new BuyStats("Damage", GetMultiplierDamage(level).ToString()),
-            new BuyStats("Duration To Prepare", GetMultiplierMaxDurationToPrepare(level).ToString()),
-            new BuyStats("Cooldown", GetMultiplierInterval(level).ToString()),
-            new BuyStats("Max Bullets", GetMultiplierMaxBullet(level).ToString())
+            new BuyStats("Damage", GetMultiplierDamage(level).ToString("0.0")),
+            new BuyStats("Duration To Prepare", GetMultiplierMaxDurationToPrepare(level).ToString("0.0")),
+            new BuyStats("Cooldown", GetMultiplierInterval(level).ToString("0.0")),
+            new BuyStats("Max Bullets", GetMultiplierMaxBullet(level).ToString("0.0")),
+            new BuyStats("Stun Duration", GetMultilperStunDuration(level).ToString("0.0")),
+            new BuyStats("Slow Duration", GetMultiplierSlowDuration(level).ToString("0.0")),
+            new BuyStats("Slow", GetMultiplierSlow(level).ToString("0.0"))
         };
     }
 }

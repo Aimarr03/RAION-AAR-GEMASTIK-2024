@@ -54,5 +54,21 @@ public class NormalShark : SharkBase
     {
         base.Start();
     }
+
+    public override IEnumerator GetSlowed(float duration, float multilpier)
+    {
+        float bufferLinearSpeed = linearSpeed;
+        float bufferMaxSpeed = maxSpeed;
+        linearSpeed *= 1- multilpier;
+        maxSpeed *= 1 - multilpier;
+        float bufferDuration = 0f;
+        while (bufferDuration < duration)
+        {
+            bufferDuration += Time.deltaTime;
+            yield return null;
+        }
+        linearSpeed = bufferLinearSpeed;
+        maxSpeed = bufferMaxSpeed;
+    }
 }
 

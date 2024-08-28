@@ -34,6 +34,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     public static event Action OnStopEncounter;
     public int bounty;
     private PlayerCoreSystem playerCoreSystem;
+    private Coroutine healthCoroutine;
     protected bool isDisabled;
 
     [Header("Trigger Animator")]
@@ -41,6 +42,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     public string Surprise = "Surprise";
     public string Hit = "Hit";
     public string Happy = "Happy";
+
     protected virtual void Awake()
     {
         //rigidBody = GetComponent<Rigidbody>();
@@ -52,6 +54,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         isKnockout = false;
         isBeingHeld = false;
         isDelievered = false;
+        healthCoroutine = StartCoroutine(StartRegeneratingHP());
     }
     protected virtual void Start()
     {
@@ -102,9 +105,14 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     {
         health = Mathf.Clamp(health - damage, 0, maxHealth);
         bool dead = health == 0;
-        Debug.Log(health);
-        Debug.Log(maxHealth);
+        /*Debug.Log(health);
+        Debug.Log(maxHealth);*/
         onTakeDamage?.Invoke(dead, ((float)health)/maxHealth);
+        if (dead)
+        {
+            StopCoroutine(healthCoroutine);
+            ExpedictionManager.Instance.InvokeOnLose("Meskipun dia merupakan <color=\"red\"><b>ikan mutasi dan ganas</b></color>, kau tetap melanggar apa yang sudah disepakati");
+        }
         
     }
 
@@ -195,7 +203,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         }
         levelData.sharkMutatedList.Add(id, isKnockout);
     }
-    private void Instance_OnLose(SustainabilityType obj)
+    private void Instance_OnLose(string obj)
     {
         isPause = true;
     }
@@ -203,4 +211,24 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     public void OnInvokeEncounter() => OnEncounter?.Invoke();
     public void OnInvokeStopEncounter() => OnStopEncounter?.Invoke();
     public bool GetIsKnockout() => isKnockout;
+
+    private IEnumerator StartRegeneratingHP()
+    {
+        float bufferDuration = 0f;
+        while (true)
+        {
+            if (health >= maxHealth)
+            {
+                yield return null;
+                continue;
+            }
+            if(bufferDuration >= 1.7f){
+                bufferDuration = 0f;
+                health += 2;
+            }
+            bufferDuration += Time.deltaTime;
+            yield return null;
+        }
+    }
+    public abstract IEnumerator GetSlowed(float duration, float multilpier);
 }

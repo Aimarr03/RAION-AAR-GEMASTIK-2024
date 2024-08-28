@@ -26,12 +26,6 @@ public class IkanSalmonNetral : FishNeutralBase
     {
         base.OnDrawGizmos();
     }
-
-    public override void TakeDamage(int damage)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void Update()
     {
         base.Update();

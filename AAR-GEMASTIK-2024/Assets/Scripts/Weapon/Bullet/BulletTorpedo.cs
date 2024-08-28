@@ -39,6 +39,8 @@ public class BulletTorpedo : BaseBullet
             if (explodedUnit[index].gameObject.TryGetComponent(out IDamagable damagableUnit))
             {
                 damagableUnit.TakeDamage(weaponTorpedo.GetMultiplierDamage(level));
+                damagableUnit.OnDisableMove(weaponTorpedo.GetMultiplierStunDuration(level), 10);
+                damagableUnit.GetSlowed(weaponTorpedo.GetMultiplierSlowDuration(level), weaponTorpedo.GetMultiplierSlow(level));
             }
             Debug.Log($"{gameObjectName} is within the explosion area");
         }

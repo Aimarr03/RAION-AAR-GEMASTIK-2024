@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class WeaponTorpedo : WeaponBase
 {
-    [SerializeField] private int baseDamage = 80;
+    [SerializeField] private int baseDamage = 30;
     [SerializeField] private float baseRadius = 10;
+    [SerializeField] private float stunDuration = 0.5f;
+    [SerializeField] private float slowDuration = 2.5f;
+    [SerializeField] private float baseSlow = 0.15f;
 
     public int GetMultiplierDamage(int level)
     {
@@ -21,6 +24,21 @@ public class WeaponTorpedo : WeaponBase
     {
         float maxCooldown = interval - ((level - 1) * (interval * 0.09f));
         return maxCooldown;
+    }
+    public float GetMultiplierSlowDuration(int level)
+    {
+        float totalSlowDuration = slowDuration + ((level - 1) * (slowDuration * 0.075f));
+        return totalSlowDuration;
+    }
+    public float GetMultiplierStunDuration(int level)
+    {
+        float totalStunDuration = stunDuration + ((level - 1) * 0.15f);
+        return totalStunDuration;
+    }
+    public float GetMultiplierSlow(int level)
+    {
+        float totalSlow = baseSlow + ((level - 1) * 0.1f);
+        return totalSlow;
     }
     public override void Fire(PlayerWeaponSystem coreSystem, bool isOnRightDirection)
     {
@@ -39,6 +57,9 @@ public class WeaponTorpedo : WeaponBase
             new BuyStats("Damage", GetMultiplierDamage(level).ToString()),
             new BuyStats("Radius", GetMultiplierRadius(level).ToString("0.0")),
             new BuyStats("Cooldown", GetMultiplierCooldown(level).ToString("0.0")),
+            new BuyStats("Stun Duration", GetMultiplierStunDuration(level).ToString("0.0")),
+            new BuyStats("Slow", GetMultiplierSlow(level).ToString("0.0")),
+            new BuyStats("Slow Duration", GetMultiplierSlowDuration(level).ToString("0.0"))
         };
     }
 
@@ -49,6 +70,9 @@ public class WeaponTorpedo : WeaponBase
             new UpgradeStats("Damage", GetMultiplierDamage(level).ToString(),GetMultiplierDamage(level+1).ToString()),
             new UpgradeStats("Radius", GetMultiplierRadius(level).ToString("0.0"),GetMultiplierRadius(level+1).ToString("0.0")),
             new UpgradeStats("Cooldown", GetMultiplierCooldown(level).ToString("0.0"), GetMultiplierCooldown(level+1).ToString("0.0")),
+            new UpgradeStats("Stun Duration", GetMultiplierStunDuration(level).ToString("0.0"), GetMultiplierStunDuration(level+1).ToString("0.0")),
+            new UpgradeStats("Slow", GetMultiplierSlow(level).ToString("0.0"), GetMultiplierSlow(level + 1).ToString("0.0")),
+            new UpgradeStats("Slow Duration", GetMultiplierSlowDuration(level).ToString("0.0"), GetMultiplierSlowDuration(level + 1).ToString("0.0"))
         };
     }
 

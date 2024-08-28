@@ -113,12 +113,12 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             Debug.Log($"Succesfully added {currentType} system into dictionary");
         }
     }
-    public void SetDead(SustainabilityType type)
+    public void SetDead(string deskripsi)
     {
         isDead = true;
         OnDead?.Invoke();
         GetComponent<Collider2D>().enabled = false;
-        ExpedictionManager.Instance.InvokeOnLose(type);
+        ExpedictionManager.Instance.InvokeOnLose(deskripsi);
         animator.SetBool("Dead", true);
         Debug.Log("Player Dead");
     }
@@ -224,6 +224,19 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     {
         _BaseSustainabilitySystem oxygenSystem = GetSustainabilitySystem(SustainabilityType.Oxygen);
         oxygenSystem.OnIncreaseValue(oxygen);
+    }
+
+    public IEnumerator GetSlowed(float duration, float multilpier)
+    {
+        float currentDuration = 0f;
+        moveSystem.GetMovement(out float linearValue, out float rotatingValue);
+        moveSystem.SetMovement(linearValue*(1-multilpier));
+        while (currentDuration < duration)
+        {
+            currentDuration += duration;
+            yield return null;
+        }
+        moveSystem.SetMovement(linearValue);
     }
 }
 
