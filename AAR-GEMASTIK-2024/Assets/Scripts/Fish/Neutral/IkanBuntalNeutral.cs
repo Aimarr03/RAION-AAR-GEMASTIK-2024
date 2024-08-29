@@ -9,29 +9,20 @@ public class IkanBuntalNeutral : FishNeutralBase
     [SerializeField, Range(0, 360)] private float angle;
     [SerializeField] private float radiusDistance;
     [SerializeField] private float speed;
-
     [SerializeField] private int damage;
     [SerializeField] private float radiusTrigger;
     public override void AddSuddenForce(Vector3 directiom, float forcePower)
     {
         
     }
-
     public override void OnDisableMove(float moveDuration, int maxAttemptToRecover)
     {
-        
+           
     }
-
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
     }
-
-    public override void TakeDamage(int damage)
-    {
-        
-    }
-
     public override void Update()
     {
         base.Update();
