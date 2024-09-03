@@ -57,6 +57,8 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     {
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
         PauseGameplayUI.OnPause += PauseGameplayUI_OnPause;
+        DialogueEditor.ConversationManager.OnConversationStarted += OnConverstaionStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded += OnConverstaionFinished;
     }
 
     private void PauseGameplayUI_OnPause(bool obj)
@@ -70,6 +72,8 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     {
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
         PauseGameplayUI.OnPause -= PauseGameplayUI_OnPause;
+        DialogueEditor.ConversationManager.OnConversationStarted -= OnConverstaionStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded -= OnConverstaionFinished;
     }
 
     private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
@@ -237,6 +241,18 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             yield return null;
         }
         moveSystem.SetMovement(linearValue);
+    }
+    private void OnConverstaionStarted()
+    {
+        isPaused = true;
+        onDisabled = true;
+        isVunerable = false;
+    }
+    private void OnConverstaionFinished()
+    {
+        isPaused = false;
+        onDisabled = false;
+        isVunerable = true;
     }
 }
 

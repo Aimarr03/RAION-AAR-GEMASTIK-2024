@@ -43,10 +43,14 @@ public class PlayerInterractionSystem : MonoBehaviour
     private void Start()
     {
         PlayerInputSystem.InvokeInterractUsage += PlayerInputSystem_InvokeInterractUsage;
+        DialogueEditor.ConversationManager.OnConversationStarted += OnConversationStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded += OnConversationFinished;
     }
     private void OnDestroy()
     {
         PlayerInputSystem.InvokeInterractUsage -= PlayerInputSystem_InvokeInterractUsage;
+        DialogueEditor.ConversationManager.OnConversationStarted -= OnConversationStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded -= OnConversationFinished;
     }
 
     private void PlayerInputSystem_InvokeInterractUsage()
@@ -64,6 +68,7 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     private void Update()
     {
+        if (coreSystem.onDisabled) return;
         DetectionForInterractableObject();
         DetectionForDetectableObject();
         //FindClosestInterractableObjectToPlayer();
@@ -151,4 +156,13 @@ public class PlayerInterractionSystem : MonoBehaviour
 
     public bool IsHolding() => isHolding;
     public PlayerCoreSystem getcore => coreSystem;
+
+    private void OnConversationStarted()
+    {
+        
+    }
+    private void OnConversationFinished()
+    {
+
+    }
 }

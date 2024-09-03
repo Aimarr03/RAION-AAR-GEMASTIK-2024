@@ -35,8 +35,17 @@ public class PlayerInputSystem : MonoBehaviour
         OnAddCallback();
         coreSystem.OnDead += CoreSystem_OnDead;
         coreSystem.OnDisabled += CoreSystem_OnDisabled;
+        DialogueEditor.ConversationManager.OnConversationStarted += OnConversationStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded += OnConversationFinished;
     }
-
+    private void OnDisable()
+    {
+        OnRemoveCallback();
+        coreSystem.OnDead -= CoreSystem_OnDead;
+        coreSystem.OnDisabled -= CoreSystem_OnDisabled;
+        DialogueEditor.ConversationManager.OnConversationStarted -= OnConversationStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded -= OnConversationFinished;
+    }
     private void CoreSystem_OnDisabled(bool obj)
     {
         if (obj)
@@ -55,6 +64,7 @@ public class PlayerInputSystem : MonoBehaviour
     
     private void OnAddCallback()
     {
+        Debug.Log("Player can invoke now");
         playerInput.Player.Enable();
         playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
         playerInput.Player.InvokeWeaponUsage.canceled += InvokeWeaponUsage_canceled;
@@ -136,5 +146,13 @@ public class PlayerInputSystem : MonoBehaviour
     public Vector2 GetMoveInput()
     {
         return playerInput.Player.Move.ReadValue<Vector2>();
+    }
+    private void OnConversationStarted()
+    {
+        OnRemoveCallback();
+    }
+    private void OnConversationFinished()
+    {
+        OnAddCallback();
     }
 }

@@ -684,6 +684,129 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""ba0e8b3a-178a-48a6-99e3-c333c6c8a992"",
+            ""actions"": [
+                {
+                    ""name"": ""Continue Button"",
+                    ""type"": ""Button"",
+                    ""id"": ""2511decb-2737-4975-a1fc-907be07edcb4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""6457c81f-b331-41db-ae23-e9615a15dfc9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""f72df4b3-61f8-43e9-b905-0642a79c5dca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a4c65a19-1656-4278-adfe-ae701348f4f5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue Button"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""80e5c680-5ab5-4b34-bb84-0860926207b3"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""335b9d6b-904c-45a0-b07e-3402ea3a73a5"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2072fbe0-f195-416e-8c7e-dfd6836eee27"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""5606007d-3d05-4d83-8f12-a480fdd3115b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7065e376-b77f-4e64-83f3-99f4306ac347"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""df073cf4-6980-4ec4-b08d-e719095d9a79"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5053a30e-42f2-4931-891d-3d782d820f12"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -739,6 +862,11 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         m_Pause_UI_Navigation = m_Pause_UI.FindAction("Navigation", throwIfNotFound: true);
         m_Pause_UI_Confirm = m_Pause_UI.FindAction("Confirm", throwIfNotFound: true);
         m_Pause_UI_Negate = m_Pause_UI.FindAction("Negate", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_ContinueButton = m_Dialogue.FindAction("Continue Button", throwIfNotFound: true);
+        m_Dialogue_Navigation = m_Dialogue.FindAction("Navigation", throwIfNotFound: true);
+        m_Dialogue_Skip = m_Dialogue.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1068,6 +1196,68 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         }
     }
     public Pause_UIActions @Pause_UI => new Pause_UIActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
+    private readonly InputAction m_Dialogue_ContinueButton;
+    private readonly InputAction m_Dialogue_Navigation;
+    private readonly InputAction m_Dialogue_Skip;
+    public struct DialogueActions
+    {
+        private @DefaultInputAction m_Wrapper;
+        public DialogueActions(@DefaultInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ContinueButton => m_Wrapper.m_Dialogue_ContinueButton;
+        public InputAction @Navigation => m_Wrapper.m_Dialogue_Navigation;
+        public InputAction @Skip => m_Wrapper.m_Dialogue_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void AddCallbacks(IDialogueActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DialogueActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Add(instance);
+            @ContinueButton.started += instance.OnContinueButton;
+            @ContinueButton.performed += instance.OnContinueButton;
+            @ContinueButton.canceled += instance.OnContinueButton;
+            @Navigation.started += instance.OnNavigation;
+            @Navigation.performed += instance.OnNavigation;
+            @Navigation.canceled += instance.OnNavigation;
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+        }
+
+        private void UnregisterCallbacks(IDialogueActions instance)
+        {
+            @ContinueButton.started -= instance.OnContinueButton;
+            @ContinueButton.performed -= instance.OnContinueButton;
+            @ContinueButton.canceled -= instance.OnContinueButton;
+            @Navigation.started -= instance.OnNavigation;
+            @Navigation.performed -= instance.OnNavigation;
+            @Navigation.canceled -= instance.OnNavigation;
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+        }
+
+        public void RemoveCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DialogueActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_DefaultControlSchemeIndex = -1;
     public InputControlScheme DefaultControlScheme
     {
@@ -1112,5 +1302,11 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         void OnNavigation(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
         void OnNegate(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnContinueButton(InputAction.CallbackContext context);
+        void OnNavigation(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
 }

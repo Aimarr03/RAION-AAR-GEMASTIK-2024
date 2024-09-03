@@ -39,6 +39,8 @@ public class PlayerMoveSystem : MonoBehaviour
         coreSystem.OnDisabled += CoreSystem_OnDisabled;
         WeightSystem.OnOverweight += WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
+        DialogueEditor.ConversationManager.OnConversationStarted += OnConverstaionStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded += OnConverstaionFinished;
     }
 
     
@@ -281,4 +283,15 @@ public class PlayerMoveSystem : MonoBehaviour
         await Task.Delay(800);
         playerRigid.velocity = Vector3.zero;
     }
+    private void OnConverstaionFinished()
+    {
+        playerRigid.velocity = Vector2.zero;
+        canBeUsed = true;
+    }
+    private void OnConverstaionStarted()
+    {
+        playerRigid.velocity = Vector2.zero;
+        canBeUsed = false;
+    }
+
 }

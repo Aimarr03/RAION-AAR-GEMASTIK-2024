@@ -128,14 +128,15 @@ public class SharkChaseState : SharkBaseState
         shark.rigidBody.velocity = Vector3.zero;
         float y_axis_target = isOnRightDirection ? 180 : 0;
         Quaternion targetRotate = Quaternion.Euler(0, y_axis_target, 0);
-        shark.transform.rotation = Quaternion.RotateTowards(shark.transform.rotation, targetRotate, rotatingSpeed * 2.4f * Time.fixedDeltaTime);
+        shark.transform.rotation = targetRotate;
+        isRotating = false;
+        isOnRightDirection = !isOnRightDirection;
+        /*shark.transform.rotation = Quaternion.RotateTowards(shark.transform.rotation, targetRotate, rotatingSpeed * 2.4f * Time.fixedDeltaTime);
         if (Quaternion.Angle(shark.transform.rotation, targetRotate) < 5f)
         {
-            shark.transform.rotation = targetRotate;
-            isRotating = false;
-            isOnRightDirection = !isOnRightDirection;
+            
             Debug.Log(isRotating);
-        }
+        }*/
     }
     private void VerticalMovement(Vector3 direction)
     {
@@ -143,7 +144,7 @@ public class SharkChaseState : SharkBaseState
         float z_input = direction.y;
         if (z_input != 0)
         {
-            Vector2 outputVelocity = Vector2.up * (linearSpeed / 2 * Time.fixedDeltaTime * z_input);
+            Vector2 outputVelocity = Vector2.up * (linearSpeed / 2.2f * Time.fixedDeltaTime * z_input);
             shark.rigidBody.velocity += outputVelocity;
         }
     }

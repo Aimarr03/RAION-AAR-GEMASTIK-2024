@@ -52,6 +52,7 @@ public class PlayerAbilitySystem : MonoBehaviour
 
     private void PlayerInputSystem_InvokeAbilityUsage()
     {
+        if (playerCoreSystem.onDisabled) return;
         if (abilityBase == null) return;
         abilityBase.Fire(playerCoreSystem);
     }

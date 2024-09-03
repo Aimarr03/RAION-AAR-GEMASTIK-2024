@@ -87,7 +87,7 @@ MonoBehaviour:
     m_Bits: 8
   maxHealth: 300
   rigidBody: {fileID: 0}
-  sphereCollider: {fileID: 0}
+  sharkCollider: {fileID: 0}
   spriteRenderer: {fileID: 8600734599844190757}
   animator: {fileID: 3775559048692103574}
   weight: 0
@@ -550,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3050463731451373363
 RectTransform:
   m_ObjectHideFlags: 0
@@ -776,6 +776,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -575988773
       objectReference: {fileID: 0}
+    - target: {fileID: 8698447897696478139, guid: fcb9dbf1d677ea14c8d5d0ed02b69b16,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

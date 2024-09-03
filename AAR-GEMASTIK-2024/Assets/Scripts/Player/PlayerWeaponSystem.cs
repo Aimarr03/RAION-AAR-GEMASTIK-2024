@@ -49,6 +49,7 @@ public class PlayerWeaponSystem : MonoBehaviour
 
     private void PlayerInputSystem_InvokeWeaponUsage()
     {
+        if (playerCoreSystem.onDisabled) return;
         if (baseWeapon == null) return;
         bool isOnRightDirection = playerCoreSystem.moveSystem.GetIsOnRightDirection();
         Quaternion rotation = playerCoreSystem.transform.rotation;
