@@ -79,6 +79,8 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
     {
         isPaused = true;
+        onDisabled = true;
+        OnDisabled?.Invoke(onDisabled);
     }
 
     public void Update()

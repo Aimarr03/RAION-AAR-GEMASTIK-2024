@@ -50,8 +50,8 @@ public class TutorialManager : MonoBehaviour
     }   
     private async void OnDelayConversationTutorial()
     {
-        finishedTutorial = true;
         await Task.Delay(1200);
         ConversationManager.Instance.StartConversation(FinishTutorialConversation);
+        finishedTutorial = true;
     }
 }

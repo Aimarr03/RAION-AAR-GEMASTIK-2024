@@ -54,6 +54,7 @@ public class ConversationInputManager : MonoBehaviour
     private void OnConversationFinished()
     {
         inputSystem.Dialogue.Disable();
+        
     }
     private void ContinueButton_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -95,6 +96,7 @@ public class ConversationInputManager : MonoBehaviour
         inputSystem.Dialogue.ContinueButton.performed -= OnInterractSkipButton;
         SkipPanel.gameObject.SetActive(false);
         currentIndex = 0;
+        currentSkipButton.GetComponent<Image>().color = Color.white;
         currentSkipButton = null;
     }
     public void NavigateSkipButton(UnityEngine.InputSystem.InputAction.CallbackContext obj)

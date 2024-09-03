@@ -807,6 +807,34 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ExpedictionUI"",
+            ""id"": ""b0dba005-c43f-4f73-a54b-1d0f5086035f"",
+            ""actions"": [
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f502819-caa5-4386-9e3f-21a76d610e0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""dddee939-f72a-4807-867d-80a87c030657"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -867,6 +895,9 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         m_Dialogue_ContinueButton = m_Dialogue.FindAction("Continue Button", throwIfNotFound: true);
         m_Dialogue_Navigation = m_Dialogue.FindAction("Navigation", throwIfNotFound: true);
         m_Dialogue_Skip = m_Dialogue.FindAction("Skip", throwIfNotFound: true);
+        // ExpedictionUI
+        m_ExpedictionUI = asset.FindActionMap("ExpedictionUI", throwIfNotFound: true);
+        m_ExpedictionUI_Confirm = m_ExpedictionUI.FindAction("Confirm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1258,6 +1289,52 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         }
     }
     public DialogueActions @Dialogue => new DialogueActions(this);
+
+    // ExpedictionUI
+    private readonly InputActionMap m_ExpedictionUI;
+    private List<IExpedictionUIActions> m_ExpedictionUIActionsCallbackInterfaces = new List<IExpedictionUIActions>();
+    private readonly InputAction m_ExpedictionUI_Confirm;
+    public struct ExpedictionUIActions
+    {
+        private @DefaultInputAction m_Wrapper;
+        public ExpedictionUIActions(@DefaultInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Confirm => m_Wrapper.m_ExpedictionUI_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_ExpedictionUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ExpedictionUIActions set) { return set.Get(); }
+        public void AddCallbacks(IExpedictionUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ExpedictionUIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ExpedictionUIActionsCallbackInterfaces.Add(instance);
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
+        }
+
+        private void UnregisterCallbacks(IExpedictionUIActions instance)
+        {
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
+        }
+
+        public void RemoveCallbacks(IExpedictionUIActions instance)
+        {
+            if (m_Wrapper.m_ExpedictionUIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IExpedictionUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ExpedictionUIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ExpedictionUIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ExpedictionUIActions @ExpedictionUI => new ExpedictionUIActions(this);
     private int m_DefaultControlSchemeIndex = -1;
     public InputControlScheme DefaultControlScheme
     {
@@ -1308,5 +1385,9 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
         void OnContinueButton(InputAction.CallbackContext context);
         void OnNavigation(InputAction.CallbackContext context);
         void OnSkip(InputAction.CallbackContext context);
+    }
+    public interface IExpedictionUIActions
+    {
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }

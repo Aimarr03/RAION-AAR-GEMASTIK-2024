@@ -35,6 +35,7 @@ public class PlayerInputSystem : MonoBehaviour
         OnAddCallback();
         coreSystem.OnDead += CoreSystem_OnDead;
         coreSystem.OnDisabled += CoreSystem_OnDisabled;
+        ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
         DialogueEditor.ConversationManager.OnConversationStarted += OnConversationStarted;
         DialogueEditor.ConversationManager.OnConversationEnded += OnConversationFinished;
     }
@@ -43,6 +44,7 @@ public class PlayerInputSystem : MonoBehaviour
         OnRemoveCallback();
         coreSystem.OnDead -= CoreSystem_OnDead;
         coreSystem.OnDisabled -= CoreSystem_OnDisabled;
+        ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
         DialogueEditor.ConversationManager.OnConversationStarted -= OnConversationStarted;
         DialogueEditor.ConversationManager.OnConversationEnded -= OnConversationFinished;
     }
@@ -59,9 +61,12 @@ public class PlayerInputSystem : MonoBehaviour
             playerInput.Player.Move.performed -= AttemptToRecoverDisableStatus;
         }
     }
-    
+    private void Instance_OnDoneExpediction(bool arg1, PlayerCoreSystem arg2)
+    {
+        OnRemoveCallback();
+    }
 
-    
+
     private void OnAddCallback()
     {
         Debug.Log("Player can invoke now");
@@ -76,7 +81,6 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.Player.Move.canceled += Move_canceled;
         playerInput.Player.Pause.performed += Pause_performed;
     }
-
     private void OnRemoveCallback()
     {
         Debug.Log("Player cannot invoke anything");

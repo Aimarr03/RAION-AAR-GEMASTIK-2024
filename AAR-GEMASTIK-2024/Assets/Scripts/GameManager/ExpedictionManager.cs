@@ -63,6 +63,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
 
     public void Interracted(PlayerInterractionSystem playerInterractionSystem)
     {
+        if (!canBeInterracted) return;
         /*if (playerInterractionSystem.IsHolding())
         {
             playerInterractionSystem.SetIsHolding(false);

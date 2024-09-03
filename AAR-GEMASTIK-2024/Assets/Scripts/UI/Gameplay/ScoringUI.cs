@@ -27,6 +27,9 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     [Header("Foreground-Background")]
     [SerializeField] private SpriteRenderer foreground;
     [SerializeField] private SpriteRenderer background;
+
+    [Header("Button"), SerializeField]
+    private Button EndExpedictionButton;
     private int moneyObtainedFromEnemyDefeated = 0;
     private int moneyObtainedFromHelpingFish = 0;
     private float maxDuration = 2;
@@ -51,8 +54,8 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     private float sharkProgress = 0f;
     private float fishProgress = 0f;
     private float totalProgress = 0f;
-    
 
+    private DefaultInputAction inputAction;
     private void Awake()
     {
         currentWeightTrashCollected = 0f;
@@ -136,8 +139,18 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         Debug.Log("Invoke when Done Expediction");
         Container.gameObject.SetActive(true);
         StartCoroutine(OnStartDisplayScore(coreSystem));
+        inputAction = new DefaultInputAction();
+        inputAction.ExpedictionUI.Enable();
+        inputAction.ExpedictionUI.Confirm.performed += Confirm_performed;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
     }
+
+    private void Confirm_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        EndExpedictionButton.onClick.Invoke();
+        inputAction.ExpedictionUI.Confirm.performed -= Confirm_performed;
+    }
+
     private void OnCalculateBackgroundColorTransition()
     {
         float totalProgress = (currentWeightTrashCollected + trashHasBeenCollectedPreviously) / trashCount;

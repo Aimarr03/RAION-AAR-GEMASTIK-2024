@@ -785,6 +785,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ExpedictionUI",
+            "id": "b0dba005-c43f-4f73-a54b-1d0f5086035f",
+            "actions": [
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "6f502819-caa5-4386-9e3f-21a76d610e0f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dddee939-f72a-4807-867d-80a87c030657",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
