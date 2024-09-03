@@ -97,10 +97,10 @@ public class SharkIdleHorizontalState : SharkBaseState
 
     private void OnIdlingWithDelay()
     {
-        Debug.Log(Vector3.Distance(targetPos, shark.transform.position));
         Vector2 direction = GoLeft ? Vector2.left : Vector2.right;
         bool hit = Physics.Raycast(shark.transform.position, direction, 4f);
-        Debug.Log("Hit Something " + hit);
+        //Debug.Log("Hit Something " + hit);
+        //Debug.Log(Vector3.Distance(targetPos, shark.transform.position));
         if(Vector3.Distance(targetPos, shark.transform.position) > 0.05f && !hit)
         {
             shark.transform.position = Vector3.MoveTowards(shark.transform.position, targetPos, speed * Time.deltaTime);

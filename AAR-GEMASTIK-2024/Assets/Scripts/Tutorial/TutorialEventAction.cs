@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialEventManager : MonoBehaviour
+public class TutorialEventAction : MonoBehaviour
 {
     [SerializeField] private bool PlayOnExitTrigger;
     [SerializeField] private bool PlayOnAwake;

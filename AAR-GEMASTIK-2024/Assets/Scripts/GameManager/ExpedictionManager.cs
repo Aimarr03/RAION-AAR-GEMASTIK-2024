@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     [SerializeField] private RectTransform ProcessRectUI;
     private float currentProcess = 0f;
     private float maxDuration = 3f;
+    private bool canBeInterracted = true;
 
     [Header("Audio Clip")]
     [SerializeField] private AudioClip OnReceiving;
@@ -40,9 +42,19 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
         {
             Destroy(gameObject);
         }
+        if(TutorialManager.instance != null)
+        {
+            canBeInterracted = false;
+            TutorialManager.FinishTutorialAction += OnFinishTutorial;
+        }
         isLosing = false;
         UI_OnWantToFinish.gameObject.SetActive(false);
         CaughtFish = new List<EnemyBase>();
+    }
+    private void OnFinishTutorial()
+    {
+        canBeInterracted = true;
+        TutorialManager.FinishTutorialAction -= OnFinishTutorial;
     }
     public void AltInterracted(PlayerInterractionSystem playerInterractionSystem)
     {
