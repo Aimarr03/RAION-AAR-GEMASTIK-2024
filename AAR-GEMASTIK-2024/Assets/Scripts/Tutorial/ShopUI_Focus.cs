@@ -40,6 +40,7 @@ public class ShopUI_Focus : MonoBehaviour
     }
     private void OnDisable()
     {
+        ConversationManager.OnConversationStarted -= OnConversationStarted;
         ConversationManager.OnConversationEnded -= OnConversationEnded;
     }
     private void OnConversationEnded()
@@ -49,6 +50,7 @@ public class ShopUI_Focus : MonoBehaviour
     }
     private void OnConversationStarted()
     {
+        Debug.Log("Conversation Started going to make beside dialogue panel uninterractable");
         invisbleBlockRay.gameObject.SetActive(true);
     }
     public void HideFocusPanel()

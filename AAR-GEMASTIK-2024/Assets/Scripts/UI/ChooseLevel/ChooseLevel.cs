@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class ChooseLevel : BasePreparingPlayerUI
         levelUIText.text = $"{GameManager.Instance.currentLevelChoice}";
         GameManager.Instance.OnChangeLevelChoice += Instance_OnChangeLevelChoice;
         yield return null;
+        if (!DataManager.instance.gameData.tutorialShop) UI_ConversationManager.Instance.PlayLevelChoiceConversation();
     }
 
     

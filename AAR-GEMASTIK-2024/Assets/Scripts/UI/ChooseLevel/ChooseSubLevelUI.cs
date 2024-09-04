@@ -84,7 +84,7 @@ public class ChooseSubLevelUI : MonoBehaviour
     public void ShowDummyPanel()
     {
         LevelData dummyLevelData= DataManager.instance.gameData.levels[0];
-        SubLevelData dummySubLevelData = levelData.subLevels[0];
+        SubLevelData dummySubLevelData = dummyLevelData.subLevels[0];
         OpenPanel(dummyLevelData);
         ShowDataSubLevel(dummySubLevelData);
     }
