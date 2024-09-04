@@ -7,7 +7,7 @@ public class EnemyIdleState : EnemyBaseState
 {
     private float radius;
     private EnemyBaseState nextState;
-    private bool OnHitFirstTime;
+    //private bool OnHitFirstTime;
 
 
     public EnemyIdleState(EnemyStateMachine enemyStateMachine, EnemyBase enemy, LayerMask playerLayerMask, float radius) : base(enemyStateMachine, enemy, playerLayerMask)
@@ -21,12 +21,12 @@ public class EnemyIdleState : EnemyBaseState
     {
         enemy.rigidBody.velocity = Vector3.zero;
         enemy.OnHitEvent += Enemy_OnHitEvent;
-        OnHitFirstTime = false;
+        //OnHitFirstTime = false;
     }
 
     private void Enemy_OnHitEvent()
     {
-        OnHitFirstTime = true;
+        //OnHitFirstTime = true;
         Collider[] collidedUnit = Physics.OverlapSphere(enemy.transform.position, radius * 3, playerLayerMask);
         if (collidedUnit.Length > 0)
         {

@@ -260,23 +260,21 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     public void LoadScene(GameData gameData)
     {
         if (gameData.tutorialGameplay) return;
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         float trashProgress = levelData.trashProgress;
         foreground.color = Color.Lerp(ForegroundOldColor, ForegroundNewColor, trashProgress);
     }
     
     public void SaveScene(ref GameData gameData)
     {
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        levelData.sharkMutatedCountDone = sharkHasBeenCollectedPreviously + currentSharkTotalCollected;
-        levelData.sharkMutatedProgress = sharkProgress;
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         levelData.trashCountDone = trashHasBeenCollectedPreviously + currrentTrashTotalCollected;
         levelData.trashProgress = trashProgress;
         levelData.fishNeededHelpCountDone = fishHasBeenCollectedPreviously + currentFishNeedHelpTotalCollected;
         levelData.fishNeededHelpProgress = fishProgress;
         levelData.progress = totalProgress;
         gameData.money = EconomyManager.Instance.currentMoney;
-        if(!levelData.hasBeenExpediction) levelData.hasBeenExpediction = true;
+        //if(!levelData.hasBeenExpediction) levelData.hasBeenExpediction = true;
     }
     
 }

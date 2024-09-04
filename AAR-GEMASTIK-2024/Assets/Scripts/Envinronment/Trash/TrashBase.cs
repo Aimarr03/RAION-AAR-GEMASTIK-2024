@@ -29,7 +29,7 @@ public abstract class TrashBase : MonoBehaviour, IDataPersistance
 
     public void LoadScene(GameData gameData)
     {
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         levelData.trashList.TryGetValue(id, out bool hasCollected);
         if(hasCollected)
         {
@@ -39,7 +39,7 @@ public abstract class TrashBase : MonoBehaviour, IDataPersistance
 
     public void SaveScene(ref GameData gameData)
     {
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         if(levelData.trashList.ContainsKey(id))
         {
             levelData.trashList.Remove(id);

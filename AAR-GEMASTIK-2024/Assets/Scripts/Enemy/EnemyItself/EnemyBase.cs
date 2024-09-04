@@ -103,22 +103,22 @@ public abstract class EnemyBase : MonoBehaviour, IDamagable, IInterractable, IDa
     }
     public void LoadScene(GameData gameData)
     {
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
+        //SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
+        /*levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
         if (hasCollected)
         {
             OnDeloading();
-        }
+        }*/
     }
 
     public void SaveScene(ref GameData gameData)
     {
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        if (levelData.sharkMutatedList.ContainsKey(id))
+        //LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        /*if (levelData.sharkMutatedList.ContainsKey(id))
         {
             levelData.sharkMutatedList.Remove(id);
         }
-        levelData.sharkMutatedList.Add(id, isKnockout);
+        levelData.sharkMutatedList.Add(id, isKnockout);*/
     }
     public bool GetIsFishKnockout() => isKnockout;
     

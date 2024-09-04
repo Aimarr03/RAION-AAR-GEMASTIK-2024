@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChooseLevel : BasePreparingPlayerUI, IDataPersistance
+public class ChooseLevel : BasePreparingPlayerUI
 {
     [SerializeField] private Transform mainPanel;
     [SerializeField] private RectTransform Level1, Level2, Level3;
@@ -21,7 +21,7 @@ public class ChooseLevel : BasePreparingPlayerUI, IDataPersistance
         GetComponent<RectTransform>().DOAnchorPosX(0, 0.7f);
         levelUIText.GetComponent<RectTransform>().DOAnchorPosY(5, 0.7f).SetEase(Ease.InOutQuint);
         AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnDisplay);
-        levelUIText.text = $"Level : {GameManager.Instance.level}";
+        levelUIText.text = $"{GameManager.Instance.currentLevelChoice}";
         GameManager.Instance.OnChangeLevelChoice += Instance_OnChangeLevelChoice;
         yield return null;
     }
@@ -41,23 +41,9 @@ public class ChooseLevel : BasePreparingPlayerUI, IDataPersistance
     {
         levelUIText.text = $"Level : {level}";
     }
-
-    public void LoadScene(GameData gameData)
+    private void Instance_OnChangeLevelChoice(string index)
     {
-        Level1.GetComponent<Button>().interactable = gameData.levels[0].hasBeenUnlocked;
-        Level1.GetComponent<Button>().onClick.AddListener(()=>GameManager.Instance.SetLevel(1));
-        Level2.GetComponent<Button>().interactable = gameData.levels[1].hasBeenUnlocked;
-        Level2.GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.SetLevel(2));
-        Level3.GetComponent<Button>().interactable = gameData.levels[2].hasBeenUnlocked;
-        Level3.GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.SetLevel(3));
-
+        levelUIText.text = $"{GameManager.Instance.currentLevelChoice}";
     }
-    private void Instance_OnChangeLevelChoice(int index)
-    {
-        
-    }
-    public void SaveScene(ref GameData gameData)
-    {
-        
-    }
+    
 }

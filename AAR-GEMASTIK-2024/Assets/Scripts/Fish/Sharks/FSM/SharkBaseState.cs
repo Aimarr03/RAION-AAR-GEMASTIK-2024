@@ -9,7 +9,7 @@ public abstract class SharkBaseState
     protected SharkStateMachine fsm;
     protected LayerMask playerMask;
 
-    public event Action OnTriggerTransition;
+    //public event Action OnTriggerTransition;
     public SharkBaseState(SharkBase shark, SharkStateMachine fsm, LayerMask playerMask)
     {
         this.shark = shark;

@@ -9,11 +9,11 @@ public class AudioContainer : MonoBehaviour
     public AudioClip gameOverBGM;
 
     public AudioClip AlertSFX;
-    private bool IsFighting;
+    //private bool IsFighting;
     private int manyEncounter = 0;
     private void Start()
     {
-        IsFighting = false;
+        //IsFighting = false;
         AudioManager.Instance.OnInstantStartNewMusic(normalBGM, 3f);
         SharkBase.OnEncounter += SharkBase_OnEncounter;
         SharkBase.OnNeutralized += SharkBase_OnNeutralized;

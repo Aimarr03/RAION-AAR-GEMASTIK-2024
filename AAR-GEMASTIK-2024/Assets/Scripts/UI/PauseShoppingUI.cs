@@ -11,7 +11,7 @@ public class PauseShoppingUI : MonoBehaviour
     [SerializeField] RectTransform PauseContainer;
 
     private DefaultInputAction playerInput;
-    public static event Action OnPause;
+    //public static event Action OnPause;
     private bool isPause;
     private void Awake()
     {

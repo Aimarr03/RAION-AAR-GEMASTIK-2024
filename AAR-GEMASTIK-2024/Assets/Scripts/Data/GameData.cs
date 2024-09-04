@@ -19,9 +19,27 @@ public class GameData
     public SerializableDictionary<ItemTier, int> energyItemData;
     public SerializableDictionary<ItemTier, int> oxygenItemData;
 
-    public LevelData GetLevelData(int level)
+    public LevelData GetLevelData(string level)
     {
-        return levels[level - 1];
+        string[] parts = level.Split(new char[] { ' ', '_' });
+        Debug.Log(parts[1]);
+        string levelForm = parts[1];
+        string subLevel = parts[2];
+        int levelIndex = int.Parse(levelForm) - 1;
+        return levels[levelIndex];
+    }
+    public SubLevelData GetSubLevelData(string level)
+    {
+        string[] parts = level.Split(new char[] { ' ', '_' });
+        string levelForm = parts[0];
+        string subLevel = parts[1];
+        int levelIndex = int.Parse(levelForm) - 1;
+        int subLevelIndex = int.Parse(subLevel) - 1;
+        return levels[levelIndex].subLevels[subLevelIndex];
+    }
+    public SubLevelData GetSubLevelData(LevelData levelData, int subLevel)
+    {
+        return levelData.subLevels[subLevel];
     }
     public GameData()
     {
@@ -31,15 +49,17 @@ public class GameData
         for (int i = 0; i < 3; i++)
         {
             LevelData level = new LevelData();
-            level.trashList = new SerializableDictionary<string, bool>();
-            level.sharkMutatedList= new SerializableDictionary<string, bool>();
-            level.fishNeedHelpList = new SerializableDictionary<string, bool>();
-            level.levelName = $"Level{i + 1}";
-            level.hasBeenExpediction = false;
-            if(i < 2) level.hasBeenUnlocked = true;
-            level.progress = 0;
-            level.sharkMutatedProgress = 0;
-            level.trashProgress = 0;
+            level.levelName = "Level " + (i+1);
+            level.subLevels = new List<SubLevelData>();
+            if (i == 0) level.hasBeenUnlocked = true;
+            for(int  j = 0; j <3; j++)
+            {
+                SubLevelData subLevel = new SubLevelData();
+                subLevel.subLevelName = level.levelName + "_"+ j;
+                subLevel.trashList = new SerializableDictionary<string, bool>();
+                subLevel.fishNeedHelpList = new SerializableDictionary<string, bool>();
+                level.subLevels.Add(subLevel);
+            }
             levels.Add(level);
         }
         HandleNewWeaponData();

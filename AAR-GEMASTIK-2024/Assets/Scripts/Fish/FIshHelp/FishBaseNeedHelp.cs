@@ -34,7 +34,7 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
     public void LoadScene(GameData gameData)
     {
         if (TutorialManager.instance != null) return;
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         levelData.fishNeedHelpList.TryGetValue(id, out bool value);
         if (value)
         {
@@ -46,7 +46,7 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
     public void SaveScene(ref GameData gameData)
     {
         if (TutorialManager.instance != null) return;
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         if (levelData.fishNeedHelpList.ContainsKey(id))
         {
             levelData.fishNeedHelpList.Remove(id);

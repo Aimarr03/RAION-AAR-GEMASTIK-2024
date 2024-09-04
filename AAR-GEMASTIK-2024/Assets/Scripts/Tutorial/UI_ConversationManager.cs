@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_ConversationManager : MonoBehaviour
+public class UI_ConversationManager : MonoBehaviour, IDataPersistance
 {
-    [SerializeField] private NPCConversation conversation;
+    [SerializeField] private NPCConversation DetailedShopconversation;
+    [SerializeField] private NPCConversation DetailedLevelConversation;
     [SerializeField] private bool StatusDetailedCardConversation = false;
+    [SerializeField] private bool StatusDetailedLevelConversation = false;
     public static UI_ConversationManager Instance;
     private void Awake()
     {
@@ -21,6 +23,21 @@ public class UI_ConversationManager : MonoBehaviour
     {
         if (StatusDetailedCardConversation) return;
         StatusDetailedCardConversation = true;
-        TutorialManager.instance.StartTutorial(conversation);
+        TutorialManager.instance.StartTutorial(DetailedShopconversation);
+    }
+    public void PlayLevelChoiceConversation()
+    {
+        if (StatusDetailedLevelConversation) return;
+        StatusDetailedLevelConversation = true;
+        TutorialManager.instance.StartTutorial(DetailedLevelConversation);
+    }
+    public void LoadScene(GameData gameData)
+    {
+        
+    }
+
+    public void SaveScene(ref GameData gameData)
+    {
+        
     }
 }

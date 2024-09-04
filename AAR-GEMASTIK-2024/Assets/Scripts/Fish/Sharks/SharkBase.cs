@@ -187,23 +187,23 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     public void LoadScene(GameData gameData)
     {
         if (TutorialManager.instance != null) return;
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
+        /*levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
         if (hasCollected)
         {
             OnDeloading();
-        }
+        }*/
     }
 
     public void SaveScene(ref GameData gameData)
     {
         if (TutorialManager.instance != null) return;
-        LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
-        if (levelData.sharkMutatedList.ContainsKey(id))
+        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
+        /*if (levelData.sharkMutatedList.ContainsKey(id))
         {
             levelData.sharkMutatedList.Remove(id);
         }
-        levelData.sharkMutatedList.Add(id, isKnockout);
+        levelData.sharkMutatedList.Add(id, isKnockout);*/
     }
     private void Instance_OnLose(string obj)
     {

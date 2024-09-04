@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour, IDataPersistance
 {
     [SerializeField] private NPCConversation FinishTutorialConversation;
     public static TutorialManager instance;
@@ -55,5 +55,29 @@ public class TutorialManager : MonoBehaviour
         await Task.Delay(1200);
         ConversationManager.Instance.StartConversation(FinishTutorialConversation);
         finishedTutorial = true;
+    }
+
+    public void LoadScene(GameData gameData)
+    {
+        if (UI_Tutorial)
+        {
+            if(gameData.tutorialShop) Destroy(gameObject);
+        }
+        else
+        {
+
+        }
+    }
+
+    public void SaveScene(ref GameData gameData)
+    {
+        if (UI_Tutorial)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }

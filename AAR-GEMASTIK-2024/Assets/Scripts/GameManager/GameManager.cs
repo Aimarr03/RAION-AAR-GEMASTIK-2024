@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
     public HealthItemSO chosenHealthItemSO;
     public OxygenItemSO chosenOxygenItemSO;
     public EnergyItemSO chosenEnergyItemSO;
-    public int level;
-    public event Action<int> OnChangeLevelChoice;
-    private bool isLoading = false;
+    public string currentLevelChoice;
+    public event Action<string> OnChangeLevelChoice;
+    public bool isLoading = false;
     [SerializeField] private RectTransform canvasLoadingScreen;
     [SerializeField] private Image screenLoader;
     [SerializeField] private Image iconLoader;
@@ -55,14 +55,14 @@ public class GameManager : MonoBehaviour
     {
         return chosenAbilitySO != null && chosenWeaponSO != null;
     }
-    public void SetLevel(int index)
+    public void SetLevel(string levelName)
     {
-        level = index;
-        OnChangeLevelChoice?.Invoke(index);
+        currentLevelChoice = levelName;
+        OnChangeLevelChoice?.Invoke(levelName);
     }
     public void LoadLevel()
     {
-        OnLoadScene($"Level{level}");
+        OnLoadScene(currentLevelChoice);
     }
     public void LoadScene(string sceneName)
     {
@@ -76,11 +76,13 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.StopMusic(0.8f);
         await LoadingScreen();
+        isLoading = true;
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(index);
         while (!loadingOperation.isDone)
         {
             await Task.Yield();
         }
+        await Task.Delay(600);
         await DeloadingScreen();
     }
     private async void OnLoadScene(string sceneName)
@@ -134,6 +136,7 @@ public class GameManager : MonoBehaviour
         screenLoader.DOColor(new Color(screenLoaderColor.r,screenLoaderColor.g,screenLoaderColor.b, 0), 0.5f);
         iconLoader.DOKill(true);
         iconLoader.DOColor(new Color(iconColor.r, iconColor.g, iconColor.b, 0), 0.5f);
-        await Task.Yield() ;
+        await Task.Yield();
+        isLoading = false;
     }
 }

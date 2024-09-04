@@ -40,7 +40,7 @@ public abstract class BaseBullet : MonoBehaviour
         }
         catch(Exception e)
         {
-
+            Debug.Log(e.ToString());
         }
     }
 }

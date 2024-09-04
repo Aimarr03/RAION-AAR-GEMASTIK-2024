@@ -5,7 +5,7 @@ using UnityEngine;
 public class Water_Shape_Controller : MonoBehaviour
 {
     [SerializeField] private float springStiffness = 0.1f;
-    [SerializeField] private float dampening = 0.03f;
+    //[SerializeField] private float dampening = 0.03f;
     [SerializeField] private List<Water_Spring> springs;
     public float spread = 0.006f;
     private void Awake()

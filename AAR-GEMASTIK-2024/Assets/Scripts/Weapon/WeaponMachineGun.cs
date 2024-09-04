@@ -12,7 +12,7 @@ public class WeaponMachineGun : WeaponBase
     private Coroutine onShooting;
     private Coroutine onCooldown;
     [Header("Base Data")]
-    [SerializeField] private float intervalBetweenAttack = 0.2f;
+    //[SerializeField] private float intervalBetweenAttack = 0.2f;
     [SerializeField] private float baseMaxDurationToPrepare = 1.3f;
     [SerializeField] private float baseDamage = 12;
     [SerializeField] private int maxBullet = 7;

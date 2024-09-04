@@ -9,7 +9,7 @@ public abstract class FishBaseState
     protected FishNeutralStateMachine fsm;
     protected LayerMask playerMask;
 
-    public event Action OnTriggerTransition;
+    //public event Action OnTriggerTransition;
     public FishBaseState(FishNeutralBase fish, FishNeutralStateMachine fsm, LayerMask playerMask)
     {
         this.fish = fish;

@@ -23,7 +23,7 @@ public class PlayerInputSystem : MonoBehaviour
     public static event Action InvokeUseItem;
     public static event Action<bool> InvokeMoveSoundAction;
     public static event Action InvokePause;
-    private bool OnMovePressed = false;
+    //private bool OnMovePressed = false;
     private void Awake()
     {
         playerInput = new DefaultInputAction();

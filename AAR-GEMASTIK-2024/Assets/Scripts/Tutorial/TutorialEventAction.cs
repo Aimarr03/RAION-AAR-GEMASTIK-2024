@@ -14,7 +14,7 @@ public class TutorialEventAction : MonoBehaviour
     [SerializeField] private bool PlayOnClick;
 
     private bool isDone;
-    public static event EventHandler DoneTutorialEvent;
+    //public static event EventHandler DoneTutorialEvent;
 
     [SerializeField] private NPCConversation conversation;
     [SerializeField] private Button theButton;
