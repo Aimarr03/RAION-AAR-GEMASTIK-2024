@@ -38,7 +38,8 @@ namespace DialogueEditor
         public Sprite OptionImage;
         public bool OptionImageSliced;
         public bool AllowMouseInteraction;
-
+        [Range(0f, 1f)]
+        public float MaxAlphaDialoguePanel = 1f;
         // Non-User facing 
         // Not exposed via custom inspector
         // 
@@ -333,7 +334,7 @@ namespace DialogueEditor
                 return;
             }
 
-            SetColorAlpha(DialogueBackground, t);
+            SetColorAlpha(DialogueBackground, t, MaxAlphaDialoguePanel);
             SetColorAlpha(NpcIcon, t);
             SetColorAlpha(NameText, t);
         }
@@ -725,6 +726,13 @@ namespace DialogueEditor
             Color col = graphic.color;
             col.a = a;
             graphic.color = col;
+        }
+        private void SetColorAlpha(MaskableGraphic graphic, float a, float maxA)
+        {
+            Color col = graphic.color;
+            col.a = Mathf.Clamp(a, 0, maxA);
+            graphic.color = col;
+            //Debug.Log(graphic.color.a);
         }
 
         private void SetSelectedOption(int index)

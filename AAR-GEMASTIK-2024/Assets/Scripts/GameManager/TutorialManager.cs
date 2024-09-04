@@ -13,7 +13,9 @@ public class TutorialManager : MonoBehaviour
     private int maxNPCDialogueTutorial;
     private int currentNPCDialogueFinished;
     private bool finishedTutorial;
+    public bool isFinishedTutorial => finishedTutorial;
     public static Action FinishTutorialAction;
+    public bool UI_Tutorial;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -23,11 +25,11 @@ public class TutorialManager : MonoBehaviour
     }
     private void Start()
     {
-        ConversationManager.OnConversationEnded += OnConversationEnded;
+        if(!UI_Tutorial)ConversationManager.OnConversationEnded += OnConversationEnded;
     }
     private void OnDisable()
     {
-        ConversationManager.OnConversationEnded -= OnConversationEnded;
+        if (!UI_Tutorial) ConversationManager.OnConversationEnded -= OnConversationEnded;
     }
     private void OnConversationEnded()
     {

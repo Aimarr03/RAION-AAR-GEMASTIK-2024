@@ -259,6 +259,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
 
     public void LoadScene(GameData gameData)
     {
+        if (gameData.tutorialGameplay) return;
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
         float trashProgress = levelData.trashProgress;
         foreground.color = Color.Lerp(ForegroundOldColor, ForegroundNewColor, trashProgress);

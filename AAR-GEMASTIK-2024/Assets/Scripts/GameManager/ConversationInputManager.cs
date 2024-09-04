@@ -96,7 +96,7 @@ public class ConversationInputManager : MonoBehaviour
         inputSystem.Dialogue.ContinueButton.performed -= OnInterractSkipButton;
         SkipPanel.gameObject.SetActive(false);
         currentIndex = 0;
-        currentSkipButton.GetComponent<Image>().color = Color.white;
+        if(currentSkipButton != null)currentSkipButton.GetComponent<Image>().color = Color.white;
         currentSkipButton = null;
     }
     public void NavigateSkipButton(UnityEngine.InputSystem.InputAction.CallbackContext obj)

@@ -33,6 +33,7 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
     protected void InvokeBroadcastGettingHelpDone() => OnBroadcastGettingHelp?.Invoke(bounty);
     public void LoadScene(GameData gameData)
     {
+        if (TutorialManager.instance != null) return;
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
         levelData.fishNeedHelpList.TryGetValue(id, out bool value);
         if (value)
@@ -44,6 +45,7 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
 
     public void SaveScene(ref GameData gameData)
     {
+        if (TutorialManager.instance != null) return;
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
         if (levelData.fishNeedHelpList.ContainsKey(id))
         {

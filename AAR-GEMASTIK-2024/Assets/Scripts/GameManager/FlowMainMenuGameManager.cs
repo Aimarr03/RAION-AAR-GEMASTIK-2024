@@ -137,7 +137,9 @@ public class FlowMainMenuGameManager : MonoBehaviour
     {
         DataManager.instance.NewGame();
         string levelName = input ? "Level Tutorial" : "ShoppingMenu";
-        DataManager.instance.gameData.money = 1000;
+        if(!input)DataManager.instance.gameData.money = 1000;
+        DataManager.instance.gameData.tutorialGameplay = input;
+        DataManager.instance.gameData.tutorialShop = input;
         GameManager.Instance.LoadScene(levelName);
     }
     public void OnCancel()

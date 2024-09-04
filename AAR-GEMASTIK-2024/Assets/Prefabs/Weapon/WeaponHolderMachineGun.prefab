@@ -133,13 +133,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSO: {fileID: 11400000, guid: c82559fd3bcf88046b84a35ade7a280f, type: 2}
-  level: 0
   firePointBlank: {fileID: 1632882743039752231}
   interval: 0.5
   intervalBetweenAttack: 0.2
   baseMaxDurationToPrepare: 1.3
-  baseDamage: 36
+  baseDamage: 4
   maxBullet: 7
+  baseSlow: 0.12
+  slowDuration: 1.75
+  stunDuration: 1.5
 --- !u!4 &1632882743039752231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5779494904012247009, guid: e06eda75318ff1b489c2503b2e2b9647,

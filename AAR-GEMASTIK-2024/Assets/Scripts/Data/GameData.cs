@@ -9,6 +9,8 @@ public class GameData
 {
     public List<LevelData> levels;
     public bool newGame;
+    public bool tutorialGameplay;
+    public bool tutorialShop;
     public int money;
     public SerializableDictionary<WeaponType, WeaponSaveData> weaponData;
     public SerializableDictionary<AbilityType, AbilitySaveData> abilityData;

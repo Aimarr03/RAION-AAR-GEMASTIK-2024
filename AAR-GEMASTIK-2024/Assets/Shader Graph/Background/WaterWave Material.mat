@@ -60,9 +60,9 @@ Material:
     - _CoasticPower: 7.7
     - _CoasticSpeed: 0.02
     - _RefractionAmmount: 3.96
-    - _ShadeDensity: 5.59
-    - _ShoreDensity: 4.2
-    - _ShoreSize: 10
+    - _ShadeDensity: 0.53
+    - _ShoreDensity: 1
+    - _ShoreSize: 80
     m_Colors:
     - _CoasticColor: {r: 0.1666073, g: 0.754717, b: 0.52639204, a: 0}
     - _CoasticSpeed: {r: -0.015, g: -0.012, b: 0, a: 0}

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialEventAction : MonoBehaviour
 {
@@ -10,16 +11,29 @@ public class TutorialEventAction : MonoBehaviour
     [SerializeField] private bool PlayOnAwake;
     [SerializeField] private bool PlayOnEnterTrigger;
     [SerializeField] private bool PlayOnCertainAction;
+    [SerializeField] private bool PlayOnClick;
 
     private bool isDone;
     public static event EventHandler DoneTutorialEvent;
 
     [SerializeField] private NPCConversation conversation;
+    [SerializeField] private Button theButton;
     private void Awake()
     {
+        if (!isDone && PlayOnClick)
+        {
+            theButton?.onClick.AddListener(OnClickEvent);
+        }
+        if (conversation == null) conversation = transform.GetChild(0).GetComponent<NPCConversation>();
         if(PlayOnCertainAction) TrashBase.OnCollectedEvent += TrashBase_OnCollectedEvent;
     }
-
+    private void OnClickEvent()
+    {
+        if(PlayOnClick && !isDone)
+        {
+            TutorialManager.instance.StartTutorial(conversation);
+        }
+    }
     private void TrashBase_OnCollectedEvent()
     {
         if (PlayOnCertainAction && !isDone)
@@ -29,7 +43,6 @@ public class TutorialEventAction : MonoBehaviour
             TrashBase.OnCollectedEvent -= TrashBase_OnCollectedEvent;
         }
     }
-
     private void Start()
     {
         if (!isDone && PlayOnAwake)

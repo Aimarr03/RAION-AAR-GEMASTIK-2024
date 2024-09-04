@@ -186,6 +186,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
 
     public void LoadScene(GameData gameData)
     {
+        if (TutorialManager.instance != null) return;
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
         levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
         if (hasCollected)
@@ -196,6 +197,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
 
     public void SaveScene(ref GameData gameData)
     {
+        if (TutorialManager.instance != null) return;
         LevelData levelData = gameData.GetLevelData(GameManager.Instance.level);
         if (levelData.sharkMutatedList.ContainsKey(id))
         {
