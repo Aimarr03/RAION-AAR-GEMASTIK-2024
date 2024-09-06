@@ -38,7 +38,7 @@ public class PlayerInterractionSystem : MonoBehaviour
     {
         coreSystem = GetComponent<PlayerCoreSystem>();
         DetectableInterractiveObjectWhenHolding = new List<IInterractable>();
-        Debug.Log("Interraction is ON");
+        //Debug.Log("Interraction is ON");
     }
     private void Start()
     {

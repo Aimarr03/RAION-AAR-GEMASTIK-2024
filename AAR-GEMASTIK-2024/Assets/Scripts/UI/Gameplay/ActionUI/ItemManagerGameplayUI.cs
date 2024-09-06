@@ -17,7 +17,7 @@ public class ItemManagerGameplayUI : MonoBehaviour
         SustainabilityType type = consumptionSystem.GetSustainabilityTypeBasedOnIndex();
         foreach(ItemGameplayUI item in gameplayUIList)
         {
-            Debug.Log(item.type);
+            //Debug.Log(item.type);
             ConsumableItemSO itemSO = consumptionSystem.GetConsumableItemSO(item.type);
             item.SetUp(itemSO);
             if(item.type == type) item.OnFocusIcon();

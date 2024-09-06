@@ -1451,6 +1451,79 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 520, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &121737562
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -223.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -654
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_Name
+      value: Planting Coral & Plant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2400668f3a21b074ca4ef7cc5b13cd97, type: 3}
 --- !u!1001 &123864259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1546,7 +1619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &127347666
 Transform:
   m_ObjectHideFlags: 0
@@ -4783,6 +4856,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 290596116}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &296855431
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -292.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_Name
+      value: Planting Coral & Plant (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2400668f3a21b074ca4ef7cc5b13cd97, type: 3}
 --- !u!1 &300022308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8142,6 +8288,79 @@ SpriteShapeRenderer:
     m_Center: {x: 12.410538, y: -58.700005, z: 0}
     m_Extent: {x: 108.60214, y: 93.36085, z: 0}
   m_SpriteSortPoint: 0
+--- !u!1001 &466649144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -661.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_Name
+      value: Planting Coral & Plant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2400668f3a21b074ca4ef7cc5b13cd97, type: 3}
 --- !u!1001 &469703117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8397,6 +8616,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 500, y: 10}
   m_EdgeRadius: 0
+--- !u!1 &484029845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484029846}
+  - component: {fileID: 484029847}
+  m_Layer: 0
+  m_Name: Objective Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484029846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484029845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &484029847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484029845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370b84431eaf8be4bb2f96512a5238eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelCompleted: 0
 --- !u!1 &487717423
 GameObject:
   m_ObjectHideFlags: 0
@@ -8463,8 +8727,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 9.4368515, y: 79.6203, z: 0}
-    m_Extent: {x: 95.18255, y: 214.6362, z: 0}
+    m_Center: {x: 9.443901, y: 79.6264, z: 0}
+    m_Extent: {x: 95.1883, y: 214.6325, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8583,7 +8847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &514987670
 Transform:
   m_ObjectHideFlags: 0
@@ -8759,8 +9023,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -10.472252, y: -29.828701, z: 0}
-    m_Extent: {x: 111.91285, y: 114.1543, z: 0}
+    m_Center: {x: -10.476402, y: -29.826847, z: 0}
+    m_Extent: {x: 111.9085, y: 114.15765, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9399,8 +9663,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -21.10535, y: -118.974106, z: 0}
-    m_Extent: {x: 52.40315, y: 174.96071, z: 0}
+    m_Center: {x: -21.110703, y: -118.977, z: 0}
+    m_Extent: {x: 52.4067, y: 174.9595, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9603,8 +9867,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 229.6376, y: 22.40635, z: 0}
-    m_Extent: {x: 264.8218, y: 55.53865, z: 0}
+    m_Center: {x: 229.6391, y: 22.4121, z: 0}
+    m_Extent: {x: 264.813, y: 55.5448, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9703,8 +9967,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -18.738052, y: -14.537048, z: 0}
-    m_Extent: {x: 164.57065, y: 106.48385, z: 0}
+    m_Center: {x: -18.742645, y: -14.5429535, z: 0}
+    m_Extent: {x: 164.57385, y: 106.48645, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10518,8 +10782,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 11.2480545, y: 1.5481501, z: 0}
-    m_Extent: {x: 256.20886, y: 15.82665, z: 0}
+    m_Center: {x: 11.244453, y: 1.5521998, z: 0}
+    m_Extent: {x: 256.21286, y: 15.830299, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12979,6 +13243,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1046258745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1058030040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 220.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -639.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_Name
+      value: Planting Coral & Plant (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2400668f3a21b074ca4ef7cc5b13cd97, type: 3}
 --- !u!1 &1073698959
 GameObject:
   m_ObjectHideFlags: 0
@@ -13826,7 +14163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1158522016
 Transform:
   m_ObjectHideFlags: 0
@@ -17868,8 +18205,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.81964993, y: -0.82544994, z: 0}
-    m_Extent: {x: 7.31075, y: 7.16375, z: 0}
+    m_Center: {x: -0.81455016, y: -0.82155013, z: 0}
+    m_Extent: {x: 7.3098497, y: 7.17225, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17977,7 +18314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1444674359
 Transform:
   m_ObjectHideFlags: 0
@@ -19470,8 +19807,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.3712006, y: 13.44345, z: 0}
-    m_Extent: {x: 257.97168, y: 26.585949, z: 0}
+    m_Center: {x: 6.3637924, y: 13.447151, z: 0}
+    m_Extent: {x: 257.9727, y: 26.58815, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20984,6 +21321,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1722237005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1723836288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 188.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -567.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_Name
+      value: Planting Coral & Plant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2400668f3a21b074ca4ef7cc5b13cd97, type: 3}
 --- !u!1 &1731383184
 GameObject:
   m_ObjectHideFlags: 0
@@ -22137,8 +22547,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 22.51105, y: -90.800354, z: 0}
-    m_Extent: {x: 54.26245, y: 167.31805, z: 0}
+    m_Center: {x: 22.5014, y: -90.8055, z: 0}
+    m_Extent: {x: 54.2599, y: 167.30919, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -22610,8 +23020,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -56.072998, y: -82.974655, z: 0}
-    m_Extent: {x: 104.4727, y: 191.98006, z: 0}
+    m_Center: {x: -56.070152, y: -82.9775, z: 0}
+    m_Extent: {x: 104.47985, y: 191.9773, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -23019,8 +23429,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -14.372551, y: -57.689552, z: 0}
-    m_Extent: {x: 113.61685, y: 92.62885, z: 0}
+    m_Center: {x: -14.370449, y: -57.6846, z: 0}
+    m_Extent: {x: 113.61595, y: 92.6349, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -24923,8 +25333,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.3615494, y: 13.44755, z: 0}
-    m_Extent: {x: 257.96655, y: 26.58895, z: 0}
+    m_Center: {x: 6.369446, y: 13.443001, z: 0}
+    m_Extent: {x: 257.97284, y: 26.581501, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25591,8 +26001,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.586548, y: 21.6689, z: 0}
-    m_Extent: {x: 273.58844, y: 34.8172, z: 0}
+    m_Center: {x: 6.5801544, y: 21.6731, z: 0}
+    m_Extent: {x: 273.59106, y: 34.8149, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -26234,8 +26644,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 51.129, y: -96.879745, z: 0}
-    m_Extent: {x: 110.86951, y: 117.49135, z: 0}
+    m_Center: {x: 51.120148, y: -96.8799, z: 0}
+    m_Extent: {x: 110.87465, y: 117.486206, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -26553,12 +26963,12 @@ PrefabInstance:
     - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.7
+      value: -115.3
       objectReference: {fileID: 0}
     - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9
+      value: -371.7
       objectReference: {fileID: 0}
     - target: {fileID: 6845559141991257879, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
         type: 3}
@@ -26608,7 +27018,7 @@ PrefabInstance:
     - target: {fileID: 7948505489101430241, guid: 2400668f3a21b074ca4ef7cc5b13cd97,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26835,5 +27245,11 @@ SceneRoots:
   - {fileID: 591641577}
   - {fileID: 1296952455}
   - {fileID: 804236894036270796}
+  - {fileID: 121737562}
+  - {fileID: 466649144}
+  - {fileID: 1058030040}
+  - {fileID: 1723836288}
+  - {fileID: 296855431}
   - {fileID: 1307573392}
   - {fileID: 1654184115}
+  - {fileID: 484029846}

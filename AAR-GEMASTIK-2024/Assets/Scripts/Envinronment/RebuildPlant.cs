@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
     private bool canBeInterracted;
     private bool isInterracted;
     private bool donePlanted;
+
+    public static event Action ActionOnDonePlanted;
     [ContextMenu("Generate ID")]
     private void GenerateGuid()
     {
@@ -68,11 +71,25 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
     {
         currentDuration = 0f;
         donePlanted = true;
+        ChangeAlphaValue(fullAlpha);
+        OnDisableFunction();
+        ActionOnDonePlanted?.Invoke();
+    }
+    public void OnDisableFunction()
+    {
         canBeInterracted = false;
         isInterracted = false;
-        ChangeAlphaValue(fullAlpha);
+        ChangeAlphaValue(zeroAlpha);
         ui.ToggleAllCanvas(false);
         plantCollider.enabled = false;
+    }
+    public void OnEnableFunction()
+    {
+        canBeInterracted = true;
+        isInterracted = false;
+        ChangeAlphaValue(quaterAlpha);
+        ui.ToggleAllCanvas(false);
+        plantCollider.enabled = true;
     }
     private void Update()
     {

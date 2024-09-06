@@ -35,7 +35,7 @@ public class PlayerConsumptionItemSystem : MonoBehaviour
         };
         currentItemFocus = GetConsumableItemSO();
         isCooldown = false;
-        Debug.Log(currentItemFocus.generalData.name);
+        //Debug.Log(currentItemFocus.generalData.name);
     }
     private void Start()
     {

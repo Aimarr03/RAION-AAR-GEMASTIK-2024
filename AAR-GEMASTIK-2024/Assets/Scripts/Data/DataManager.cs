@@ -42,7 +42,7 @@ public class DataManager : MonoBehaviour
             if (ExpedictionManager.Instance.IsLosing()) return;
         }
         ListDataPersistance = GetListDataPersistance();
-        Debug.Log(ListDataPersistance.Count);
+        //Debug.Log(ListDataPersistance.Count);
         LoadGame();
     }
 

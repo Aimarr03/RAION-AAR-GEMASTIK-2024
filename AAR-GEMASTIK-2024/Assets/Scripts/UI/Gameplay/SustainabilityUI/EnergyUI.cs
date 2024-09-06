@@ -30,7 +30,7 @@ public class EnergyUI : MonoBehaviour
 
     private void EnergyUI_OnChangeValue(SustainabilityData obj)
     {
-        Debug.Log(obj.ToString());
+        //Debug.Log(obj.ToString());
         energyBarImage.fillAmount = obj.percentageValue;
     }
 }

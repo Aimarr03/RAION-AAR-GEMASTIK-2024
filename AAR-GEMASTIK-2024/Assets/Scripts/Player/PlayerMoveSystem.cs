@@ -82,11 +82,11 @@ public class PlayerMoveSystem : MonoBehaviour
         playerRigid.velocity = Vector3.zero;
         playerRigid.angularVelocity = 0;
         transform.rotation = Quaternion.Euler(0f, onRightDirection ? 0f : 180f, 0f);
-        Debug.Log("Player orientation reset.");
+        //Debug.Log("Player orientation reset.");
     }
     private void PlayerInputSystem_InvokeMoveSoundAction(bool obj)
     {
-        Debug.Log("Is Attempt Moving " + obj);
+        //Debug.Log("Is Attempt Moving " + obj);
         if(obj) OnStartDriveSound();
         else OnStopDrivingSound();
     }
@@ -122,7 +122,7 @@ public class PlayerMoveSystem : MonoBehaviour
         currentDistanceUse += playerRigid.velocity.magnitude * Time.fixedDeltaTime;
         if (currentDistanceUse > maxDistanceUseForOneEnergy)
         {
-            Debug.Log("One Energy has been used");
+            //Debug.Log("One Energy has been used");
             currentDistanceUse = 0;
             OnUseOneEnergy?.Invoke();
         }

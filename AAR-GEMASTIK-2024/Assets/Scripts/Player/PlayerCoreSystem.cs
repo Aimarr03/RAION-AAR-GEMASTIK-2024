@@ -152,7 +152,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
             currentDurationUsageOxygen = 0;
             OxygenSystem oxygenSystem = GetSustainabilitySystem(SustainabilityType.Oxygen) as OxygenSystem;
             oxygenSystem.OnDecreaseValue(1);
-            Debug.Log("Oxygen System depleted by one");
+            //Debug.Log("Oxygen System depleted by one");
         }
     }
     private async void InvunerabilityAfterTakeDamage()
