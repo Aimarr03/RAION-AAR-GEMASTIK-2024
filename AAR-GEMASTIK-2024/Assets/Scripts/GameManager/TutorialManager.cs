@@ -25,11 +25,11 @@ public class TutorialManager : MonoBehaviour, IDataPersistance
     }
     private void Start()
     {
-        if(!UI_Tutorial)ConversationManager.OnConversationEnded += OnConversationEnded;
+        ConversationManager.OnConversationEnded += OnConversationEnded;
     }
     private void OnDisable()
     {
-        if (!UI_Tutorial) ConversationManager.OnConversationEnded -= OnConversationEnded;
+        ConversationManager.OnConversationEnded -= OnConversationEnded;
     }
     private void OnConversationEnded()
     {
@@ -41,9 +41,12 @@ public class TutorialManager : MonoBehaviour, IDataPersistance
         }
         currentNPCDialogueFinished++;
         Debug.Log("Remaining Tutorial " + (maxNPCDialogueTutorial - currentNPCDialogueFinished));
-        if(currentNPCDialogueFinished >= maxNPCDialogueTutorial)
+        if(!UI_Tutorial)
         {
-            OnDelayConversationTutorial();
+            if (currentNPCDialogueFinished >= maxNPCDialogueTutorial)
+            {
+                OnDelayConversationTutorial();
+            }
         }
     }
     public void StartTutorial(NPCConversation conversation)
@@ -73,7 +76,10 @@ public class TutorialManager : MonoBehaviour, IDataPersistance
     {
         if (UI_Tutorial)
         {
-
+            if(currentNPCDialogueFinished >= 3)
+            {
+                gameData.tutorialShop = true;
+            }
         }
         else
         {

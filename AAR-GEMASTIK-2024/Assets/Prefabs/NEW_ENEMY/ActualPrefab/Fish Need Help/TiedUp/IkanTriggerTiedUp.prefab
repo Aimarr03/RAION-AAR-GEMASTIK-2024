@@ -61,7 +61,22 @@ PrefabInstance:
     - target: {fileID: 5797715137927843101, guid: 67d9472c371065b4c8da4ba063f7b631,
         type: 3}
       propertyPath: m_Name
-      value: FishNeedHelpTiedUp
+      value: IkanTriggerTiedUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026650108638506057, guid: 67d9472c371065b4c8da4ba063f7b631,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026650108638506057, guid: 67d9472c371065b4c8da4ba063f7b631,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026650108638506057, guid: 67d9472c371065b4c8da4ba063f7b631,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

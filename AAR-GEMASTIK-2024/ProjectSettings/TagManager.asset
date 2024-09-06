@@ -19,9 +19,9 @@ TagManager:
   - Detectable
   - Bullet
   - Ground
-  - 
-  - 
-  - 
+  - Underwater
+  - Sky
+  - Background
   - 
   - 
   - 
@@ -42,8 +42,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background 3
+    uniqueID: 874680439
     locked: 0
   - name: Background 2
     uniqueID: 2816570455
@@ -51,14 +51,29 @@ TagManager:
   - name: Background 1
     uniqueID: 932152127
     locked: 0
+  - name: Background Foremost
+    uniqueID: 808882917
+    locked: 0
+  - name: Ocean Background
+    uniqueID: 1443896687
+    locked: 0
   - name: Middleground
     uniqueID: 3963392391
+    locked: 0
+  - name: Middleground 02
+    uniqueID: 1136370287
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 2587161121
     locked: 0
   - name: Ground
     uniqueID: 3608004211
     locked: 0
-  - name: Foreground
-    uniqueID: 2587161121
+  - name: Sky
+    uniqueID: 943439301
     locked: 0
   - name: Object
     uniqueID: 1671037207

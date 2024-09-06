@@ -10,7 +10,6 @@ public class TrashCoreSub : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private void Awake()
     {
-        trashCore?.trashList.Enqueue(this);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public void OnTaken(PlayerCoreSystem coreSystem)

@@ -22,17 +22,17 @@ PrefabInstance:
     - target: {fileID: 411141742827339549, guid: decbbdded71020a4885d265519b03723,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.4011868
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 411141742827339549, guid: decbbdded71020a4885d265519b03723,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.4811321
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 411141742827339549, guid: decbbdded71020a4885d265519b03723,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 411141742827339549, guid: decbbdded71020a4885d265519b03723,
         type: 3}
@@ -47,8 +47,13 @@ PrefabInstance:
     - target: {fileID: 411141742827339549, guid: decbbdded71020a4885d265519b03723,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -575988773
+      value: 1671037207
       objectReference: {fileID: 0}
+    - target: {fileID: 411141742827339549, guid: decbbdded71020a4885d265519b03723,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 2513942964838638349, guid: decbbdded71020a4885d265519b03723,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -7,9 +7,10 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
 {
     [SerializeField] protected string id;
     [SerializeField] private float intervalDuration;
-    [SerializeField] private Transform VisualContainer;
     [SerializeField] private UI_TrashCore UI_TrashCore;
-    public Queue<TrashCoreSub> trashList = new Queue<TrashCoreSub>();
+    [SerializeField] private List<Sprite> phaseRenderers;
+    [SerializeField] private SpriteRenderer visual;
+    private Queue<Sprite> queueSpriteRenderers;
     public bool collected;
     private bool canBeTaken;
     private float currentDuration;
@@ -27,6 +28,8 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
     private void Awake()
     {
         trashCoreCollider = GetComponent<Collider2D>();
+        queueSpriteRenderers = new Queue<Sprite>(phaseRenderers);
+        visual.sprite = queueSpriteRenderers.Dequeue();
     }
     public void AltInterracted(PlayerInterractionSystem playerInterractionSystem)
     {
@@ -38,10 +41,13 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
         {
             canBeTaken = false;
             UI_TrashCore.OnSwitchingUI(canBeTaken);
-            TrashCoreSub currentTrashSub = trashList.Dequeue();
-            currentTrashSub.OnTaken(player);
+            visual.sprite = queueSpriteRenderers.Dequeue();
+            if(queueSpriteRenderers.Count == 0)
+            {
+                OnTaken();
+            }
         }
-        if (trashList.Count == 0) OnTaken();
+        
     }
     public void LoadScene(GameData gameData)
     {

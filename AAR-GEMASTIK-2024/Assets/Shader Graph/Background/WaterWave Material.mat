@@ -55,19 +55,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cell_Density_For_Ocean: 60
-    - _CoasticAngleSpeed: 7
-    - _CoasticPower: 7.7
+    - _Cell_Density_For_Ocean: 22
+    - _CoasticAngleSpeed: 12
+    - _CoasticPower: 12
     - _CoasticSpeed: 0.02
-    - _RefractionAmmount: 3.96
-    - _ShadeDensity: 0.53
-    - _ShoreDensity: 1
-    - _ShoreSize: 80
+    - _RefractionAmmount: 10.6
+    - _ShadeDensity: 1.07
+    - _ShoreDensity: 1.07
+    - _ShoreSize: 2.18
     m_Colors:
-    - _CoasticColor: {r: 0.1666073, g: 0.754717, b: 0.52639204, a: 0}
-    - _CoasticSpeed: {r: -0.015, g: -0.012, b: 0, a: 0}
-    - _ShoreColor: {r: 0, g: 0.7058824, b: 0.6337494, a: 0.8392157}
+    - _CoasticColor: {r: 0.096420206, g: 0.8909088, b: 1.5969613, a: 0}
+    - _CoasticSpeed: {r: -0.01, g: -0.01, b: 0, a: 0}
+    - _ShoreColor: {r: 0.04150939, g: 0.85363257, b: 1, a: 0.91764706}
     - _WaterColor: {r: 0.05429423, g: 0.1620453, b: 0.1957547, a: 0}
     - _Water_Offset: {r: 0.12, g: -0.1, b: 0, a: 0}
-    - _Water_Tiling: {r: 0, g: 0.123, b: 0, a: 0}
+    - _Water_Tiling: {r: 0.02, g: 0.123, b: 0, a: 0}
   m_BuildTextureStacks: []

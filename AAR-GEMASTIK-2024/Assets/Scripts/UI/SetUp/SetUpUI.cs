@@ -135,6 +135,8 @@ public class SetUpUI : BasePreparingPlayerUI
             yield return new WaitForSeconds(0.3f);
         }
         StartLevel.GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutBounce);
+        yield return new WaitForSeconds(0.5f);
+        if (!DataManager.instance.gameData.tutorialShop) UI_ConversationManager.Instance.PlaySetUpConversation();
     }
 
     public override IEnumerator OnExitState()
