@@ -11,6 +11,7 @@ public class UI_TrashCore : MonoBehaviour
     [SerializeField] private RectTransform UI_CanBeTaken;
 
     [SerializeField] private Image processValue;
+    [SerializeField] private Image indicationValue;
     public void OnSwitchingUI(bool canBeTaken)
     {
         UI_ProcessToTake.gameObject.SetActive(!canBeTaken);
@@ -25,5 +26,11 @@ public class UI_TrashCore : MonoBehaviour
     public void SetProcessLoadingValue(float value)
     {
         processValue.fillAmount = value;
+    }
+    public void SetIndicationValue(float minValue, float maxValue)
+    {
+        indicationValue.fillAmount = maxValue;
+        float z_rotation = -(360 * minValue);
+        indicationValue.rectTransform.localRotation = Quaternion.Euler(0,0,z_rotation);
     }
 }
