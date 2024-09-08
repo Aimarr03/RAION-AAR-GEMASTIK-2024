@@ -35,7 +35,7 @@ public class FlowMainMenuGameManager : MonoBehaviour
     private int currentIndex = -1;
     private DefaultInputAction inputSystem;
     private MainMenuButtonUI currentMainMenuButton;
-    private bool Tutorial;
+    private bool onConfirmNewGame;
     private void Awake()
     {
         inputSystem = new DefaultInputAction();
@@ -94,7 +94,7 @@ public class FlowMainMenuGameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        OnCustomDisable();
+        //OnCustomDisable();
         Debug.Log("Start New Game");
         if (DataManager.instance.HasGameData())
         {
@@ -131,6 +131,7 @@ public class FlowMainMenuGameManager : MonoBehaviour
     }
     public void OnConfirmNewGame()
     {
+        onConfirmNewGame = true;
         LoadTutorialPanel();
     }
     public void OnConfirmTutorial(bool input)
@@ -139,7 +140,7 @@ public class FlowMainMenuGameManager : MonoBehaviour
         string levelName = input ? "Level Tutorial" : "ShoppingMenu";
         if(!input)DataManager.instance.gameData.money = 1000;
         DataManager.instance.gameData.tutorialGameplay = input;
-        DataManager.instance.gameData.tutorialShop = input;
+        DataManager.instance.gameData.tutorialShopDone = !input;
         GameManager.Instance.LoadScene(levelName);
     }
     public void OnCancel()

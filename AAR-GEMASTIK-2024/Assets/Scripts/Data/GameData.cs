@@ -10,7 +10,7 @@ public class GameData
     public List<LevelData> levels;
     public bool newGame;
     public bool tutorialGameplay;
-    public bool tutorialShop;
+    public bool tutorialShopDone = false;
     public int money;
     public SerializableDictionary<WeaponType, WeaponSaveData> weaponData;
     public SerializableDictionary<AbilityType, AbilitySaveData> abilityData;
@@ -31,10 +31,13 @@ public class GameData
     public SubLevelData GetSubLevelData(string level)
     {
         string[] parts = level.Split(new char[] { ' ', '_' });
-        string levelForm = parts[0];
-        string subLevel = parts[1];
-        int levelIndex = int.Parse(levelForm) - 1;
-        int subLevelIndex = int.Parse(subLevel) - 1;
+        foreach (string part in parts) Debug.Log("Level " +part);
+        string levelForm = parts[1];
+        string subLevel = parts[2];
+        int levelIndex = Int32.Parse(levelForm);
+        levelIndex -= 1;
+        int subLevelIndex = Int32.Parse(subLevel);
+        subLevelIndex -= 1;
         return levels[levelIndex].subLevels[subLevelIndex];
     }
     public SubLevelData GetSubLevelData(LevelData levelData, int subLevel)
@@ -46,6 +49,8 @@ public class GameData
         levels = new List<LevelData>();
         newGame = true;
         money = 100;
+        tutorialShopDone = false;
+        Debug.Log(tutorialShopDone);
         for (int i = 0; i < 3; i++)
         {
             LevelData level = new LevelData();
@@ -55,9 +60,12 @@ public class GameData
             for(int  j = 0; j <3; j++)
             {
                 SubLevelData subLevel = new SubLevelData();
-                subLevel.subLevelName = level.levelName + "_"+ j;
+                subLevel.subLevelName = level.levelName + "_"+ (j+1);
                 subLevel.trashList = new SerializableDictionary<string, bool>();
                 subLevel.fishNeedHelpList = new SerializableDictionary<string, bool>();
+                subLevel.conversationList = new SerializableDictionary<string, bool>();
+                subLevel.additionalCollectableObjects = new SerializableDictionary<string, SerializableDictionary<string, bool>>();
+                subLevel.collectedAdditionalCollectableObjects = new SerializableDictionary<string, int>();
                 level.subLevels.Add(subLevel);
             }
             levels.Add(level);

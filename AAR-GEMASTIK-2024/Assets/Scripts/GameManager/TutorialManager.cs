@@ -64,11 +64,7 @@ public class TutorialManager : MonoBehaviour, IDataPersistance
     {
         if (UI_Tutorial)
         {
-            if(gameData.tutorialShop) Destroy(gameObject);
-        }
-        else
-        {
-
+            if(gameData.tutorialShopDone) Destroy(gameObject);
         }
     }
 
@@ -78,12 +74,8 @@ public class TutorialManager : MonoBehaviour, IDataPersistance
         {
             if(currentNPCDialogueFinished >= 3)
             {
-                gameData.tutorialShop = true;
+                gameData.tutorialShopDone = true;
             }
-        }
-        else
-        {
-
         }
     }
 }

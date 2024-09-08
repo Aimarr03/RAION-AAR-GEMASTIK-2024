@@ -8,6 +8,7 @@ public class UI_RebuildPlant : MonoBehaviour
     [SerializeField] private RectTransform Canvas_ToStart;
     [SerializeField] private RectTransform Canvas_Processing;
     [SerializeField] private Image image;
+    [SerializeField] private Image focusImage;
 
     private void Awake()
     {
@@ -27,6 +28,12 @@ public class UI_RebuildPlant : MonoBehaviour
     public void ShowProcess(float process)
     {
         image.fillAmount = process;
+    }
+    public void OnSetValue(float minValue, float maxValue)
+    {
+        focusImage.fillAmount = maxValue;
+        float z_rotation = -(360 * minValue);
+        focusImage.rectTransform.localRotation = Quaternion.Euler(0, 0, z_rotation);
     }
 }
 

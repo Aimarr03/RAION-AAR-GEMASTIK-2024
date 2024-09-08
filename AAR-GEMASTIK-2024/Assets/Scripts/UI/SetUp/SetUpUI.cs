@@ -26,11 +26,12 @@ public class SetUpUI : BasePreparingPlayerUI
         {
             t.localScale = Vector3.zero;
         }
-        SetUp();
+        
     }
     private void Start()
     {
         SetUpCard.onChoseItem += SetUpCard_onChoseItem;
+        SetUp();
         StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(GameManager.Instance.LoadLevel);
     }
     private void OnDestroy()
@@ -136,7 +137,7 @@ public class SetUpUI : BasePreparingPlayerUI
         }
         StartLevel.GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f).SetEase(Ease.OutBounce);
         yield return new WaitForSeconds(0.5f);
-        if (!DataManager.instance.gameData.tutorialShop) UI_ConversationManager.Instance.PlaySetUpConversation();
+        if (!DataManager.instance.gameData.tutorialShopDone) UI_ConversationManager.Instance.PlaySetUpConversation();
     }
 
     public override IEnumerator OnExitState()

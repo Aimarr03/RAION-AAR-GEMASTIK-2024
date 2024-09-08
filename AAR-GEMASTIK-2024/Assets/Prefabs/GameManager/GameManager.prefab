@@ -136,7 +136,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &119940131025284309
 MonoBehaviour:
@@ -305,7 +305,8 @@ MonoBehaviour:
   chosenHealthItemSO: {fileID: 11400000, guid: aebbb3887346cff4181f8dc0f2c43871, type: 2}
   chosenOxygenItemSO: {fileID: 11400000, guid: 3fb3f16c79f9d2c47b80dcce7a2595f9, type: 2}
   chosenEnergyItemSO: {fileID: 11400000, guid: 0c247dc5c29200c4cb5dd6f15d012027, type: 2}
-  level: 1
+  currentLevelChoice: 
+  isLoading: 0
   canvasLoadingScreen: {fileID: 2681906053940345017}
   screenLoader: {fileID: 3105031134048721454}
   iconLoader: {fileID: 4679986683686440846}

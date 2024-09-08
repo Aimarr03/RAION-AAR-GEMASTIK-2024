@@ -32,6 +32,7 @@ public class TutorialEventAction : MonoBehaviour
         if(PlayOnClick && !isDone)
         {
             TutorialManager.instance.StartTutorial(conversation);
+            isDone = true;
         }
     }
     private void TrashBase_OnCollectedEvent()

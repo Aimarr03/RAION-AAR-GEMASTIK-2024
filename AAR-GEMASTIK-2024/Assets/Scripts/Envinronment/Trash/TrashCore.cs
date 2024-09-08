@@ -49,7 +49,6 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
     }
     public void Interracted(PlayerInterractionSystem playerInterractionSystem)
     {
-        
         if (canBeTaken)
         {
             bool failed = percentageDuration < currentMinValue || percentageDuration > currentMinValue + currentMaxValue;
@@ -81,7 +80,42 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
     }
     public void LoadScene(GameData gameData)
     {
-        
+        SubLevelData subLevelData = DataManager.instance.gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
+        if (subLevelData == null) return;
+        if (!subLevelData.additionalCollectableObjects.ContainsKey("Trash Core"))
+        {
+            subLevelData.additionalCollectableObjects.Add("Trash Core", new SerializableDictionary<string, bool>());
+        }
+        SerializableDictionary<string, bool> trashCoreDictionary = subLevelData.additionalCollectableObjects["Trash Core"];
+        if (trashCoreDictionary.TryGetValue(id, out bool value))
+        {
+            if (value)
+            {
+                trashCoreCollider.enabled = false;
+                for (int index = 0; index < transform.childCount; index++)
+                {
+                    Transform childCurrentTransform = transform.GetChild(index);
+                    childCurrentTransform.gameObject.SetActive(false);
+                }
+                collected = true;
+                canBeTaken = false;
+            }
+        }
+    }
+    public void SaveScene(ref GameData gameData)
+    {
+        SubLevelData subLevelData = DataManager.instance.gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
+        if (subLevelData == null) return;
+        if(!subLevelData.additionalCollectableObjects.ContainsKey("Trash Core"))
+        {
+            subLevelData.additionalCollectableObjects.Add("Trash Core", new SerializableDictionary<string, bool>());
+        }
+        SerializableDictionary<string, bool> trashCoreDictionary = subLevelData.additionalCollectableObjects["Trash Core"];
+        if (trashCoreDictionary.ContainsKey(id))
+        {
+            trashCoreDictionary.Remove(id);
+        }
+        trashCoreDictionary.Add(id, collected);
     }
     public void OnDetectedAsTheClosest(PlayerCoreSystem coreSystem)
     {
@@ -98,10 +132,7 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
             CalculateMaxAndMinValue();
         }
     }
-    public void SaveScene(ref GameData gameData)
-    {
-        
-    }
+    
     public void OnTaken()
     {
         trashCoreCollider.enabled = false;

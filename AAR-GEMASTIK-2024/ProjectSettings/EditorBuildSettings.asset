@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level Tutorial.unity
     guid: c3a96792aade94e488ceae210c73ad35
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 1_1.unity
+    guid: 62e083fc3d552f5489e9fc5abdeb5ec1
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 3b20e9b76642c52488cfeb12cd4aab97,
       type: 2}

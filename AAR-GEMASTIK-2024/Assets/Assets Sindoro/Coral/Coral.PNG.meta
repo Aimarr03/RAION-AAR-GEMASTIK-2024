@@ -136,27 +136,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Coral_0
-      rect:
-        serializedVersion: 2
-        x: 1645
-        y: 956
-        width: 11
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4eac8adc8b284445bb89c61009db2bc
-      internalID: -250417532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Coral_1
       rect:
         serializedVersion: 2
@@ -165,7 +144,7 @@ TextureImporter:
         width: 327
         height: 466
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,7 +165,7 @@ TextureImporter:
         width: 327
         height: 425
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,7 +186,7 @@ TextureImporter:
         width: 522
         height: 522
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,7 +207,7 @@ TextureImporter:
         width: 531
         height: 371
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,7 +228,7 @@ TextureImporter:
         width: 638
         height: 868
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,36 +241,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coral_6
-      rect:
-        serializedVersion: 2
-        x: 2276
-        y: 165
-        width: 79
-        height: 463
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f184dff64cf0ff84c93fa19f0bbac058
-      internalID: -1701812805
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Coral_7
       rect:
         serializedVersion: 2
-        x: 2330
-        y: 165
-        width: 292
-        height: 711
+        x: 2277
+        y: 158
+        width: 367
+        height: 727
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,27 +257,6 @@ TextureImporter:
       bones: []
       spriteID: 296700f766a82514192d9f1d10fb2bb3
       internalID: -775996120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Coral_8
-      rect:
-        serializedVersion: 2
-        x: 2537
-        y: 168
-        width: 110
-        height: 340
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3731c67a8a71f7441902f071df0db48e
-      internalID: -1044321401
       vertices: []
       indices: 
       edges: []
@@ -333,7 +270,7 @@ TextureImporter:
         width: 522
         height: 409
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,7 +291,7 @@ TextureImporter:
         width: 321
         height: 187
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,7 +312,7 @@ TextureImporter:
         width: 626
         height: 410
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,7 +333,7 @@ TextureImporter:
         width: 424
         height: 513
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,7 +354,7 @@ TextureImporter:
         width: 673
         height: 447
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,7 +375,7 @@ TextureImporter:
         width: 494
         height: 378
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,27 +383,6 @@ TextureImporter:
       bones: []
       spriteID: 104cd7e32aef35f4088ad4fa6891f09d
       internalID: -563473151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Coral_15
-      rect:
-        serializedVersion: 2
-        x: 2500
-        y: 99
-        width: 28
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b930a3c6984fd14b9ddb3701baf3749
-      internalID: 831132397
       vertices: []
       indices: 
       edges: []

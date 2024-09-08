@@ -52,6 +52,8 @@ public class PlayerMoveSystem : MonoBehaviour
         WeightSystem.OnOverweight -= WeightSystem_OnOverweight;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
         coreSystem.OnDead -= CoreSystem_OnDead;
+        DialogueEditor.ConversationManager.OnConversationStarted -= OnConverstaionStarted;
+        DialogueEditor.ConversationManager.OnConversationEnded -= OnConverstaionFinished;
     }
 
     private void Instance_OnDoneExpediction(bool obj, PlayerCoreSystem coreSystem)
@@ -293,5 +295,8 @@ public class PlayerMoveSystem : MonoBehaviour
         playerRigid.velocity = Vector2.zero;
         canBeUsed = false;
     }
-
+    public void Stop()
+    {
+        playerRigid.velocity = Vector2.zero;
+    }
 }

@@ -32,7 +32,7 @@ public class ShopItemCard : MonoBehaviour
         DetailedCardView.OnUpgradedSomething += UpdateData;
         DetailedCardView.OnBoughtSomething += UpdateData;
         this.thisButton.onClick.AddListener(SoundEffectClick);
-        if(!DataManager.instance.gameData.tutorialShop)thisButton.onClick.AddListener(UI_ConversationManager.Instance.PlayDetailedCard);
+        if(!DataManager.instance.gameData.tutorialShopDone)thisButton.onClick.AddListener(UI_ConversationManager.Instance.PlayDetailedCard);
         RectTransform rect = GetComponent<RectTransform>();
         float localY = rect.anchoredPosition.y;
     }
@@ -93,7 +93,7 @@ public class ShopItemCard : MonoBehaviour
     private void SoundEffectClick()
     {
         AudioManager.Instance.PlaySFX(AudioContainerUI.instance.interractable, 2.5f);
-        if(!DataManager.instance.gameData.tutorialShop)thisButton.onClick.RemoveListener(UI_ConversationManager.Instance.PlayDetailedCard);
+        if(!DataManager.instance.gameData.tutorialShopDone)thisButton.onClick.RemoveListener(UI_ConversationManager.Instance.PlayDetailedCard);
     }
     private void IsBuyableOrNotVisually(ShopMode mode, bool canBeInterracted)
     {

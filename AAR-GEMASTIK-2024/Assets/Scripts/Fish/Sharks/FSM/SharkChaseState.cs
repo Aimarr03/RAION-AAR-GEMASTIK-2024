@@ -60,6 +60,7 @@ public class SharkChaseState : SharkBaseState
     public override void OnExitState()
     {
         shark.StopAllCoroutines();
+        shark.OnInvokeEncounter();
         playerCoreSystem = null;
         onCooldown = false;
     }

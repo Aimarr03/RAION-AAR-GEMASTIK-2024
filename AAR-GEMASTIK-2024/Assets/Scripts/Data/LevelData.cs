@@ -30,12 +30,15 @@ public class SubLevelData
     public bool isDone;
 
     public float progress;
-    public float fishNeededHelpProgress;
-    public int fishNeededHelpCountDone;
-    public float trashProgress;
-    public int trashCountDone;
+    public float fishNeededHelpProgress = 0;
+    public int fishNeededHelpCountDone = 0;
+    public float trashProgress = 0;
+    public int trashCountDone = 0;
     public SerializableDictionary<string, bool> trashList;
     public SerializableDictionary<string, bool> fishNeedHelpList;
+    public SerializableDictionary<string, bool> conversationList;
+    public SerializableDictionary<string, SerializableDictionary<string, bool>> additionalCollectableObjects;
+    public SerializableDictionary<string, int> collectedAdditionalCollectableObjects;
 }
 [CreateAssetMenu(fileName ="New Sub Level Name")]
 public class SubLevelDescription : ScriptableObject

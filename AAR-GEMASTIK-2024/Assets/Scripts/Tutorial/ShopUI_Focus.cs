@@ -27,16 +27,22 @@ public class ShopUI_Focus : MonoBehaviour
     public Image SubLevelDescription;
     public Image SubLevelProgress;
     public Image SubLevelConfirm;
+
+    [Header("Set Up Focus")]
+    public Image StartFocus;
+    public Image ItemFocus;
+    public Image ItemChosenFocus;
     private void Awake()
     {
         focusPanelList = new List<Image> { MainShopPanel, ModeTypeToShopPanel, ItemTypeToShopPanel, ShipPanel, MoneyPanel,
-        LevelChoicePanel, CurrentLevelPanel, SubLevelChoice, SubLevelList, SubLevelDescription, SubLevelProgress, SubLevelConfirm};
+        LevelChoicePanel, CurrentLevelPanel, SubLevelChoice, SubLevelList, SubLevelDescription, SubLevelProgress, SubLevelConfirm
+        , StartFocus, ItemFocus, ItemChosenFocus};
     }
     private void Start()
     {
-        OnConversationEnded();
         ConversationManager.OnConversationStarted += OnConversationStarted;
         ConversationManager.OnConversationEnded += OnConversationEnded;
+        OnConversationEnded();
     }
     private void OnDisable()
     {
@@ -55,8 +61,10 @@ public class ShopUI_Focus : MonoBehaviour
     }
     public void HideFocusPanel()
     {
+
         foreach (Image item in focusPanelList)
         {
+            //Debug.Log(item.gameObject);
             item.gameObject.SetActive(false);
         }
     }
@@ -136,5 +144,23 @@ public class ShopUI_Focus : MonoBehaviour
         HideFocusPanel();
         BackgroundFocusPanel.gameObject.SetActive(true);
         SubLevelConfirm.gameObject.SetActive(true);
+    }
+    public void ShowStartLevelFocus()
+    {
+        HideFocusPanel();
+        BackgroundFocusPanel.gameObject.SetActive(true);
+        StartFocus.gameObject.SetActive(true);
+    }
+    public void ShowItemFocus()
+    {
+        HideFocusPanel();
+        BackgroundFocusPanel.gameObject.SetActive(true);
+        ItemFocus.gameObject.SetActive(true);
+    }
+    public void ShowActiveItemFocus()
+    {
+        HideFocusPanel();
+        BackgroundFocusPanel.gameObject.SetActive(true);
+        ItemChosenFocus.gameObject.SetActive(true);
     }
 }

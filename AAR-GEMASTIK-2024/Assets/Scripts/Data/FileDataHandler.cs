@@ -19,6 +19,7 @@ public class FileDataHandler
     {
         string fullPath = Path.Combine(Application.persistentDataPath, directoryPath, fileName);
         Debug.Log($"Saving data to {fullPath}");
+        Debug.Log(gameData.tutorialShopDone);
         try
         {
             if (!Directory.Exists(Path.Combine(Application.persistentDataPath, directoryPath)))

@@ -25,7 +25,7 @@ public class ChooseLevel : BasePreparingPlayerUI
         levelUIText.text = $"{GameManager.Instance.currentLevelChoice}";
         GameManager.Instance.OnChangeLevelChoice += Instance_OnChangeLevelChoice;
         yield return null;
-        if (!DataManager.instance.gameData.tutorialShop) UI_ConversationManager.Instance.PlayLevelChoiceConversation();
+        if (!DataManager.instance.gameData.tutorialShopDone) UI_ConversationManager.Instance.PlayLevelChoiceConversation();
     }
 
     

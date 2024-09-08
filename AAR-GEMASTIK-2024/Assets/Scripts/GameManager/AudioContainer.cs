@@ -63,10 +63,6 @@ public class AudioContainer : MonoBehaviour
         }
         manyEncounter++;
     }
-
-    
-
-    
     private void Instance_OnLose(string obj)
     {
         AudioManager.Instance.StartNewMusic(gameOverBGM, 1f, 2f);

@@ -89,6 +89,7 @@ public class PauseGameplayUI : MonoBehaviour
         AudioManager.Instance.PlaySFX(closeup);
         await Task.Delay(600);
         OnPause?.Invoke(isPause);
+        inputAction.Pause_UI.Disable();
     }
     
     public void OnSetToLoadScene(string sceneName)

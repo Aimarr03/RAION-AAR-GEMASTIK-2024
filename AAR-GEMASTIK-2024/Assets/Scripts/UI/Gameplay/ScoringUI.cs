@@ -141,7 +141,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         StartCoroutine(OnStartDisplayScore(coreSystem));
         inputAction = new DefaultInputAction();
         inputAction.ExpedictionUI.Enable();
-        inputAction.ExpedictionUI.Confirm.performed += Confirm_performed;
+        inputAction.ExpedictionUI.Confirm.performed -= Confirm_performed;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
     }
 
@@ -267,12 +267,15 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     
     public void SaveScene(ref GameData gameData)
     {
-        SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
-        levelData.trashCountDone = trashHasBeenCollectedPreviously + currrentTrashTotalCollected;
-        levelData.trashProgress = trashProgress;
-        levelData.fishNeededHelpCountDone = fishHasBeenCollectedPreviously + currentFishNeedHelpTotalCollected;
-        levelData.fishNeededHelpProgress = fishProgress;
-        levelData.progress = totalProgress;
+        if(TutorialManager.instance == null)
+        {
+            SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
+            levelData.trashCountDone = trashHasBeenCollectedPreviously + currrentTrashTotalCollected;
+            levelData.trashProgress = trashProgress;
+            levelData.fishNeededHelpCountDone = fishHasBeenCollectedPreviously + currentFishNeedHelpTotalCollected;
+            levelData.fishNeededHelpProgress = fishProgress;
+            levelData.progress = totalProgress;
+        }   
         gameData.money = EconomyManager.Instance.currentMoney;
         //if(!levelData.hasBeenExpediction) levelData.hasBeenExpediction = true;
     }

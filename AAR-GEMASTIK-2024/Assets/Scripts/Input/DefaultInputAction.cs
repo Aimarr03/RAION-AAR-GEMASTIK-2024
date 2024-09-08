@@ -414,6 +414,17 @@ public partial class @DefaultInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Resume From Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c022da9-f6e6-464a-8824-fd6710d969c2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""DefaultControl"",
+                    ""action"": ""Resume From Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
