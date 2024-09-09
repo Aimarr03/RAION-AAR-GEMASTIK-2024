@@ -28,6 +28,7 @@ public class SubLevelData
     public int currentCompletedPhase = 0;
     public int maxPhase = 0;
     public bool isDone;
+    public bool isUnlocked;
 
     public float progress;
     public float fishNeededHelpProgress = 0;
@@ -39,10 +40,4 @@ public class SubLevelData
     public SerializableDictionary<string, bool> conversationList;
     public SerializableDictionary<string, SerializableDictionary<string, bool>> additionalCollectableObjects;
     public SerializableDictionary<string, int> collectedAdditionalCollectableObjects;
-}
-[CreateAssetMenu(fileName ="New Sub Level Name")]
-public class SubLevelDescription : ScriptableObject
-{
-    public string subLevelName;
-    public string description;
 }

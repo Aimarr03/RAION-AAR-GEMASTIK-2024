@@ -11,7 +11,7 @@ public abstract class ObjectiveManager : MonoBehaviour, IDataPersistance
     public static event Action<List<ObjectiveData>> OnPhaseCompleted;
     public static event Action<ObjectiveData> OnObjectiveProgress;
 
-    public abstract List<List<ObjectiveData>> GetOverallObjectives();
+    public abstract List<ObjectiveData> GetOverallObjectives();
     protected virtual void Awake()
     {
         if(Instance == null) Instance = this;

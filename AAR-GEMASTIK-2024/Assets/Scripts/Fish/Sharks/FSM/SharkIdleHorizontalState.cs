@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class SharkIdleHorizontalState : SharkBaseState
@@ -20,6 +21,7 @@ public class SharkIdleHorizontalState : SharkBaseState
     private Coroutine idleCoroutine;
     private bool isResting = false;
     private bool goingHome=false;
+    private bool DoNotDetect = true;
 
     public SharkIdleHorizontalState(SharkBase shark, SharkStateMachine fsm, LayerMask playerMask, float maxDistance, float radiusDetection, float speed, float angle) : base(shark, fsm, playerMask)
     {
@@ -56,6 +58,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         Debug.Log("Distance to Original Position " + Vector3.Distance(shark.transform.position, originalPos));
         goingHome = Vector3.Distance(shark.transform.position, originalPos) > maxDistance;
         Debug.Log("Going Home ? " + goingHome);
+        OnCooldownToDetect();
         /*if (Vector3.Distance(shark.transform.position, originalPos) > maxDistance)
         {
             //shark.StartCoroutine(OnGoHome());
@@ -90,7 +93,7 @@ public class SharkIdleHorizontalState : SharkBaseState
     {
         //Debug.Log($"ISRESTING {isResting}, DETECTED PLATER {detectedPlayer}, GOING HOME {goingHome}");
         if (isResting) return;
-        if (!detectedPlayer) OnTryToDetect();
+        if (!detectedPlayer && !DoNotDetect) OnTryToDetect();
         if (!goingHome) OnIdlingWithDelay();
         else OnGoingHome();
     }
@@ -196,5 +199,14 @@ public class SharkIdleHorizontalState : SharkBaseState
         isResting = true;
         yield return new WaitForSeconds(delay);
         isResting = false;
+    }
+    private async void OnCooldownToDetect()
+    {
+        DoNotDetect = false;
+        await Task.Delay(2000);
+        if (!shark.GetIsKnockout())
+        {
+            DoNotDetect = true;
+        }
     }
 }

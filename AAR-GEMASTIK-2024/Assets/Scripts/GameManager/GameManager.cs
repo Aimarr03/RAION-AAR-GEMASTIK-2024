@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public HealthItemSO chosenHealthItemSO;
     public OxygenItemSO chosenOxygenItemSO;
     public EnergyItemSO chosenEnergyItemSO;
+    public List<ItemBaseSO> items;
     public string currentLevelChoice;
     public event Action<string> OnChangeLevelChoice;
     public bool isLoading = false;
@@ -29,6 +30,10 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+            items = new List<ItemBaseSO>
+            {
+                chosenWeaponSO, chosenAbilitySO, chosenHealthItemSO, chosenOxygenItemSO, chosenEnergyItemSO
+            };
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -139,4 +144,21 @@ public class GameManager : MonoBehaviour
         await Task.Yield();
         isLoading = false;
     }
+    public void OnEnteredSetUpLevel()
+    {
+        for(int index = 0; index < items.Count; index++)
+        {
+            ItemBaseSO item = items[index];
+            item = null;
+        }
+    }
+    public bool CanStartGame()
+    {
+        foreach(ItemBaseSO item in items)
+        {
+            if (item == null) return false;
+        }
+        return true;
+    }
+
 }

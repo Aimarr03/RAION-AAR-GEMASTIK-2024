@@ -6,7 +6,7 @@ using UnityEngine;
 public class Level_1_1_ObjectiveManager : ObjectiveManager
 {
     [SerializeField] private Transform DialogueContainer;
-
+    [SerializeField] private AudioClip onProgress, onCompletedProgress;
     private List<TrashBase> ListOfTrashes;
     private List<TrashCore> ListOfTrashCores;
     private List<FishBaseNeedHelp> ListOfFishNeedHelps;
@@ -27,6 +27,7 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
     protected override void Awake()
     {
         base.Awake();
+        Instance = this;
         ListOfTrashCores = new List<TrashCore>();
         IEnumerable<TrashBase> trashes = FindObjectsOfType<TrashBase>();
         IEnumerable<TrashCore> trashCores = FindObjectsOfType<TrashCore>();
@@ -78,7 +79,10 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
         SubLevelData subLevelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         subLevelData.currentCompletedPhase = currentPhase;
         subLevelData.collectedAdditionalCollectableObjects["Trash Core"] = trashCoreCollection.currentCollected;
-        subLevelData.collectedAdditionalCollectableObjects["Rebuild Plant"] = CoralCollection.currentCollected; 
+        if(CoralCollection != null)
+        {
+            subLevelData.collectedAdditionalCollectableObjects["Rebuild Plant"] = CoralCollection.currentCollected;
+        }
     }
     #endregion
     #region OBJECTIVES
@@ -173,6 +177,11 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
             currentPhase++;
             SetObjective();
             //OnFinishedPhased?.Invoke(800);
+            AudioManager.Instance.PlaySFX(onCompletedProgress);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(onProgress);
         }
     }
     #endregion
@@ -199,15 +208,41 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
         {
             Debug.Log("Phase two COMPLETE!");
             currentPhase++;
+            AudioManager.Instance.PlaySFX(onCompletedProgress);
             SetObjective();
             RebuildPlant.ActionOnDonePlanted -= RebuildPlant_ActionOnDonePlanted;
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(onProgress);
         }
         InvokeObjectiveProgress(CoralObjective);
     }
 
-    public override List<List<ObjectiveData>> GetOverallObjectives()
+    public override List<ObjectiveData> GetOverallObjectives()
     {
-        return null;
+        Debug.Log("Objectives Data");
+        switch(currentPhase)
+        {
+            case 0:
+                return new List<ObjectiveData>
+                {
+                    trashObjective,
+                    fishObjective,
+                    trashCoreObjective
+                };
+            case 1:
+                return new List<ObjectiveData>
+                {
+                    CoralObjective
+                };
+            case 2:
+                return new List<ObjectiveData>
+                {
+                    new ObjectiveData("Level Usai, Kerja Bagus!", 0, 0)
+                };
+            default: return null;
+        }
     }
     #endregion
 }

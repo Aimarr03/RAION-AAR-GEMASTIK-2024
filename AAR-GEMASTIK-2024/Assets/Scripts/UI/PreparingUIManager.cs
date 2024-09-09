@@ -75,7 +75,6 @@ public class PreparingUIManager : MonoBehaviour
         {
             currentPageIndex = 0;
         }
-        
         CheckButtonCondition();
     }
     public void PreviousPage()

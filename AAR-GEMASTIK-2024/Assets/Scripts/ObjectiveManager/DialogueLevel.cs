@@ -20,16 +20,16 @@ public class DialogueLevel : MonoBehaviour, IDataPersistance
     private void Awake()
     {
         conversation = GetComponent<NPCConversation>();
+        
+    }
+    private void Start()
+    {
+        if(PhaseComplete && !isDone) ObjectiveManager.OnPhaseCompleted += ObjectiveManager_OnPhaseCompleted;
         if (OnAwake && !isDone)
         {
             ConversationManager.Instance.StartConversation(conversation);
             isDone = true;
         }
-    }
-    private void Start()
-    {
-        if(PhaseComplete && !isDone) ObjectiveManager.OnPhaseCompleted += ObjectiveManager_OnPhaseCompleted;
-
     }
     private void OnDisable()
     {

@@ -12,7 +12,6 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
 {
     [SerializeField] private Transform Container;
     [SerializeField] private TextMeshProUGUI trashCollectedTextUI;
-    [SerializeField] private TextMeshProUGUI mutatedSharkCollectedTextUI;
     [SerializeField] private TextMeshProUGUI helpedFishCollectedTextUI;
     [SerializeField] private TextMeshProUGUI coinObtainedTextUI;
     [SerializeField] private TextMeshProUGUI NumericProgressBar;
@@ -30,6 +29,15 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
 
     [Header("Button"), SerializeField]
     private Button EndExpedictionButton;
+
+    [Header("Objective"), SerializeField]
+    private RectTransform objectiveContainer;
+    [SerializeField]private TextMeshProUGUI templateObjective;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip OnStartScoring;
+    [SerializeField] private AudioClip OnProgressing;
+    [SerializeField] private AudioClip OnInterract;
     private int moneyObtainedFromEnemyDefeated = 0;
     private int moneyObtainedFromHelpingFish = 0;
     private float maxDuration = 2;
@@ -61,7 +69,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         currentWeightTrashCollected = 0f;
         textUIList = new List<TextMeshProUGUI>
         {
-            trashCollectedTextUI, mutatedSharkCollectedTextUI, coinObtainedTextUI, helpedFishCollectedTextUI
+            trashCollectedTextUI, coinObtainedTextUI, helpedFishCollectedTextUI
         };
         foreach (TextMeshProUGUI text in textUIList)
         {
@@ -160,12 +168,24 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     private IEnumerator OnStartDisplayScore(PlayerCoreSystem coreSystem)
     {
         Container.GetComponent<RectTransform>().DOAnchorPosY(0, 0.4f).SetEase(Ease.OutBack);
-        
+        AudioManager.Instance.PlaySFX(OnStartScoring);
         yield return new WaitForSeconds(0.57f);
         yield return OnIncrementValueUI(trashCollectedTextUI, currrentTrashTotalCollected);
-        yield return OnIncrementValueUI(mutatedSharkCollectedTextUI, currentSharkTotalCollected);
         yield return OnIncrementValueUI(helpedFishCollectedTextUI, currentFishNeedHelpTotalCollected);
 
+        if(ObjectiveManager.Instance != null)
+        {
+            List<ObjectiveData> objectives = ObjectiveManager.Instance.GetOverallObjectives();
+            foreach (ObjectiveData objective in objectives)
+            {
+                TextMeshProUGUI currentObjective = Instantiate(templateObjective, objectiveContainer);
+                currentObjective.gameObject.SetActive(true); 
+                currentObjective.text = $"{objective.description}\n{objective.currentProgress}/{objective.maxProgress}";
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.65f);
+                yield return new WaitForSeconds(0.3f);
+            }
+        }
+        
         int totalMoneyObtained = EconomyManager.Instance.GetMoneyMultiplierBasedOnTrash(currentWeightTrashCollected);
         totalMoneyObtained += moneyObtainedFromEnemyDefeated;
         totalMoneyObtained += moneyObtainedFromHelpingFish;
@@ -177,10 +197,10 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         float trashProgress = ((float)(currrentTrashTotalCollected + trashHasBeenCollectedPreviously)) / trashCount;
         float sharkProgress = ((float)(currentSharkTotalCollected + sharkHasBeenCollectedPreviously)) / sharkCount;
         float fishProgress = ((float)(currentFishNeedHelpTotalCollected + fishHasBeenCollectedPreviously)) / fishCount;
-        Debug.Log(totalProgress);
+        /*Debug.Log(totalProgress);
         Debug.Log(trashProgress);
         Debug.Log(sharkProgress);
-        Debug.Log(fishProgress);
+        Debug.Log(fishProgress);*/
         /*totalProgress = (float)Math.Round(totalProgress, 2);
         trashProgress = (float)Math.Round(trashProgress, 2);
         sharkProgress = (float)Math.Round(sharkProgress, 2);
@@ -190,34 +210,51 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         this.trashProgress = trashProgress;
         this.sharkProgress = sharkProgress;
         this.fishProgress = fishProgress;
-
-        yield return OnIncrementValueUI(NumericProgressBar, ProgressBar, this.totalProgress);
+        if (ProgressBar.enabled)
+        {
+            yield return OnIncrementValueUI(NumericProgressBar, ProgressBar, this.totalProgress);
+        }
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI text, Image targetUI, float targetValue)
     {
         int startValue = 0;
+        int bufferSound = 0;
         float currentDuration = 0;
         while (currentDuration < maxDuration)
         {
             currentDuration += Time.deltaTime;
+            bufferSound++;
             float t = Mathf.Clamp01(currentDuration / maxDuration);
             float currentValue = Mathf.Lerp(startValue, targetValue, t);
             targetUI.fillAmount = currentValue;
             text.text = (currentValue*100).ToString("0.00") + " %";
+            if (bufferSound > 4) 
+            {
+                bufferSound = 0;
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.65f);
+            }
             yield return null;
         }
+        
         text.text = (targetValue*100).ToString("0.00") + " %";
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI targetUI, float targetValue)
     {
         int startValue = 0;
+        int bufferSound = 0;
         float currentDuration = 0;
         while(currentDuration < maxDuration)
         {
             currentDuration += Time.deltaTime;
+            bufferSound++;
             float t = Mathf.Clamp01(currentDuration / maxDuration);
             float currentValue = Mathf.Lerp(startValue, targetValue, t);
             targetUI.text = currentValue.ToString("0.0");
+            if (bufferSound > 5)
+            {
+                bufferSound = 0;
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.65f);
+            }
             yield return null;
         }
         targetUI.text = targetValue.ToString("0");
@@ -225,6 +262,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     public void OnLoadShopping()
     {
         DataManager.instance.SaveGame();
+        AudioManager.Instance.PlaySFX(OnInterract);
         GameManager.Instance.LoadScene("ShoppingMenu");
     }
     private void OnCalculateData()

@@ -23,6 +23,9 @@ namespace DialogueEditor
         SerializedProperty ScrollTextSpeedProperty;
         SerializedProperty AllowMouseInteractionProperty;
         SerializedProperty MaxAlpha;
+        SerializedProperty AudioStartConversation;
+        SerializedProperty AudioStopConversation;
+        SerializedProperty AudioPopText;
 
         private void OnEnable()
         {
@@ -34,6 +37,9 @@ namespace DialogueEditor
             ScrollTextSpeedProperty = serializedObject.FindProperty("ScrollSpeed");
             AllowMouseInteractionProperty = serializedObject.FindProperty("AllowMouseInteraction");
             MaxAlpha = serializedObject.FindProperty("MaxAlphaDialoguePanel");
+            AudioStartConversation = serializedObject.FindProperty("OpenConversation");
+            AudioStopConversation = serializedObject.FindProperty("CloseConversation");
+            AudioPopText = serializedObject.FindProperty("ConversationPop");
         }
 
         public override void OnInspectorGUI()
@@ -72,6 +78,11 @@ namespace DialogueEditor
             GUILayout.Label("Interaction options", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(AllowMouseInteractionProperty);
             EditorGUILayout.PropertyField(MaxAlpha);
+
+            GUILayout.Label("Audio Clip", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(AudioStartConversation);
+            EditorGUILayout.PropertyField(AudioStopConversation);
+            EditorGUILayout.PropertyField(AudioPopText);
 
             // Apply changes to the serializedProperty - always do this in the end of OnInspectorGUI.
             serializedObject.ApplyModifiedProperties();

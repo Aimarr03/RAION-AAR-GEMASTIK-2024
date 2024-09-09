@@ -15,6 +15,7 @@ public class SharkHammerhead : SharkBase
     [SerializeField] private float linearSpeed;
     [SerializeField] private float rotatingSpeed, maxSpeed, distanceAggro;
     [SerializeField] private int chaseDamage;
+    [SerializeField] private float maxChaseState;
     public SharkIdleBoxState idleBoxState;
     public SharkChargeState chargeState;
     public SharkChaseState chaseState;
@@ -44,7 +45,7 @@ public class SharkHammerhead : SharkBase
         base.Awake();
         idleBoxState = new SharkIdleBoxState(this, stateMachine, playerMask, radiusDetection, idleAngle, x, y, idleSpeed);
         chargeState = new SharkChargeState(this, stateMachine, playerMask, chargeSpeed, chargeDamage, attackCenter);
-        chaseState = new SharkChaseState(this, stateMachine, playerMask, linearSpeed, rotatingSpeed, maxSpeed, distanceAggro, attackCenter, chaseDamage);
+        chaseState = new SharkChaseState(this, stateMachine, playerMask, linearSpeed, rotatingSpeed, maxSpeed, distanceAggro, attackCenter, maxChaseState, chaseDamage);
         chaseState.nextState = idleBoxState;
         idleBoxState.nextState = chargeState;
         chargeState.OnStopChargingState = idleBoxState;

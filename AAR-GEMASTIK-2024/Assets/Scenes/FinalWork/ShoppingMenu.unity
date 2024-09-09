@@ -307,10 +307,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e1bc8431bdd1e479756382287877c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UI_SHOP_MANAGER: {fileID: 160728193}
+  DictionarySubLevelDescription:
+    keyValuePairList:
+    - Key: Level 1_1
+      Value: {fileID: 11400000, guid: 1eacb45b2422d5b44a97699902fa07fa, type: 2}
   backgroundPanel: {fileID: 1130896269}
   mainPanel: {fileID: 89675516}
   SubLevelContainer: {fileID: 241763304}
   SubLevelTemplate: {fileID: 2016375185}
+  unlockedColor: {r: 0, g: 0.4876957, b: 1, a: 1}
   DetailedDataSubLevelContainer: {fileID: 274782094}
   SubLevel_Code: {fileID: 72983002}
   SubLevel_Name: {fileID: 1677588874}
@@ -320,6 +326,7 @@ MonoBehaviour:
   SubLevel_TrashProgress: {fileID: 1371112874}
   footerButton: {fileID: 1884989183}
   chooseLevel: {fileID: 505134268}
+  StartLevel: {fileID: 8300000, guid: dcbed2def7ff5e046807e42ae9e0df7f, type: 3}
 --- !u!1001 &24043781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4327,6 +4334,8 @@ MonoBehaviour:
   itemContainer: {fileID: 1966786226}
   StartLevel: {fileID: 0}
   containerList: []
+  button: {fileID: 0}
+  StartGame: {fileID: 0}
 --- !u!114 &230907928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34207,6 +34216,8 @@ MonoBehaviour:
   itemContainer: {fileID: 1349885380}
   StartLevel: {fileID: 1689923445}
   containerList: []
+  button: {fileID: 1497287547}
+  StartGame: {fileID: 8300000, guid: bfd766877cd80b446aa595eb84096a96, type: 3}
 --- !u!1 &1833364193
 GameObject:
   m_ObjectHideFlags: 0
@@ -34798,8 +34809,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Awal Restorasi:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a04730a76a0054498b3be92195d776b, type: 2}
+  m_sharedMaterial: {fileID: 2555519073614249891, guid: 9a04730a76a0054498b3be92195d776b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35351,7 +35363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e413843a5d9a6674bbff4627f6b74431, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38364,6 +38376,7 @@ MonoBehaviour:
     currentCompletedPhase: 0
     maxPhase: 0
     isDone: 0
+    isUnlocked: 0
     progress: 0
     fishNeededHelpProgress: 0
     fishNeededHelpCountDone: 0
@@ -38379,7 +38392,9 @@ MonoBehaviour:
       keyValuePairList: []
     collectedAdditionalCollectableObjects:
       keyValuePairList: []
+  subLevelDescription: {fileID: 0}
   choice: {fileID: 0}
+  audioClicked: {fileID: 8300000, guid: 2c26071249fd0f54288b1f026510bac9, type: 3}
 --- !u!114 &2016375186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38437,14 +38452,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.47732782, b: 1, a: 1}
+  m_Color: {r: 0.039569214, g: 0.1966648, b: 0.3679245, a: 0.9529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b54b00c0496b52f4e979a99b41e51272, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e413843a5d9a6674bbff4627f6b74431, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

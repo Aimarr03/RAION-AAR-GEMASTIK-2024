@@ -12,6 +12,7 @@ public class SharkChaseState : SharkBaseState
     private float maxSpeed = 4f;
     private bool isOnRightDirection = false;
     private bool onCooldown;
+    private float maxChaseDistance;
     
     private float distanceAggro;
     private int damage;
@@ -22,7 +23,7 @@ public class SharkChaseState : SharkBaseState
     private PlayerCoreSystem playerCoreSystem;
     public SharkBaseState nextState;
     public SharkChaseState(SharkBase shark, SharkStateMachine sharkStateMachine, LayerMask playerLayerMask,
-        float linearSpeed, float rotatingSpeed, float maxSpeed, float distanceAggro, Transform centerCheckDistance, int damage) : base(shark, sharkStateMachine, playerLayerMask)
+        float linearSpeed, float rotatingSpeed, float maxSpeed, float distanceAggro, Transform centerCheckDistance, float maxChaseDistance, int damage) : base(shark, sharkStateMachine, playerLayerMask)
     {
         originalPosition = shark.transform.position;
         this.linearSpeed = linearSpeed;
@@ -31,6 +32,7 @@ public class SharkChaseState : SharkBaseState
         this.distanceAggro = distanceAggro;
         this.centerCheckDistance = centerCheckDistance;
         this.damage = damage;
+        this.maxChaseDistance = maxChaseDistance;
         onCooldown = false;
     }
 
@@ -60,7 +62,8 @@ public class SharkChaseState : SharkBaseState
     public override void OnExitState()
     {
         shark.StopAllCoroutines();
-        shark.OnInvokeEncounter();
+        shark.OnInvokeStopEncounter();
+        shark.rigidBody.velocity = Vector2.zero;
         playerCoreSystem = null;
         onCooldown = false;
     }
@@ -76,11 +79,11 @@ public class SharkChaseState : SharkBaseState
     private void CheckDistance()
     {
         if (playerCoreSystem == null) return;
-        if (Vector3.Distance(shark.transform.position, originalPosition) > 80f)
+        if (Vector3.Distance(shark.transform.position, originalPosition) > maxChaseDistance)
         {
             fsm.OnTransitionState(nextState);
         }
-        else if(Vector3.Distance(shark.transform.position, playerCoreSystem.transform.position) > 60f) fsm.OnTransitionState(nextState);
+        else if(Vector3.Distance(shark.transform.position, playerCoreSystem.transform.position) > maxChaseDistance+30) fsm.OnTransitionState(nextState);
     }
     private void CheckPlayer()
     {
@@ -100,7 +103,8 @@ public class SharkChaseState : SharkBaseState
     }
     private void HorizontalMove(Vector3 direction)
     {
-        if (Vector3.Distance(playerCoreSystem.transform.position, shark.transform.position) < 1) return;
+        if (Mathf.Abs(playerCoreSystem.transform.position.x - shark.transform.position.x) < 2.2f) return;
+        //if (Vector3.Distance(playerCoreSystem.transform.position, shark.transform.position) < 1) return;
         if (isRotating)
         {
             RotatingOnYAxis();

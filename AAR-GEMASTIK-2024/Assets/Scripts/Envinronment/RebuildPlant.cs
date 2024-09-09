@@ -12,6 +12,8 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
     private PlayerCoreSystem coreSystem;
     private Collider2D plantCollider;
     [SerializeField] private UI_RebuildPlant ui;
+    [SerializeField] private List<AudioClip> audioClipList;
+    [SerializeField] private AudioClip startPlanting, failedPlanting;
 
     private float zeroAlpha = 0f;
     private float quaterAlpha = .25f;
@@ -22,7 +24,7 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
     private float MaxIntervalDuration = 3.3f;
     private float currentIntervalDuration = 0f;
     private float minValue = 0f;
-    private float Contraint_MaxValue = 0.3f;
+    private float Contraint_MaxValue = 0.37f;
     private float currentMaxValue;
 
     private int Phase = 0;
@@ -80,6 +82,7 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
                     OnDonePlanted();
                     return;
                 }
+                AudioManager.Instance.PlaySFX(audioClipList[UnityEngine.Random.Range(0, audioClipList.Count)]);
                 CalculatePhase();
             }
             else
@@ -96,6 +99,7 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
             AltInterracted(playerInterractionSystem);
             return;
         }
+        AudioManager.Instance.PlaySFX(startPlanting);
         isInterracted = true;
         ui.SwitchCanvasToProcess(true);
         coreSystem.moveSystem.Stop();
@@ -121,6 +125,7 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
     }
     private async void OnFailed()
     {
+        AudioManager.Instance.PlaySFX(failedPlanting);
         isInterracted = false;
         canBeInterracted = false;
         currentSprite = spriteRenderer;
@@ -148,7 +153,7 @@ public class RebuildPlant : MonoBehaviour, IInterractable, IDataPersistance
         }
         currentDuration = 0f;
         currentMaxValue = Contraint_MaxValue  - (0.035f * Phase);
-        currentIntervalDuration = MaxIntervalDuration - (0.035f * Phase);
+        currentIntervalDuration = MaxIntervalDuration - (0.0325f * Phase);
         minValue = UnityEngine.Random.Range(0.3f, 1 - currentMaxValue);
         ChangeAlphaValue(quaterAlpha, currentSprite);
         ui.OnSetValue(minValue, currentMaxValue);

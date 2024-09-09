@@ -10,6 +10,10 @@ public class ConversationInputManager : MonoBehaviour
     [SerializeField] private NPCConversation dummyConverstaion;
     [SerializeField] private RectTransform SkipPanel;
     [SerializeField] private List<Button> SkipPanelButtonList;
+
+    [Header("AUDIO")]
+    [SerializeField] private AudioClip navigate;
+    [SerializeField] private AudioClip confirm;
     private Button currentSkipButton;
     private int currentIndex = 0;
     private int maxIndex => SkipPanelButtonList.Count;
@@ -58,10 +62,12 @@ public class ConversationInputManager : MonoBehaviour
     }
     private void ContinueButton_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        AudioManager.Instance.PlaySFX(confirm);
         ConversationManager.Instance.PressSelectedOption();
     }
     private void Skip_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        AudioManager.Instance.PlaySFX(confirm);
         SkipAction();
     }
     public void SkipAction()
@@ -75,6 +81,7 @@ public class ConversationInputManager : MonoBehaviour
     private void Navigation_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         float input = inputSystem.Dialogue.Navigation.ReadValue<float>();
+        AudioManager.Instance.PlaySFX(navigate);
         if (input > 0)
         {
             ConversationManager.Instance.SelectNextOption();
@@ -83,9 +90,11 @@ public class ConversationInputManager : MonoBehaviour
         {
             ConversationManager.Instance.SelectPreviousOption();
         }
+        AudioManager.Instance.PlaySFX(navigate);
     }
     public void OnConfirmSkip()
     {
+        AudioManager.Instance.PlaySFX(confirm);
         ConversationManager.Instance.EndConversation();
         OnCancelSkip();
     }
@@ -109,11 +118,13 @@ public class ConversationInputManager : MonoBehaviour
         }
         if (currentSkipButton != null) currentSkipButton.GetComponent<Image>().color = Color.white;
         currentSkipButton = SkipPanelButtonList[currentIndex];
+        AudioManager.Instance.PlaySFX(navigate);
         currentSkipButton.GetComponent <Image>().color = Color.blue;
     }
     public void OnInterractSkipButton(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (currentSkipButton == null) return;
+        AudioManager.Instance.PlaySFX(confirm);
         currentSkipButton.onClick.Invoke();
     }
 }

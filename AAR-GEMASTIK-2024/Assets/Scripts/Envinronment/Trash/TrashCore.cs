@@ -24,7 +24,8 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
     private float currentMaxValue;
 
     private PlayerCoreSystem player;
-    
+    [SerializeField] private List<AudioClip> audioClipList;
+    [SerializeField] private AudioClip startRemoving, failedRemoving;
     [ContextMenu("Generate ID")]
     private void GenerateGuid()
     {
@@ -61,9 +62,11 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
             }
             if (queueSpriteRenderers.Count == 0)
             {
+                AudioManager.Instance.PlaySFX(audioClipList[UnityEngine.Random.Range(0, audioClipList.Count)]);
                 OnTaken();
                 return;
             }
+            AudioManager.Instance.PlaySFX(audioClipList[UnityEngine.Random.Range(0, audioClipList.Count)]);
             visual.sprite = queueSpriteRenderers.Dequeue();
             Phase++;
             CalculateMaxAndMinValue();
@@ -129,6 +132,7 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
         else
         {
             UI_TrashCore.OnSwitchingUI(canBeTaken);
+            AudioManager.Instance.PlaySFX(startRemoving);
             CalculateMaxAndMinValue();
         }
     }
@@ -160,6 +164,7 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
     private async void CooldownToBeTaken()
     {
         canBeTaken = false;
+        AudioManager.Instance.PlaySFX(failedRemoving);
         await Task.Delay(1500);
         canBeTaken = true;
         UI_TrashCore.OnSwitchingUI(false);

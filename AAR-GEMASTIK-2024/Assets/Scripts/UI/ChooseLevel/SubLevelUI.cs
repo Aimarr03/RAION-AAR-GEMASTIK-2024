@@ -7,21 +7,25 @@ public class SubLevelUI : MonoBehaviour
 {
     private Button button;
     public SubLevelData subLevelData;
+    public SubLevelDescriptionSO subLevelDescription;
     public ChooseSubLevelUI choice;
+    public AudioClip audioClicked;
     private void Awake()
     {
         button = GetComponent<Button>();
     }
-    public void SetUpSubLevelData(SubLevelData subLevelData, ChooseSubLevelUI choice)
+    public void SetUpSubLevelData(SubLevelData subLevelData, ChooseSubLevelUI choice, SubLevelDescriptionSO description)
     {
         this.subLevelData = subLevelData;
         this.choice = choice;
+        subLevelDescription = description;
         button.onClick.AddListener(OnClick);
         Debug.Log("On Set Up Data " + subLevelData.subLevelName);
     }
     private void OnClick()
     {
-        choice.ShowDataSubLevel(subLevelData);
+        choice.ShowDataSubLevel(subLevelData, subLevelDescription);
+        AudioManager.Instance.PlaySFX(audioClicked);
     }
 
 }

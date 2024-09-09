@@ -60,6 +60,7 @@ public class GameData
             for(int  j = 0; j <3; j++)
             {
                 SubLevelData subLevel = new SubLevelData();
+                if (i == 0 && j == 0) subLevel.isUnlocked = true;
                 subLevel.subLevelName = level.levelName + "_"+ (j+1);
                 subLevel.trashList = new SerializableDictionary<string, bool>();
                 subLevel.fishNeedHelpList = new SerializableDictionary<string, bool>();

@@ -539,7 +539,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 488951715
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -631,6 +631,7 @@ MonoBehaviour:
   maxSpeed: 17
   distanceAggro: 4
   chaseDamage: 25
+  maxChaseState: 0
 --- !u!61 &8378290682355681618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -724,8 +725,13 @@ PrefabInstance:
     - target: {fileID: 4344114622524579419, guid: 9924a7ef199265443ba2f1402c304dbe,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -575988773
+      value: 1671037207
       objectReference: {fileID: 0}
+    - target: {fileID: 4344114622524579419, guid: 9924a7ef199265443ba2f1402c304dbe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 6184834274391532104, guid: 9924a7ef199265443ba2f1402c304dbe,
         type: 3}
       propertyPath: m_Layer

@@ -32,6 +32,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
 
     [Header("Audio Clip")]
     [SerializeField] private AudioClip OnReceiving;
+    [SerializeField] private AudioClip AudioLoseGame;
     private void Awake()
     {
         if (Instance == null)
@@ -138,6 +139,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
     public void InvokeOnLose(string deskripsi)
     {
         isLosing = true;
+        AudioManager.Instance.PlaySFX(AudioLoseGame);
         OnLose?.Invoke(deskripsi);
     }
     public bool IsLosing() => isLosing;

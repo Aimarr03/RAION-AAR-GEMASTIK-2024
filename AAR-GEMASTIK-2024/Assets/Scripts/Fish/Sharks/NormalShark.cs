@@ -17,12 +17,13 @@ public class NormalShark : SharkBase
     [SerializeField] private float rotatingSpeed, maxSpeed, distanceAggro;
     [SerializeField] private Transform centerCheckDistance;
     [SerializeField] private int damage;
+    [SerializeField] private float maxChaseDistance;
 
     protected override void Awake()
     {
         base.Awake();
         idleState = new SharkIdleHorizontalState(this, stateMachine, playerMask, maxDistance, radiusDetection, speed, angle);
-        chaseState = new SharkChaseState(this, stateMachine, playerMask, linearSpeed, rotatingSpeed, maxSpeed, distanceAggro, centerCheckDistance, damage);
+        chaseState = new SharkChaseState(this, stateMachine, playerMask, linearSpeed, rotatingSpeed, maxSpeed, distanceAggro, centerCheckDistance, maxChaseDistance, damage);
 
         idleState.nextState = chaseState;
         chaseState.nextState = idleState;

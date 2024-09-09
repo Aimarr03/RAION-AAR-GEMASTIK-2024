@@ -11,6 +11,8 @@ public class SetUpUI : BasePreparingPlayerUI
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private Transform weaponContainer, abilityContainer, itemContainer, StartLevel;
     [SerializeField] private List<Transform> containerList;
+    [SerializeField] private Button button;
+    [Header("Audio"),SerializeField] private AudioClip StartGame;
     private List<SetUpCard> weaponList;
     private List<SetUpCard> abilityList;
     private List<SetUpCard> itemList;
@@ -31,19 +33,25 @@ public class SetUpUI : BasePreparingPlayerUI
     private void Start()
     {
         SetUpCard.onChoseItem += SetUpCard_onChoseItem;
+        GameManager.Instance.OnChangeLevelChoice += Instance_OnChangeLevelChoice;
         SetUp();
         StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(GameManager.Instance.LoadLevel);
+        StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(()=> AudioManager.Instance.PlaySFX(StartGame));
     }
     private void OnDestroy()
     {
         SetUpCard.onChoseItem -= SetUpCard_onChoseItem;
+        GameManager.Instance.OnChangeLevelChoice -= Instance_OnChangeLevelChoice;
     }
 
     private void SetUpCard_onChoseItem(ItemBaseSO itemSO)
     {
         SetFocusUI(itemSO);
     }
-
+    private void Instance_OnChangeLevelChoice(string obj)
+    {
+        button.interactable = GameManager.Instance.currentLevelChoice != null;
+    }
     private void SetUp()
     {
         Transform currentCard;
@@ -119,7 +127,7 @@ public class SetUpUI : BasePreparingPlayerUI
     }
     public void StartExpedition()
     {
-        if (GameManager.Instance.chosenWeaponSO == null) return;
+        if (GameManager.Instance.CanStartGame()) return;
         GameManager.Instance.LoadScene(1);
         DataManager.instance.SaveGame();
     }
@@ -128,6 +136,7 @@ public class SetUpUI : BasePreparingPlayerUI
     {
         transform.DOScale(1, 0.5f).SetEase(Ease.OutBounce);
         AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnDisplay);
+        GameManager.Instance.OnEnteredSetUpLevel();
         foreach (Transform currentContainer in containerList)
         {
             AudioManager.Instance.PlaySFX(AudioContainerUI.instance.OnPop);

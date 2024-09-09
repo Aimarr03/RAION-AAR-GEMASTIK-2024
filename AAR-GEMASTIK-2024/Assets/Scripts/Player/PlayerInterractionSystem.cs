@@ -104,7 +104,7 @@ public class PlayerInterractionSystem : MonoBehaviour
         {
             if(collider.TryGetComponent<IDetectable>(out IDetectable detectable))
             {
-                Debug.Log("Detectable Object Found " + collider.gameObject.name);
+                //Debug.Log("Detectable Object Found " + collider.gameObject.name);
                 detectable.DetectedByPlayer(coreSystem);
             }
         }

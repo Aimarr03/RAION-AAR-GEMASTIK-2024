@@ -50,7 +50,8 @@ public class ObjectiveUI : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        ObjectiveManager.OnObjectiveProgress -= ObjectiveManager_OnObjectiveProgress;
+        ObjectiveManager.OnPhaseCompleted -= ObjectiveManager_OnPhaseCompleted;
     }
 }
 [Serializable]

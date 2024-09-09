@@ -667,6 +667,12 @@ MonoBehaviour:
   - {fileID: 9027210017521419572}
   - {fileID: 8334155714169806689}
   ui: {fileID: 8915638210876245274}
+  audioClipList:
+  - {fileID: 8300000, guid: 33955d737ec36fa469178b5d82756b1b, type: 3}
+  - {fileID: 8300000, guid: 68d5515ad6bc1ab46bc8e7687da691a5, type: 3}
+  - {fileID: 8300000, guid: 2605d36999b1a8b47a8d95c465aa2e86, type: 3}
+  startPlanting: {fileID: 8300000, guid: db322929231578043ba0bf914a51aff3, type: 3}
+  failedPlanting: {fileID: 8300000, guid: d2c70ff4803d5474da9f155f8e924260, type: 3}
 --- !u!61 &4577481368292574761
 BoxCollider2D:
   m_ObjectHideFlags: 0

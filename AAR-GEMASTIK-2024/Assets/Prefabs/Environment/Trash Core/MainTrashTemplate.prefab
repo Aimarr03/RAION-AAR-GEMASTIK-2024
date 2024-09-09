@@ -218,6 +218,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ff3b125fbb86a1a4abe21733ce6aba1b, type: 3}
   visual: {fileID: 7369373831343861212}
   collected: 0
+  audioClipList:
+  - {fileID: 8300000, guid: 98759312fd8392d449af7fa6175b73ea, type: 3}
+  - {fileID: 8300000, guid: 5f28c07dffb52064ea6c281d391662ca, type: 3}
+  - {fileID: 8300000, guid: 47249be830979e34c91fb2ed8194e045, type: 3}
+  startRemoving: {fileID: 8300000, guid: b6aac0e77d7f08043bbb626dd06c70c4, type: 3}
+  failedRemoving: {fileID: 8300000, guid: d2c70ff4803d5474da9f155f8e924260, type: 3}
 --- !u!1 &3237811416732431083
 GameObject:
   m_ObjectHideFlags: 0
@@ -5409,8 +5415,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.25680017, y: -0.48985004, z: 0}
-    m_Extent: {x: 14.8769, y: 8.62225, z: 0}
+    m_Center: {x: 0.25215006, y: -0.5001502, z: 0}
+    m_Extent: {x: 14.890949, y: 8.628349, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

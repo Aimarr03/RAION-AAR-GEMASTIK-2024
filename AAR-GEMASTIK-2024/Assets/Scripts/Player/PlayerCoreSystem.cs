@@ -34,6 +34,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
     private Dictionary<SustainabilityType,_BaseSustainabilitySystem> _sustainabilitySystemsDictionary;
     
     [SerializeField] private float intervalUsageOxygen;
+    [SerializeField] private AudioClip OnActivating;
     private float currentDurationUsageOxygen;
 
     private void Awake()
@@ -51,7 +52,8 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         onDisabled = false;
         invunerableDuration = 2f;
         disabledDuration = 0;
-        maxAttempt = 12;        
+        maxAttempt = 12;
+        AudioManager.Instance.PlaySFX(OnActivating);
     }
     private void Start()
     {

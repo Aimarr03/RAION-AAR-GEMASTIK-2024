@@ -1436,7 +1436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Container: {fileID: 4836590237400331158}
   trashCollectedTextUI: {fileID: 3865836382065560081}
-  mutatedSharkCollectedTextUI: {fileID: 6965680569008402214}
   helpedFishCollectedTextUI: {fileID: 4784800428662181940}
   coinObtainedTextUI: {fileID: 7337990881376229516}
   NumericProgressBar: {fileID: 820098010452111567}
@@ -1448,6 +1447,10 @@ MonoBehaviour:
   foreground: {fileID: 0}
   background: {fileID: 0}
   EndExpedictionButton: {fileID: 0}
+  objectiveContainer: {fileID: 0}
+  templateObjective: {fileID: 0}
+  OnStartScoring: {fileID: 8300000, guid: 696fe2571d110394b9071dd9e6abd8fa, type: 3}
+  OnProgressing: {fileID: 8300000, guid: 2288cf122ae00ba46aa3e664704b2006, type: 3}
 --- !u!1 &1341723233937706884
 GameObject:
   m_ObjectHideFlags: 0

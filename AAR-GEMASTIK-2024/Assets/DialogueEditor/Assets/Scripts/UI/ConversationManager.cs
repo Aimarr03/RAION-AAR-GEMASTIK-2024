@@ -58,6 +58,11 @@ namespace DialogueEditor
         // Default values
         public Sprite BlankSprite;
 
+
+        [Header("Audio Clip")]
+        public AudioClip OpenConversation;
+        public AudioClip CloseConversation;
+        public AudioClip ConversationPop;
         // Getter properties
         public bool IsConversationActive
         {
@@ -149,7 +154,7 @@ namespace DialogueEditor
             m_conversation = conversation.Deserialize();
             if (OnConversationStarted != null)
                 OnConversationStarted.Invoke();
-
+            AudioManager.Instance?.PlaySFX(OpenConversation);
             TurnOnUI();
             m_currentSpeech = m_conversation.Root;
             SetState(eState.TransitioningDialogueBoxOn);
@@ -158,7 +163,7 @@ namespace DialogueEditor
         public void EndConversation()
         {
             SetState(eState.TransitioningDialogueOff);
-
+            AudioManager.Instance?.PlaySFX(CloseConversation);
             if (OnConversationEnded != null)
                 OnConversationEnded.Invoke();
         }
@@ -352,6 +357,7 @@ namespace DialogueEditor
                 m_elapsedScrollTime = 0f;
 
                 DialogueText.maxVisibleCharacters = m_scrollIndex;
+                AudioManager.Instance?.PlaySFX(ConversationPop);
                 m_scrollIndex++;
 
                 // Finished?
