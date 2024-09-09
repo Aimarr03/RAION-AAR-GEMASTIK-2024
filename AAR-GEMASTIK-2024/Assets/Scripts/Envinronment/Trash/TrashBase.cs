@@ -20,7 +20,7 @@ public abstract class TrashBase : MonoBehaviour, IDataPersistance
     {
         if (playerCoreSystem == null) return;
         WeightSystem weightSystem = playerCoreSystem.GetSustainabilitySystem(SustainabilityType.Capacity) as WeightSystem;
-        if(!weightSystem.canAddWeight(weight)) return;
+        if (!weightSystem.canAddWeight(weight)) return;
         weightSystem.OnIncreaseValue(weight);
         Debug.Log("Player receive trash");
         OnCollected();
@@ -51,7 +51,12 @@ public abstract class TrashBase : MonoBehaviour, IDataPersistance
     private void OnDeloading()
     {
         collected = true;
-        GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
+        for(int index = 0; index < transform.childCount; index++)
+        {
+            Transform child = transform.GetChild(index);
+            child.gameObject.SetActive(false);
+        }
+        //GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
         GetComponent<Collider2D>().enabled = false;
     }
     private void OnCollected()
