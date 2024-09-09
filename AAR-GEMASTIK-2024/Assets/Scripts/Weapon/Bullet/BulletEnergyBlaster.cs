@@ -9,6 +9,7 @@ public class BulletEnergyBlaster : BaseBullet
     private bool isFullyCharge = false;
     private float speed = 20;
     [SerializeField] private float blastRadius;
+    [SerializeField] private AudioClip fullyCharged;
     public override void OnLaunchBullet()
     {
         transform.Translate(speed * Time.deltaTime * Vector3.right);

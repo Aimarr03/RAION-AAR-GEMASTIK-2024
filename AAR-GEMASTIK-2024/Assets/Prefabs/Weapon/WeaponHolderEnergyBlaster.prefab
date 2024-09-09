@@ -123,9 +123,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSO: {fileID: 11400000, guid: b299a180e45990b44b9ffb77be51fe4e, type: 2}
-  firePointBlank: {fileID: 0}
+  firePointBlank: {fileID: 5719653349081469229}
   interval: 2
   maxDurationCharge: 3.5
   baseDamage: 30
   baseRadius: 7.5
   stunDuration: 1.5
+  onCharging: {fileID: 8300000, guid: 7c18efe3592e16449b4b7cf17b8030ed, type: 3}
+  fullyCharge: {fileID: 8300000, guid: ee51fd510ae958c41958e20a11e3b925, type: 3}
+--- !u!4 &5719653349081469229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5779494904012247009, guid: e06eda75318ff1b489c2503b2e2b9647,
+    type: 3}
+  m_PrefabInstance: {fileID: 2257615769570074316}
+  m_PrefabAsset: {fileID: 0}

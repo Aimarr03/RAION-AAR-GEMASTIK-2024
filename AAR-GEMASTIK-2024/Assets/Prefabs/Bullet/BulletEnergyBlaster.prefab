@@ -14810,7 +14810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBase: {fileID: 0}
   OnCreated: {fileID: 8300000, guid: 1fe0752d787c80c4b9f1b86f47578e70, type: 3}
-  OnHit: {fileID: 8300000, guid: c429d50e98d56bf458210c7558dbe7de, type: 3}
+  OnHit: {fileID: 8300000, guid: 33d867729cc9e3e4996456ebc1cd5d94, type: 3}
   TimeToLiveDurationHolder: 2
   TimeToLive: 2
   blastRadius: 10

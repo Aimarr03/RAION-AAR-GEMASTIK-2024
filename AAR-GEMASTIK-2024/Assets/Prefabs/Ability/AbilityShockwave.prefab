@@ -4913,7 +4913,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -575988773
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 20
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5054,6 +5054,8 @@ MonoBehaviour:
   abilitySO: {fileID: 11400000, guid: 92f878556eb155d4f8371b78db63e044, type: 2}
   isInvokable: 1
   level: 0
+  AudioOnInvoke: {fileID: 8300000, guid: b05354d07d45e3444ad549db2923aa1b, type: 3}
+  OnCooldownDone: {fileID: 8300000, guid: dcbed2def7ff5e046807e42ae9e0df7f, type: 3}
   intervalCooldown: 6
   radiusShock: 30
   stunDuration: 1.3

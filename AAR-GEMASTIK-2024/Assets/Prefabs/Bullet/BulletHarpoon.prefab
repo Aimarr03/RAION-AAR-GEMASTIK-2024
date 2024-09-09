@@ -10,13 +10,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6372101173359054477, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
+      propertyPath: OnHit
+      value: 
+      objectReference: {fileID: 8300000, guid: cb0bad4e9b212d44a8d5989753025394, type: 3}
+    - target: {fileID: -6372101173359054477, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
       propertyPath: TimeToLive
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -6372101173359054477, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: TimeToLiveDurationHolder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}

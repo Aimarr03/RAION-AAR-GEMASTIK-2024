@@ -8,7 +8,9 @@ public class WeaponEnergyBlaster : WeaponBase
     [SerializeField] private int baseDamage = 65;
     [SerializeField] private float baseRadius = 7.5f;
     [SerializeField] private float stunDuration = 0.4f;
-    
+    [SerializeField] private AudioClip onCharging;
+    [SerializeField] private AudioClip fullyCharge;
+
     public int GetMultiplierDamage(int level)
     {
         float maxDamage = baseDamage + ((level - 1) * (baseDamage * 0.75f));
@@ -72,11 +74,13 @@ public class WeaponEnergyBlaster : WeaponBase
     {
         Debug.Log("Charging Weapon");
         currentChargeDuration = 0;
+        AudioManager.Instance.PlaySFX(onCharging);
         while(currentChargeDuration < GetMultiplierMaxDurationCharge(level))
         {
             currentChargeDuration += Time.deltaTime;
             yield return null;
         }
+        AudioManager.Instance.PlaySFX(fullyCharge);
         isFullyCharge = true;
         Debug.Log("Fully Charge");
     }

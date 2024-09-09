@@ -17,6 +17,7 @@ public class ConversationInputManager : MonoBehaviour
     private Button currentSkipButton;
     private int currentIndex = 0;
     private int maxIndex => SkipPanelButtonList.Count;
+    [SerializeField] private Color FocusColor;
     private void Awake()
     {
         inputSystem = new DefaultInputAction();
@@ -119,7 +120,7 @@ public class ConversationInputManager : MonoBehaviour
         if (currentSkipButton != null) currentSkipButton.GetComponent<Image>().color = Color.white;
         currentSkipButton = SkipPanelButtonList[currentIndex];
         AudioManager.Instance.PlaySFX(navigate);
-        currentSkipButton.GetComponent <Image>().color = Color.blue;
+        currentSkipButton.GetComponent <Image>().color = FocusColor;
     }
     public void OnInterractSkipButton(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

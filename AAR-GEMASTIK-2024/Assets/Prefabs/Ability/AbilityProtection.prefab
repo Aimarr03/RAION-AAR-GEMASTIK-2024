@@ -104,7 +104,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1671037207
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 488951715
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
@@ -301,8 +301,10 @@ MonoBehaviour:
   abilitySO: {fileID: 11400000, guid: 3f14b296e0ac50043a067aac29d1821c, type: 2}
   isInvokable: 0
   level: 0
+  AudioOnInvoke: {fileID: 8300000, guid: b6aac0e77d7f08043bbb626dd06c70c4, type: 3}
+  OnCooldownDone: {fileID: 8300000, guid: dcbed2def7ff5e046807e42ae9e0df7f, type: 3}
   intervalCooldown: 3
-  unInterractable: {fileID: 0}
+  unInterractable: {fileID: 8300000, guid: 47b1b70377a9e4a4b86ce21b9742a762, type: 3}
   effect: {fileID: 7333787637672707995}
 --- !u!4 &7489221764443930691 stripped
 Transform:

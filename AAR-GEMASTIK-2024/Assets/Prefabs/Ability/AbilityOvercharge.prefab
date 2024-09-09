@@ -4797,7 +4797,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 488951715
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4927,6 +4927,8 @@ MonoBehaviour:
   abilitySO: {fileID: 11400000, guid: 2eb13f4237bc76c41834aa272d65eee2, type: 2}
   isInvokable: 0
   level: 0
+  AudioOnInvoke: {fileID: 8300000, guid: 4c293438441288a4dac24c3c80b6c878, type: 3}
+  OnCooldownDone: {fileID: 8300000, guid: dcbed2def7ff5e046807e42ae9e0df7f, type: 3}
   intervalCooldown: 0
   effect: {fileID: 7587400862133485933}
   duration: 4

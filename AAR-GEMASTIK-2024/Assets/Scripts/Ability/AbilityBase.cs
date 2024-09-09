@@ -7,9 +7,12 @@ public abstract class AbilityBase : MonoBehaviour
     public AbilitySO abilitySO;
     public bool isInvokable;
     public int level;
+    public AudioClip AudioOnInvoke;
+    public AudioClip OnCooldownDone;
     protected bool isCooldown;
     protected PlayerCoreSystem playerCoreSystem;
     [SerializeField] protected float intervalCooldown;
+
 
     public abstract void Fire(PlayerCoreSystem playerCoreSystem);
     public abstract IEnumerator OnCooldown();

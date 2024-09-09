@@ -29,6 +29,7 @@ public class AbilityDash : AbilityBase
         PlayerMoveSystem playerMoveSystem = playerCoreSystem.moveSystem;
         playerMoveSystem.AddSuddenForce(GetMultiplierForceDash(level));
         isCooldown = true;
+        AudioManager.Instance.PlaySFX(AudioOnInvoke);
         DisableEnablePlayerMovementSystem();
         StartCoroutine(OnCooldown());
         Debug.Log("Dash is Used");
@@ -49,6 +50,7 @@ public class AbilityDash : AbilityBase
             yield return null;
         }
         isCooldown = false;
+        AudioManager.Instance.PlaySFX(OnCooldownDone);
         Debug.Log("Dash can be Used AGAIN");
     }
 

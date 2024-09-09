@@ -5075,6 +5075,16 @@ PrefabInstance:
       propertyPath: isInvokable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5354121670464584757, guid: a7e4f1233ce61ac44b96278b16488766,
+        type: 3}
+      propertyPath: AudioOnInvoke
+      value: 
+      objectReference: {fileID: 8300000, guid: 149b47f3b05a4824da9c3f699378291b, type: 3}
+    - target: {fileID: 5354121670464584757, guid: a7e4f1233ce61ac44b96278b16488766,
+        type: 3}
+      propertyPath: OnCooldownDone
+      value: 
+      objectReference: {fileID: 8300000, guid: dcbed2def7ff5e046807e42ae9e0df7f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
