@@ -14,6 +14,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b3dee7f4956c6524fab30d1c63d221b2,
         type: 3}
+    - target: {fileID: 2016067726902806501, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2579010931704217710, guid: e11902f6612ed6d49852ca39227cc283,
         type: 3}
       propertyPath: m_Name
@@ -79,6 +84,31 @@ PrefabInstance:
       propertyPath: OnTakenAudio
       value: 
       objectReference: {fileID: 8300000, guid: cd7f18d89391825418aada6fc99ac965, type: 3}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6.040183
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.669747
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.23870802
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08395243
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222724640936884575, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

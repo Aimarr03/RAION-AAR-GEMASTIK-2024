@@ -32,6 +32,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         detectedPlayer = false;
         GoLeft = true;
         isResting = false;
+        
 
         Vector3 fishPosition = shark.transform.position;
         originalPos = fishPosition;
@@ -68,6 +69,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         {
             idleCoroutine = shark.StartCoroutine(OnIdlingWithDelay());
         }*/
+        DoNotDetect = false;
         StartResting(0.3f);
         shark.onTakeDamage += Shark_onTakeDamage;
     }

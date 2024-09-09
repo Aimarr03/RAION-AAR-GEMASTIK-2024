@@ -190,6 +190,12 @@ namespace DialogueEditor
 
         public void PressSelectedOption()
         {
+            if(m_state == eState.ScrollingText)
+            {
+                DialogueText.maxVisibleCharacters = m_targetScrollTextCount;
+                SetState(eState.TransitioningOptionsOn);
+                return;
+            }
             if (m_state != eState.Idle) { return; }
             if (m_currentSelectedIndex < 0) { return; }
             if (m_currentSelectedIndex >= m_uiOptions.Count) { return; }
@@ -276,7 +282,7 @@ namespace DialogueEditor
                     m_selectedOption = null;
                     break;
                 case eState.TransitioningDialogueBoxOn:
-                    SetColorAlpha(DialogueBackground, 1);
+                    SetColorAlpha(DialogueBackground,0.45f);
                     SetColorAlpha(NpcIcon, 1);
                     SetColorAlpha(NameText, 1);
                     break;

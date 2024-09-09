@@ -19,6 +19,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sampah_Interaksi_03
       objectReference: {fileID: 0}
+    - target: {fileID: 2579010931704217710, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4770635146798704199, guid: e11902f6612ed6d49852ca39227cc283,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,6 +84,26 @@ PrefabInstance:
       propertyPath: OnTakenAudio
       value: 
       objectReference: {fileID: 8300000, guid: 708fbdd9d5858994f9cb4849cbaf1a0a, type: 3}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.968427
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.8712463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.08043456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702332754143050093, guid: e11902f6612ed6d49852ca39227cc283,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.46250963
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
