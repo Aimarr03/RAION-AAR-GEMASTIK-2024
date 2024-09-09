@@ -181,7 +181,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
                 TextMeshProUGUI currentObjective = Instantiate(templateObjective, objectiveContainer);
                 currentObjective.gameObject.SetActive(true); 
                 currentObjective.text = $"{objective.description}\n{objective.currentProgress}/{objective.maxProgress}";
-                AudioManager.Instance.PlaySFX(OnProgressing, 0.65f);
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.4f);
                 yield return new WaitForSeconds(0.3f);
             }
         }
@@ -210,10 +210,10 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         this.trashProgress = trashProgress;
         this.sharkProgress = sharkProgress;
         this.fishProgress = fishProgress;
-        if (ProgressBar.enabled)
+        /*if (ProgressBar.enabled)
         {
             yield return OnIncrementValueUI(NumericProgressBar, ProgressBar, this.totalProgress);
-        }
+        }*/
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI text, Image targetUI, float targetValue)
     {
@@ -231,7 +231,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
             if (bufferSound > 4) 
             {
                 bufferSound = 0;
-                AudioManager.Instance.PlaySFX(OnProgressing, 0.65f);
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.35f);
             }
             yield return null;
         }
@@ -253,7 +253,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
             if (bufferSound > 5)
             {
                 bufferSound = 0;
-                AudioManager.Instance.PlaySFX(OnProgressing, 0.65f);
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.35f);
             }
             yield return null;
         }

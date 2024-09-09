@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPersistance
+public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPersistance, IDamagable
 {
     [SerializeField] private string id;
 
@@ -19,6 +19,7 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
     protected PlayerCoreSystem playerCoreSystem;
     public event Action OnGettingHelp;
     public event Action OnBeingNoticed;
+    public ParticleSystem onDeadparticleSystem;
     public static event Action<int> OnBroadcastGettingHelp;
 
     public abstract void AltInterracted(PlayerInterractionSystem playerInterractionSystem);
@@ -54,4 +55,33 @@ public abstract class FishBaseNeedHelp : MonoBehaviour, IInterractable, IDataPer
         levelData.fishNeedHelpList.Add(id, hasBeenHelped);
     }
     public bool HasBeenHelped() => hasBeenHelped;
+
+
+    public void TakeDamage(int damage)
+    {
+        fishCollider.enabled = false;
+        onDeadparticleSystem.Play();
+        onDeadparticleSystem.transform.parent = null;
+        for(int index = 0; index < transform.childCount; index++)
+        {
+            Transform currentChild = transform.GetChild(index);
+            currentChild.gameObject.SetActive(false);
+        }
+        ExpedictionManager.Instance.InvokeOnLose("Mengapa anda menyerang ikan yang sudah tidak tertolong??");
+    }
+
+    public IEnumerator GetSlowed(float duration, float multilpier)
+    {
+        yield return null;
+    }
+
+    public void AddSuddenForce(Vector3 directiom, float forcePower)
+    {
+
+    }
+
+    public void OnDisableMove(float moveDuration, int maxAttemptToRecover)
+    {
+
+    }
 }

@@ -72,6 +72,10 @@ public class ChooseSubLevelUI : MonoBehaviour
                 SubLevelDescriptionSO levelDescription = DictionarySubLevelDescription[SubLevelData.subLevelName];
                 currentSubLevelUI.SetUpSubLevelData(SubLevelData, this, levelDescription);
             }
+            else
+            {
+                currentSubLevelUI.TextLevel.text = "Terkunci";
+            }
         }
     }
     public void ShowDataSubLevel(SubLevelData SubLevelData, SubLevelDescriptionSO levelDescription)

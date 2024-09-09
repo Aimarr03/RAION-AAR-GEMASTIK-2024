@@ -135,6 +135,7 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
         if(fishCollection.isDone )
         {
             Debug.Log("Objective Fish Done!");
+            if (fishCollection.currentCollected == fishCollection.minCollected) AudioManager.Instance.PlaySFX(onCompletedProgress);
             FishBaseNeedHelp.OnBroadcastGettingHelp -= FishBaseNeedHelp_OnBroadcastGettingHelp;
         }
         fishObjective.currentProgress = fishCollection.currentCollected;
@@ -149,6 +150,7 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
         if (trashCollection.isDone)
         {
             Debug.Log("Objective Trash Done!");
+            if(trashCollection.currentCollected == trashCollection.minCollected) AudioManager.Instance.PlaySFX(onCompletedProgress);
             TrashBase.OnCollectedEvent -= TrashBase_OnCollectedEvent;
         }
         trashObjective.currentProgress = trashCollection.currentCollected;
@@ -163,6 +165,7 @@ public class Level_1_1_ObjectiveManager : ObjectiveManager
         if (trashCoreCollection.isDone)
         {
             Debug.Log("Objective Core Done!");
+            if (trashCoreCollection.currentCollected == trashCoreCollection.minCollected) AudioManager.Instance.PlaySFX(onCompletedProgress);
             TrashCore.TrashCoreCollected -= TrashCore_TrashCoreCollected;
         }
         trashCoreObjective.currentProgress = trashCoreCollection.currentCollected;

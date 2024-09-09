@@ -904,10 +904,10 @@ RectTransform:
   - {fileID: 200015788}
   m_Father: {fileID: 2110403007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110.87394, y: -158.88}
+  m_SizeDelta: {x: 221.74788, y: 317.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42664956
 MonoBehaviour:
@@ -1528,7 +1528,7 @@ MonoBehaviour:
   textHeader: {fileID: 814821581}
   textLevel: {fileID: 1095678175}
   unavailableColor: {r: 0.6320754, g: 0.042364098, b: 0.026237065, a: 0}
-  grayUnavailableColor: {r: 0, g: 0, b: 0, a: 0}
+  grayUnavailableColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 0.9098039}
 --- !u!1 &83147916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,10 +3831,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1780913811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 28, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74.990005, y: -6.502001}
+  m_SizeDelta: {x: 28, y: 13.004002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198817408
 MonoBehaviour:
@@ -5533,9 +5533,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 12
+  m_wordSpacing: 24
+  m_lineSpacing: 24
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6242,10 +6242,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1780913811}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 103.990005, y: -6.502001}
+  m_SizeDelta: {x: 30, y: 13.004002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346967796
 MonoBehaviour:
@@ -6436,7 +6436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &358611633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6453,8 +6453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213.60437, y: 144}
-  m_SizeDelta: {x: 320.3687, y: 532.61}
+  m_AnchoredPosition: {x: 288.55017, y: 229.87537}
+  m_SizeDelta: {x: 470.2603, y: 704.3607}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358611634
 MonoBehaviour:
@@ -7166,27 +7166,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 18
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":472,"yPos":100.2},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"Siap
-    Bu","parentUIDs":[12],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":-432.8,"yPos":49.0000153},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Salam","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":-435.8,"yPos":176.200027},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Selamat
-    datang di bagian markas kita","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":-435.8,"yPos":294.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Setelah
-    anda usai berekspediksi, anda akan kembali ke markas","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":-437.8,"yPos":422.2},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
-    sini, anda menyiapkan kembali apa yang harus disiapkan sebelum berekspidisi.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":-179.799988,"yPos":418.2},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Mulai
-    dengan membeli barang-barang seperti <color=red>senjata<\/color>, <color=cyan>kemampuan<\/color>,
-    atau <color=yellow>barang-barang<\/color>.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":-178.799988,"yPos":292.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Atau
-    meningkatkan kualitasnya","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":-171.799988,"yPos":127.200012},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Baiklah,
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":569,"yPos":70.19998},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"Siap
+    Bu","parentUIDs":[12],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":-335.8,"yPos":19},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Salam","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":-338.8,"yPos":146.200012},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Selamat
+    datang di bagian markas kita","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":-338.8,"yPos":264.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Setelah
+    anda usai berekspediksi, anda akan kembali ke markas","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":-340.8,"yPos":392.2},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
+    sini, anda menyiapkan kembali apa yang harus disiapkan sebelum berekspidisi.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":-82.79999,"yPos":388.2},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Mulai
+    dengan membeli barang-barang seperti <color=red>senjata<\/color>, <color=blue>kemampuan<\/color>,
+    atau <color=yellow>barang-barang<\/color>.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":-81.79999,"yPos":262.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Atau
+    meningkatkan kualitasnya","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":-74.79999,"yPos":97.2},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Baiklah,
     mulai dari halaman awal dimana anda bisa membeli atau meningkatkan kualitas barang-barang
-    Anda.","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":92.20001,"yPos":138.200012},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Anda
+    Anda.","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":189.200012,"yPos":108.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Anda
     bisa memilih antara mau <color=green>membeli<\/color> atau <color=orange>meningkatkan
-    <\/color>kualitas barang anda","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":102.200012,"yPos":274.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Anda
-    juga bisa memilih tipe barang apa yang ingin diibeli","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":91.20001,"yPos":416.2},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Ada
+    <\/color>kualitas barang anda","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":199.200012,"yPos":244.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Anda
+    juga bisa memilih tipe barang apa yang ingin diibeli","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":188.200012,"yPos":386.2},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Ada
     4 tipe barang yang dimasukkan ke dalam halaman ini:\n<color=red>senjata<\/color>,
-    <color=cyan>kemampuan<\/color>, <color=yellow>barang konsumsi<\/color>, dan<color=green>
-    keberlangsungan kapal anda<\/color>","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":437.199951,"yPos":375.2},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
-    telusuri halaman ini dan mencari barang-barang yang ingin dibeli","parentUIDs":[15],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":439.199951,"yPos":217.200027},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Dan
-    bilamana sudah puas, bisa berpindah laman di bagian sini","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":106.200012,"yPos":539.2},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
+    <color=blue>kemampuan<\/color>, <color=yellow>barang konsumsi<\/color>, dan<color=green>
+    keberlangsungan kapal anda<\/color>","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":534.199951,"yPos":345.2},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
+    telusuri halaman ini dan mencari barang-barang yang ingin dibeli","parentUIDs":[15],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":536.199951,"yPos":187.200012},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Dan
+    bilamana sudah puas, bisa berpindah laman di bagian sini","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":203.200012,"yPos":509.2},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
     bagian ini untuk menampilkan kapal dan besar kapabilitasnya baik dalam <color=red>ketahanan<\/color>,
-    <color=green>oksigen<\/color>, <color=blue>energi<\/color>, dan <color=yellow>ruang\/kapasitas\/berat<\/color>.","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":387.199951,"yPos":554.2},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    ada bagian yang menampilkan <color=yellow><b>uang <\/b><\/color>mu.","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":617.199951,"yPos":559.2},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"Kompensasi
+    <color=green>oksigen<\/color>, <color=blue>energi<\/color>, dan <color=yellow>ruang\/kapasitas\/berat<\/color>.","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":484.199951,"yPos":524.2},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    ada bagian yang menampilkan <color=yellow><b>uang <\/b><\/color>mu.","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":714.199951,"yPos":529.2},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"Kompensasi
     anda tentu akan digunakan untuk bertransaksi di laman ini","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -7701,7 +7701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &459949157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12375,9 +12375,9 @@ RectTransform:
   - {fileID: 417662189}
   m_Father: {fileID: 572635631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 70, y: -70}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717714370
@@ -14028,10 +14028,10 @@ RectTransform:
   - {fileID: 1034756857}
   m_Father: {fileID: 322610518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -50}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806273733
 MonoBehaviour:
@@ -14652,10 +14652,10 @@ RectTransform:
   - {fileID: 765084826}
   m_Father: {fileID: 2110403007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 360.51395, y: -158.88}
+  m_SizeDelta: {x: 217.53214, y: 317.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844687610
 MonoBehaviour:
@@ -16666,8 +16666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -461.24677, y: 11.2473}
-  m_SizeDelta: {x: 848.6074, y: 542.9252}
+  m_AnchoredPosition: {x: -461.24677, y: 54.965683}
+  m_SizeDelta: {x: 848.6074, y: 630.3619}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &954856636
 CanvasRenderer:
@@ -18818,9 +18818,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1016410381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65, y: -50}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1047810311
@@ -19537,8 +19537,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_characterSpacing: 12
+  m_wordSpacing: 35
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -20071,10 +20071,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1780913811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 28, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 132.99, y: -6.502001}
+  m_SizeDelta: {x: 28, y: 13.004002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096946307
 MonoBehaviour:
@@ -22131,8 +22131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -766.95465, y: 477.7884}
-  m_SizeDelta: {x: 386.0906, y: 117.3485}
+  m_AnchoredPosition: {x: -752.9023, y: 473.10425}
+  m_SizeDelta: {x: 414.1953, y: 126.7167}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1183693612
 GameObject:
@@ -23401,26 +23401,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 14
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":408,"yPos":480.2},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Siap
-    Bu","parentUIDs":[12],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":115,"yPos":-505},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Bagian
-    sini adalah dimana kami menyediakan area ekspedisi untuk mu memilih","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":125,"yPos":-357.8},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Karena
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":369,"yPos":654.2},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Siap
+    Bu","parentUIDs":[12],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":76,"yPos":-331},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Bagian
+    sini adalah dimana kami menyediakan area ekspedisi untuk mu memilih","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":86,"yPos":-183.799988},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Karena
     kami kekurangan informasi lebih lanjut. Kami baru bisa menyediakan satu area
-    saja","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":188,"yPos":-234.8},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Seperti
+    saja","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":149,"yPos":-60.7999878},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Seperti
     yang sudah disanggah, tujuan dari program ini adalah merestorasi ekosistem-ekosistem
-    yang menjadi prioritas.","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":413.399963,"yPos":-334.800049},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
-    kau memilih area yang ingin kau tuju","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":464.399963,"yPos":-161.8},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Kau
-    akan diberikan pilihan lagi untuk memilih langkah restorasi mana yang ingin dituju","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":180.399963,"yPos":-94.8},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Pilihan
+    yang menjadi prioritas.","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":374.399963,"yPos":-160.800049},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
+    kau memilih area yang ingin kau tuju","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":425.399963,"yPos":12.2000122},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Kau
+    akan diberikan pilihan lagi untuk memilih langkah restorasi mana yang ingin dituju","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":141.399963,"yPos":79.20001},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Pilihan
     langkah restorasi ini akan bisa diambil bilamana langkah restorasi sebelumnya
-    sudah memenuhi status keberhasilan.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":256.399963,"yPos":22.1999969},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    sudah memenuhi status keberhasilan.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":217.399963,"yPos":196.200012},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
     ketika memilih langkah restorasi yang ingin dilakukan, akan diberikan data-data
-    lebih detail mengenai progressnya","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":512.399963,"yPos":5.199997},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Seperti
-    fase berapa langkah restorasi telah dicapai","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":464.399963,"yPos":114.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Deskripsi
-    dari langkah restorasi ini","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":194.399963,"yPos":146.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    ada seberapa banyak <color=cyan>ikan<\/color> dan <color=grey>sampah<\/color>
-    yang sudah tertangani","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":349.399963,"yPos":258.2},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
+    lebih detail mengenai progressnya","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":473.399963,"yPos":179.200012},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Seperti
+    fase berapa langkah restorasi telah dicapai","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":425.399963,"yPos":288.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Deskripsi
+    dari langkah restorasi ini","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":155.399963,"yPos":320.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    ada seberapa banyak <color=blue>ikan<\/color> dan <color=grey>sampah<\/color>
+    yang sudah tertangani","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":310.399963,"yPos":432.2},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
     yakin terhadap langkah restorasi yang dipilih, maka bisa pilih tombol berikut
-    ","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":589.399963,"yPos":244.200012},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
-    saja dari apa saja yang perlu diketahui mengenai pemilihan level","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":601.399963,"yPos":368.2},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
+    ","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":550.399963,"yPos":418.2},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
+    saja dari apa saja yang perlu diketahui mengenai pemilihan level","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":562.399963,"yPos":542.2},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
     telusuri lebih lanjut","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -23445,7 +23445,31 @@ MonoBehaviour:
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 857469084}
+        m_TargetAssemblyTypeName: ShopUI_Focus, Assembly-CSharp
+        m_MethodName: HideAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 15016142}
+        m_TargetAssemblyTypeName: ChooseSubLevelUI, Assembly-CSharp
+        m_MethodName: OnHidePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1299311214
 Transform:
   m_ObjectHideFlags: 0
@@ -25248,17 +25272,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 14
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":535,"yPos":387.2},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik","parentUIDs":[11],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":true,"xPos":-129,"yPos":133.000015},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":683.2,"yPos":329.2},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik","parentUIDs":[11],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":true,"xPos":19.2000122,"yPos":75},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
     sini adalah panel yang menampilkan informasi-informasi lebih detil ketika anda
-    memilih barang di laman utama","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":-111,"yPos":273.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Panel
+    memilih barang di laman utama","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":37.2000122,"yPos":215.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Panel
     ini sebagai tempat konfirmasi juga apakah anda ingin melakukan transaksi atau
-    tidak","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":-79,"yPos":454.2},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Informasi-informasi
-    yang berkaitan adalah <b>tipe barang<\/b> dan <b>level<\/b>. ","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":237,"yPos":246.200012},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    ada juga informasi tentang apa aja yang ada di barang tersebut","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":211,"yPos":101.200012},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
+    tidak","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":69.20001,"yPos":396.2},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Informasi-informasi
+    yang berkaitan adalah <b>tipe barang<\/b> dan <b>level<\/b>. ","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":385.2,"yPos":188.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    ada juga informasi tentang apa aja yang ada di barang tersebut","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":359.2,"yPos":43.1999969},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
     kamu memilih <b>upgrade<\/b>, maka ia juga akan menampilkan <b>angka<\/b> di
-    level selanjutnya","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":503,"yPos":122.200012},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu,
-    setiap kali kau meningkatkan level dari barang tersebut,<b> harganya juga meningkat<\/b>","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":534,"yPos":251.200012},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
-    saja yang bisa disampaikan silahkan bilamana anda ingin membeli atau tidak","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":186,"yPos":423.2},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
+    level selanjutnya","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":651.2,"yPos":64.2},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu,
+    setiap kali kau meningkatkan level dari barang tersebut,<b> harganya juga meningkat<\/b>","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":682.2,"yPos":193.2},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
+    saja yang bisa disampaikan silahkan bilamana anda ingin membeli atau tidak","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":334.2,"yPos":365.2},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
     yang dipilih adalah <color=yellow>barang konsumsi<\/color>, maka yang ditampilkan
     adalah <b>kuantitasnya<\/b>","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -27494,9 +27518,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1016410381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 185, y: -50}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1517078734
@@ -28524,9 +28548,9 @@ RectTransform:
   - {fileID: 144710104}
   m_Father: {fileID: 572635631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 227.5, y: -46}
   m_SizeDelta: {x: 175, y: 92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558362577
@@ -34878,10 +34902,10 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_characterSpacing: 3
+  m_wordSpacing: 6
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -36331,20 +36355,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 10
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":871.2,"yPos":282.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
-    Bu","parentUIDs":[9],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":326.2,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":553,"yPos":329.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
+    Bu","parentUIDs":[9],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":8,"yPos":69},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
     sini adalah laman yang menampilkan <color=yellow><b>barang-barang yang bisa dikonsumsi<\/b><\/color>
-    ketika berjelajah.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":332.2,"yPos":145.2},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Tidak
-    seperti <color=red>senjata<\/color> atau <color=cyan>kemampuan<\/color>. Kategori
-    ini hanya bisa <b>dibeli<\/b>.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":324.2,"yPos":266.2},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Membeli
-    kategori ini <b>menambah jumlahnya<\/b>","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":591.2,"yPos":269.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Seperti
+    ketika berjelajah.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":14,"yPos":192.2},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Tidak
+    seperti <color=red>senjata<\/color> atau <color=blue>kemampuan<\/color>. Kategori
+    ini hanya bisa <b>dibeli<\/b>.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":6,"yPos":313.2},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Membeli
+    kategori ini <b>menambah jumlahnya<\/b>","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":273,"yPos":316.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Seperti
     yang sudah dijelaskan saat berekspediksi. <color=yellow>Barang-barang konsumsi<\/color>
     memperbaiki <color=red>ketahanan<\/color>, <color=green>oksigen<\/color>, atau
-    <color=blue>daya <\/color>kapal mu","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":607.2,"yPos":134.2},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Setiap
-    tipe barang konsumsi memiliki <b>tiga kualitas<\/b> berbeda yang disediakan","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":615.2,"yPos":29.1999969},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
+    <color=blue>daya <\/color>kapal mu","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":289,"yPos":181.2},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Setiap
+    tipe barang konsumsi memiliki <b>tiga kualitas<\/b> berbeda yang disediakan","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":300,"yPos":75.2},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
     semakin <b>bagus kualitasnya<\/b>, <b>semakin besar harganya<\/b> tetapi <b>tingkat
-    efeknya juga ikut membesar<\/b>","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":872.2,"yPos":25.1999969},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
-    saja megenai <color=yellow>barang konsumsi<\/color>","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":881,"yPos":143.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
+    efeknya juga ikut membesar<\/b>","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":554,"yPos":72.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
+    saja megenai <color=yellow>barang konsumsi<\/color>","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":562.8,"yPos":190.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
     melanjutkan penelusuran","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -38169,18 +38193,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 10
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":491.2,"yPos":466.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
-    Bu","parentUIDs":[8],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":59.2000122,"yPos":49},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
-    panel terakhir ini adalah persiapan sebelum anda pergi ke level.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":62.2000122,"yPos":186.2},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Persiapan
-    ini adalah <b>pemilihan barang<\/b> yang anda telah miliki.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":67.20001,"yPos":314.2},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Mulai
-    dari <color=red>senjata<\/color>, <color=cyan>kemampuan<\/color>, dan <color=yellow>barang-barang
-    konsumsi<\/color>.","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":309.2,"yPos":317.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":534.2,"yPos":515.2},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
+    Bu","parentUIDs":[8],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":102.200012,"yPos":98},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Di
+    panel terakhir ini adalah persiapan sebelum anda pergi ke level.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":105.200012,"yPos":235.2},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Persiapan
+    ini adalah <b>pemilihan barang<\/b> yang anda telah miliki.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":110.200012,"yPos":363.2},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Mulai
+    dari <color=red>senjata<\/color>, <color=blue>kemampuan<\/color>, dan <color=yellow>barang-barang
+    konsumsi<\/color>.","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":352.2,"yPos":366.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
     anda tidak bisa menggunakan <color=red>senjata <\/color>atau <color=cyan>kemampuan<\/color>
-    yang <b>belum anda miliki<\/b>","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":336.2,"yPos":189.2},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Bagian
-    ini merujuk ke barang apa yang akan kau anda bawa saat berekspedisi","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":334.2,"yPos":55.1999969},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    di sini adalah bagian untuk memilih barang-barang yang bisa dibawa","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":600.2,"yPos":78.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
-    saja mengenai persiapan sebelum berangkat.","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":589.2,"yPos":192.2},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
-    anda sudah siap, anda bisa memilih tombol ini untuk memulai ekspediksinya.","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":569.2,"yPos":318.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Tetapi
+    yang <b>belum anda miliki<\/b>","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":379.2,"yPos":238.2},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Bagian
+    ini merujuk ke barang apa yang akan kau anda bawa saat berekspedisi","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":377.2,"yPos":104.2},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    di sini adalah bagian untuk memilih barang-barang yang bisa dibawa","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":643.2,"yPos":127.2},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
+    saja mengenai persiapan sebelum berangkat.","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":632.2,"yPos":241.2},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
+    anda sudah siap, anda bisa memilih tombol ini untuk memulai ekspediksinya.","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":612.2,"yPos":367.2},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Tetapi
     bilamana anda masih ragu, silahkan telusuri ke panel-panel sebelumnya,","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -38201,19 +38225,7 @@ MonoBehaviour:
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 857469084}
-        m_TargetAssemblyTypeName: ShopUI_Focus, Assembly-CSharp
-        m_MethodName: HideAll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &2010382273
 Transform:
   m_ObjectHideFlags: 0
@@ -38432,6 +38444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a387c691aae4d4ea73a9c7706ac51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextLevel: {fileID: 1860505443}
   subLevelData:
     subLevelName: 
     currentCompletedPhase: 0

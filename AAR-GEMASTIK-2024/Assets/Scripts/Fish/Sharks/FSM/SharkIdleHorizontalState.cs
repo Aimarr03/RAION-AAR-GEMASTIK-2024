@@ -32,7 +32,7 @@ public class SharkIdleHorizontalState : SharkBaseState
         detectedPlayer = false;
         GoLeft = true;
         isResting = false;
-        
+        DoNotDetect = false;
 
         Vector3 fishPosition = shark.transform.position;
         originalPos = fishPosition;
@@ -93,9 +93,10 @@ public class SharkIdleHorizontalState : SharkBaseState
 
     public override void OnUpdateState()
     {
+        Debug.Log("Donotdetect " + DoNotDetect);
         //Debug.Log($"ISRESTING {isResting}, DETECTED PLATER {detectedPlayer}, GOING HOME {goingHome}");
         if (isResting) return;
-        if (!detectedPlayer && !DoNotDetect) OnTryToDetect();
+        if (!detectedPlayer) OnTryToDetect();
         if (!goingHome) OnIdlingWithDelay();
         else OnGoingHome();
     }
@@ -155,7 +156,9 @@ public class SharkIdleHorizontalState : SharkBaseState
     }*/
     private void OnTryToDetect()
     {
+        if (DoNotDetect) return;
         Collider2D[] colliderList = Physics2D.OverlapCircleAll(shark.transform.position, radiusDetection, playerMask);
+        Debug.Log("Is Detecting");
         if (colliderList.Length > 0)
         {
             foreach(Collider2D collider in colliderList)
@@ -204,11 +207,8 @@ public class SharkIdleHorizontalState : SharkBaseState
     }
     private async void OnCooldownToDetect()
     {
-        DoNotDetect = false;
+        DoNotDetect = true;
         await Task.Delay(2000);
-        if (!shark.GetIsKnockout())
-        {
-            DoNotDetect = true;
-        }
+        DoNotDetect = false;
     }
 }

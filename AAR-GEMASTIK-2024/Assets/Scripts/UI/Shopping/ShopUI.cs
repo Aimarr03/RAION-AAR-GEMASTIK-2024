@@ -150,22 +150,22 @@ public class ShopUI : BasePreparingPlayerUI
     }
     public void DisplayWeapon()
     {
-        headerText.text = "WEAPON";
+        headerText.text = "SENJATA";
         DisplayItem(ItemType.Weapon);
     }
     public void DisplayAbility() 
     {
-        headerText.text = "ABILITY";
+        headerText.text = "KEMAMPUAN";
         DisplayItem(ItemType.Ability); 
     }
     public void DisplayItem() 
     {
-        headerText.text = "ITEM";
+        headerText.text = "KONSUMSI";
         DisplayItem(ItemType.Item); 
     }
     public void DisplaySustainability() 
     {
-        headerText.text = "SUSTAINABILITY";
+        headerText.text = "KEBERLANGSUNGAN";
         DisplayItem(ItemType.Sustainabillity);
     } 
     private void UpdateSorting()

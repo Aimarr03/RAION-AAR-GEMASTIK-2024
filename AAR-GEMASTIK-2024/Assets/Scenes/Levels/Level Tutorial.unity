@@ -7535,171 +7535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!43 &424226986
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 114
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 40
-    localAABB:
-      m_Center: {x: -0.16043806, y: -2.2708626, z: 0}
-      m_Extent: {x: 6.4145617, y: 3.7691383, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020000000300010004000300000004000500030006000500040006000700050006000800070006000900080006000a0009000b000a0006000b000c000a000b000d000c000b000e000d000b000f000e000b0010000f000b00110010000b001200110012000b00130002001400000000001500040001001600020003001700010005001800030004001900060007001a00050006001b000b0008001c00070009001d0008000a001e0009000c001f000a000b00200013000d0021000c000e0022000d000f0023000e00100024000f00110025001000120026001100130027001200
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 40
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 1760
-    _typelessdata: b814c54008b96fc000000000d3b57f3fb9d342bd0000008000000080b814c54008b96fc0b814c54008b96fc0c821c840e028dfbf00000000f85d133d92d57f3f0000008000000080c821c840e028dfbfc821c840e028dfbf409bc640bca62fc000000000d3b57f3fb9d342bd0000008000000080c821c840e028dfbfb814c54008b96fc0ef3aad402049dbbf00000000f85d133d92d57f3f0000008000000080165492406069d7bfc821c840e028dfbfb206a14082fe97c00000000074532a3f841d3fbf0000008000000080b814c54008b96fc056f179408020b8c0165492406069d7bf00000000dfc25abfe3f6043f0000008000000080165492406069d7bf165492406069d7bf56f179408020b8c00000000072532a3f861d3fbf000000800000008056f179408020b8c056f179408020b8c0e4d37840fcd033c000000000dfc25abfe3f6043f00000080000000809cff4c4048ed7bc0165492406069d7bf9cff4c4048ed7bc00000000002151e3e5aee7c3f00000080000000809cff4c4048ed7bc09cff4c4048ed7bc044bbd63ff8ab6cc00000000002151e3e5aee7c3f000000800000008080ba1b3ea86a5dc09cff4c4048ed7bc080ba1b3ea86a5dc00000000053094f3f6c92163f000000800000008080ba1b3ea86a5dc080ba1b3ea86a5dc076dbaabf18b4bcc000000000ee7edf3c9be77fbf000000800000008056f179408020b8c06666d2c0b047c1c056551cbf4c4b1ac00000000053094f3f6c92163f0000008000000080a6ccafbfe057aebf80ba1b3ea86a5dc0a6ccafbfe057aebf0000000055077b3fb1d2483e0000008000000080a6ccafbfe057aebfa6ccafbfe057aebf6469d4bf007d8b3d0000000055077b3facd2483e00000080000000802106f9bf80c7bf3fa6ccafbfe057aebf2106f9bf80c7bf3f000000008d090fbfd74f543f00000080000000802106f9bf80c7bf3f2106f9bf80c7bf3fe84685c000c0463b000000008d090fbfd54f543f0000008000000080474cccc0c000bfbf2106f9bf80c7bf3f474cccc0c000bfbf0000000078c67fbf07982b3d0000008000000080474cccc0c000bfbf474cccc0c000bfbf5659cfc0e00771c00000000078c67fbf3f982b3d00000080000000806666d2c0b047c1c0474cccc0c000bfbf6666d2c0b047c1c000000000ee7edf3c9be77fbf00000080000000806666d2c0b047c1c06666d2c0b047c1c0409bc640bca62fc000000000d3b57f3fb9d342bd0000008000000080c821c840e028dfbfb814c54008b96fc0b814c54008b96fc00000000074532a3f841d3fbf0000008000000080b814c54008b96fc0b814c54008b96fc0c821c840e028dfbf00000000d3b57f3fb9d342bd0000008000000080c821c840e028dfbfc821c840e028dfbfef3aad402049dbbf00000000f85d133d92d57f3f0000008000000080165492406069d7bfc821c840e028dfbf165492406069d7bf00000000f85d133d92d57f3f0000008000000080165492406069d7bf165492406069d7bfb206a14082fe97c00000000072532a3f861d3fbf0000008000000080b814c54008b96fc056f179408020b8c0e4d37840fcd033c000000000dfc25abfe3f6043f00000080000000809cff4c4048ed7bc0165492406069d7bf56f179408020b8c000000000ee7edf3c9be77fbf000000800000008056f179408020b8c056f179408020b8c09cff4c4048ed7bc000000000dfc25abfe3f6043f00000080000000809cff4c4048ed7bc09cff4c4048ed7bc044bbd63ff8ab6cc00000000002151e3e5aee7c3f000000800000008080ba1b3ea86a5dc09cff4c4048ed7bc080ba1b3ea86a5dc00000000002151e3e5aee7c3f000000800000008080ba1b3ea86a5dc080ba1b3ea86a5dc056551cbf4c4b1ac00000000053094f3f6c92163f0000008000000080a6ccafbfe057aebf80ba1b3ea86a5dc076dbaabf18b4bcc000000000ee7edf3c9be77fbf000000800000008056f179408020b8c06666d2c0b047c1c0a6ccafbfe057aebf0000000053094f3f6c92163f0000008000000080a6ccafbfe057aebfa6ccafbfe057aebf6469d4bf007d8b3d0000000055077b3fb1d2483e00000080000000802106f9bf80c7bf3fa6ccafbfe057aebf2106f9bf80c7bf3f0000000055077b3facd2483e00000080000000802106f9bf80c7bf3f2106f9bf80c7bf3fe84685c000c0463b000000008d090fbfd74f543f0000008000000080474cccc0c000bfbf2106f9bf80c7bf3f474cccc0c000bfbf000000008d090fbfd54f543f0000008000000080474cccc0c000bfbf474cccc0c000bfbf5659cfc0e00771c00000000078c67fbf07982b3d00000080000000806666d2c0b047c1c0474cccc0c000bfbf6666d2c0b047c1c00000000078c67fbf3f982b3d00000080000000806666d2c0b047c1c06666d2c0b047c1c0
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: -0.16043806, y: -2.2708626, z: 0}
-    m_Extent: {x: 6.4145617, y: 3.7691383, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &456307349
 GameObject:
   m_ObjectHideFlags: 3
@@ -8588,58 +8423,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 47
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":549.2,"yPos":-697.8001},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
-    tidak diperlukan Bu","parentUIDs":[2],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":549.2,"yPos":-559.8001},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Mohon
-    Bantuannya Bu","parentUIDs":[2],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":333.2,"yPos":489.199951},"ID":41,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
-    Bu","parentUIDs":[40],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1140.2,"yPos":-679.8001},"ID":43,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
-    Bu","parentUIDs":[7],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":151.200012,"yPos":-967},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Berhenti
-    dulu","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":196.200012,"yPos":-790.8001},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Setelah
-    terbiasa dengan menggerakan Kapal Selam mu","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":236.200012,"yPos":-654.8001},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Apakah
-    kita perlu membahas apa saja yang ada di kapal selam mu","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":837.199951,"yPos":-803.8001},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Baiklah,
-    tidak perlu juga diperjelas dengan apa yang sudah ada di kapal.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":43}],"EditorInfo":{"isRoot":false,"xPos":1138.2,"yPos":-798.8001},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
-    Eksplorasi lebih lanjut area ini","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":824.199951,"yPos":-587.8001},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Okay,","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":829.199951,"yPos":-451.800049},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Pertama-tama,
-    kau punya indikasi <color=red><b>KETAHANAN<\/b><\/color> kapal mu. ","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":558.2,"yPos":-453.800049},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Ini
-    akan berkurang bilamana kapal terkena <color=red><b>kerusakan<\/b><\/color>.","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":282.2,"yPos":-444.800049},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
-    bilamana mencapai <color=red><b><i> NOL <\/i><\/b><\/color>. \nKapal ini akan
-    bertahan lagi, dan kau terpaksa untuk meninggalkan kapal.","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":26.2000122,"yPos":-440.800049},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    ada indikasi kedua tabung ini. ","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":28.2000122,"yPos":-309.800049},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Tabung
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":631.2,"yPos":129.199875},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
+    tidak diperlukan Bu","parentUIDs":[2],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":631.2,"yPos":267.1999},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Mohon
+    Bantuannya Bu","parentUIDs":[2],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":415.2,"yPos":1316.2},"ID":41,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
+    Bu","parentUIDs":[40],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1222.2,"yPos":147.199875},"ID":43,"ParamActions":[],"TMPFontGUID":null,"Text":"Baik
+    Bu","parentUIDs":[7],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":233.200012,"yPos":-140.000015},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Berhenti
+    dulu","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":278.2,"yPos":36.1998749},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Setelah
+    terbiasa dengan menggerakan Kapal Selam mu","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":318.2,"yPos":172.199875},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Apakah
+    kita perlu membahas apa saja yang ada di kapal selam mu","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":919.199951,"yPos":23.1998749},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"Baiklah,
+    tidak perlu juga diperjelas dengan apa yang sudah ada di kapal.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":43}],"EditorInfo":{"isRoot":false,"xPos":1220.2,"yPos":28.1998749},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Silahkan
+    Eksplorasi lebih lanjut area ini","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":906.199951,"yPos":239.199875},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Okay,","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":911.199951,"yPos":375.199951},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Pertama-tama,
+    kau punya indikasi <color=red><b>KETAHANAN<\/b><\/color> kapal mu. ","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":640.2,"yPos":373.199951},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Ini
+    akan berkurang bilamana kapal terkena <color=red><b>kerusakan<\/b><\/color>.","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":364.2,"yPos":382.199951},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
+    bilamana mencapai <color=red><b><i> NOL <\/i><\/b><\/color>. \nKapal ini tidak
+    akan bertahan lagi, dan kau terpaksa untuk meninggalkan kapal.","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":108.200012,"yPos":386.199951},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    ada indikasi kedua tabung ini. ","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":110.200012,"yPos":517.199951},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Tabung
     Biru adalah indikasi banyaknya  <color=blue><b> Daya\/Energi<\/b><\/color>  yang
-    ada di kapal mu","parentUIDs":[12],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":290.2,"yPos":-314.800049},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Tabung
+    ada di kapal mu","parentUIDs":[12],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":372.2,"yPos":512.199951},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Tabung
     hijau, mengindikasikan banyaknya <color=green><b>Oksigen<\/b><\/color> yang ada
-    di kapal mu","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":561.2,"yPos":-305.800049},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
+    di kapal mu","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":643.2,"yPos":521.199951},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentunya
     bila salah satu dari kedua tabung ini  <color=red><b>HABIS\/NOL<\/b><\/color>
-    , kau akan terpaksa untuk meninggalkan kapal ini. ","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":19}],"EditorInfo":{"isRoot":false,"xPos":838.199951,"yPos":-301.800049},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    ada kemampuan kapal mu","parentUIDs":[17],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":false,"xPos":834.199951,"yPos":-164.800034},"ID":19,"ParamActions":[],"TMPFontGUID":null,"Text":"Ada
+    , kau akan terpaksa untuk meninggalkan kapal ini. ","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":19}],"EditorInfo":{"isRoot":false,"xPos":920.199951,"yPos":525.199951},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    ada kemampuan kapal mu","parentUIDs":[17],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":false,"xPos":916.199951,"yPos":662.199951},"ID":19,"ParamActions":[],"TMPFontGUID":null,"Text":"Ada
     senjata kapal. Tentunya, senjata ini <color=red>tidak DIGUNAKAN untuk merenggut
-    nyawa hewan<\/color>.","parentUIDs":[18],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":44}],"EditorInfo":{"isRoot":false,"xPos":558.2,"yPos":-165.800034},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"Senjata
-    ini digunakan untuk memperlambat gerakkan yang bersifat ganas. Hati-hati menggunakannya","parentUIDs":[19],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":22}],"EditorInfo":{"isRoot":false,"xPos":-151.799988,"yPos":-184.800034},"ID":21,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
-    ada kemampuan kapal","parentUIDs":[44],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":45}],"EditorInfo":{"isRoot":false,"xPos":-188.799988,"yPos":-36.80002},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Kemampuan
-    kapal mu berguna untuk menghindari situasi yang buruk. ","parentUIDs":[21],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":54.2000122,"yPos":-24.8000183},"ID":23,"ParamActions":[],"TMPFontGUID":null,"Text":"Gunakan
-    sebaik-baiknya","parentUIDs":[45],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":25}],"EditorInfo":{"isRoot":false,"xPos":309.2,"yPos":-19.80008},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Terakhir","parentUIDs":[23],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":26}],"EditorInfo":{"isRoot":false,"xPos":580.2,"yPos":-25.8000183},"ID":25,"ParamActions":[],"TMPFontGUID":null,"Text":"Adalah
-    indikasi untuk <color=yellow><b>Berat\/Capacity<\/b><\/color> yang kapal mu bawa","parentUIDs":[24],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":27}],"EditorInfo":{"isRoot":false,"xPos":843.199951,"yPos":-15.8000793},"ID":26,"ParamActions":[],"TMPFontGUID":null,"Text":"Tugas
-    mu tentu adalah membersihkan sampah yang ada di area teralokasikan.","parentUIDs":[25],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":28}],"EditorInfo":{"isRoot":false,"xPos":838.199951,"yPos":103.199936},"ID":27,"ParamActions":[],"TMPFontGUID":null,"Text":"Setiap
-    sampah tentu ada <color=yellow>beratnya<\/color>","parentUIDs":[26],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":29}],"EditorInfo":{"isRoot":false,"xPos":588.2,"yPos":103.199936},"ID":28,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
+    nyawa hewan<\/color>.","parentUIDs":[18],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":44}],"EditorInfo":{"isRoot":false,"xPos":640.2,"yPos":661.199951},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"Senjata
+    ini digunakan untuk memperlambat gerakkan yang bersifat ganas. Hati-hati menggunakannya","parentUIDs":[19],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":22}],"EditorInfo":{"isRoot":false,"xPos":-69.79999,"yPos":642.199951},"ID":21,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu
+    ada kemampuan kapal","parentUIDs":[44],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":45}],"EditorInfo":{"isRoot":false,"xPos":-106.799988,"yPos":790.199951},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Kemampuan
+    kapal mu berguna untuk menghindari situasi yang buruk. ","parentUIDs":[21],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":136.200012,"yPos":802.199951},"ID":23,"ParamActions":[],"TMPFontGUID":null,"Text":"Gunakan
+    sebaik-baiknya","parentUIDs":[45],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":25}],"EditorInfo":{"isRoot":false,"xPos":391.2,"yPos":807.199951},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Terakhir","parentUIDs":[23],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":26}],"EditorInfo":{"isRoot":false,"xPos":662.2,"yPos":801.199951},"ID":25,"ParamActions":[],"TMPFontGUID":null,"Text":"Adalah
+    indikasi untuk <color=yellow><b>Berat\/Capacity<\/b><\/color> yang kapal mu bawa","parentUIDs":[24],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":27}],"EditorInfo":{"isRoot":false,"xPos":925.199951,"yPos":811.199951},"ID":26,"ParamActions":[],"TMPFontGUID":null,"Text":"Tugas
+    mu tentu adalah membersihkan sampah yang ada di area teralokasikan.","parentUIDs":[25],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":28}],"EditorInfo":{"isRoot":false,"xPos":920.199951,"yPos":930.199951},"ID":27,"ParamActions":[],"TMPFontGUID":null,"Text":"Setiap
+    sampah tentu ada <color=yellow>beratnya<\/color>","parentUIDs":[26],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":29}],"EditorInfo":{"isRoot":false,"xPos":670.2,"yPos":930.199951},"ID":28,"ParamActions":[],"TMPFontGUID":null,"Text":"Bilamana
     berat yang ditanggung kapal mu <color=red>melebihi batas<\/color>, kecepatan
-    kapal mu akan melambat","parentUIDs":[27],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":30}],"EditorInfo":{"isRoot":false,"xPos":303.2,"yPos":94.1999359},"ID":29,"ParamActions":[],"TMPFontGUID":null,"Text":"Kau
-    bisa membuang sampah yang kau kumpul dengan ke kapal di permukaan","parentUIDs":[28],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":31}],"EditorInfo":{"isRoot":false,"xPos":59.2000122,"yPos":100.199936},"ID":30,"ParamActions":[],"TMPFontGUID":null,"Text":"Ini
-    adalah kapal yang mendampingi mu","parentUIDs":[29],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":33}],"EditorInfo":{"isRoot":false,"xPos":64.20001,"yPos":225.199936},"ID":31,"ParamActions":[],"TMPFontGUID":null,"Text":"Dia
-    membantu mengangkut sampah yang kau berikan","parentUIDs":[30],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":34}],"EditorInfo":{"isRoot":false,"xPos":299.2,"yPos":222.199936},"ID":33,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentu
+    kapal mu akan melambat","parentUIDs":[27],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":30}],"EditorInfo":{"isRoot":false,"xPos":385.2,"yPos":921.199951},"ID":29,"ParamActions":[],"TMPFontGUID":null,"Text":"Kau
+    bisa membuang sampah yang kau kumpul dengan ke kapal di permukaan","parentUIDs":[28],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":31}],"EditorInfo":{"isRoot":false,"xPos":141.200012,"yPos":927.199951},"ID":30,"ParamActions":[],"TMPFontGUID":null,"Text":"Ini
+    adalah kapal yang mendampingi mu","parentUIDs":[29],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":33}],"EditorInfo":{"isRoot":false,"xPos":146.200012,"yPos":1052.2},"ID":31,"ParamActions":[],"TMPFontGUID":null,"Text":"Dia
+    membantu mengangkut sampah yang kau berikan","parentUIDs":[30],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":34}],"EditorInfo":{"isRoot":false,"xPos":381.2,"yPos":1049.2},"ID":33,"ParamActions":[],"TMPFontGUID":null,"Text":"Tentu
     kau bisa ke permukaan untuk  mengisi ulang <color=green><b>OKSIGEN<\/b><\/color>
-    kapal selam mu","parentUIDs":[31],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":35}],"EditorInfo":{"isRoot":false,"xPos":552.2,"yPos":223.199936},"ID":34,"ParamActions":[],"TMPFontGUID":null,"Text":"Berbicara
-    tentang mengisi ulang.","parentUIDs":[33],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":36}],"EditorInfo":{"isRoot":false,"xPos":800.199951,"yPos":229.199936},"ID":35,"ParamActions":[],"TMPFontGUID":null,"Text":"Kapal
-    mu juga membawa <color=yellow><b>BARANG KONSUMSI. <\/b><\/color>","parentUIDs":[34],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":37}],"EditorInfo":{"isRoot":false,"xPos":795.2,"yPos":348.199951},"ID":36,"ParamActions":[],"TMPFontGUID":null,"Text":"Setiap
+    kapal selam mu","parentUIDs":[31],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":35}],"EditorInfo":{"isRoot":false,"xPos":634.2,"yPos":1050.2},"ID":34,"ParamActions":[],"TMPFontGUID":null,"Text":"Berbicara
+    tentang mengisi ulang.","parentUIDs":[33],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":36}],"EditorInfo":{"isRoot":false,"xPos":882.199951,"yPos":1056.2},"ID":35,"ParamActions":[],"TMPFontGUID":null,"Text":"Kapal
+    mu juga membawa <color=yellow><b>BARANG KONSUMSI. <\/b><\/color>","parentUIDs":[34],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":37}],"EditorInfo":{"isRoot":false,"xPos":877.2,"yPos":1175.2},"ID":36,"ParamActions":[],"TMPFontGUID":null,"Text":"Setiap
     <color=yellow><b>barang konsumsi<\/b><\/color> akan mengisi masing-masing keberlangsungan
-    kapal mu","parentUIDs":[35],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":38}],"EditorInfo":{"isRoot":false,"xPos":550.2,"yPos":357.199951},"ID":37,"ParamActions":[],"TMPFontGUID":null,"Text":"Mulai
+    kapal mu","parentUIDs":[35],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":38}],"EditorInfo":{"isRoot":false,"xPos":632.2,"yPos":1184.2},"ID":37,"ParamActions":[],"TMPFontGUID":null,"Text":"Mulai
     dari <color=red>ketahanan<\/color>, <color=green>oksigen<\/color> lalu <color=blue>daya<\/color>
-    kapal mu","parentUIDs":[36],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":39}],"EditorInfo":{"isRoot":false,"xPos":308.2,"yPos":355.199951},"ID":38,"ParamActions":[],"TMPFontGUID":null,"Text":"Kau
+    kapal mu","parentUIDs":[36],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":39}],"EditorInfo":{"isRoot":false,"xPos":390.2,"yPos":1182.2},"ID":38,"ParamActions":[],"TMPFontGUID":null,"Text":"Kau
     bisa gunakan <color=yellow><b>\"Keyboard-TAB\" <\/b><\/color> untuk berpindah
-    barang konsumsi apa yang ingin digunakan","parentUIDs":[37],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":40}],"EditorInfo":{"isRoot":false,"xPos":66.20001,"yPos":352.199951},"ID":39,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu 
+    barang konsumsi apa yang ingin digunakan","parentUIDs":[37],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":40}],"EditorInfo":{"isRoot":false,"xPos":148.200012,"yPos":1179.2},"ID":39,"ParamActions":[],"TMPFontGUID":null,"Text":"Lalu 
     gunakan <color=yellow><b>\"Keyboard-Q\"<\/b><\/color> untuk menggunakan barang
-    tersebut","parentUIDs":[38],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":41}],"EditorInfo":{"isRoot":false,"xPos":74.20001,"yPos":466.199951},"ID":40,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
+    tersebut","parentUIDs":[38],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":41}],"EditorInfo":{"isRoot":false,"xPos":156.200012,"yPos":1293.2},"ID":40,"ParamActions":[],"TMPFontGUID":null,"Text":"Itu
     saja penjelasan tentang kapal mu terlebih dahulu. Eksplorasi lebih lanjut area
-    ini.","parentUIDs":[39],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":21}],"EditorInfo":{"isRoot":false,"xPos":231.200012,"yPos":-175.800034},"ID":44,"ParamActions":[],"TMPFontGUID":null,"Text":"Untuk
+    ini.","parentUIDs":[39],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":21}],"EditorInfo":{"isRoot":false,"xPos":313.2,"yPos":651.199951},"ID":44,"ParamActions":[],"TMPFontGUID":null,"Text":"Untuk
     menggunakan senjata, gunakan <color=yellow><b>\"Tombol-Kiri-Mouse\"<\/b><\/color>
-    atau <color=yellow><b>\"Keyboard-O\"<\/color><\/b>","parentUIDs":[20],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":23}],"EditorInfo":{"isRoot":false,"xPos":-196.799988,"yPos":102.199936},"ID":45,"ParamActions":[],"TMPFontGUID":null,"Text":"Untuk
+    atau <color=yellow><b>\"Keyboard-O\"<\/color><\/b>","parentUIDs":[20],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":23}],"EditorInfo":{"isRoot":false,"xPos":-114.799988,"yPos":929.199951},"ID":45,"ParamActions":[],"TMPFontGUID":null,"Text":"Untuk
     menggunakannya, gunakan  <color=yellow><b>\"Tombol-Kanan-Mouse\"<\/b><\/color>","parentUIDs":[22],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sri","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -17552,6 +17387,171 @@ Transform:
   - {fileID: 1687427598}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!43 &1305446780
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 114
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 40
+    localAABB:
+      m_Center: {x: -0.16043806, y: -2.2708626, z: 0}
+      m_Extent: {x: 6.4145617, y: 3.7691383, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020000000300010004000300000004000500030006000500040006000700050006000800070006000900080006000a0009000b000a0006000b000c000a000b000d000c000b000e000d000b000f000e000b0010000f000b00110010000b001200110012000b00130002001400000000001500040001001600020003001700010005001800030004001900060007001a00050006001b000b0008001c00070009001d0008000a001e0009000c001f000a000b00200013000d0021000c000e0022000d000f0023000e00100024000f00110025001000120026001100130027001200
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 40
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 1760
+    _typelessdata: b814c54008b96fc000000000d3b57f3fb9d342bd0000008000000080b814c54008b96fc0b814c54008b96fc0c821c840e028dfbf00000000f85d133d92d57f3f0000008000000080c821c840e028dfbfc821c840e028dfbf409bc640bca62fc000000000d3b57f3fb9d342bd0000008000000080c821c840e028dfbfb814c54008b96fc0ef3aad402049dbbf00000000f85d133d92d57f3f0000008000000080165492406069d7bfc821c840e028dfbfb206a14082fe97c00000000074532a3f841d3fbf0000008000000080b814c54008b96fc056f179408020b8c0165492406069d7bf00000000dfc25abfe3f6043f0000008000000080165492406069d7bf165492406069d7bf56f179408020b8c00000000072532a3f861d3fbf000000800000008056f179408020b8c056f179408020b8c0e4d37840fcd033c000000000dfc25abfe3f6043f00000080000000809cff4c4048ed7bc0165492406069d7bf9cff4c4048ed7bc00000000002151e3e5aee7c3f00000080000000809cff4c4048ed7bc09cff4c4048ed7bc044bbd63ff8ab6cc00000000002151e3e5aee7c3f000000800000008080ba1b3ea86a5dc09cff4c4048ed7bc080ba1b3ea86a5dc00000000053094f3f6c92163f000000800000008080ba1b3ea86a5dc080ba1b3ea86a5dc076dbaabf18b4bcc000000000ee7edf3c9be77fbf000000800000008056f179408020b8c06666d2c0b047c1c056551cbf4c4b1ac00000000053094f3f6c92163f0000008000000080a6ccafbfe057aebf80ba1b3ea86a5dc0a6ccafbfe057aebf0000000055077b3fb1d2483e0000008000000080a6ccafbfe057aebfa6ccafbfe057aebf6469d4bf007d8b3d0000000055077b3facd2483e00000080000000802106f9bf80c7bf3fa6ccafbfe057aebf2106f9bf80c7bf3f000000008d090fbfd74f543f00000080000000802106f9bf80c7bf3f2106f9bf80c7bf3fe84685c000c0463b000000008d090fbfd54f543f0000008000000080474cccc0c000bfbf2106f9bf80c7bf3f474cccc0c000bfbf0000000078c67fbf07982b3d0000008000000080474cccc0c000bfbf474cccc0c000bfbf5659cfc0e00771c00000000078c67fbf3f982b3d00000080000000806666d2c0b047c1c0474cccc0c000bfbf6666d2c0b047c1c000000000ee7edf3c9be77fbf00000080000000806666d2c0b047c1c06666d2c0b047c1c0409bc640bca62fc000000000d3b57f3fb9d342bd0000008000000080c821c840e028dfbfb814c54008b96fc0b814c54008b96fc00000000074532a3f841d3fbf0000008000000080b814c54008b96fc0b814c54008b96fc0c821c840e028dfbf00000000d3b57f3fb9d342bd0000008000000080c821c840e028dfbfc821c840e028dfbfef3aad402049dbbf00000000f85d133d92d57f3f0000008000000080165492406069d7bfc821c840e028dfbf165492406069d7bf00000000f85d133d92d57f3f0000008000000080165492406069d7bf165492406069d7bfb206a14082fe97c00000000072532a3f861d3fbf0000008000000080b814c54008b96fc056f179408020b8c0e4d37840fcd033c000000000dfc25abfe3f6043f00000080000000809cff4c4048ed7bc0165492406069d7bf56f179408020b8c000000000ee7edf3c9be77fbf000000800000008056f179408020b8c056f179408020b8c09cff4c4048ed7bc000000000dfc25abfe3f6043f00000080000000809cff4c4048ed7bc09cff4c4048ed7bc044bbd63ff8ab6cc00000000002151e3e5aee7c3f000000800000008080ba1b3ea86a5dc09cff4c4048ed7bc080ba1b3ea86a5dc00000000002151e3e5aee7c3f000000800000008080ba1b3ea86a5dc080ba1b3ea86a5dc056551cbf4c4b1ac00000000053094f3f6c92163f0000008000000080a6ccafbfe057aebf80ba1b3ea86a5dc076dbaabf18b4bcc000000000ee7edf3c9be77fbf000000800000008056f179408020b8c06666d2c0b047c1c0a6ccafbfe057aebf0000000053094f3f6c92163f0000008000000080a6ccafbfe057aebfa6ccafbfe057aebf6469d4bf007d8b3d0000000055077b3fb1d2483e00000080000000802106f9bf80c7bf3fa6ccafbfe057aebf2106f9bf80c7bf3f0000000055077b3facd2483e00000080000000802106f9bf80c7bf3f2106f9bf80c7bf3fe84685c000c0463b000000008d090fbfd74f543f0000008000000080474cccc0c000bfbf2106f9bf80c7bf3f474cccc0c000bfbf000000008d090fbfd54f543f0000008000000080474cccc0c000bfbf474cccc0c000bfbf5659cfc0e00771c00000000078c67fbf07982b3d00000080000000806666d2c0b047c1c0474cccc0c000bfbf6666d2c0b047c1c00000000078c67fbf3f982b3d00000080000000806666d2c0b047c1c06666d2c0b047c1c0
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: -0.16043806, y: -2.2708626, z: 0}
+    m_Extent: {x: 6.4145617, y: 3.7691383, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &1319203039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22924,8 +22924,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.81775, y: -0.82430005, z: 0}
-    m_Extent: {x: 7.30525, y: 7.1632004, z: 0}
+    m_Center: {x: -0.81659985, y: -0.8269501, z: 0}
+    m_Extent: {x: 7.3039, y: 7.17315, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -23463,8 +23463,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.8683014, y: 10.24474, z: 0}
-    m_Extent: {x: 250.3268, y: 15.229767, z: 0}
+    m_Center: {x: 6.864456, y: 10.2436495, z: 0}
+    m_Extent: {x: 250.32716, y: 15.23615, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25022,7 +25022,7 @@ MonoBehaviour:
   foregroundProcess: {fileID: 1840744319}
   ProcessRectUI: {fileID: 1848409095}
   OnReceiving: {fileID: 8300000, guid: fcdd3d14a39cd1544b30be34f22245fa, type: 3}
-  AudioLoseGame: {fileID: 0}
+  AudioLoseGame: {fileID: 8300000, guid: bc8c0826f72272745bf09cc490be5a90, type: 3}
 --- !u!61 &1756707439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27521,8 +27521,8 @@ MonoBehaviour:
   - {x: 6.158779, y: -3.7456684, z: 0}
   - {x: 3.905355, y: -5.7539673, z: 0}
   m_ShapePathHash: 883228781
-  m_Mesh: {fileID: 424226986}
-  m_InstanceId: 58510
+  m_Mesh: {fileID: 1305446780}
+  m_InstanceId: 93444
   m_LocalBounds:
     m_Center: {x: -0.16043806, y: -2.2708626, z: 0}
     m_Extent: {x: 6.4145617, y: 3.7691383, z: 0}

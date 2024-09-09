@@ -176,6 +176,7 @@ public class DetailedCardView : MonoBehaviour
         bool isBuyable = EconomyManager.Instance.isPurchasable(newPrice);
         TextMeshProUGUI buttonText = BuyAction.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.text = "Upgrade " + newPrice;
+        StatsHandler.OnSetUpStats(itemSO);
         SetButtonIsBuyableOrNot(isBuyable);
     }
     private void OnUpdateBuy(int quantity)
