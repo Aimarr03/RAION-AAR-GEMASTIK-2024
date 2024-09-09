@@ -53,10 +53,11 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         invunerableDuration = 2f;
         disabledDuration = 0;
         maxAttempt = 12;
-        AudioManager.Instance.PlaySFX(OnActivating);
+        
     }
     private void Start()
     {
+        AudioManager.Instance.PlaySFX(OnActivating);
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
         PauseGameplayUI.OnPause += PauseGameplayUI_OnPause;
         DialogueEditor.ConversationManager.OnConversationStarted += OnConverstaionStarted;
