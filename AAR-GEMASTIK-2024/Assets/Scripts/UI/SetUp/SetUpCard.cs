@@ -51,13 +51,17 @@ public class SetUpCard : MonoBehaviour
         backgroundFocus.gameObject.SetActive(false);
         UpdateData();
         DetailedCardView.OnBoughtSomething += UpdateData;
+        DetailedCardView.OnUpgradedSomething += UpdateData;
     }
+
     private void OnDisable()
     {
         DetailedCardView.OnBoughtSomething -= UpdateData;
+        DetailedCardView.OnUpgradedSomething -= UpdateData;
     }
     private void UpdateData()
     {
+        //Debug.Log("Update Data " + itemBaseSO.name);
         bool isUnlocked;
         if(itemBaseSO is ConsumableItemSO)
         {
@@ -69,6 +73,7 @@ public class SetUpCard : MonoBehaviour
             unavailableIcon.gameObject.SetActive(!isUnlocked);
             textHeader.gameObject.SetActive(isUnlocked);
             textLevel.gameObject.SetActive(isUnlocked);
+            textLevel.text = "lvl " + generalData.level;
             icon.color = generalData.unlocked ? Color.white : unavailableColor;
             textLevel.color = generalData.unlocked ? defaultColor : unavailableColor;
             textHeader.color = generalData.unlocked ? defaultColor : unavailableColor;

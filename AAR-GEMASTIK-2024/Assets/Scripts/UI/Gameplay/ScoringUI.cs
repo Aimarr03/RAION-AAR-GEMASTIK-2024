@@ -70,7 +70,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         currentWeightTrashCollected = 0f;
         textUIList = new List<TextMeshProUGUI>
         {
-            trashCollectedTextUI, coinObtainedTextUI, helpedFishCollectedTextUI
+            trashCollectedTextUI, SharkCollectedTextUI, coinObtainedTextUI, helpedFishCollectedTextUI
         };
         foreach (TextMeshProUGUI text in textUIList)
         {
@@ -172,8 +172,8 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         AudioManager.Instance.PlaySFX(OnStartScoring);
         yield return new WaitForSeconds(0.57f);
         yield return OnIncrementValueUI(trashCollectedTextUI, currrentTrashTotalCollected);
-        yield return OnIncrementValueUI(helpedFishCollectedTextUI, currentFishNeedHelpTotalCollected);
         yield return OnIncrementValueUI(SharkCollectedTextUI, currentSharkTotalCollected);
+        yield return OnIncrementValueUI(helpedFishCollectedTextUI, currentFishNeedHelpTotalCollected);
 
         if (ObjectiveManager.Instance != null)
         {
@@ -242,10 +242,13 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     }
     private IEnumerator OnIncrementValueUI(TextMeshProUGUI targetUI, float targetValue)
     {
+        float bufferMaxDuration = maxDuration;
+        if (targetValue == 0) yield return null;
+        if (targetValue < 3) bufferMaxDuration /= 3;
         int startValue = 0;
         int bufferSound = 0;
         float currentDuration = 0;
-        while(currentDuration < maxDuration)
+        while(currentDuration < bufferMaxDuration)
         {
             currentDuration += Time.deltaTime;
             bufferSound++;
@@ -255,7 +258,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
             if (bufferSound > 5)
             {
                 bufferSound = 0;
-                AudioManager.Instance.PlaySFX(OnProgressing, 0.35f);
+                AudioManager.Instance.PlaySFX(OnProgressing, 0.25f);
             }
             yield return null;
         }

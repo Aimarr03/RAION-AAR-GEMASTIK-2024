@@ -35,8 +35,20 @@ public class SetUpUI : BasePreparingPlayerUI
         SetUpCard.onChoseItem += SetUpCard_onChoseItem;
         GameManager.Instance.OnChangeLevelChoice += Instance_OnChangeLevelChoice;
         SetUp();
-        StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(GameManager.Instance.LoadLevel);
-        StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(()=> AudioManager.Instance.PlaySFX(StartGame));
+        StartLevel.GetChild(0).GetComponent<Button>().onClick.AddListener(OnStartLevel);
+    }
+    private void OnStartLevel()
+    {
+        if (GameManager.Instance.CanStartGame() && GameManager.Instance.currentLevelChoice != "")
+        {
+            AudioManager.Instance.PlaySFX(StartGame);
+            GameManager.Instance.LoadLevel();
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(AudioContainerUI.instance.uninterractable);
+        }
+        
     }
     private void OnDestroy()
     {

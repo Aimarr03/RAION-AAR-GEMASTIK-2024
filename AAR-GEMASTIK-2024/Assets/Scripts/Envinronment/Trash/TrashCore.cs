@@ -107,6 +107,7 @@ public class TrashCore : MonoBehaviour, IInterractable, IDataPersistance
     }
     public void SaveScene(ref GameData gameData)
     {
+        if (ExpedictionManager.Instance != null && ExpedictionManager.Instance.IsLosing()) return;
         SubLevelData subLevelData = DataManager.instance.gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         if (subLevelData == null) return;
         if(!subLevelData.additionalCollectableObjects.ContainsKey("Trash Core"))

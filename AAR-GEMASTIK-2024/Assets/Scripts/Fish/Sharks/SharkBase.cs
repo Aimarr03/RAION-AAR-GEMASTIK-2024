@@ -210,6 +210,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
 
     public void SaveScene(ref GameData gameData)
     {
+        if (ExpedictionManager.Instance != null && ExpedictionManager.Instance.IsLosing()) return;
         if (TutorialManager.instance != null) return;
         SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
         if (levelData.sharkNeedHelpList.ContainsKey(id))
