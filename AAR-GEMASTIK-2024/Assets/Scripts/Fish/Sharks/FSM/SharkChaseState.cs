@@ -98,7 +98,7 @@ public class SharkChaseState : SharkBaseState
         //Debug.Log(Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position));
         //Debug.Log((Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.position) > distanceAggro) + " Aggro Within Range");
         if (playerCoreSystem == null) return;
-        if (Vector3.Distance(playerCoreSystem.transform.position, shark.transform.position) > distanceAggro || onCooldown) return;
+        if (Vector3.Distance(playerCoreSystem.transform.position, centerCheckDistance.transform.position) > distanceAggro) return;
         OnBiting();
     }
     private void HorizontalMove(Vector3 direction)
@@ -157,7 +157,7 @@ public class SharkChaseState : SharkBaseState
     {
         shark.animator.SetTrigger("Bite");
         float angle = 75f;
-        float bitingRange = distanceAggro + 1.5f;
+        float bitingRange = distanceAggro * 1.5f;
         Collider2D[] colliderList = Physics2D.OverlapCircleAll(shark.transform.position, bitingRange, playerMask);
         foreach (Collider2D collider in colliderList)
         {

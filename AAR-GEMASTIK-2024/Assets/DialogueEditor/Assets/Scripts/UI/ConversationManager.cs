@@ -272,7 +272,13 @@ namespace DialogueEditor
         //--------------------------------------
         // Set state
         //--------------------------------------
-
+        public void OnSkipDialogueTransition()
+        {
+            Debug.Log($"m_state = {m_state}=>{m_state != eState.ScrollingText}");
+            if (m_state != eState.ScrollingText) return;
+            SetState(eState.TransitioningOptionsOn);
+            DialogueText.maxVisibleCharacters = m_targetScrollTextCount;
+        }
         private void SetState(eState newState)
         {
             // Exit
@@ -363,13 +369,16 @@ namespace DialogueEditor
                 m_elapsedScrollTime = 0f;
 
                 DialogueText.maxVisibleCharacters = m_scrollIndex;
-                AudioManager.Instance?.PlaySFX(ConversationPop);
                 m_scrollIndex++;
 
                 // Finished?
                 if (m_scrollIndex >= m_targetScrollTextCount)
                 {
                     SetState(eState.TransitioningOptionsOn);
+                }
+                else
+                {
+                    AudioManager.Instance?.PlaySFX(ConversationPop);
                 }
             }
         }

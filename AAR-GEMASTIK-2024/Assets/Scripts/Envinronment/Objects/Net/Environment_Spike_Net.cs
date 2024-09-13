@@ -11,7 +11,7 @@ public class Environment_Spike_Net : MonoBehaviour
     [SerializeField] protected AudioClip onGrabPlayer;
     [SerializeField] protected AudioClip onReleasedPlayer;
     protected PlayerCoreSystem coreSystem;
-    protected void OnTriggerEnter(Collider collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("enter something");
         if (collision.gameObject.TryGetComponent<PlayerCoreSystem>(out PlayerCoreSystem coreSystem))

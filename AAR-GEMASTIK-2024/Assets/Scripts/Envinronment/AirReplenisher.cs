@@ -45,6 +45,7 @@ public class AirReplenisher : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             playerCoreSystem.OnReplenishOxygen(1);
+            playerCoreSystem.OnReplenishEnergy(2);
             Debug.Log("Player Replenished Oxygen");
         }
     }

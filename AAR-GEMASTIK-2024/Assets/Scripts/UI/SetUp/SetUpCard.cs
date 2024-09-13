@@ -19,6 +19,7 @@ public class SetUpCard : MonoBehaviour
     public ItemType type;
     public TextMeshProUGUI textHeader;
     public TextMeshProUGUI textLevel;
+    public Color defaultColor;
     public Color unavailableColor;
     public Color grayUnavailableColor;
     public static event Action<ItemBaseSO> onChoseItem;
@@ -41,9 +42,10 @@ public class SetUpCard : MonoBehaviour
         }
         thisButton.interactable = generalData.unlocked;
         Debug.Log($"{itemBaseSO} + {generalData.unlocked}");
+        defaultColor = textLevel.color;
         icon.color = generalData.unlocked ? Color.white : unavailableColor;
-        textLevel.color = generalData.unlocked? textLevel.color : unavailableColor;
-        textHeader.color = generalData.unlocked ? textHeader.color : unavailableColor;
+        textLevel.color = generalData.unlocked? defaultColor : unavailableColor;
+        textHeader.color = generalData.unlocked ? defaultColor : unavailableColor;
         
         unavailableIcon.gameObject.SetActive(!generalData.unlocked);
         backgroundFocus.gameObject.SetActive(false);
@@ -68,8 +70,8 @@ public class SetUpCard : MonoBehaviour
             textHeader.gameObject.SetActive(isUnlocked);
             textLevel.gameObject.SetActive(isUnlocked);
             icon.color = generalData.unlocked ? Color.white : unavailableColor;
-            textLevel.color = generalData.unlocked ? textLevel.color : unavailableColor;
-            textHeader.color = generalData.unlocked ? textHeader.color : unavailableColor;
+            textLevel.color = generalData.unlocked ? defaultColor : unavailableColor;
+            textHeader.color = generalData.unlocked ? defaultColor : unavailableColor;
         }
         this.isUnlocked = isUnlocked;
         thisButton.interactable = isUnlocked;

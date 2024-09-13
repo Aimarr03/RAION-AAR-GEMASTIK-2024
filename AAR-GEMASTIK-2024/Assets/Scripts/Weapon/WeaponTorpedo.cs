@@ -45,7 +45,7 @@ public class WeaponTorpedo : WeaponBase
         if (isCooldown) return;
         Debug.Log("Torpedo Weapon is firing");
         
-        BaseBullet baseBullet = LoadBullet();
+        BulletTorpedo baseBullet = LoadBullet() as BulletTorpedo;
         baseBullet.SetUpBullet(isOnRightDirection, playerCoreSystem.transform.rotation);
         StartCoroutine(ProcessCooldown());
     }

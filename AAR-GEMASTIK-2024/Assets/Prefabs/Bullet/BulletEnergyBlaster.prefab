@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4889,8 +4889,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 488951715
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -5145,7 +5145,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.39999998, g: 0.8915521, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6239,7 +6239,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 1}
+        key0: {r: 0.15557136, g: 0.83540493, b: 0.8962264, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -9735,8 +9735,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 488951715
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9818,7 +9818,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14657,8 +14657,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 488951715
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14751,22 +14751,37 @@ PrefabInstance:
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.085204124
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.2209742
       objectReference: {fileID: 0}
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 488951715
       objectReference: {fileID: 0}
     - target: {fileID: 4347130143675064377, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Name
       value: BulletEnergyBlaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664745115267310279, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.08
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6372101173359054477, guid: fd32a70a3341a644fbca2261f2a678c6, type: 3}
@@ -14814,6 +14829,7 @@ MonoBehaviour:
   TimeToLiveDurationHolder: 2
   TimeToLive: 2
   blastRadius: 10
+  fullyCharged: {fileID: 8300000, guid: 828524b900a642140af32968368100f4, type: 3}
 --- !u!4 &1983719311338810359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774124282080368434, guid: fd32a70a3341a644fbca2261f2a678c6,

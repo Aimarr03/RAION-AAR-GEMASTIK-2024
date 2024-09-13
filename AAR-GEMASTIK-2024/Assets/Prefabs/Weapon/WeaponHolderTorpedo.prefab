@@ -141,9 +141,9 @@ MonoBehaviour:
   weaponSO: {fileID: 11400000, guid: 6e9310d082b0d4c45831ab0c949c79cd, type: 2}
   firePointBlank: {fileID: 7823344257780394629}
   interval: 1
-  baseDamage: 40
+  baseDamage: 60
   baseRadius: 10
-  stunDuration: 0.75
+  stunDuration: 2
   slowDuration: 2.5
   baseSlow: 0.15
 --- !u!4 &7823344257780394629 stripped

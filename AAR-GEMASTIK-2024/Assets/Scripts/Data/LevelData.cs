@@ -37,6 +37,7 @@ public class SubLevelData
     public int trashCountDone = 0;
     public SerializableDictionary<string, bool> trashList;
     public SerializableDictionary<string, bool> fishNeedHelpList;
+    public SerializableDictionary<string, bool> sharkNeedHelpList;
     public SerializableDictionary<string, bool> conversationList;
     public SerializableDictionary<string, SerializableDictionary<string, bool>> additionalCollectableObjects;
     public SerializableDictionary<string, int> collectedAdditionalCollectableObjects;

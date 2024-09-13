@@ -13,7 +13,7 @@ public class BulletTorpedo : BaseBullet
     [SerializeField] private float speed = 25f;
     public override void OnLaunchBullet()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.right);
+        transform.Translate(speed * Time.deltaTime * Vector3.right, Space.Self);
     }
 
     public override void Update()
@@ -53,6 +53,8 @@ public class BulletTorpedo : BaseBullet
         if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagableUnit))
         {
             damagableUnit.TakeDamage(weaponTorpedo.GetMultiplierDamage(level));
+            damagableUnit.OnDisableMove(weaponTorpedo.GetMultiplierStunDuration(level), 10);
+            damagableUnit.GetSlowed(weaponTorpedo.GetMultiplierSlowDuration(level), weaponTorpedo.GetMultiplierSlow(level));
             Vector3 direction = (collision.transform.position - transform.position).normalized;
             damagableUnit.AddSuddenForce(direction, 12f);
             OnExplode();
@@ -70,6 +72,6 @@ public class BulletTorpedo : BaseBullet
     public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
         base.SetUpBullet(isOnRightDirection, angle);
-        speed = isOnRightDirection ? speed : -speed;
+        //speed = isOnRightDirection ? speed : -speed;
     }
 }

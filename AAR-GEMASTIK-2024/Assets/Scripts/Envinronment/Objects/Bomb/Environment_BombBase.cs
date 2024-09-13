@@ -21,8 +21,8 @@ public abstract class Environment_BombBase : MonoBehaviour
     }
     protected virtual void OnExplode()
     {
-        Collider[] unitWithinExplosionRadius = Physics.OverlapSphere(transform.position, radiusExplosion);
-        foreach(Collider unit in unitWithinExplosionRadius)
+        Collider2D[] unitWithinExplosionRadius = Physics2D.OverlapCircleAll(transform.position, radiusExplosion);
+        foreach(Collider2D unit in unitWithinExplosionRadius)
         {
             if(unit.gameObject.TryGetComponent(out IDamagable damagableUnit))
             {

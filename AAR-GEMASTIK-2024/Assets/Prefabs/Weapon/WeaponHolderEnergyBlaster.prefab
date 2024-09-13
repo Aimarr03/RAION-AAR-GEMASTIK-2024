@@ -126,7 +126,7 @@ MonoBehaviour:
   firePointBlank: {fileID: 5719653349081469229}
   interval: 2
   maxDurationCharge: 3.5
-  baseDamage: 30
+  baseDamage: 45
   baseRadius: 7.5
   stunDuration: 1.5
   onCharging: {fileID: 8300000, guid: 7c18efe3592e16449b4b7cf17b8030ed, type: 3}

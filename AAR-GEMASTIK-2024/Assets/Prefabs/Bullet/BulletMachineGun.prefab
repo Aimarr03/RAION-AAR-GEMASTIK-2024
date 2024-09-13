@@ -72,22 +72,37 @@ PrefabInstance:
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.19667137
       objectReference: {fileID: 0}
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.19667137
       objectReference: {fileID: 0}
     - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.21698111
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511026300793020695, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 996763023
       objectReference: {fileID: 0}
     - target: {fileID: 4347130143675064377, guid: fd32a70a3341a644fbca2261f2a678c6,
         type: 3}
       propertyPath: m_Name
       value: BulletMachineGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664745115267310279, guid: fd32a70a3341a644fbca2261f2a678c6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.04
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6372101173359054477, guid: fd32a70a3341a644fbca2261f2a678c6, type: 3}

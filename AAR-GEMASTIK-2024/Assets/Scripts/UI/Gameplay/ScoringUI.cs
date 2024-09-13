@@ -13,6 +13,7 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
     [SerializeField] private Transform Container;
     [SerializeField] private TextMeshProUGUI trashCollectedTextUI;
     [SerializeField] private TextMeshProUGUI helpedFishCollectedTextUI;
+    [SerializeField] private TextMeshProUGUI SharkCollectedTextUI;
     [SerializeField] private TextMeshProUGUI coinObtainedTextUI;
     [SerializeField] private TextMeshProUGUI NumericProgressBar;
     [SerializeField] private Image ProgressBar;
@@ -172,8 +173,9 @@ public class ScoringUI : MonoBehaviour, IDataPersistance
         yield return new WaitForSeconds(0.57f);
         yield return OnIncrementValueUI(trashCollectedTextUI, currrentTrashTotalCollected);
         yield return OnIncrementValueUI(helpedFishCollectedTextUI, currentFishNeedHelpTotalCollected);
+        yield return OnIncrementValueUI(SharkCollectedTextUI, currentSharkTotalCollected);
 
-        if(ObjectiveManager.Instance != null)
+        if (ObjectiveManager.Instance != null)
         {
             List<ObjectiveData> objectives = ObjectiveManager.Instance.GetOverallObjectives();
             foreach (ObjectiveData objective in objectives)

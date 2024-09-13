@@ -40,6 +40,9 @@ public class PauseGameplayUI : MonoBehaviour
     private void OnDisable()
     {
         PlayerInputSystem.InvokePause -= PlayerInputSystem_InvokePause;
+        inputAction.Pause_UI.Navigation.performed -= Navigation_performed;
+        inputAction.Pause_UI.Negate.performed -= Negate_performed;
+        inputAction.Pause_UI.Confirm.performed -= Confirm_performed;
     }
     private void Confirm_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {

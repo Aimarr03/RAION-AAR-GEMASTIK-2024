@@ -71,5 +71,10 @@ public class NormalShark : SharkBase
         linearSpeed = bufferLinearSpeed;
         maxSpeed = bufferMaxSpeed;
     }
+
+    public override void OnDisableMove(float moveDuration, int maxAttemptToRecover)
+    {
+        base.OnDisableMove(moveDuration, maxAttemptToRecover);
+    }
 }
 

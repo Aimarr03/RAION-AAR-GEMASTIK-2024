@@ -44,16 +44,19 @@ public class BulletEnergyBlaster : BaseBullet
             {
                 OnExplode();
             }
-            collision.gameObject.TryGetComponent(out IDamagable damagableUnit);
-            damagableUnit.TakeDamage(energyBlaster.GetMultiplierDamage(level));
-            AudioManager.Instance?.PlaySFX(OnHit);
-            LoadToPool();
+            if(collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
+            {
+                damagableUnit.TakeDamage(energyBlaster.GetMultiplierDamage(level));
+                damagableUnit.OnDisableMove(energyBlaster.GetMultiplierStunDuration(energyBlaster.level), 10);
+                AudioManager.Instance?.PlaySFX(OnHit);
+                LoadToPool();
+            }
         }
     }
 
     public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
         base.SetUpBullet(isOnRightDirection, angle);
-        speed = isOnRightDirection ? speed : -speed;
+        //speed = isOnRightDirection ? speed : -speed;
     }
 }

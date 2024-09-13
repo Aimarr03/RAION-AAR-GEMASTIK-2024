@@ -54,7 +54,7 @@ public class WeaponEnergyBlaster : WeaponBase
     {
         StopCoroutine(chargingWeaponCoroutine);
         StopCoroutine(ChargingWeapon());
-        BaseBullet baseBullet = objectPooling.UnloadBullet();
+        BulletEnergyBlaster baseBullet = LoadBullet() as BulletEnergyBlaster;
 
 
         baseBullet.SetUpBullet(isOnRightDirection, playerCoreSystem.transform.rotation);
@@ -80,7 +80,7 @@ public class WeaponEnergyBlaster : WeaponBase
             currentChargeDuration += Time.deltaTime;
             yield return null;
         }
-        AudioManager.Instance.PlaySFX(fullyCharge);
+        //AudioManager.Instance.PlaySFX(fullyCharge);
         isFullyCharge = true;
         Debug.Log("Fully Charge");
     }

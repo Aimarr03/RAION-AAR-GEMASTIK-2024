@@ -52,6 +52,10 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
         UI_OnWantToFinish.gameObject.SetActive(false);
         CaughtFish = new List<EnemyBase>();
     }
+    private void OnDisable()
+    {
+        TutorialManager.FinishTutorialAction -= OnFinishTutorial;
+    }
     private void OnFinishTutorial()
     {
         canBeInterracted = true;
@@ -98,7 +102,7 @@ public class ExpedictionManager : MonoBehaviour, IInterractable
         {
             currentProcess = 0f;
             if (_playerCoreSystem.interractionSystem.IsHolding()) UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = masukkanIkan;
-            else UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = ekspedisiSelesai;
+            else if(_playerCoreSystem.interractionSystem.IsHolding() && canBeInterracted) UI_Text_OnWantToFinish.GetComponent<TextMeshProUGUI>().text = ekspedisiSelesai;
             UI_OnWantToFinish.gameObject.SetActive(true);
             ProcessRectUI.gameObject.SetActive(false);
         }

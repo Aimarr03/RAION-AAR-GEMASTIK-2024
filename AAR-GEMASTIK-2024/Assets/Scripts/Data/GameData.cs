@@ -65,6 +65,7 @@ public class GameData
                 subLevel.trashList = new SerializableDictionary<string, bool>();
                 subLevel.fishNeedHelpList = new SerializableDictionary<string, bool>();
                 subLevel.conversationList = new SerializableDictionary<string, bool>();
+                subLevel.sharkNeedHelpList = new SerializableDictionary<string, bool>();
                 subLevel.additionalCollectableObjects = new SerializableDictionary<string, SerializableDictionary<string, bool>>();
                 subLevel.collectedAdditionalCollectableObjects = new SerializableDictionary<string, int>();
                 level.subLevels.Add(subLevel);

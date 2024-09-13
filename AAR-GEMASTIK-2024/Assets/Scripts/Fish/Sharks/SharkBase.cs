@@ -24,6 +24,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     [SerializeField] public Rigidbody2D rigidBody;
     [SerializeField] public Collider2D sharkCollider;
     [SerializeField] public SpriteRenderer spriteRenderer;
+    [SerializeField] public ParticleSystem particleSystem;
     [SerializeField] public Animator animator;
     [SerializeField] protected float weight;
     protected SharkStateMachine stateMachine;
@@ -63,6 +64,7 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     }
     private void OnDisable()
     {
+        onTakeDamage -= SharkBase_onTakeDamage;
         ExpedictionManager.Instance.OnLose -= Instance_OnLose;
     }
     private void SharkBase_onTakeDamage(bool isDead, float percentage)
@@ -103,6 +105,13 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     }
     public virtual void TakeDamage(int damage)
     {
+        if (isKnockout)
+        {
+            spriteRenderer.enabled = false;
+            particleSystem.Play();
+            ExpedictionManager.Instance.InvokeOnLose("Anda <color=\"red\"><b>Psikopat</b></color>!\n dia sudah tidak bisa berlawan lagi, tapi kau tetap menyerangnya");
+            return;
+        }
         health = Mathf.Clamp(health - damage, 0, maxHealth);
         bool dead = health == 0;
         /*Debug.Log(health);
@@ -111,7 +120,9 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         if (dead)
         {
             StopCoroutine(healthCoroutine);
-            ExpedictionManager.Instance.InvokeOnLose("Meskipun dia merupakan <color=\"red\"><b>ikan mutasi dan ganas</b></color>, kau tetap melanggar apa yang sudah disepakati");
+            isKnockout = true;
+            isDisabled = true;
+            //ExpedictionManager.Instance.InvokeOnLose("Meskipun dia merupakan <color=\"red\"><b>ikan mutasi dan ganas</b></color>, kau tetap melanggar apa yang sudah disepakati");
         }
         
     }
@@ -123,7 +134,9 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
         OnDisabledDuration(moveDuration);
     }
     protected async void OnDisabledDuration(float moveDuration)
-    {
+    { 
+        Debug.Log("IS DISABLED");
+        rigidBody.velocity = Vector2.zero;
         isDisabled = true;
         await Task.Delay((int)(moveDuration*1000));
         isDisabled = false;
@@ -188,22 +201,22 @@ public abstract class SharkBase : MonoBehaviour, IDamagable, IInterractable, IDe
     {
         if (TutorialManager.instance != null) return;
         SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
-        /*levelData.sharkMutatedList.TryGetValue(id, out bool hasCollected);
+        levelData.sharkNeedHelpList.TryGetValue(id, out bool hasCollected);
         if (hasCollected)
         {
             OnDeloading();
-        }*/
+        }
     }
 
     public void SaveScene(ref GameData gameData)
     {
         if (TutorialManager.instance != null) return;
         SubLevelData levelData = gameData.GetSubLevelData(GameManager.Instance.currentLevelChoice);
-        /*if (levelData.sharkMutatedList.ContainsKey(id))
+        if (levelData.sharkNeedHelpList.ContainsKey(id))
         {
-            levelData.sharkMutatedList.Remove(id);
+            levelData.sharkNeedHelpList.Remove(id);
         }
-        levelData.sharkMutatedList.Add(id, isKnockout);*/
+        levelData.sharkNeedHelpList.Add(id, isKnockout);
     }
     private void Instance_OnLose(string obj)
     {

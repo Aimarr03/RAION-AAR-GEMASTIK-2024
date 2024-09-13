@@ -92,7 +92,7 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         if (isDead) return;
         if(isPaused) return;
         OnUseOxygen();
-        Test();
+        //Test();
     }
     private void SetUpData()
     {
@@ -234,7 +234,11 @@ public class PlayerCoreSystem : MonoBehaviour, IDamagable
         _BaseSustainabilitySystem oxygenSystem = GetSustainabilitySystem(SustainabilityType.Oxygen);
         oxygenSystem.OnIncreaseValue(oxygen);
     }
-
+    public void OnReplenishEnergy(int oxygen)
+    {
+        _BaseSustainabilitySystem energySystem = GetSustainabilitySystem(SustainabilityType.Energy);
+        energySystem.OnIncreaseValue(oxygen);
+    }
     public IEnumerator GetSlowed(float duration, float multilpier)
     {
         float currentDuration = 0f;

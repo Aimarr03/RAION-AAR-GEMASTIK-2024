@@ -24,7 +24,8 @@ public class BulletMachineGun : BaseBullet
         {
             if (collision.gameObject.TryGetComponent(out IDamagable damagableUnit))
             {
-                damagableUnit.TakeDamage(machineGun.GetMultiplierDamage(machineGun.level));
+                damagableUnit.TakeDamage(machineGun.GetMultiplierDamage(level));
+                damagableUnit.GetSlowed(machineGun.GetMultiplierSlowDuration(level),machineGun.GetMultiplierSlow(level));
                 AudioManager.Instance?.PlaySFX(OnHit);
             }
 
@@ -36,6 +37,6 @@ public class BulletMachineGun : BaseBullet
     public override void SetUpBullet(bool isOnRightDirection, Quaternion angle)
     {
         base.SetUpBullet(isOnRightDirection, angle);
-        speed = isOnRightDirection ? speed : -speed;
+        //speed = isOnRightDirection ? speed : -speed;
     }
 }
