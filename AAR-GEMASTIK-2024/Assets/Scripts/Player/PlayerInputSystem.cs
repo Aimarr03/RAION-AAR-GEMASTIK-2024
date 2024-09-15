@@ -36,15 +36,18 @@ public class PlayerInputSystem : MonoBehaviour
         coreSystem.OnDead += CoreSystem_OnDead;
         coreSystem.OnDisabled += CoreSystem_OnDisabled;
         ExpedictionManager.Instance.OnDoneExpediction += Instance_OnDoneExpediction;
+        ExpedictionManager.Instance.OnLose += Instance_OnLose;
         DialogueEditor.ConversationManager.OnConversationStarted += OnConversationStarted;
         DialogueEditor.ConversationManager.OnConversationEnded += OnConversationFinished;
     }
+
     private void OnDisable()
     {
         OnRemoveCallback();
         coreSystem.OnDead -= CoreSystem_OnDead;
         coreSystem.OnDisabled -= CoreSystem_OnDisabled;
         ExpedictionManager.Instance.OnDoneExpediction -= Instance_OnDoneExpediction;
+        ExpedictionManager.Instance.OnLose -= Instance_OnLose;
         DialogueEditor.ConversationManager.OnConversationStarted -= OnConversationStarted;
         DialogueEditor.ConversationManager.OnConversationEnded -= OnConversationFinished;
     }
@@ -66,11 +69,16 @@ public class PlayerInputSystem : MonoBehaviour
         OnRemoveCallback();
     }
 
+    private void Instance_OnLose(string obj)
+    {
+        OnRemoveCallback();
+    }
+
 
     private void OnAddCallback()
     {
         Debug.Log("Player can invoke now");
-        playerInput.Player.Enable();
+        //playerInput.Player.Enable();
         playerInput.Player.InvokeWeaponUsage.performed += InvokeWeaponUsage_performed;
         playerInput.Player.InvokeWeaponUsage.canceled += InvokeWeaponUsage_canceled;
         playerInput.Player.InvokeAbilityUsage.performed += InvokeAbilityUsage_performed;
@@ -84,7 +92,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void OnRemoveCallback()
     {
         Debug.Log("Player cannot invoke anything");
-        playerInput.Player.Disable();
+        //playerInput.Player.Disable();
         playerInput.Player.InvokeWeaponUsage.performed -= InvokeWeaponUsage_performed;
         playerInput.Player.InvokeAbilityUsage.performed -= InvokeAbilityUsage_performed;
         playerInput.Player.InvokeInterract.performed -= InvokeInterract_performed;
@@ -118,6 +126,7 @@ public class PlayerInputSystem : MonoBehaviour
     }
     private void AttemptToRecoverDisableStatus(InputAction.CallbackContext obj)
     {
+        Debug.Log("Player is recovering");
         AttemptRecoverFromDisableStatus?.Invoke();
     }
 

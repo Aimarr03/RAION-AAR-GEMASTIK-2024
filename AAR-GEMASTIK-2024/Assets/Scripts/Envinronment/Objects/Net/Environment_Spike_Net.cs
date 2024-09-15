@@ -28,7 +28,7 @@ public class Environment_Spike_Net : MonoBehaviour
     private void CoreSystem_OnBreakingFree()
     {
         AudioManager.Instance?.PlaySFX(onReleasedPlayer);
-        this.coreSystem.OnBreakingFree += CoreSystem_OnBreakingFree;
+        this.coreSystem.OnBreakingFree -= CoreSystem_OnBreakingFree;
         coreSystem = null;
         Destroy(gameObject);
     }
